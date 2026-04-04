@@ -15,6 +15,7 @@ keepQuotes = true
   email = "marc@autonomia-lab.fr"
   defaultTheme = "light"
   disableThemeToggle = true
+  darkMode = false
 
 [menu]
   [[menu.main]]
