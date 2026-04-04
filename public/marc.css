@@ -1,0 +1,53 @@
+
+/* ============================================
+   AUTONOMIA LAB — Design Industriel Marc
+   ============================================ */
+
+:root {
+  --bg: #0a0a0a;
+  --card-bg: #111318;
+  --text: #e8e8e8;
+  --text-muted: #888;
+  --accent: #FFD700;
+  --border: #222;
+}
+
+body {
+  background-color: var(--bg) !important;
+  color: var(--text) !important;
+  font-family: 'Share Tech Mono', 'Courier New', monospace !important;
+}
+
+body.list {
+  background-color: var(--bg) !important;
+}
+
+.nav, header {
+  background-color: #000000 !important;
+  border-bottom: 2px solid var(--accent) !important;
+}
+
+a { color: var(--accent) !important; }
+a:hover { color: #fff !important; }
+
+h1, h2, h3 {
+  font-family: 'Share Tech Mono', monospace !important;
+  color: var(--accent) !important;
+  text-transform: uppercase !important;
+  letter-spacing: 2px !important;
+}
+
+.post-entry {
+  background: var(--card-bg) !important;
+  border: 1px solid var(--border) !important;
+  border-left: 3px solid var(--accent) !important;
+  margin-bottom: 1.5rem !important;
+  padding: 1.2rem !important;
+}
+
+.post-entry:hover {
+  border-left-color: #fff !important;
+  background: #161616 !important;
+}
+
+.main { max-width: 1140px !important; }

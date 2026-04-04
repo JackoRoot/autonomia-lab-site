@@ -1,0 +1,40 @@
+baseURL = "https://autonomia-lab.fr/"
+languageCode = "fr-FR"
+title = "Autonomia Lab"
+theme = "PaperMod"
+[pagination]
+  pagerSize = 10
+enableRobotsTXT = true
+keepQuotes = true
+
+[params]
+  description = "Tests et comparatifs techniques — stations électriques, panneaux solaires, batteries LiFePO4"
+  author = "Marc"
+  defaultTheme = "dark"
+  disableThemeToggle = true
+  ShowReadingTime = true
+  ShowShareButtons = false
+  ShowPostNavLinks = true
+  ShowBreadCrumbs = true
+
+[params.homeInfoParams]
+  Title = "Autonomia Lab"
+  Content = "Comparatifs techniques sans compromis. Watts réels, cycles mesurés, rendements vérifiés."
+
+[[params.socialIcons]]
+  name = "telegram"
+  url = "https://t.me/autonomialab"
+
+[menu]
+  [[menu.main]]
+    name = "Stations électriques"
+    url = "/categories/stations-electriques/"
+    weight = 1
+  [[menu.main]]
+    name = "Panneaux solaires"
+    url = "/categories/panneaux-solaires/"
+    weight = 2
+  [[menu.main]]
+    name = "Batteries"
+    url = "/categories/batteries/"
+    weight = 3
