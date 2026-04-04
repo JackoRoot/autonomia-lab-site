@@ -9,11 +9,15 @@ keepQuotes = true
   pagerSize = 10
 
 [params]
+
+[params.theme]
+  default = "light"
+  displayToggle = false
   description = "Tests et comparatifs techniques — stations électriques, panneaux solaires, batteries LiFePO4"
   [params.author]
   name = "Marc"
   email = "marc@autonomia-lab.fr"
-  defaultTheme = "light"
+  
   disableThemeToggle = true
   darkMode = false
 
