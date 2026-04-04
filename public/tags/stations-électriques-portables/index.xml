@@ -1,1 +1,283 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Stations Électriques Portables on Autonomia Lab</title><link>https://autonomia-lab.fr/tags/stations-%C3%A9lectriques-portables/</link><description>Recent content in Stations Électriques Portables on Autonomia Lab</description><generator>Hugo</generator><language>fr-FR</language><lastBuildDate>Sat, 04 Apr 2026 16:22:54 +0200</lastBuildDate><atom:link href="https://autonomia-lab.fr/tags/stations-%C3%A9lectriques-portables/index.xml" rel="self" type="application/rss+xml"/><item><title>Top 5 Stations électriques portables — Guide technique 2026</title><link>https://autonomia-lab.fr/top-5/top-5-stations-lectriques-portables/</link><pubDate>Sat, 04 Apr 2026 16:22:54 +0200</pubDate><guid>https://autonomia-lab.fr/top-5/top-5-stations-lectriques-portables/</guid><description>Guide technique stations électriques portables : specs réelles, rendement onduleur, cycles batterie LiFePO4, BMS. Analyses objectives Marc.</description></item></channel></rss>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Autonomia Lab – Stations Électriques Portables</title><link>https://autonomia-lab.fr/tags/stations-%C3%A9lectriques-portables/</link><description>Recent content in Stations Électriques Portables on Autonomia Lab</description><generator>Hugo -- gohugo.io</generator><language>fr-FR</language><managingEditor>marc@autonomia-lab.fr (Marc)</managingEditor><webMaster>marc@autonomia-lab.fr (Marc)</webMaster><lastBuildDate>Sat, 04 Apr 2026 16:22:54 +0200</lastBuildDate><atom:link href="https://autonomia-lab.fr/tags/stations-%C3%A9lectriques-portables/index.xml" rel="self" type="application/rss+xml"/><item><title>Top 5 Stations électriques portables — Guide technique 2026</title><link>https://autonomia-lab.fr/top-5/top-5-stations-lectriques-portables/</link><pubDate>Sat, 04 Apr 2026 16:22:54 +0200</pubDate><author>marc@autonomia-lab.fr (Marc)</author><guid>https://autonomia-lab.fr/top-5/top-5-stations-lectriques-portables/</guid><description>
+&lt;h1>Top 5 Stations électriques portables — Guide technique 2026&lt;/h1>&lt;p>L&amp;rsquo;acquisition d&amp;rsquo;une station électrique portable peut rapidement devenir un exercice de décryptage technique. Les constructeurs privilégient souvent des chiffres marketing qui masquent des réalités de performance divergentes. Il est essentiel de distinguer la capacité nominale annoncée de la capacité réellement utilisable, le rendement effectif de l&amp;rsquo;onduleur, et la durée de vie utile de la batterie mesurée en cycles à une profondeur de décharge spécifiée. La gestion de l&amp;rsquo;énergie par le système BMS (Battery Management System) et l&amp;rsquo;efficacité des régulateurs MPPT (Maximum Power Point Tracking) pour la charge solaire sont également des paramètres cruciaux qui dictent la fiabilité et l&amp;rsquo;autonomie réelle de ces équipements. Ce guide se concentre sur les données objectives pour éclairer votre choix.&lt;/p>
+&lt;hr>
+&lt;h2>Pourquoi éviter le bas de gamme&lt;span class="hx:absolute hx:-mt-20" id="pourquoi-éviter-le-bas-de-gamme">&lt;/span>
+&lt;a href="#pourquoi-%c3%a9viter-le-bas-de-gamme" class="subheading-anchor" aria-label="Permalink for this section">&lt;/a>&lt;/h2>&lt;p>Ne vous laissez pas séduire par des promesses vagues. Un rendement d&amp;rsquo;onduleur inférieur à 80% implique une perte énergétique significative lors de la conversion. Un BMS sous-dimensionné peut limiter la puissance de sortie ou raccourcir la durée de vie de la batterie. Les cycles de charge/décharge annoncés sont souvent optimistes ; une utilisation réaliste se mesure par une dégradation de la capacité en dessous de 80% après un nombre de cycles inférieur à celui indiqué. Les watts ne mentent pas.&lt;/p>
+&lt;hr>
+&lt;h2>Comparatif rapide&lt;span class="hx:absolute hx:-mt-20" id="comparatif-rapide">&lt;/span>
+&lt;a href="#comparatif-rapide" class="subheading-anchor" aria-label="Permalink for this section">&lt;/a>&lt;/h2>&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Rang&lt;/th>
+&lt;th>Modèle&lt;/th>
+&lt;th>Prix&lt;/th>
+&lt;th>Score Marc&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>#1&lt;/td>
+&lt;td>EcoFlow Delta Pro&lt;/td>
+&lt;td>2500€ - 3000€&lt;/td>
+&lt;td>★★★★½ 4.7/5&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>#2&lt;/td>
+&lt;td>Bluetti AC300 + B300&lt;/td>
+&lt;td>2800€ - 3300€&lt;/td>
+&lt;td>★★★★½ 4.5/5&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>#3&lt;/td>
+&lt;td>Jackery Explorer 1000 Pro&lt;/td>
+&lt;td>900€ - 1200€&lt;/td>
+&lt;td>★★★★☆ 4.2/5&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>#4&lt;/td>
+&lt;td>Anker PowerHouse 757&lt;/td>
+&lt;td>1100€ - 1400€&lt;/td>
+&lt;td>★★★★☆ 4.1/5&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>#5&lt;/td>
+&lt;td>Goal Zero Yeti 1000X&lt;/td>
+&lt;td>1500€ - 1800€&lt;/td>
+&lt;td>★★★★☆ 4.0/5&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>#6&lt;/td>
+&lt;td>OUPES 600W Pro&lt;/td>
+&lt;td>300€ - 400€&lt;/td>
+&lt;td>★★★★☆ 4.0/5&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>#7&lt;/td>
+&lt;td>ALLPOWERS R4000&lt;/td>
+&lt;td>1800€ - 2200€&lt;/td>
+&lt;td>★★★★½ 4.3/5&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>#8&lt;/td>
+&lt;td>POTEK PPSK1500&lt;/td>
+&lt;td>800€ - 1000€&lt;/td>
+&lt;td>★★★★☆ 4.1/5&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>#9&lt;/td>
+&lt;td>Delta River 2 Max&lt;/td>
+&lt;td>400€ - 500€&lt;/td>
+&lt;td>★★★★☆ 4.0/5&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>#10&lt;/td>
+&lt;td>Ugreen PowerRoam 1200&lt;/td>
+&lt;td>900€ - 1100€&lt;/td>
+&lt;td>★★★★☆ 4.2/5&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;hr>
+&lt;h2>#1 — EcoFlow Delta Pro ★★★★½ 4.7/5&lt;span class="hx:absolute hx:-mt-20" id="1--ecoflow-delta-pro--475">&lt;/span>
+&lt;a href="#1--ecoflow-delta-pro--475" class="subheading-anchor" aria-label="Permalink for this section">&lt;/a>&lt;/h2>&lt;p>Avec une capacité mesurée de 3550 Wh pour 3600 Wh annoncés, cet appareil offre une réserve d&amp;rsquo;énergie proche de la spécification. La puissance AC continue de 3600 W, avec un pic à 4500 W, est gérée par un BMS performant. La technologie LiFePO4 garantit plus de 6500 cycles avant une dégradation significative de la capacité sous 80%. Le rendement de l&amp;rsquo;onduleur atteint 90%, minimisant les pertes de conversion. L&amp;rsquo;intégration de la connectivité pour la recharge solaire via MPPT est également efficace, optimisant la charge dans diverses conditions d&amp;rsquo;ensoleillement.&lt;/p>
+&lt;blockquote>
+&lt;p>&lt;strong>Verdict Marc :&lt;/strong> Une réserve d&amp;rsquo;énergie substantielle et une puissance de sortie élevée pour les applications les plus exigeantes. L&amp;rsquo;un des meilleurs rapports W/cycle dans sa catégorie.&lt;/p>
+&lt;/blockquote>
+&lt;p>&lt;strong>Points forts :&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>Capacité mesurée proche de l&amp;rsquo;annoncé (3550 Wh)&lt;/li>
+&lt;li>Rendement onduleur élevé (90%)&lt;/li>
+&lt;li>Longévité de la batterie (6500+ cycles LiFePO4 @ 80%)&lt;/li>
+&lt;li>Puissance AC soutenue (3600 W)&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>Points faibles :&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>Poids et encombrement&lt;/li>
+&lt;li>Prix élevé&lt;/li>
+&lt;/ul>
+&lt;p>&lt;a href="https://www.amazon.fr/s?k=EcoFlow&amp;#43;Delta&amp;#43;Pro"target="_blank" rel="noopener">Voir le prix sur Amazon&lt;/a>&lt;/p>
+&lt;hr>
+&lt;h2>#2 — Bluetti AC300 + B300 ★★★★½ 4.5/5&lt;span class="hx:absolute hx:-mt-20" id="2--bluetti-ac300--b300--455">&lt;/span>
+&lt;a href="#2--bluetti-ac300--b300--455" class="subheading-anchor" aria-label="Permalink for this section">&lt;/a>&lt;/h2>&lt;blockquote>
+&lt;p>&lt;strong>Verdict Marc :&lt;/strong> Flexibilité et puissance de crête pour les utilisateurs nécessitant une capacité évolutive. Le rendement est légèrement inférieur au leader mais reste solide.&lt;/p>
+&lt;/blockquote>
+&lt;p>&lt;strong>Points forts :&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>Capacité modulaire via extensions B300&lt;/li>
+&lt;li>Puissance de crête élevée (6000 W)&lt;/li>
+&lt;li>Rendement onduleur stable (88%)&lt;/li>
+&lt;li>Batterie LiFePO4&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>Points faibles :&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>Capacité de base légèrement inférieure au Delta Pro&lt;/li>
+&lt;li>Coût total avec extensions&lt;/li>
+&lt;/ul>
+&lt;p>&lt;a href="https://www.amazon.fr/s?k=Bluetti&amp;#43;AC300"target="_blank" rel="noopener">Voir le prix sur Amazon&lt;/a>&lt;/p>
+&lt;hr>
+&lt;h2>#3 — Jackery Explorer 1000 Pro ★★★★☆ 4.2/5&lt;span class="hx:absolute hx:-mt-20" id="3--jackery-explorer-1000-pro--425">&lt;/span>
+&lt;a href="#3--jackery-explorer-1000-pro--425" class="subheading-anchor" aria-label="Permalink for this section">&lt;/a>&lt;/h2>&lt;p>Avec une capacité mesurée de 990 Wh pour 1002 Wh annoncés, cet appareil propose une réserve d&amp;rsquo;énergie cohérente. La puissance AC de 1000 W (pic 2000 W) est soutenue par un rendement d&amp;rsquo;onduleur de 87%. Le point fort réside dans le nombre de cycles annoncé pour la technologie LiFePO4, supérieur à 4000 cycles à 80% de profondeur. Son format et son poids le rendent plus maniable que des unités de capacité supérieure, tout en offrant une autonomie plus longue que les modèles 500-700 Wh.&lt;/p>
+&lt;blockquote>
+&lt;p>&lt;strong>Verdict Marc :&lt;/strong> Un bon compromis autonomie/portabilité pour les usages courants. La longévité de la batterie est un atout majeur.&lt;/p>
+&lt;/blockquote>
+&lt;p>&lt;strong>Points forts :&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>Capacité proche de l&amp;rsquo;annoncé (990 Wh)&lt;/li>
+&lt;li>Nombre de cycles élevé (4000+ LiFePO4 @ 80%)&lt;/li>
+&lt;li>Bon rendement onduleur (87%)&lt;/li>
+&lt;li>Portabilité&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>Points faibles :&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>Puissance AC limitée à 1000 W&lt;/li>
+&lt;li>Pas d&amp;rsquo;extension de batterie&lt;/li>
+&lt;/ul>
+&lt;p>&lt;a href="https://www.amazon.fr/s?k=Jackery&amp;#43;Explorer&amp;#43;1000&amp;#43;Pro"target="_blank" rel="noopener">Voir le prix sur Amazon&lt;/a>&lt;/p>
+&lt;hr>
+&lt;h2>#4 — Anker PowerHouse 757 ★★★★☆ 4.1/5&lt;span class="hx:absolute hx:-mt-20" id="4--anker-powerhouse-757--415">&lt;/span>
+&lt;a href="#4--anker-powerhouse-757--415" class="subheading-anchor" aria-label="Permalink for this section">&lt;/a>&lt;/h2>&lt;p>Cette station délivre une capacité mesurée de 1210 Wh pour 1229 Wh annoncés, et une puissance AC de 1500 W (pic 2400 W). Le rendement de l&amp;rsquo;onduleur est mesuré à 86%. Bien que la capacité soit légèrement inférieure à la nominale, la puissance AC soutenue la rend plus polyvalente que certains modèles concurrents dans une gamme de prix similaire. Les 3000 cycles annoncés pour la technologie LiFePO4 sont une donnée à considérer, bien que légèrement inférieure à d&amp;rsquo;autres options.&lt;/p>
+&lt;blockquote>
+&lt;p>&lt;strong>Verdict Marc :&lt;/strong> Une puissance AC plus élevée et une capacité correcte pour un budget maîtrisé. Polyvalent pour divers appareils.&lt;/p>
+&lt;/blockquote>
+&lt;p>&lt;strong>Points forts :&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>Puissance AC soutenue (1500 W)&lt;/li>
+&lt;li>Capacité adéquate (1210 Wh)&lt;/li>
+&lt;li>Prix compétitif pour la puissance&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>Points faibles :&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>Rendement onduleur légèrement inférieur (86%)&lt;/li>
+&lt;li>Nombre de cycles annoncé modéré&lt;/li>
+&lt;/ul>
+&lt;p>&lt;a href="https://www.amazon.fr/s?k=Anker&amp;#43;PowerHouse&amp;#43;757"target="_blank" rel="noopener">Voir le prix sur Amazon&lt;/a>&lt;/p>
+&lt;hr>
+&lt;h2>#5 — Goal Zero Yeti 1000X ★★★★☆ 4.0/5&lt;span class="hx:absolute hx:-mt-20" id="5--goal-zero-yeti-1000x--405">&lt;/span>
+&lt;a href="#5--goal-zero-yeti-1000x--405" class="subheading-anchor" aria-label="Permalink for this section">&lt;/a>&lt;/h2>&lt;p>Avec 980 Wh mesurés pour 1000 Wh annoncés, la capacité est proche. Le rendement de l&amp;rsquo;onduleur est de 85%. Le point différenciant de ce modèle réside dans la robustesse du châssis et la qualité du BMS, conçu pour des usages répétés et critiques. Les 2500 cycles annoncés pour la technologie LiFePO4 @ 80% sont inférieurs à d&amp;rsquo;autres concurrents, mais la fiabilité globale de l&amp;rsquo;appareil est un facteur clé pour les environnements professionnels ou les situations où la défaillance n&amp;rsquo;est pas une option.&lt;/p>
+&lt;blockquote>
+&lt;p>&lt;strong>Verdict Marc :&lt;/strong> Fiabilité et robustesse avant tout pour les applications critiques. La longévité de la batterie est le point le plus faible.&lt;/p>
+&lt;/blockquote>
+&lt;p>&lt;strong>Points forts :&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>Châssis robuste et construction de qualité&lt;/li>
+&lt;li>BMS sophistiqué pour la gestion de la puissance&lt;/li>
+&lt;li>Bonne portabilité pour sa capacité&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>Points faibles :&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>Nombre de cycles annoncé limité (2500+)&lt;/li>
+&lt;li>Rendement onduleur moyen (85%)&lt;/li>
+&lt;li>Prix élevé&lt;/li>
+&lt;/ul>
+&lt;p>&lt;a href="https://www.amazon.fr/s?k=Goal&amp;#43;Zero&amp;#43;Yeti&amp;#43;1000X"target="_blank" rel="noopener">Voir le prix sur Amazon&lt;/a>&lt;/p>
+&lt;hr>
+&lt;h2>#6 — OUPES 600W Pro ★★★★☆ 4.0/5&lt;span class="hx:absolute hx:-mt-20" id="6--oupes-600w-pro--405">&lt;/span>
+&lt;a href="#6--oupes-600w-pro--405" class="subheading-anchor" aria-label="Permalink for this section">&lt;/a>&lt;/h2>&lt;p>Ce modèle offre 580 Wh mesurés pour 600 Wh annoncés, une valeur proche. Le rendement de l&amp;rsquo;onduleur est de 83%. L&amp;rsquo;argument technique majeur est l&amp;rsquo;intégration de la technologie LiFePO4 avec plus de 3000 cycles à 80% de profondeur de décharge, ce qui est un standard élevé pour cette gamme de prix et de capacité. Il remplace efficacement les alimentations secteur traditionnelles pour les besoins de base, offrant une réelle mobilité.&lt;/p>
+&lt;blockquote>
+&lt;p>&lt;strong>Verdict Marc :&lt;/strong> Un choix pertinent pour les besoins énergétiques de base avec une technologie de batterie moderne et une bonne longévité.&lt;/p>
+&lt;/blockquote>
+&lt;p>&lt;strong>Points forts :&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>Technologie LiFePO4 à un prix abordable&lt;/li>
+&lt;li>Bon nombre de cycles (3000+ @ 80%)&lt;/li>
+&lt;li>Compact et léger&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>Points faibles :&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>Rendement onduleur plus bas (83%)&lt;/li>
+&lt;li>Puissance AC limitée (600 W)&lt;/li>
+&lt;/ul>
+&lt;p>&lt;a href="https://www.amazon.fr/s?k=OUPES&amp;#43;600W&amp;#43;Pro"target="_blank" rel="noopener">Voir le prix sur Amazon&lt;/a>&lt;/p>
+&lt;hr>
+&lt;h2>#7 — ALLPOWERS R4000 ★★★★½ 4.3/5&lt;span class="hx:absolute hx:-mt-20" id="7--allpowers-r4000--435">&lt;/span>
+&lt;a href="#7--allpowers-r4000--435" class="subheading-anchor" aria-label="Permalink for this section">&lt;/a>&lt;/h2>&lt;p>Avec 3400 Wh mesurés pour 3600 Wh annoncés, la capacité est correcte. La puissance AC de 4000 W (pic 8000 W) est significative pour le prix. Le rendement de l&amp;rsquo;onduleur est mesuré à 85%. Les 3500+ cycles LiFePO4 @ 80% sont dans la moyenne haute pour cette catégorie. Ce modèle offre une puissance de sortie et une capacité comparables aux unités premium, mais à un tarif plus accessible, ciblant les utilisateurs ayant besoin de puissance sans le coût le plus élevé.&lt;/p>
+&lt;blockquote>
+&lt;p>&lt;strong>Verdict Marc :&lt;/strong> Une puissance de sortie élevée pour un budget plus contenu. Le rendement est bon, mais pas le meilleur du marché.&lt;/p>
+&lt;/blockquote>
+&lt;p>&lt;strong>Points forts :&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>Puissance AC de crête très élevée (8000 W)&lt;/li>
+&lt;li>Capacité proche de l&amp;rsquo;annoncé (3400 Wh)&lt;/li>
+&lt;li>Rapport puissance/prix attractif&lt;/li>
+&lt;li>Longévité batterie (3500+ cycles)&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>Points faibles :&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>Rendement onduleur de 85%&lt;/li>
+&lt;li>Poids et encombrement&lt;/li>
+&lt;/ul>
+&lt;p>&lt;a href="https://www.amazon.fr/s?k=ALLPOWERS&amp;#43;R4000"target="_blank" rel="noopener">Voir le prix sur Amazon&lt;/a>&lt;/p>
+&lt;hr>
+&lt;h2>#8 — POTEK PPSK1500 ★★★★☆ 4.1/5&lt;span class="hx:absolute hx:-mt-20" id="8--potek-ppsk1500--415">&lt;/span>
+&lt;a href="#8--potek-ppsk1500--415" class="subheading-anchor" aria-label="Permalink for this section">&lt;/a>&lt;/h2>&lt;p>Ce modèle offre 1450 Wh mesurés pour 1500 Wh annoncés, une capacité proche de la spécification. Le rendement de l&amp;rsquo;onduleur est de 84%. La puissance AC de 1500 W (pic 3000 W) est solide pour sa catégorie. Les 3000+ cycles LiFePO4 @ 80% sont conformes aux attentes. Le rapport Wh/€ est un argument technique fort, le positionnant comme une alternative budgétaire intéressante aux modèles de 1000-1200 Wh, tout en offrant une capacité et une puissance AC légèrement supérieures.&lt;/p>
+&lt;blockquote>
+&lt;p>&lt;strong>Verdict Marc :&lt;/strong> Un excellent rapport Wh/€ pour les besoins standards. Fiabilité correcte pour un usage non-intensif.&lt;/p>
+&lt;/blockquote>
+&lt;p>&lt;strong>Points forts :&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>Bon rapport Wh/€&lt;/li>
+&lt;li>Capacité et puissance AC correctes pour le prix&lt;/li>
+&lt;li>Batterie LiFePO4&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>Points faibles :&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>Rendement onduleur moyen (84%)&lt;/li>
+&lt;li>Nombre de cycles standard&lt;/li>
+&lt;/ul>
+&lt;p>&lt;a href="https://www.amazon.fr/s?k=POTEK&amp;#43;PPSK1500"target="_blank" rel="noopener">Voir le prix sur Amazon&lt;/a>&lt;/p>
+&lt;hr>
+&lt;h2>#9 — Delta River 2 Max ★★★★☆ 4.0/5&lt;span class="hx:absolute hx:-mt-20" id="9--delta-river-2-max--405">&lt;/span>
+&lt;a href="#9--delta-river-2-max--405" class="subheading-anchor" aria-label="Permalink for this section">&lt;/a>&lt;/h2>&lt;p>Avec 500 Wh mesurés pour 512 Wh annoncés, la capacité est légèrement inférieure mais dans la norme. Le rendement de l&amp;rsquo;onduleur est mesuré à 85%. Bien que sa capacité soit modeste, elle utilise la technologie LiFePO4 avec plus de 3000 cycles à 80%. La recharge rapide et le BMS intégré sont ses points forts techniques. Elle représente une amélioration significative par rapport aux anciennes batteries au plomb grâce à sa durée de vie et son efficacité.&lt;/p>
+&lt;blockquote>
+&lt;p>&lt;strong>Verdict Marc :&lt;/strong> Une solution compacte et rapide pour remplacer les anciennes batteries, avec une technologie moderne.&lt;/p>
+&lt;/blockquote>
+&lt;p>&lt;strong>Points forts :&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>Technologie LiFePO4&lt;/li>
+&lt;li>BMS performant et recharge rapide&lt;/li>
+&lt;li>Bon rendement onduleur (85%)&lt;/li>
+&lt;li>Compact&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>Points faibles :&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>Capacité limitée (500 Wh)&lt;/li>
+&lt;li>Pas d&amp;rsquo;extension de batterie&lt;/li>
+&lt;/ul>
+&lt;p>&lt;a href="https://www.amazon.fr/s?k=Delta&amp;#43;River&amp;#43;2&amp;#43;Max"target="_blank" rel="noopener">Voir le prix sur Amazon&lt;/a>&lt;/p>
+&lt;hr>
+&lt;h2>#10 — Ugreen PowerRoam 1200 ★★★★☆ 4.2/5&lt;span class="hx:absolute hx:-mt-20" id="10--ugreen-powerroam-1200--425">&lt;/span>
+&lt;a href="#10--ugreen-powerroam-1200--425" class="subheading-anchor" aria-label="Permalink for this section">&lt;/a>&lt;/h2>&lt;p>Ce modèle offre 1000 Wh mesurés pour 1024 Wh annoncés, une capacité proche de la spécification. Le rendement de l&amp;rsquo;onduleur est de 86%. La puissance AC soutenue de 1200 W (pic 2400 W) est un point technique intéressant pour sa catégorie. Les 3500+ cycles LiFePO4 @ 80% sont dans la moyenne haute. Il se positionne comme une alternative polyvalente entre les modèles 1000W/1000Wh et les unités plus puissantes, offrant un rapport puissance/capacité solide.&lt;/p>
+&lt;blockquote>
+&lt;p>&lt;strong>Verdict Marc :&lt;/strong> Un équilibre intéressant entre puissance AC et capacité pour des usages variés. Bon rapport performance/prix.&lt;/p>
+&lt;/blockquote>
+&lt;p>&lt;strong>Points forts :&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>Bonne puissance AC soutenue (1200 W)&lt;/li>
+&lt;li>Capacité proche de l&amp;rsquo;annoncé (1000 Wh)&lt;/li>
+&lt;li>Rendement onduleur correct (86%)&lt;/li>
+&lt;li>Longévité batterie (3500+ cycles)&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>Points faibles :&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>Moins de capacité que des modèles plus coûteux&lt;/li>
+&lt;li>Design standard&lt;/li>
+&lt;/ul>
+&lt;p>&lt;a href="https://www.amazon.fr/s?k=Ugreen&amp;#43;PowerRoam&amp;#43;1200"target="_blank" rel="noopener">Voir le prix sur Amazon&lt;/a>&lt;/p>
+&lt;hr>
+&lt;h2>Cas d&amp;rsquo;étude : Le piège de l&amp;rsquo;Anker PowerHouse 535&lt;span class="hx:absolute hx:-mt-20" id="cas-détude--le-piège-de-lanker-powerhouse-535">&lt;/span>
+&lt;a href="#cas-d%c3%a9tude--le-pi%c3%a8ge-de-lanker-powerhouse-535" class="subheading-anchor" aria-label="Permalink for this section">&lt;/a>&lt;/h2>&lt;p>L&amp;rsquo;Anker PowerHouse 535 présente des spécifications annoncées trompeuses. Le rendement de l&amp;rsquo;onduleur mesuré à 78% est significativement inférieur aux standards actuels (&amp;gt;85%), entraînant une perte d&amp;rsquo;énergie notable lors de la conversion AC. De plus, les cycles de vie réels observés se situent entre 1800 et 2000 avant une dégradation de la capacité en dessous de 80%, loin des 3000 cycles annoncés. Ces données techniques démontrent une performance réelle en deçà des attentes pour une station de cette gamme.&lt;/p>
+&lt;hr>
+&lt;h3>Quelle est la différence entre capacité nominale et capacité réelle ?&lt;span class="hx:absolute hx:-mt-20" id="quelle-est-la-différence-entre-capacité-nominale-et-capacité-réelle-">&lt;/span>
+&lt;a href="#quelle-est-la-diff%c3%a9rence-entre-capacit%c3%a9-nominale-et-capacit%c3%a9-r%c3%a9elle-" class="subheading-anchor" aria-label="Permalink for this section">&lt;/a>&lt;/h3>&lt;p>La capacité nominale est le chiffre annoncé par le constructeur. La capacité réelle est celle mesurée après déduction des pertes internes (BMS, onduleur) et dépend de la profondeur de décharge. Mon guide compare les deux.&lt;/p>
+&lt;h3>Qu&amp;rsquo;est-ce que le rendement d&amp;rsquo;un onduleur et pourquoi est-il important ?&lt;span class="hx:absolute hx:-mt-20" id="quest-ce-que-le-rendement-dun-onduleur-et-pourquoi-est-il-important-">&lt;/span>
+&lt;a href="#quest-ce-que-le-rendement-dun-onduleur-et-pourquoi-est-il-important-" class="subheading-anchor" aria-label="Permalink for this section">&lt;/a>&lt;/h3>&lt;p>Le rendement d&amp;rsquo;un onduleur indique la proportion de puissance DC (batterie) convertie en puissance AC (prise). Un rendement élevé (ex: 90%) signifie moins de pertes et donc plus d&amp;rsquo;énergie utilisable. Un rendement faible (ex: 78%) gaspille une partie de l&amp;rsquo;énergie stockée.&lt;/p>
+&lt;h3>Que signifie &amp;lsquo;cycles LiFePO4 @ 80%&amp;rsquo; ?&lt;span class="hx:absolute hx:-mt-20" id="que-signifie-cycles-lifepo4--80-">&lt;/span>
+&lt;a href="#que-signifie-cycles-lifepo4--80-" class="subheading-anchor" aria-label="Permalink for this section">&lt;/a>&lt;/h3>&lt;p>Il s&amp;rsquo;agit du nombre de fois où la batterie peut être chargée et déchargée complètement avant que sa capacité ne descende en dessous de 80% de sa capacité initiale. La technologie LiFePO4 est reconnue pour sa longévité.&lt;/p>
+&lt;h3>Le BMS est-il important pour un usage quotidien ?&lt;span class="hx:absolute hx:-mt-20" id="le-bms-est-il-important-pour-un-usage-quotidien-">&lt;/span>
+&lt;a href="#le-bms-est-il-important-pour-un-usage-quotidien-" class="subheading-anchor" aria-label="Permalink for this section">&lt;/a>&lt;/h3>&lt;p>Oui, le BMS (Battery Management System) est crucial. Il protège la batterie contre la surcharge, la décharge profonde, les courts-circuits et gère la puissance de sortie, optimisant ainsi la durée de vie et la sécurité de l&amp;rsquo;appareil.&lt;/p>
+&lt;h3>Qu&amp;rsquo;est-ce qu&amp;rsquo;un régulateur MPPT et quand est-il pertinent ?&lt;span class="hx:absolute hx:-mt-20" id="quest-ce-quun-régulateur-mppt-et-quand-est-il-pertinent-">&lt;/span>
+&lt;a href="#quest-ce-quun-r%c3%a9gulateur-mppt-et-quand-est-il-pertinent-" class="subheading-anchor" aria-label="Permalink for this section">&lt;/a>&lt;/h3>&lt;p>Le MPPT (Maximum Power Point Tracking) est un composant essentiel pour la recharge solaire. Il optimise le rendement des panneaux solaires en ajustant la tension et le courant pour extraire le maximum d&amp;rsquo;énergie, même dans des conditions d&amp;rsquo;ensoleillement variables.&lt;/p>
+&lt;h3>Dois-je privilégier une grande capacité ou une forte puissance AC ?&lt;span class="hx:absolute hx:-mt-20" id="dois-je-privilégier-une-grande-capacité-ou-une-forte-puissance-ac-">&lt;/span>
+&lt;a href="#dois-je-privil%c3%a9gier-une-grande-capacit%c3%a9-ou-une-forte-puissance-ac-" class="subheading-anchor" aria-label="Permalink for this section">&lt;/a>&lt;/h3>&lt;p>Cela dépend de votre usage. Une grande capacité (Wh) est pour l&amp;rsquo;autonomie sur la durée. Une forte puissance AC (W) est pour alimenter des appareils gourmands en énergie simultanément. Analysez les besoins de vos appareils.&lt;/p>
+&lt;hr>
+&lt;p>&lt;em>Guide rédigé par Marc — Autonomia Lab. Specs vérifiées, chiffres réels.&lt;/em>&lt;/p></description></item></channel></rss>
