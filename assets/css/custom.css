@@ -1,0 +1,116 @@
+/* Autonomia Lab — Palette Light Premium */
+
+:root {
+  --color-bg: #F4F5F7;
+  --color-card: #FFFFFF;
+  --color-primary: #1B4F72;
+  --color-accent: #E67E22;
+  --color-text: #2D3748;
+  --color-text-muted: #718096;
+  --color-border: #E2E8F0;
+}
+
+/* Fond général */
+body {
+  background-color: #F4F5F7 !important;
+  color: #2D3748 !important;
+}
+
+/* Navigation */
+header, .header {
+  background-color: #FFFFFF !important;
+  border-bottom: 1px solid #E2E8F0 !important;
+}
+
+nav a {
+  color: #1B4F72 !important;
+  font-weight: 600;
+}
+
+nav a:hover {
+  color: #E67E22 !important;
+}
+
+/* Titre du site */
+.site-title, header .logo {
+  color: #1B4F72 !important;
+  font-weight: 700 !important;
+}
+
+/* Cards articles */
+article, .card, .prose {
+  background-color: #FFFFFF !important;
+  border: 1px solid #E2E8F0 !important;
+  border-radius: 12px !important;
+}
+
+/* Titres */
+h1, h2, h3, h4 {
+  color: #1B4F72 !important;
+}
+
+/* Liens */
+a {
+  color: #1B4F72 !important;
+}
+
+a:hover {
+  color: #E67E22 !important;
+}
+
+/* Boutons / CTAs */
+.btn, button[type="submit"] {
+  background-color: #E67E22 !important;
+  color: #FFFFFF !important;
+  border-radius: 8px !important;
+  border: none !important;
+}
+
+/* Footer */
+footer {
+  background-color: #FFFFFF !important;
+  border-top: 1px solid #E2E8F0 !important;
+  color: #718096 !important;
+}
+
+/* Texte muted */
+.text-neutral-500, .text-gray-500, time, .meta {
+  color: #718096 !important;
+}
+
+/* Séparateurs */
+hr {
+  border-color: #E2E8F0 !important;
+}
+
+/* Tables */
+table {
+  border-color: #E2E8F0 !important;
+}
+
+th {
+  background-color: #1B4F72 !important;
+  color: #FFFFFF !important;
+}
+
+td {
+  background-color: #FFFFFF !important;
+}
+
+tr:nth-child(even) td {
+  background-color: #F4F5F7 !important;
+}
+
+/* Blockquotes */
+blockquote {
+  border-left: 4px solid #E67E22 !important;
+  background-color: #FFF8F0 !important;
+  color: #2D3748 !important;
+}
+
+/* Search */
+input[type="search"], .search input {
+  background-color: #FFFFFF !important;
+  border: 1px solid #E2E8F0 !important;
+  color: #2D3748 !important;
+}
