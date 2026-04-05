@@ -1,1 +1,3 @@
 User-agent: *
+Allow: /
+Sitemap: https://autonomia-lab.fr/sitemap.xml
