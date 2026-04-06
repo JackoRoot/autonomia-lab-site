@@ -1,7 +1,15 @@
-/* Autonomia Lab — Fond dégradé bleu ciel prononcé */
+/* Autonomia Lab — Vagues alternées bleu/blanc cassé */
 
 body {
-  background: linear-gradient(135deg, #FFFFFF 0%, #DBEAFE 60%, #BFDBFE 100%) !important;
+  background-color: #F0F4F8 !important;
+  background-image: 
+    repeating-linear-gradient(
+      180deg,
+      transparent 0px,
+      transparent 120px,
+      rgba(186, 220, 255, 0.25) 120px,
+      rgba(186, 220, 255, 0.25) 240px
+    ) !important;
   background-attachment: fixed !important;
   color: #0F172A !important;
   min-height: 100vh !important;
