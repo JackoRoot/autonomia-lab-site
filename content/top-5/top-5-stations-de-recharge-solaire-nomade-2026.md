@@ -1,12 +1,12 @@
 ---
 title: "Top 5 Stations de recharge solaire nomade 2026 — Guide technique 2026"
-date: 2026-04-06T19:39:18+02:00
-lastmod: 2026-04-06T19:39:18+02:00
+date: 2026-04-06T19:49:22+02:00
+lastmod: 2026-04-06T19:49:22+02:00
 draft: false
 description: "Guide technique 2026 : Stations de recharge solaire nomade. LFP, GaN, cycles, rendement onduleur. Analyse rigoureuse par Marc."
-author: "Frank Silver-Vasseur"
-categories: ["Stations de recharge solaire nomade 2026"]
-tags: ["Stations de recharge solaire nomade 2026", "comparatif", "guide technique", "autonomie énergie"]
+author: "Arnaud Lefebvre"
+categories: ["top-5"]
+tags: []
 ---
 
 # Top 5 Stations de recharge solaire nomade 2026 — Guide technique 2026
@@ -166,3 +166,6 @@ MPPT (Maximum Power Point Tracking) est un algorithme intégré aux contrôleurs
 ---
 
 *Guide rédigé par Frank Silver-Vasseur — Autonomia Lab. Specs vérifiées, chiffres réels.*
+
+---
+*Guide rédigé par Arnaud Lefebvre — Autonomia Lab.*
