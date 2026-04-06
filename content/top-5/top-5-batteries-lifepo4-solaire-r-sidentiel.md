@@ -1,10 +1,10 @@
 ---
 title: "Top 5 batteries LiFePO4 solaire résidentiel — Guide technique 2026"
-date: 2026-04-06T08:30:55+02:00
-lastmod: 2026-04-06T08:30:55+02:00
+date: 2026-04-06T19:50:03+02:00
+lastmod: 2026-04-06T19:50:03+02:00
 draft: false
 description: "Guide technique LFP pour batteries solaires résidentielles : analyse des cycles, rendement onduleur GaN, coût par cycle. Sélecteur de matériel énergétique."
-author: "Marc"
+author: "Sophie Vidal"
 categories: ["top-5"]
 tags: []
 ---
@@ -173,8 +173,4 @@ La puissance nominale est la puissance que la station peut fournir en continu. L
 Les stations avec onduleur intégré offrent une solution tout-en-un pratique. Cependant, les systèmes modulaires (comme Victron) où l'onduleur est un composant externe dédié peuvent offrir des rendements plus élevés et une plus grande flexibilité de maintenance ou de mise à niveau. Pour les installations critiques, la fiabilité du couple batterie/onduleur est primordiale. Les onduleurs GaN représentent le standard technique actuel.
 
 ---
-
-*Guide rédigé par Marc — Autonomia Lab. Specs vérifiées, chiffres réels.*
-
----
-*Guide rédigé par Marc — Autonomia Lab.*
+*Guide rédigé par Sophie Vidal — Autonomia Lab.*
