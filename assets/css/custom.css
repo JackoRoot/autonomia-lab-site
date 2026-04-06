@@ -4,3 +4,7 @@ article:hover { border-color: #F59E0B !important; box-shadow: 0 2px 8px rgba(245
 footer { background-color: #1E293B !important; color: #94A3B8 !important; }
 footer a { color: #94A3B8 !important; }
 footer a:hover { color: #F59E0B !important; }
+
+/* Footer Congo réduit */
+footer { padding: 8px 20px !important; font-size: 11px !important; }
+footer p { margin: 2px 0 !important; }
