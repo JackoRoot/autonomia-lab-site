@@ -1,1 +1,138 @@
-body { background-color: #F8F9FA !important; }
+/* Autonomia Lab — Industrial Trust */
+
+/* Fond technique blanc bleuté */
+body {
+  background-color: #F8FAFC !important;
+  color: #0F172A !important;
+}
+
+/* Navigation */
+header, .header, nav {
+  background-color: #FFFFFF !important;
+  border-bottom: 1px solid #E2E8F0 !important;
+}
+
+/* Titre du site */
+.site-title, header a[href="/"] {
+  color: #1E293B !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.02em !important;
+}
+
+/* Liens nav */
+nav a {
+  color: #1E293B !important;
+  font-weight: 600 !important;
+}
+
+nav a:hover {
+  color: #F59E0B !important;
+}
+
+/* Titres */
+h1, h2, h3, h4 {
+  color: #1E293B !important;
+  letter-spacing: -0.01em !important;
+}
+
+/* Accent amber sur h1 de liste */
+h1 {
+  border-left: 4px solid #F59E0B !important;
+  padding-left: 12px !important;
+}
+
+/* Liens */
+a {
+  color: #1E293B !important;
+}
+
+a:hover {
+  color: #F59E0B !important;
+}
+
+/* Cards articles */
+article {
+  background-color: #FFFFFF !important;
+  border: 1px solid #E2E8F0 !important;
+  border-radius: 4px !important;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06) !important;
+}
+
+article:hover {
+  border-color: #F59E0B !important;
+  box-shadow: 0 2px 8px rgba(245,158,11,0.15) !important;
+}
+
+/* Tableaux — style données techniques */
+table {
+  border-collapse: collapse !important;
+  border: 1px solid #E2E8F0 !important;
+  background-color: #FFFFFF !important;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06) !important;
+  width: 100% !important;
+}
+
+th {
+  background-color: #1E293B !important;
+  color: #FFFFFF !important;
+  font-family: 'JetBrains Mono', 'Courier New', monospace !important;
+  font-size: 0.75rem !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.08em !important;
+  padding: 10px 14px !important;
+}
+
+td {
+  font-family: 'JetBrains Mono', 'Courier New', monospace !important;
+  color: #0F172A !important;
+  border-top: 1px solid #E2E8F0 !important;
+  padding: 9px 14px !important;
+}
+
+tr:nth-child(even) td {
+  background-color: #F8FAFC !important;
+}
+
+/* Blockquotes — verdicts Marc */
+blockquote {
+  border-left: 4px solid #F59E0B !important;
+  background-color: #FFFBEB !important;
+  color: #1E293B !important;
+  padding: 12px 16px !important;
+  border-radius: 0 4px 4px 0 !important;
+  font-style: normal !important;
+}
+
+/* Séparateurs */
+hr {
+  border-color: #E2E8F0 !important;
+}
+
+/* Footer */
+footer {
+  background-color: #1E293B !important;
+  color: #94A3B8 !important;
+  border-top: none !important;
+}
+
+footer a {
+  color: #94A3B8 !important;
+}
+
+footer a:hover {
+  color: #F59E0B !important;
+}
+
+/* Search */
+input[type="search"] {
+  background-color: #FFFFFF !important;
+  border: 1px solid #E2E8F0 !important;
+  border-radius: 4px !important;
+  color: #0F172A !important;
+}
+
+/* Texte muted / meta */
+time, .text-neutral-500, .meta {
+  color: #64748B !important;
+  font-size: 0.85rem !important;
+}
