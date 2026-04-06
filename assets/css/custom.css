@@ -1,33 +1,6 @@
-/* Autonomia Lab — Vagues alternées bleu/blanc cassé */
-
-body {
-  background-color: #F0F4F8 !important;
-  background-image: 
-    repeating-linear-gradient(
-      180deg,
-      transparent 0px,
-      transparent 120px,
-      rgba(186, 220, 255, 0.25) 120px,
-      rgba(186, 220, 255, 0.25) 240px
-    ) !important;
-  background-attachment: fixed !important;
-  color: #0F172A !important;
-  min-height: 100vh !important;
-}
-
-a:hover {
-  color: #F59E0B !important;
-}
-
-article:hover {
-  border-color: #F59E0B !important;
-  box-shadow: 0 2px 8px rgba(245,158,11,0.15) !important;
-}
-
-footer {
-  background-color: #1E293B !important;
-  color: #94A3B8 !important;
-}
-
+body { background-color: #EFF6FF !important; color: #0F172A !important; }
+a:hover { color: #F59E0B !important; }
+article:hover { border-color: #F59E0B !important; box-shadow: 0 2px 8px rgba(245,158,11,0.15) !important; }
+footer { background-color: #1E293B !important; color: #94A3B8 !important; }
 footer a { color: #94A3B8 !important; }
 footer a:hover { color: #F59E0B !important; }
