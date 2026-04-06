@@ -1,7 +1,7 @@
 ---
 title: "Top 5 Stations de recharge solaire nomade 2026 — Guide technique 2026"
-date: 2026-04-06T19:49:22+02:00
-lastmod: 2026-04-06T19:49:22+02:00
+date: 2026-04-06T19:51:25+02:00
+lastmod: 2026-04-06T19:51:25+02:00
 draft: false
 description: "Guide technique 2026 : Stations de recharge solaire nomade. LFP, GaN, cycles, rendement onduleur. Analyse rigoureuse par Marc."
 author: "Arnaud Lefebvre"
@@ -162,10 +162,6 @@ La certification IP54 assure une protection contre les poussières et les projec
 ### Qu'est-ce que le MPPT et son importance ?
 
 MPPT (Maximum Power Point Tracking) est un algorithme intégré aux contrôleurs de charge solaire. Il optimise en permanence le point de fonctionnement des panneaux solaires pour extraire le maximum d'énergie, surtout dans des conditions d'ensoleillement variables. Un bon MPPT améliore significativement la vitesse de recharge solaire.
-
----
-
-*Guide rédigé par Frank Silver-Vasseur — Autonomia Lab. Specs vérifiées, chiffres réels.*
 
 ---
 *Guide rédigé par Arnaud Lefebvre — Autonomia Lab.*
