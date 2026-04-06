@@ -1,12 +1,12 @@
 ---
 title: "Top 5 batteries LiFePO4 solaire résidentiel — Guide technique 2026"
-date: 2026-04-05T13:12:23+02:00
-lastmod: 2026-04-05T13:12:23+02:00
+date: 2026-04-06T08:30:55+02:00
+lastmod: 2026-04-06T08:30:55+02:00
 draft: false
 description: "Guide technique LFP pour batteries solaires résidentielles : analyse des cycles, rendement onduleur GaN, coût par cycle. Sélecteur de matériel énergétique."
 author: "Marc"
-categories: ["batteries LiFePO4 solaire résidentiel"]
-tags: ["batteries LiFePO4 solaire résidentiel", "comparatif", "guide technique", "autonomie énergie"]
+categories: ["top-5"]
+tags: []
 ---
 
 # Top 5 batteries LiFePO4 solaire résidentiel — Guide technique 2026
@@ -142,7 +142,7 @@ L'ALLPOWERS R600 est une solution LFP d'entrée de gamme, affichant 720Wh de cap
 
 ---
 
-## 🚫 Marque + Modèle réel à éviter
+## 🚫Modèle réel à éviter
 
 Les marques proposant des stations avec des chimies NMC obsolètes sont à proscrire systématiquement. Par exemple, la plupart des modèles de la gamme 'PowerHouse' de Jackery datant d'avant 2023, utilisant la chimie NMC, affichaient 500 à 800 cycles garantis seulement. Ces appareils, bien que potentiellement moins chers à l'achat initial, engendrent un coût par cycle bien supérieur et une obsolescence technique prématurée par rapport aux batteries LFP garantissant 2000 cycles minimum. Leur rendement onduleur est également souvent inférieur aux standards actuels.
 
@@ -175,3 +175,6 @@ Les stations avec onduleur intégré offrent une solution tout-en-un pratique. C
 ---
 
 *Guide rédigé par Marc — Autonomia Lab. Specs vérifiées, chiffres réels.*
+
+---
+*Guide rédigé par Marc — Autonomia Lab.*
