@@ -4,6 +4,7 @@ title = "Autonomia Lab"
 theme = "congo"
 enableRobotsTXT = true
 keepQuotes = true
+mainSections = ["top-5"]
 
 [pagination]
   pagerSize = 10
@@ -15,6 +16,11 @@ keepQuotes = true
   enableSearch = true
   enableCodeCopy = true
   description = "Tests et comparatifs techniques — stations electriques, panneaux solaires, batteries LiFePO4"
+  mainSections = ["top-5"]
+
+[params.homepage]
+  showRecent = true
+  recentLimit = 10
 
 [menu]
   [[menu.main]]
@@ -30,11 +36,7 @@ keepQuotes = true
     url = "/categories/batteries/"
     weight = 3
 
-[params.homepage]
-  showRecent = true
-  recentLimit = 10
-
-[outputs]
-  home = ["HTML"]
-
-mainSections = ["top-5"]
+[params.footer]
+  showCopyright = false
+  showThemeAttribution = false
+  showScrollToTop = false

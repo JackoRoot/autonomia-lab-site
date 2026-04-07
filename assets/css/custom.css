@@ -1,2 +1,3 @@
 body { background-color: #E1EFFE !important; }
-footer { display: none !important; }
+footer.py-10 { padding-top: 4px !important; padding-bottom: 4px !important; }
+footer .text-sm, footer .text-xs { display: none !important; }
