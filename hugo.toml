@@ -4,7 +4,6 @@ title = "Autonomia Lab"
 theme = "congo"
 enableRobotsTXT = true
 keepQuotes = true
-mainSections = ["top-5"]
 
 [pagination]
   pagerSize = 10
@@ -19,8 +18,14 @@ mainSections = ["top-5"]
   mainSections = ["top-5"]
 
 [params.homepage]
+  layout = "page"
   showRecent = true
   recentLimit = 10
+
+[params.footer]
+  showCopyright = false
+  showThemeAttribution = false
+  showScrollToTop = false
 
 [menu]
   [[menu.main]]
@@ -35,8 +40,3 @@ mainSections = ["top-5"]
     name = "Batteries"
     url = "/categories/batteries/"
     weight = 3
-
-[params.footer]
-  showCopyright = false
-  showThemeAttribution = false
-  showScrollToTop = false
