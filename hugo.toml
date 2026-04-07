@@ -29,3 +29,12 @@ keepQuotes = true
     name = "Batteries"
     url = "/categories/batteries/"
     weight = 3
+
+[params.homepage]
+  showRecent = true
+  recentLimit = 10
+
+[outputs]
+  home = ["HTML"]
+
+mainSections = ["top-5"]
