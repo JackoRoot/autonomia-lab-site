@@ -1,4 +1,6 @@
 ---
 title: "Autonomia Lab"
-description: "Comparatifs techniques sans compromis. Watts réels, cycles mesurés, rendements vérifiés."
+description: "Dimensionnements millimétrés, conformité NF C 15-100/Consuel et ROI : documentation technique pour installateurs RGE et maîtres d'ouvrage exigeants."
 ---
+
+{{< ecosysteme >}}

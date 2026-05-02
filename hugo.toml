@@ -1,42 +1,41 @@
 baseURL = "https://autonomia-lab.fr/"
 languageCode = "fr-FR"
 title = "Autonomia Lab"
-theme = "congo"
+theme = "hugo-book"
 enableRobotsTXT = true
-keepQuotes = true
 
-[pagination]
-  pagerSize = 10
+[markup]
+  [markup.goldmark.renderer]
+    unsafe = true
+  [markup.tableOfContents]
+    startLevel = 2
+    endLevel = 4
 
 [params]
-  colorScheme = "custom"
-  defaultAppearance = "light"
-  autoSwitchAppearance = false
-  enableSearch = true
-  enableCodeCopy = true
-  description = "Tests et comparatifs techniques — stations electriques, panneaux solaires, batteries LiFePO4"
-  mainSections = ["top-5"]
+  BookTheme        = "light"
+  BookToC          = true
+  BookSearch       = true
+  BookRepo         = ""
+  BookEditPath     = ""
+  BookLogo         = ""
+  BookMenuBundle   = ""
+  BookSection      = "lab"
+  BookDateFormat   = "02 Jan 2006"
+  BookComments     = false
+  BookPortableLinks = true
+  description = "Documentation technique — Énergie, Eau, Thermique, Infrastructure"
+  author = "Frank Vasseur"
 
-[params.homepage]
-  layout = "page"
-  showRecent = true
-  recentLimit = 10
-
-[params.footer]
-  showCopyright = false
-  showThemeAttribution = false
-  showScrollToTop = false
+[permalinks]
+  lab = "/:slug/"
 
 [menu]
-  [[menu.main]]
-    name = "Stations electriques"
-    url = "/categories/stations-electriques/"
+  [[menu.before]]
+    name = "Accueil"
+    url  = "/"
     weight = 1
-  [[menu.main]]
-    name = "Panneaux solaires"
-    url = "/categories/panneaux-solaires/"
-    weight = 2
-  [[menu.main]]
-    name = "Batteries"
-    url = "/categories/batteries/"
-    weight = 3
+
+  [[menu.after]]
+    name = "À propos"
+    url  = "/a-propos/"
+    weight = 1

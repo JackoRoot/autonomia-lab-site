@@ -1,0 +1,124 @@
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&display=swap');
+@keyframes flow1{to{stroke-dashoffset:-20}}
+@keyframes flow2{to{stroke-dashoffset:-20}}
+@keyframes flow3{to{stroke-dashoffset:-20}}
+@keyframes flow4a{to{stroke-dashoffset:-20}}
+@keyframes flow4b{to{stroke-dashoffset:-20}}
+@keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+@media(prefers-reduced-motion:no-preference){
+.f1{animation:flow1 2.4s linear infinite}
+.f2{animation:flow2 3s linear infinite}
+.f3{animation:flow3 2.8s linear infinite}
+.f4a{animation:flow4a 2s linear infinite}
+.f4b{animation:flow4b 2s linear infinite reverse}
+.ring{transform-origin:190px 210px;animation:spin 20s linear infinite}
+}
+.silo{cursor:pointer}
+.silo:hover .border{stroke:#F59E0B;stroke-width:2}
+.silo rect.bg{transition:filter .2s}
+.silo:hover rect.bg{filter:drop-shadow(0 2px 12px rgba(0,0,0,.08))}
+</style>
+<svg width="100%" viewBox="0 0 380 420" role="img">
+<title>Écosystème Autonomia Lab</title>
+<desc>4 silos interconnectés</desc>
+<defs>
+  <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+    <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </marker>
+</defs>
+
+<!-- Grille fond -->
+<circle cx="190" cy="210" r="62" fill="none" stroke="#E2E8F0" stroke-width="0.5"/>
+<circle cx="190" cy="210" r="108" fill="none" stroke="#E2E8F0" stroke-width="0.5" opacity=".6"/>
+<line x1="190" y1="20" x2="190" y2="400" stroke="#E2E8F0" stroke-width="0.5" opacity=".5"/>
+<line x1="20" y1="210" x2="360" y2="210" stroke="#E2E8F0" stroke-width="0.5" opacity=".5"/>
+
+<!-- 
+  Centre 190,210 — cercle intérieur r=62, extérieur r=108
+  Flèches à r=85 (milieu entre 62 et 108)
+  Haut  : y = 210-85 = 125  arc x: 166→214
+  Bas   : y = 210+85 = 295  arc x: 166→214
+  Gauche: x = 190-85 = 105  arc y: 186→234
+  Droite: x = 190+85 = 275  arc y: 186→234
+-->
+
+<!-- Solaire → Infrastructure (haut) -->
+<path class="f1" d="M166 125 Q190 113 214 125" fill="none" stroke="#F59E0B" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#arr)" opacity=".65"/>
+
+<!-- Solaire → Thermique (gauche) -->
+<path class="f2" d="M105 186 Q93 210 105 234" fill="none" stroke="#F59E0B" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#arr)" opacity=".45"/>
+
+<!-- Infrastructure → Hydraulique (droite) -->
+<path class="f3" d="M275 234 Q287 210 275 186" fill="none" stroke="#10B981" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#arr)" opacity=".55"/>
+
+<!-- Thermique ↔ Infrastructure (bas) -->
+<path class="f4a" d="M166 295 Q190 307 214 295" fill="none" stroke="#BE123C" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#arr)" opacity=".55"/>
+<path class="f4b" d="M214 303 Q190 315 166 303" fill="none" stroke="#BE123C" stroke-width="1" stroke-dasharray="5 4" marker-end="url(#arr)" opacity=".3"/>
+
+<!-- SILO 1 — Solaire & Stockage -->
+<g class="silo" onclick="sendPrompt('Montre-moi les articles Solaire et Stockage')">
+  <rect class="bg" x="24" y="24" width="152" height="86" rx="14" fill="#FEF3C7"/>
+  <rect class="border" x="24" y="24" width="152" height="86" rx="14" fill="none" stroke="#E2E8F0" stroke-width="1.5"/>
+  <g transform="translate(36,34) scale(0.85)" stroke="#F59E0B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <circle cx="12" cy="12" r="4"/>
+    <line x1="12" y1="2" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22"/>
+    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+    <line x1="2" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="22" y2="12"/>
+    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+  </g>
+  <text x="62" y="52" font-size="12" font-weight="600" fill="#92400E" dominant-baseline="middle">Solaire &</text>
+  <text x="62" y="68" font-size="12" font-weight="600" fill="#92400E">Stockage</text>
+  <rect x="80" y="92" width="68" height="16" rx="8" fill="#F59E0B"/>
+  <text x="114" y="104" text-anchor="middle" font-size="9" fill="white" font-weight="600">7 articles</text>
+</g>
+
+<!-- SILO 2 — Hydraulique -->
+<g class="silo" onclick="sendPrompt('Montre-moi les articles Hydraulique')">
+  <rect class="bg" x="204" y="24" width="152" height="86" rx="14" fill="#EFF6FF"/>
+  <rect class="border" x="204" y="24" width="152" height="86" rx="14" fill="none" stroke="#E2E8F0" stroke-width="1.5"/>
+  <g transform="translate(216,34) scale(0.85)" stroke="#3B82F6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <path d="M7 16.3c2.2 0 4-1.83 4-4.05 0-1.16-.57-2.26-1.71-3.19S7.29 6.75 7 5.3c-.29 1.45-1.14 2.84-2.29 3.76S3 13.09 3 14.25c0 2.22 1.8 4.05 4 4.05z"/>
+    <path d="M12.56 6.6A10.97 10.97 0 0 0 14 3.02c.5 2.5 2 4.9 4 6.5s3 3.5 3 5.5a6.98 6.98 0 0 1-11.91 4.97"/>
+  </g>
+  <text x="244" y="60" font-size="12" font-weight="600" fill="#1E3A5F" dominant-baseline="middle">Hydraulique</text>
+  <rect x="260" y="92" width="68" height="16" rx="8" fill="#3B82F6"/>
+  <text x="294" y="104" text-anchor="middle" font-size="9" fill="white" font-weight="600">5 articles</text>
+</g>
+
+<!-- SILO 3 — Thermique -->
+<g class="silo" onclick="sendPrompt('Montre-moi les articles Thermique')">
+  <rect class="bg" x="24" y="310" width="152" height="86" rx="14" fill="#FFF7ED"/>
+  <rect class="border" x="24" y="310" width="152" height="86" rx="14" fill="none" stroke="#E2E8F0" stroke-width="1.5"/>
+  <g transform="translate(36,320) scale(0.85)" stroke="#BE123C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 3z"/>
+  </g>
+  <text x="62" y="350" font-size="12" font-weight="600" fill="#7F1D1D" dominant-baseline="middle">Thermique</text>
+  <rect x="80" y="378" width="68" height="16" rx="8" fill="#BE123C"/>
+  <text x="114" y="390" text-anchor="middle" font-size="9" fill="white" font-weight="600">5 articles</text>
+</g>
+
+<!-- SILO 4 — Infrastructure -->
+<g class="silo" onclick="sendPrompt('Montre-moi les articles Infrastructure')">
+  <rect class="bg" x="204" y="310" width="152" height="86" rx="14" fill="#F0FDF4"/>
+  <rect class="border" x="204" y="310" width="152" height="86" rx="14" fill="none" stroke="#E2E8F0" stroke-width="1.5"/>
+  <g transform="translate(216,320) scale(0.85)" stroke="#10B981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/>
+    <line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/>
+    <line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/>
+    <line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/>
+    <line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/>
+  </g>
+  <text x="244" y="350" font-size="12" font-weight="600" fill="#064E3B" dominant-baseline="middle">Infrastructure</text>
+  <rect x="260" y="378" width="68" height="16" rx="8" fill="#10B981"/>
+  <text x="294" y="390" text-anchor="middle" font-size="9" fill="white" font-weight="600">4 articles</text>
+</g>
+
+<!-- Centre Autonomia -->
+<g class="ring">
+  <circle cx="190" cy="210" r="36" fill="none" stroke="#E2E8F0" stroke-width="1" stroke-dasharray="3 6"/>
+</g>
+<circle cx="190" cy="210" r="30" fill="white" stroke="#F1F5F9" stroke-width="1.5"/>
+<text x="190" y="214" text-anchor="middle" dominant-baseline="middle" font-size="12" font-weight="600" fill="#1E293B" font-family="'Cormorant Garamond', serif" letter-spacing="0.5">Autonomia</text>
+</svg>

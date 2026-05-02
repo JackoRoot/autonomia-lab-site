@@ -1,0 +1,12 @@
+{{ define "main" }}
+<article class="markdown book-article">
+  {{- if .Params.signataire -}}
+    <h1>{{ .Title }}</h1>
+    {{- with .Date -}}
+      {{- $mois := slice "" "janvier" "février" "mars" "avril" "mai" "juin" "juillet" "août" "septembre" "octobre" "novembre" "décembre" -}}
+      <p class="article-date">Publié le {{ printf "%d %s %d" .Day (index $mois (.Month | int)) .Year }}</p>
+    {{- end -}}
+  {{- end -}}
+  {{- .Content -}}
+</article>
+{{ end }}

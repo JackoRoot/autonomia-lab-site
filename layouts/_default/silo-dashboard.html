@@ -1,0 +1,48 @@
+{{- define "main" -}}
+{{- $mois := slice "" "janvier" "février" "mars" "avril" "mai" "juin" "juillet" "août" "septembre" "octobre" "novembre" "décembre" -}}
+{{- $silo := "" -}}
+{{- with .Params.silo -}}{{- $silo = print . -}}{{- end -}}
+
+<div class="silo-dashboard"{{ with $silo }} data-silo="{{ . }}"{{ end }}>
+
+  <div class="silo-header">
+    <h1 class="silo-title">
+      {{- if $silo -}}Dossiers Techniques — {{ end -}}{{ .Title }}
+    </h1>
+    {{- with .Description -}}
+    <p class="silo-description">{{ . }}</p>
+    {{- end -}}
+    {{- with .Content -}}<div class="silo-header-content">{{ . }}</div>{{- end -}}
+    {{- if .Pages -}}
+    <p class="silo-count">{{ len .Pages }} dossier{{ if gt (len .Pages) 1 }}s{{ end }} technique{{ if gt (len .Pages) 1 }}s{{ end }}</p>
+    {{- end -}}
+  </div>
+
+  {{- if .Pages -}}
+  <div class="silo-grid">
+    {{- range .Pages.ByDate.Reverse -}}
+    <article class="silo-card">
+      <div class="silo-card-top">
+        <time class="silo-card-date">{{ printf "%d %s %d" .Date.Day (index $mois (.Date.Month | int)) .Date.Year }}</time>
+        {{- with .Params.type_article -}}
+        <span class="silo-card-type">{{ . }}</span>
+        {{- end -}}
+      </div>
+      <h2 class="silo-card-title">
+        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+      </h2>
+      {{- if .Params.meta_description -}}
+      <p class="silo-card-summary">{{ .Params.meta_description }}</p>
+      {{- else if .Summary -}}
+      <p class="silo-card-summary">{{ .Summary | safeHTML }}</p>
+      {{- end -}}
+      <div class="silo-card-footer">
+        <a href="{{ .RelPermalink }}" class="silo-card-cta">Lire le rapport →</a>
+      </div>
+    </article>
+    {{- end -}}
+  </div>
+  {{- end -}}
+
+</div>
+{{- end -}}

@@ -1,0 +1,27 @@
+{{- /*
+  render-link.html — Liens internes conditionnels
+  Lien interne (destination commence par "/") :
+    - page cible trouvée dans Site.Pages → <a href> normal
+    - page cible absente               → texte brut, zéro 404
+  Lien externe → <a href> normal (inchangé)
+*/ -}}
+{{- $dest := .Destination -}}
+{{- $ctx  := .            -}}
+
+{{- if and (strings.HasPrefix $dest "/") (not (strings.HasPrefix $dest "//")) -}}
+
+  {{- /* Recherche la page par RelPermalink */ -}}
+  {{- $target := false -}}
+  {{- range $ctx.Page.Site.Pages -}}
+    {{- if eq .RelPermalink $dest -}}{{- $target = . -}}{{- end -}}
+  {{- end -}}
+
+  {{- if $target -}}
+    <a href="{{ $target.Permalink }}"{{ with $ctx.Title }} title="{{ . }}"{{ end }}>{{- $ctx.Text -}}</a>
+  {{- else -}}
+    {{- $ctx.Text -}}
+  {{- end -}}
+
+{{- else -}}
+  <a href="{{ $dest }}"{{ with .Title }} title="{{ . }}"{{ end }}>{{- .Text -}}</a>
+{{- end -}}

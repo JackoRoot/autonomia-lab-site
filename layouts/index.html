@@ -1,0 +1,31 @@
+{{- define "main" -}}
+<div class="lab-home">
+
+  <div class="lab-hero">
+    <h1>Autonomia Lab</h1>
+    <p class="lab-subtitle">
+      L'autonomie énergétique n'est pas une promesse, c'est une science exacte. Laissez les discours marketing de côté et bâtissez des installations infaillibles. Dimensionnements millimétrés, conformité absolue (Consuel, NF&nbsp;C&nbsp;15-100) et rentabilité financière (ROI)&nbsp;: une documentation technique de pointe conçue pour sécuriser les chantiers des professionnels RGE et des maîtres d'ouvrage exigeants.
+    </p>
+  </div>
+
+  {{- with .Content }}{{ . }}{{ end }}
+
+  {{- $silos := dict "1" "Solaire & Stockage" "2" "Hydraulique" "3" "Thermique" "4" "Infrastructure" -}}
+  {{- $mois  := slice "" "janvier" "février" "mars" "avril" "mai" "juin" "juillet" "août" "septembre" "octobre" "novembre" "décembre" -}}
+  {{- $recents := where .Site.RegularPages "Section" "lab" | first 4 -}}
+  {{- if $recents -}}
+  <div class="lab-recent">
+    <h2>Publications récentes</h2>
+    <ul class="recent-list">
+      {{- range $recents -}}
+      <li data-silo="{{ .Params.silo }}">
+        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+        <span class="recent-meta">{{ index $silos (string .Params.silo) }} · {{ printf "%d %s %d" .Date.Day (index $mois (.Date.Month | int)) .Date.Year }}</span>
+      </li>
+      {{- end -}}
+    </ul>
+  </div>
+  {{- end -}}
+
+</div>
+{{- end -}}

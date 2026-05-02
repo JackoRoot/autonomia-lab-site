@@ -1,0 +1,12 @@
+{{- $anchor := .Anchor -}}
+<h{{ .Level }} id="{{ $anchor }}"{{- with .Attributes.class }} class="{{ . }}"{{- end -}}>
+  {{- .Text -}}
+  {{- if default true .Attributes.anchor -}}
+  <a class="anchor" href="#{{ $anchor }}">#</a>
+  {{- end -}}
+</h{{ .Level }}>
+{{- if and (eq .Level 1) (.Page.Date) (.Page.Params.signataire) -}}
+  {{- $mois := slice "" "janvier" "février" "mars" "avril" "mai" "juin" "juillet" "août" "septembre" "octobre" "novembre" "décembre" -}}
+  {{- $d := .Page.Date -}}
+  <p class="article-date">Publié le {{ printf "%d %s %d" $d.Day (index $mois ($d.Month | int)) $d.Year }}</p>
+{{- end -}}
