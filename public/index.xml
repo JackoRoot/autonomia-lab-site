@@ -1,33 +1,15 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Autonomia Lab</title>
-    <link>https://autonomia-lab.fr/</link>
-    <description>Recent content on Autonomia Lab</description>
-    <generator>Hugo</generator>
-    <language>fr-FR</language>
-    <lastBuildDate>Tue, 07 Apr 2026 20:25:29 +0200</lastBuildDate>
-    <atom:link href="https://autonomia-lab.fr/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Top 5 batteries LiFePO4 solaire résidentiel — Guide technique 2026</title>
-      <link>https://autonomia-lab.fr/top-5/top-5-batteries-lifepo4-solaire-r-sidentiel/</link>
-      <pubDate>Tue, 07 Apr 2026 20:25:29 +0200</pubDate>
-      <guid>https://autonomia-lab.fr/top-5/top-5-batteries-lifepo4-solaire-r-sidentiel/</guid>
-      <description>&lt;h1 id=&#34;top-5-batteries-lifepo4-solaire-résidentiel--guide-technique-2026&#34; class=&#34;relative group&#34;&gt;Top 5 batteries LiFePO4 solaire résidentiel — Guide technique 2026 &lt;span class=&#34;absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100&#34;&gt;&lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34; style=&#34;text-decoration-line: none !important;&#34; href=&#34;#top-5-batteries-lifepo4-solaire-r%c3%a9sidentiel--guide-technique-2026&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;&lt;/span&gt;&lt;/h1&gt;&lt;p&gt;L&amp;rsquo;adoption des batteries LiFePO4 (LFP) pour les installations solaires résidentielles a marqué une évolution technologique significative, remplaçant les anciennes chimies NMC et plomb-acide. Cependant, le marché est saturé de propositions dont les performances réelles s&amp;rsquo;écartent des annonces. Un choix mal informé peut entraîner des coûts cachés, une durée de vie réduite et une efficacité énergétique médiocre. La clé réside dans une analyse technique rigoureuse des spécifications : capacité brute (Wh), puissance de sortie continue (W), nombre de cycles garanti et rendement de l&amp;rsquo;onduleur intégré. Ignorer ces paramètres, c&amp;rsquo;est accepter une dégradation prématurée de l&amp;rsquo;investissement et une sous-performance de votre système énergétique.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Analyse 2026 : ma sélection des stations solaires nomades après tests terrain</title>
-      <link>https://autonomia-lab.fr/guides/stations-de-recharge-solaire-nomade-2026/</link>
-      <pubDate>Mon, 06 Apr 2026 19:52:33 +0200</pubDate>
-      <guid>https://autonomia-lab.fr/guides/stations-de-recharge-solaire-nomade-2026/</guid>
-      <description>&lt;p&gt;test&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;p&gt;&lt;em&gt;Guide rédigé par Arnaud Lefebvre — Autonomia Lab.&lt;/em&gt;&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Mentions légales</title>
-      <link>https://autonomia-lab.fr/mentions-legales/</link>
-      <pubDate>Mon, 06 Apr 2026 00:00:00 +0000</pubDate>
-      <guid>https://autonomia-lab.fr/mentions-legales/</guid>
-      <description>&lt;h2 id=&#34;éditeur&#34; class=&#34;relative group&#34;&gt;Éditeur &lt;span class=&#34;absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100&#34;&gt;&lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34; style=&#34;text-decoration-line: none !important;&#34; href=&#34;#%c3%a9diteur&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;&lt;/span&gt;&lt;/h2&gt;&lt;p&gt;Ce site est édité à titre personnel par :&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Frank Silver-Vasseur&lt;/strong&gt;&lt;br&gt;&#xA;Champigny-sur-Marne, 94500, France&lt;br&gt;&#xA;Contact : &lt;a href=&#34;mailto:valora.edge@gmail.com&#34;&gt;valora.edge@gmail.com&lt;/a&gt;&lt;/p&gt;&#xA;&lt;h2 id=&#34;hébergement&#34; class=&#34;relative group&#34;&gt;Hébergement &lt;span class=&#34;absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100&#34;&gt;&lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34; style=&#34;text-decoration-line: none !important;&#34; href=&#34;#h%c3%a9bergement&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;&lt;/span&gt;&lt;/h2&gt;&lt;p&gt;Ce site est hébergé par :&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Cloudflare Pages&lt;/strong&gt;&lt;br&gt;&#xA;101 Townsend St, San Francisco, CA 94107, USA&lt;br&gt;&#xA;cloudflare.com&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Hetzner Online GmbH&lt;/strong&gt;&lt;br&gt;&#xA;Industriestr. 25, 91710 Gunzenhausen, Allemagne&lt;br&gt;&#xA;hetzner.com&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;propriété-intellectuelle&#34; class=&#34;relative group&#34;&gt;Propriété intellectuelle &lt;span class=&#34;absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100&#34;&gt;&lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34; style=&#34;text-decoration-line: none !important;&#34; href=&#34;#propri%c3%a9t%c3%a9-intellectuelle&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;&lt;/span&gt;&lt;/h2&gt;&lt;p&gt;L&amp;rsquo;ensemble du contenu de ce site (textes, analyses, comparatifs) est la propriété de l&amp;rsquo;éditeur. Toute reproduction, même partielle, est interdite sans autorisation préalable.&lt;/p&gt;</description>
-    </item>
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Autonomia Lab</title><link>https://autonomia-lab.fr/</link><description>Recent content on Autonomia Lab</description><generator>Hugo</generator><language>fr-FR</language><lastBuildDate>Mon, 06 Apr 2026 19:52:33 +0200</lastBuildDate><atom:link href="https://autonomia-lab.fr/index.xml" rel="self" type="application/rss+xml"/><item><title>Analyse 2026 : ma sélection des stations solaires nomades après tests terrain</title><link>https://autonomia-lab.fr/guides/stations-de-recharge-solaire-nomade-2026/</link><pubDate>Mon, 06 Apr 2026 19:52:33 +0200</pubDate><guid>https://autonomia-lab.fr/guides/stations-de-recharge-solaire-nomade-2026/</guid><description>&lt;p>test&lt;/p>
+&lt;hr>
+&lt;p>&lt;em>Guide rédigé par Arnaud Lefebvre — Autonomia Lab.&lt;/em>&lt;/p></description></item><item><title>Mentions légales</title><link>https://autonomia-lab.fr/mentions-legales/</link><pubDate>Mon, 06 Apr 2026 00:00:00 +0000</pubDate><guid>https://autonomia-lab.fr/mentions-legales/</guid><description>&lt;h2 id="éditeur" class="relative group">Éditeur &lt;span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100">&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#%c3%a9diteur" aria-label="Anchor">#&lt;/a>&lt;/span>&lt;/h2>&lt;p>Ce site est édité à titre personnel par :&lt;/p>
+&lt;p>&lt;strong>Frank Silver-Vasseur&lt;/strong>&lt;br>
+Champigny-sur-Marne, 94500, France&lt;br>
+Contact : &lt;a href="mailto:valora.edge@gmail.com">valora.edge@gmail.com&lt;/a>&lt;/p>
+&lt;h2 id="hébergement" class="relative group">Hébergement &lt;span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100">&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#h%c3%a9bergement" aria-label="Anchor">#&lt;/a>&lt;/span>&lt;/h2>&lt;p>Ce site est hébergé par :&lt;/p>
+&lt;p>&lt;strong>Cloudflare Pages&lt;/strong>&lt;br>
+101 Townsend St, San Francisco, CA 94107, USA&lt;br>
+cloudflare.com&lt;/p>
+&lt;p>&lt;strong>Hetzner Online GmbH&lt;/strong>&lt;br>
+Industriestr. 25, 91710 Gunzenhausen, Allemagne&lt;br>
+hetzner.com&lt;/p>
+&lt;hr>
+&lt;h2 id="propriété-intellectuelle" class="relative group">Propriété intellectuelle &lt;span class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100">&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700" style="text-decoration-line: none !important;" href="#propri%c3%a9t%c3%a9-intellectuelle" aria-label="Anchor">#&lt;/a>&lt;/span>&lt;/h2>&lt;p>L&amp;rsquo;ensemble du contenu de ce site (textes, analyses, comparatifs) est la propriété de l&amp;rsquo;éditeur. Toute reproduction, même partielle, est interdite sans autorisation préalable.&lt;/p></description></item></channel></rss>
