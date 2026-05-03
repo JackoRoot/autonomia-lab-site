@@ -556,11 +556,19 @@ blockquote {
   flex-direction: column;
   gap: 0.625rem;
   transition: box-shadow 0.2s, border-color 0.2s;
+  position: relative;  // nécessaire pour le ::after de silo-card-cta
 
   &:hover {
     box-shadow: 0 4px 16px rgba(0,0,0,0.07);
     border-color: #CBD5E1;
   }
+}
+
+// Toute la card est clicable via le lien CTA
+.silo-card-cta::after {
+  content: "";
+  position: absolute;
+  inset: 0;
 }
 
 .silo-card-top {
