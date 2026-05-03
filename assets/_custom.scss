@@ -751,6 +751,9 @@ blockquote {
   // Silo dashboard — une colonne sur mobile
   .silo-dashboard { padding: 1.5rem 1rem 3rem; }
   .silo-grid { grid-template-columns: 1fr; }
+
+  // Masque le titre sidebar (hamburger) — dupliqué avec le H1 de la page
+  .book-brand { display: none !important; }
 }
 
 
