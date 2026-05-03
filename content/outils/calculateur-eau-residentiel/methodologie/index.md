@@ -138,7 +138,7 @@ Sources : [BUT](https://blog.but.fr/article/combien-deau-consomme-une-machine-a-
 
 **Cycles moyens** : 3-4 par semaine pour un foyer de 2-3 personnes, jusqu'à 7-10 pour un foyer avec enfants.
 
-**Note** : depuis fin 2025, les modèles vendus neufs ne peuvent plus être en dessous de la classe A+ (réglementation européenne).
+**Note** : depuis le rescaling EU de mars 2021, l'étiquetage énergie va de A à G (les anciens labels A+/A++/A+++ ont été supprimés). Les modèles récents se situent généralement en classe B ou C sur le nouveau barème — l'équivalent des anciens A++/A+++.
 
 ### Lave-vaisselle
 

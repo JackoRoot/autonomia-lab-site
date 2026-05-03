@@ -211,7 +211,7 @@ Considérez ces facteurs personnels :
 
 Ce coût est utile pour comparer :
 
-- Avec le tarif réseau (~0,21 €/kWh en 2026 en France)
+- Avec le tarif réseau (~0,1940 €/kWh en 2026 en France — TRVE CRE fév. 2026)
 - Entre différentes capacités de batterie
 - Avec d'autres solutions (lead-acid, batterie virtuelle)
 
@@ -220,7 +220,7 @@ Ce coût est utile pour comparer :
 - Le remplacement éventuel d'éléments (BMS, onduleur) sur la durée
 - Le coût du kWh solaire lui-même (si vous chargez avec votre PV)
 
-Pour le **vrai coût final de l'électricité solaire stockée**, voir notre [calculateur ROI installation solaire complète](/outils/calculateur-roi-solaire/) (à venir).
+Pour le **vrai coût final de l'électricité solaire stockée**, voir notre [calculateur ROI installation solaire complète](/outils/calculateur-roi-solaire/).
 
 ## Limites de cet outil
 

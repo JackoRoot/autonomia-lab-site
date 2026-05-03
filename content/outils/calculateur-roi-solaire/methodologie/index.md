@@ -169,7 +169,7 @@ Les cellules photovoltaïques perdent du rendement chaque année sous l'effet de
 | Réaliste terrain | **0,5%/an** | ~10% |
 | Panneaux premium (tier 1) | 0,3%/an | ~6% |
 
-**Source** : Étude Preger et al. 2020 (Journal of The Electrochemical Society) · Clean Energy Reviews · Garanties constructeurs Pylontech, BYD, Victron
+**Source** : Jordan & Kurtz, NREL 2022 — *Photovoltaic Degradation Rates* ([nrel.gov](https://www.nrel.gov)) · Garanties constructeurs (Jinko, REC, Sunpower)
 
 ### Évolution du prix de l'électricité
 
