@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+<html lang="fr-FR" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1316&amp;path=livereload" data-no-instant defer></script>
+  <!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Sources, productibles PVGIS, pertes système, profils de consommation et formules du calculateur de dimensionnement PV résidentiel.">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#2e3440">
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="http://localhost:1316/outils/calculateur-dimensionnement-pv/methodologie/">
+  <meta property="og:site_name" content="Autonomia Lab">
+  <meta property="og:title" content="Méthodologie : Calculateur dimensionnement panneaux solaires">
+  <meta property="og:description" content="Sources, productibles PVGIS, pertes système, profils de consommation et formules du calculateur de dimensionnement PV résidentiel.">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="outils">
+    <meta property="article:published_time" content="2026-05-03T00:00:00+00:00">
+    <meta property="article:modified_time" content="2026-05-03T00:00:00+00:00">
+
+
+  <meta itemprop="name" content="Méthodologie : Calculateur dimensionnement panneaux solaires">
+  <meta itemprop="description" content="Sources, productibles PVGIS, pertes système, profils de consommation et formules du calculateur de dimensionnement PV résidentiel.">
+  <meta itemprop="datePublished" content="2026-05-03T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2026-05-03T00:00:00+00:00">
+  <meta itemprop="wordCount" content="1064">
+
+<title>Méthodologie : Calculateur dimensionnement panneaux solaires | Autonomia Lab</title>
+<link rel="icon" href="/favicon.png" >
+<link rel="manifest" href="/manifest.json">
+<link rel="canonical" href="http://localhost:1316/outils/calculateur-dimensionnement-pv/methodologie/">
+<link rel="stylesheet" href="/book.min.453fb55be7ab107bba557e0692b7eaa0ede3596828379ae8d7662b3ba23a3000.css" integrity="sha256-RT&#43;1W&#43;erEHu6VX4GkrfqoO3jWWgoN5ro12YrO6I6MAA=" crossorigin="anonymous">
+
+
+  <script defer src="/fuse.min.js"></script>
+  <script defer src="/en.search.min.1f3c58629d551a5fb88fdd76295a5b7b21dba8dccbf58cbd2d52b86279d88b69.js" integrity="sha256-HzxYYp1VGl&#43;4j912KVpbeyHbqNzL9Yy9LVK4YnnYi2k=" crossorigin="anonymous"></script>
+
+
+
+  
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#ffffff">
+<style>
+  :root { color-scheme: light !important; }
+  html, body { color-scheme: light !important; }
+</style>
+
+</head>
+<body dir="ltr" class="book-kind-page book-type-outils">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    
+<aside class="book-menu">
+  <div class="book-menu-content">
+    
+  <nav>
+<h2 class="book-brand">
+  <span class="flex align-center"><span>Autonomia Lab</span>
+  </span>
+</h2>
+
+
+<div class="book-search hidden">
+  <input id="book-search-input" type="text" 
+    placeholder="Search"
+    aria-label="Search"
+    maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+<script>document.querySelector(".book-search").classList.remove("hidden")</script>
+
+
+
+
+
+
+<ul><li><a href="/">Accueil</a></li></ul>
+
+
+
+
+
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <input type="checkbox" id="section-80a6eccb491e65aad6dae5f33ec481c5" class="toggle"  />
+    <label for="section-80a6eccb491e65aad6dae5f33ec481c5" class="flex">
+      <a role="button"
+         class="" data-silo="1">
+        Solaire &amp; Stockage</a>
+      <img src="/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo1_cerbo-gx-pylontech-cablage/" class="" data-silo="1">
+      Cerbo GX &amp; Pylontech</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo1_erreur-11-victron-multiplus-ii/" class="" data-silo="1">
+      Erreur 11 Victron</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo1_fusibles-dc-ou-disjoncteurs/" class="" data-silo="1">
+      Fusibles DC vs Disjoncteurs</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo1_mppt-victron-100-20-100-30/" class="" data-silo="1">
+      MPPT 100/20 vs 100/30</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo1_pvgis-off-grid-autonomie/" class="" data-silo="1">
+      PVGIS Off-Grid</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo1_ratio-dc-ac-onduleur/" class="" data-silo="1">
+      Ratio DC/AC onduleur</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo1_section-cable-batterie-48v/" class="" data-silo="1">
+      Section câble 48V</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <input type="checkbox" id="section-ff2b4a7940fbd23fb7c151ce892a38d0" class="toggle"  />
+    <label for="section-ff2b4a7940fbd23fb7c151ce892a38d0" class="flex">
+      <a role="button"
+         class="" data-silo="2">
+        Hydraulique</a>
+      <img src="/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo2_calcul-hmt-pompe-50m/" class="" data-silo="2">
+      Calcul HMT pompe 50m</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo2_calcul-traitement-uvc/" class="" data-silo="2">
+      Calcul UV-C 40 mJ/cm²</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo2_filtration-fer-manganese/" class="" data-silo="2">
+      Filtration fer/manganèse</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo2_potabilisation-forage/" class="" data-silo="2">
+      Potabilisation forage</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo2_rejet-osmose-inverse/" class="" data-silo="2">
+      Rejet osmose inverse</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <input type="checkbox" id="section-2ff767a3ea21b6cc828c74332a27d864" class="toggle"  />
+    <label for="section-2ff767a3ea21b6cc828c74332a27d864" class="flex">
+      <a role="button"
+         class="" data-silo="3">
+        Thermique</a>
+      <img src="/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo3_chauffe-eau-thermo-cop/" class="" data-silo="3">
+      Chauffe-eau thermodynamique</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo3_dimensionnement-pac-air-air/" class="" data-silo="3">
+      Dimensionnement PAC air-air</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo3_isolation-toiture-r7/" class="" data-silo="3">
+      Isolation toiture R=7</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo3_rendement-pac-grand-froid/" class="" data-silo="3">
+      PAC grand froid COP</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo3_pac-releve-fioul-schema/" class="" data-silo="3">
+      PAC relève fioul schéma</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <input type="checkbox" id="section-d3532d0f76fc0e770fa43359b2f066c6" class="toggle"  />
+    <label for="section-d3532d0f76fc0e770fa43359b2f066c6" class="flex">
+      <a role="button"
+         class="" data-silo="4">
+        Infrastructure</a>
+      <img src="/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo4_differentiel-type-b/" class="" data-silo="4">
+      Différentiel Type B</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo4_disjoncteur-courbe-d-vs-c/" class="" data-silo="4">
+      Disjoncteur D vs C</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo4_puissance-reactive-linky/" class="" data-silo="4">
+      Puissance réactive Linky</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo4_regime-neutre-tt-tn/" class="" data-silo="4">
+      Régime neutre TT/TN</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+<ul><li><a href="/outils/">Outils du Lab</a></li><li><a href="/a-propos/">À propos</a></li></ul>
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+
+  </div>
+</aside>
+ 
+
+    <div class="book-page">
+      <header class="book-header hidden">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/icons/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <h3>Méthodologie : Calculateur dimensionnement panneaux solaires</h3>
+
+  <label for="toc-control">
+    
+    <img src="/icons/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#approche-du-calculateur">Approche du calculateur</a></li>
+    <li><a href="#données-de-référence--consommation-foyer-france">Données de référence — consommation foyer France</a>
+      <ul>
+        <li><a href="#consommation-moyenne-nationale">Consommation moyenne nationale</a></li>
+        <li><a href="#profils-par-type-de-logement">Profils par type de logement</a></li>
+      </ul>
+    </li>
+    <li><a href="#productible-solaire--pvgis-sarah3">Productible solaire — PVGIS-SARAH3</a>
+      <ul>
+        <li><a href="#productible-annuel-par-région">Productible annuel par région</a></li>
+      </ul>
+    </li>
+    <li><a href="#pertes-système--détail-par-poste">Pertes système — détail par poste</a>
+      <ul>
+        <li><a href="#pertes-selon-lorientation">Pertes selon l&rsquo;orientation</a></li>
+      </ul>
+    </li>
+    <li><a href="#puissance-des-panneaux--hypothèse-de-calcul">Puissance des panneaux — hypothèse de calcul</a></li>
+    <li><a href="#taux-dautoconsommation--hypothèses">Taux d&rsquo;autoconsommation — hypothèses</a></li>
+    <li><a href="#formules-appliquées">Formules appliquées</a></li>
+    <li><a href="#limite-des-9-kwc-dans-ce-calculateur">Limite des 9 kWc dans ce calculateur</a></li>
+    <li><a href="#interprétation-des-résultats">Interprétation des résultats</a>
+      <ul>
+        <li><a href="#couverture--40">Couverture &lt; 40%</a></li>
+        <li><a href="#couverture-40-80">Couverture 40-80%</a></li>
+        <li><a href="#couverture--80">Couverture &gt; 80%</a></li>
+      </ul>
+    </li>
+    <li><a href="#ce-que-le-calculateur-ne-couvre-pas">Ce que le calculateur ne couvre pas</a></li>
+    <li><a href="#évolutions-prévues">Évolutions prévues</a></li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+<article class="markdown book-article"><p>← <a href="http://localhost:1316/outils/calculateur-dimensionnement-pv/">Calculateur dimensionnement PV</a> · ← <a href="http://localhost:1316/outils/">Tous les outils</a></p>
+<h1 id="méthodologie-du-calculateur-dimensionnement-panneaux-solaires">Méthodologie du calculateur dimensionnement panneaux solaires<a class="anchor" href="#m%c3%a9thodologie-du-calculateur-dimensionnement-panneaux-solaires">#</a></h1><blockquote class='book-hint '>
+<p>Cette page détaille l&rsquo;origine de chaque chiffre utilisé par notre calculateur. L&rsquo;objectif : transparence totale pour vous permettre de vérifier, contester ou ajuster selon votre situation réelle.</p>
+</blockquote><h2 id="approche-du-calculateur">Approche du calculateur<a class="anchor" href="#approche-du-calculateur">#</a></h2><p>Le calculateur répond à une question simple : <strong>combien de kWc installer pour couvrir X% de ma consommation annuelle ?</strong></p>
+<p><strong>Mode estimation rapide</strong> : choisissez un profil type (studio, foyer moyen, maison T3/T4, maison 100m² tout électrique) ou saisissez votre consommation directement. Résultat en 30 secondes.</p>
+<p><strong>Mode &ldquo;Configurer mon foyer&rdquo;</strong> : décomposez votre consommation poste par poste — chauffage, eau chaude sanitaire, 8 postes électroménager, voiture électrique, piscine. Plus précis, indispensable pour un dimensionnement sérieux.</p>
+<p>Il prend en compte :</p>
+<ul>
+<li>La consommation annuelle réelle du foyer (relevé Linky ou facture)</li>
+<li>Le productible solaire de la région (PVGIS-SARAH3)</li>
+<li>L&rsquo;orientation et l&rsquo;inclinaison de la toiture</li>
+<li>Les pertes système réelles (câblage, onduleur, salissures)</li>
+<li>Le taux d&rsquo;autoconsommation visé</li>
+</ul>
+<p>La puissance recommandée est ensuite traduite en nombre de panneaux (base 400 Wc), surface de toiture nécessaire, et estimation budgétaire indicative.</p>
+<hr>
+<h2 id="données-de-référence--consommation-foyer-france">Données de référence — consommation foyer France<a class="anchor" href="#donn%c3%a9es-de-r%c3%a9f%c3%a9rence--consommation-foyer-france">#</a></h2><h3 id="consommation-moyenne-nationale">Consommation moyenne nationale<a class="anchor" href="#consommation-moyenne-nationale">#</a></h3><p>La consommation électrique moyenne d&rsquo;un foyer français s&rsquo;établit à 4 287 kWh/an d&rsquo;après Enedis (Bilan électrique 2024).</p>
+<p><strong>Source</strong> : <a href="https://www.enedis.fr">Enedis — Bilan électrique 2024</a></p>
+<h3 id="profils-par-type-de-logement">Profils par type de logement<a class="anchor" href="#profils-par-type-de-logement">#</a></h3><table>
+  <thead>
+      <tr>
+          <th>Profil</th>
+          <th>Consommation typique</th>
+          <th>Notes</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Studio / Appartement</td>
+          <td>~2 000 kWh/an</td>
+          <td>Sans chauffage électrique</td>
+      </tr>
+      <tr>
+          <td>Foyer moyen</td>
+          <td>~4 300 kWh/an</td>
+          <td>Moyenne nationale Enedis 2024</td>
+      </tr>
+      <tr>
+          <td>Maison T3/T4</td>
+          <td>~9 000 kWh/an</td>
+          <td>Avec quelques usages électriques</td>
+      </tr>
+      <tr>
+          <td>Maison 100m² tout électrique</td>
+          <td>~14 500 kWh/an</td>
+          <td>Chauffage + ECS électrique</td>
+      </tr>
+  </tbody>
+</table>
+<blockquote class='book-hint '>
+<p><strong>Note</strong> : Ces profils sont des moyennes. Votre consommation réelle dépend du nombre d&rsquo;occupants, de l&rsquo;isolation, des équipements et des habitudes. <strong>Utilisez toujours votre relevé Linky ou votre facture annuelle</strong> pour un calcul précis.</p>
+</blockquote><p><strong>Source</strong> : ADEME — Panel usages électrodomestiques · Enedis bilan 2024 · CRE données résidentielles</p>
+<hr>
+<h2 id="productible-solaire--pvgis-sarah3">Productible solaire — PVGIS-SARAH3<a class="anchor" href="#productible-solaire--pvgis-sarah3">#</a></h2><h3 id="productible-annuel-par-région">Productible annuel par région<a class="anchor" href="#productible-annuel-par-r%c3%a9gion">#</a></h3><p>Le productible (kWh produits par kWc installé et par an) est issu des simulations PVGIS-SARAH3 du Joint Research Centre (JRC) de la Commission Européenne.</p>
+<p><strong>Paramètres de simulation de référence</strong> :</p>
+<ul>
+<li>Technologie : c-Si (silicium cristallin)</li>
+<li>Inclinaison : 35° (optimum France)</li>
+<li>Orientation : plein Sud (azimut 0°)</li>
+<li>Pertes système : 14% (défaut PVGIS on-grid)</li>
+<li>Type de montage : free-standing</li>
+</ul>
+<table>
+  <thead>
+      <tr>
+          <th>Zone</th>
+          <th>Productible de référence</th>
+          <th>Correction orientation</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Nord — Paris, Île-de-France (H1)</td>
+          <td>950 kWh/kWc/an</td>
+          <td>Plein Sud 100%</td>
+      </tr>
+      <tr>
+          <td>Centre — Lyon, Auvergne-Rhône-Alpes (H2)</td>
+          <td>1 200 kWh/kWc/an</td>
+          <td>Plein Sud 100%</td>
+      </tr>
+      <tr>
+          <td>Sud — Marseille, PACA (H3)</td>
+          <td>1 580 kWh/kWc/an</td>
+          <td>Plein Sud 100%</td>
+      </tr>
+  </tbody>
+</table>
+<blockquote class='book-hint '>
+<p><strong>Important</strong> : Ces valeurs sont des moyennes calculées sur la période 2005-2023. La variabilité interannuelle est de ±10 à 15%.</p>
+</blockquote><p><strong>Source</strong> : <a href="https://re.jrc.ec.europa.eu/pvg_tools/fr/">PVGIS-SARAH3 — JRC, Commission Européenne</a></p>
+<hr>
+<h2 id="pertes-système--détail-par-poste">Pertes système — détail par poste<a class="anchor" href="#pertes-syst%c3%a8me--d%c3%a9tail-par-poste">#</a></h2><p>Les pertes système réduisent la production théorique des panneaux. Le calcul utilise la valeur par défaut PVGIS de <strong>14% pour une installation on-grid standard</strong>.</p>
+<table>
+  <thead>
+      <tr>
+          <th>Poste de pertes</th>
+          <th>Valeur</th>
+          <th>Source</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>Total on-grid standard</strong></td>
+          <td><strong>14%</strong></td>
+          <td>JRC PVGIS 2022 (valeur par défaut)</td>
+      </tr>
+      <tr>
+          <td>Câblage DC</td>
+          <td>2%</td>
+          <td>ADEME 2019 (PVGIS défaut : 1,5%)</td>
+      </tr>
+      <tr>
+          <td>Encrassement / salissures</td>
+          <td>1%</td>
+          <td>Obton 2023, NREL 2022 (Europe tempérée)</td>
+      </tr>
+      <tr>
+          <td>Mismatch électrique (cellules)</td>
+          <td>1,5%</td>
+          <td>NREL 2022</td>
+      </tr>
+      <tr>
+          <td>Onduleur + divers</td>
+          <td>~9-10%</td>
+          <td>SMA, Victron datasheets</td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="pertes-selon-lorientation">Pertes selon l&rsquo;orientation<a class="anchor" href="#pertes-selon-lorientation">#</a></h3><table>
+  <thead>
+      <tr>
+          <th>Orientation</th>
+          <th>Coefficient</th>
+          <th>Perte vs plein Sud</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Plein Sud</td>
+          <td>1,00</td>
+          <td>Référence</td>
+      </tr>
+      <tr>
+          <td>Sud-Est / Sud-Ouest</td>
+          <td>0,95</td>
+          <td>−5%</td>
+      </tr>
+      <tr>
+          <td>Est / Ouest</td>
+          <td>0,85</td>
+          <td>−15%</td>
+      </tr>
+      <tr>
+          <td>Nord-Est / Nord-Ouest</td>
+          <td>0,70</td>
+          <td>−30%</td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>Source</strong> : PVGIS Guide utilisateur — JRC 2022</p>
+<hr>
+<h2 id="puissance-des-panneaux--hypothèse-de-calcul">Puissance des panneaux — hypothèse de calcul<a class="anchor" href="#puissance-des-panneaux--hypoth%c3%a8se-de-calcul">#</a></h2><p>Le calculateur utilise une puissance unitaire de <strong>400 Wc</strong> par panneau, standard sur le marché résidentiel 2026.</p>
+<table>
+  <thead>
+      <tr>
+          <th>Gamme de panneaux</th>
+          <th>Puissance unitaire typique</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Entrée de gamme</td>
+          <td>350-380 Wc</td>
+      </tr>
+      <tr>
+          <td>Standard marché 2026</td>
+          <td><strong>400-420 Wc</strong></td>
+      </tr>
+      <tr>
+          <td>Haut de gamme</td>
+          <td>440-480 Wc</td>
+      </tr>
+  </tbody>
+</table>
+<p>Surface par panneau : <strong>2,0 m²</strong> (panneau 1 m × 2 m — standard marché)</p>
+<hr>
+<h2 id="taux-dautoconsommation--hypothèses">Taux d&rsquo;autoconsommation — hypothèses<a class="anchor" href="#taux-dautoconsommation--hypoth%c3%a8ses">#</a></h2><table>
+  <thead>
+      <tr>
+          <th>Taux</th>
+          <th>Profil</th>
+          <th>Implication sur dimensionnement</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>50%</strong></td>
+          <td>Personnes absentes en journée, pas de batterie</td>
+          <td>Puissance à installer × 2 pour couvrir la conso</td>
+      </tr>
+      <tr>
+          <td><strong>70%</strong></td>
+          <td>Usage optimisé (lave-linge programmé en journée)</td>
+          <td>Puissance × 1,43 — scénario par défaut</td>
+      </tr>
+      <tr>
+          <td><strong>85%</strong></td>
+          <td>Avec batterie de stockage</td>
+          <td>Puissance × 1,18 — nécessite batterie ~5-10 kWh</td>
+      </tr>
+  </tbody>
+</table>
+<blockquote class='book-hint '>
+<p>En 2026, avec un tarif de rachat du surplus à 0,04 €/kWh (vs 0,194 €/kWh évité), il est toujours plus rentable d&rsquo;autoconsommer que de revendre. <strong>L&rsquo;objectif est donc de dimensionner pour maximiser l&rsquo;autoconsommation</strong>, pas pour produire le maximum absolu.</p>
+</blockquote><hr>
+<h2 id="formules-appliquées">Formules appliquées<a class="anchor" href="#formules-appliqu%c3%a9es">#</a></h2><pre tabindex="0"><code>Productible_réel (kWh/kWc/an) = Productible_région 
+                                × Coefficient_orientation 
+                                × (1 - Pertes_système)
+
+kWh_à_couvrir = Consommation_annuelle × Taux_autoconsommation
+
+kWc_nécessaire = kWh_à_couvrir / Productible_réel
+
+kWc_recommandé = ARRONDI_SUPERIEUR(kWc_nécessaire, 0.5 kWc)
+                 limité à 9 kWc (calcul simplifié)
+
+Nb_panneaux = ARRONDI_SUPERIEUR(kWc_recommandé × 1000 / 400 Wc)
+
+Surface_toiture = Nb_panneaux × 2,0 m²
+
+Production_annuelle = kWc_recommandé × Productible_réel
+
+kWh_autoconsommés = Production_annuelle × Taux_autoconsommation
+kWh_surplus = Production_annuelle × (1 - Taux_autoconsommation)
+
+Taux_couverture = kWh_autoconsommés / Consommation_annuelle
+
+Budget_indicatif = kWc_recommandé × 2 000 €/kWc (marché 2026)
+Prime_CRE = kWc_recommandé × 80 €/kWc (T14 2026)
+Budget_net = Budget_indicatif - Prime_CRE</code></pre><hr>
+<h2 id="limite-des-9-kwc-dans-ce-calculateur">Limite des 9 kWc dans ce calculateur<a class="anchor" href="#limite-des-9-kwc-dans-ce-calculateur">#</a></h2><p>Le calculateur affiche un maximum de 9 kWc. Au-delà :</p>
+<ul>
+<li>Les démarches administratives changent (permis de construire obligatoire selon les cas)</li>
+<li>Le raccordement Enedis nécessite une convention spécifique</li>
+<li>Les tarifs de rachat EDF OA changent de tranche</li>
+<li>La prime CRE passe à 90 €/kWc pour la tranche 9-36 kWc</li>
+</ul>
+<p><strong>Pour des installations &gt;9 kWc, consultez obligatoirement un installateur RGE.</strong></p>
+<hr>
+<h2 id="interprétation-des-résultats">Interprétation des résultats<a class="anchor" href="#interpr%c3%a9tation-des-r%c3%a9sultats">#</a></h2><h3 id="couverture--40">Couverture &lt; 40%<a class="anchor" href="#couverture--40">#</a></h3><p>Votre consommation est élevée ou vous êtes dans une région peu ensoleillée. Pistes : augmenter la puissance installée, réduire la consommation (isolation, PAC en remplacement du chauffage électrique), ou envisager une installation &gt;9 kWc.</p>
+<h3 id="couverture-40-80">Couverture 40-80%<a class="anchor" href="#couverture-40-80">#</a></h3><p>Dimensionnement standard. Le solaire couvre une part significative de votre facture. Rentable sur 10-15 ans selon la région.</p>
+<h3 id="couverture--80">Couverture &gt; 80%<a class="anchor" href="#couverture--80">#</a></h3><p>Excellente configuration. Une batterie vous permettrait d&rsquo;approcher l&rsquo;autonomie complète. Voir notre <a href="http://localhost:1316/outils/calculateur-roi-solaire/">calculateur ROI installation solaire</a> pour la rentabilité détaillée.</p>
+<hr>
+<h2 id="ce-que-le-calculateur-ne-couvre-pas">Ce que le calculateur ne couvre pas<a class="anchor" href="#ce-que-le-calculateur-ne-couvre-pas">#</a></h2><p><strong>Ombrage</strong> : les arbres, cheminées et bâtiments voisins réduisent significativement la production — jusqu&rsquo;à −30% selon la configuration. Non modélisé — à évaluer avec un installateur sur site.</p>
+<p><strong>Dégradation annuelle</strong> : les panneaux perdent ~0,5%/an de rendement. Sur 20 ans, la production est ~10% inférieure à la 1ère année. Non intégré.</p>
+<p><strong>Installations &gt;9 kWc</strong> : non couvertes dans ce calculateur simplifié.</p>
+<hr>
+<h2 id="évolutions-prévues">Évolutions prévues<a class="anchor" href="#%c3%a9volutions-pr%c3%a9vues">#</a></h2><ul>
+<li>Module ombrage (coefficient de masque)</li>
+<li>Simulation mois par mois (saisonnalité)</li>
+<li>Comparateur avec/sans batterie</li>
+<li>Calcul pour les installations &gt;9 kWc</li>
+<li>Intégration directe avec PVGIS API (coordonnées GPS)</li>
+</ul>
+<p>Si vous avez des suggestions, contactez-nous via le formulaire du Lab.</p>
+<hr>
+<p><strong>Dernière mise à jour</strong> : Mai 2026
+<strong>Sources principales</strong> : PVGIS-SARAH3 JRC (2005-2023), Enedis bilan électrique 2024, ADEME Panel usages électrodomestiques, CRE arrêté tarifaire T14 2026</p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+<div>
+
+</div>
+
+<div>
+
+</div>
+
+</div>
+
+
+
+
+
+  
+  
+  
+
+
+ 
+        
+  
+ 
+        
+        
+  
+ 
+        
+  
+  
+    <script>(function(){document.querySelectorAll("pre:has(code)").forEach(e=>{e.addEventListener("click",e.focus),e.addEventListener("copy",function(t){if(t.preventDefault(),navigator.clipboard){const t=window.getSelection().toString()||e.textContent;navigator.clipboard.writeText(t)}})})})()</script>
+  
+
+      </footer>
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+  
+  <aside class="book-toc">
+    <div class="book-toc-content">
+      
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#approche-du-calculateur">Approche du calculateur</a></li>
+    <li><a href="#données-de-référence--consommation-foyer-france">Données de référence — consommation foyer France</a>
+      <ul>
+        <li><a href="#consommation-moyenne-nationale">Consommation moyenne nationale</a></li>
+        <li><a href="#profils-par-type-de-logement">Profils par type de logement</a></li>
+      </ul>
+    </li>
+    <li><a href="#productible-solaire--pvgis-sarah3">Productible solaire — PVGIS-SARAH3</a>
+      <ul>
+        <li><a href="#productible-annuel-par-région">Productible annuel par région</a></li>
+      </ul>
+    </li>
+    <li><a href="#pertes-système--détail-par-poste">Pertes système — détail par poste</a>
+      <ul>
+        <li><a href="#pertes-selon-lorientation">Pertes selon l&rsquo;orientation</a></li>
+      </ul>
+    </li>
+    <li><a href="#puissance-des-panneaux--hypothèse-de-calcul">Puissance des panneaux — hypothèse de calcul</a></li>
+    <li><a href="#taux-dautoconsommation--hypothèses">Taux d&rsquo;autoconsommation — hypothèses</a></li>
+    <li><a href="#formules-appliquées">Formules appliquées</a></li>
+    <li><a href="#limite-des-9-kwc-dans-ce-calculateur">Limite des 9 kWc dans ce calculateur</a></li>
+    <li><a href="#interprétation-des-résultats">Interprétation des résultats</a>
+      <ul>
+        <li><a href="#couverture--40">Couverture &lt; 40%</a></li>
+        <li><a href="#couverture-40-80">Couverture 40-80%</a></li>
+        <li><a href="#couverture--80">Couverture &gt; 80%</a></li>
+      </ul>
+    </li>
+    <li><a href="#ce-que-le-calculateur-ne-couvre-pas">Ce que le calculateur ne couvre pas</a></li>
+    <li><a href="#évolutions-prévues">Évolutions prévues</a></li>
+  </ul>
+</nav>
+
+
+
+    </div>
+  </aside>
+  
+ 
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

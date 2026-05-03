@@ -1,0 +1,1074 @@
+<!DOCTYPE html>
+<html lang="fr-FR" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1316&amp;path=livereload" data-no-instant defer></script>
+  <!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Sources, hypothèses et limites du calculateur. Pourquoi 2 scénarios (constructeur vs réaliste terrain), comment les interpréter.">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#2e3440">
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="http://localhost:1316/outils/calculateur-batterie-lfp/methodologie/">
+  <meta property="og:site_name" content="Autonomia Lab">
+  <meta property="og:title" content="Méthodologie : Calculateur durée de vie batterie LFP">
+  <meta property="og:description" content="Sources, hypothèses et limites du calculateur. Pourquoi 2 scénarios (constructeur vs réaliste terrain), comment les interpréter.">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="outils">
+    <meta property="article:published_time" content="2026-05-03T00:00:00+00:00">
+    <meta property="article:modified_time" content="2026-05-03T00:00:00+00:00">
+
+
+  <meta itemprop="name" content="Méthodologie : Calculateur durée de vie batterie LFP">
+  <meta itemprop="description" content="Sources, hypothèses et limites du calculateur. Pourquoi 2 scénarios (constructeur vs réaliste terrain), comment les interpréter.">
+  <meta itemprop="datePublished" content="2026-05-03T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2026-05-03T00:00:00+00:00">
+  <meta itemprop="wordCount" content="1237">
+
+<title>Méthodologie : Calculateur durée de vie batterie LFP | Autonomia Lab</title>
+<link rel="icon" href="/favicon.png" >
+<link rel="manifest" href="/manifest.json">
+<link rel="canonical" href="http://localhost:1316/outils/calculateur-batterie-lfp/methodologie/">
+<link rel="stylesheet" href="/book.min.92048bb3b20c265865fffa98ece7bfa06950ab86ca25d6108e24b45f8c754881.css" integrity="sha256-kgSLs7IMJlhl//qY7Oe/oGlQq4bKJdYQjiS0X4x1SIE=" crossorigin="anonymous">
+
+
+  <script defer src="/fuse.min.js"></script>
+  <script defer src="/en.search.min.7f810466b69ce4ffce1abc52650078cff38fb602310c43a62f707ea615452e9a.js" integrity="sha256-f4EEZrac5P/OGrxSZQB4z/OPtgIxDEOmL3B&#43;phVFLpo=" crossorigin="anonymous"></script>
+
+
+
+  
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#ffffff">
+<style>
+  :root { color-scheme: light !important; }
+  html, body { color-scheme: light !important; }
+</style>
+
+</head>
+<body dir="ltr" class="book-kind-page book-type-outils">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    
+<aside class="book-menu">
+  <div class="book-menu-content">
+    
+  <nav>
+<h2 class="book-brand">
+  <span class="flex align-center"><span>Autonomia Lab</span>
+  </span>
+</h2>
+
+
+<div class="book-search hidden">
+  <input id="book-search-input" type="text" 
+    placeholder="Search"
+    aria-label="Search"
+    maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+<script>document.querySelector(".book-search").classList.remove("hidden")</script>
+
+
+
+
+
+
+<ul><li><a href="/">Accueil</a></li></ul>
+
+
+
+
+
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <input type="checkbox" id="section-80a6eccb491e65aad6dae5f33ec481c5" class="toggle"  />
+    <label for="section-80a6eccb491e65aad6dae5f33ec481c5" class="flex">
+      <a role="button"
+         class="" data-silo="1">
+        Solaire &amp; Stockage</a>
+      <img src="/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo1_cerbo-gx-pylontech-cablage/" class="" data-silo="1">
+      Cerbo GX &amp; Pylontech</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo1_erreur-11-victron-multiplus-ii/" class="" data-silo="1">
+      Erreur 11 Victron</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo1_fusibles-dc-ou-disjoncteurs/" class="" data-silo="1">
+      Fusibles DC vs Disjoncteurs</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo1_mppt-victron-100-20-100-30/" class="" data-silo="1">
+      MPPT 100/20 vs 100/30</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo1_pvgis-off-grid-autonomie/" class="" data-silo="1">
+      PVGIS Off-Grid</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo1_ratio-dc-ac-onduleur/" class="" data-silo="1">
+      Ratio DC/AC onduleur</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo1_section-cable-batterie-48v/" class="" data-silo="1">
+      Section câble 48V</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <input type="checkbox" id="section-ff2b4a7940fbd23fb7c151ce892a38d0" class="toggle"  />
+    <label for="section-ff2b4a7940fbd23fb7c151ce892a38d0" class="flex">
+      <a role="button"
+         class="" data-silo="2">
+        Hydraulique</a>
+      <img src="/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo2_calcul-hmt-pompe-50m/" class="" data-silo="2">
+      Calcul HMT pompe 50m</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo2_calcul-traitement-uvc/" class="" data-silo="2">
+      Calcul UV-C 40 mJ/cm²</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo2_filtration-fer-manganese/" class="" data-silo="2">
+      Filtration fer/manganèse</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo2_potabilisation-forage/" class="" data-silo="2">
+      Potabilisation forage</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo2_rejet-osmose-inverse/" class="" data-silo="2">
+      Rejet osmose inverse</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <input type="checkbox" id="section-2ff767a3ea21b6cc828c74332a27d864" class="toggle"  />
+    <label for="section-2ff767a3ea21b6cc828c74332a27d864" class="flex">
+      <a role="button"
+         class="" data-silo="3">
+        Thermique</a>
+      <img src="/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo3_chauffe-eau-thermo-cop/" class="" data-silo="3">
+      Chauffe-eau thermodynamique</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo3_dimensionnement-pac-air-air/" class="" data-silo="3">
+      Dimensionnement PAC air-air</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo3_isolation-toiture-r7/" class="" data-silo="3">
+      Isolation toiture R=7</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo3_rendement-pac-grand-froid/" class="" data-silo="3">
+      PAC grand froid COP</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo3_pac-releve-fioul-schema/" class="" data-silo="3">
+      PAC relève fioul schéma</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <input type="checkbox" id="section-d3532d0f76fc0e770fa43359b2f066c6" class="toggle"  />
+    <label for="section-d3532d0f76fc0e770fa43359b2f066c6" class="flex">
+      <a role="button"
+         class="" data-silo="4">
+        Infrastructure</a>
+      <img src="/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo4_differentiel-type-b/" class="" data-silo="4">
+      Différentiel Type B</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo4_disjoncteur-courbe-d-vs-c/" class="" data-silo="4">
+      Disjoncteur D vs C</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo4_puissance-reactive-linky/" class="" data-silo="4">
+      Puissance réactive Linky</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo4_regime-neutre-tt-tn/" class="" data-silo="4">
+      Régime neutre TT/TN</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+<ul><li><a href="/a-propos/">À propos</a></li></ul>
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+
+  </div>
+</aside>
+ 
+
+    <div class="book-page">
+      <header class="book-header hidden">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/icons/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <h3>Méthodologie : Calculateur durée de vie batterie LFP</h3>
+
+  <label for="toc-control">
+    
+    <img src="/icons/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#pourquoi-2-scénarios">Pourquoi 2 scénarios</a></li>
+    <li><a href="#quel-scénario-utiliser-">Quel scénario utiliser ?</a>
+      <ul>
+        <li><a href="#scénario-constructeur">Scénario Constructeur</a></li>
+        <li><a href="#scénario-réaliste-terrain">Scénario Réaliste terrain</a></li>
+      </ul>
+    </li>
+    <li><a href="#sources-des-chiffres">Sources des chiffres</a>
+      <ul>
+        <li><a href="#données-constructeur-scénario-1">Données constructeur (Scénario 1)</a>
+          <ul>
+            <li><a href="#pylontech-us5000-datasheet-officiel">Pylontech US5000 (datasheet officiel)</a></li>
+            <li><a href="#byd-battery-box-premium-hvshvm">BYD Battery-Box Premium HVS/HVM</a></li>
+            <li><a href="#norme-iec-62619">Norme IEC 62619</a></li>
+          </ul>
+        </li>
+        <li><a href="#données-terrain-scénario-2">Données terrain (Scénario 2)</a>
+          <ul>
+            <li><a href="#clean-energy-reviews">Clean Energy Reviews</a></li>
+            <li><a href="#étude-scientifique-preger-2020">Étude scientifique Preger 2020</a></li>
+            <li><a href="#étude-home-storage-8-ans-arxiv-2024">Étude home storage 8 ans (arxiv 2024)</a></li>
+            <li><a href="#anern-performance-review-10-ans">Anern Performance Review 10 ans</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#tables-de-cycles-utilisées">Tables de cycles utilisées</a>
+      <ul>
+        <li><a href="#scénario-constructeur-datasheets">Scénario Constructeur (datasheets)</a></li>
+        <li><a href="#scénario-réaliste-terrain-1">Scénario Réaliste (terrain)</a></li>
+        <li><a href="#durée-calendaire-maximale">Durée calendaire maximale</a></li>
+      </ul>
+    </li>
+    <li><a href="#facteurs-qui-dégradent-en-conditions-réelles">Facteurs qui dégradent en conditions réelles</a>
+      <ul>
+        <li><a href="#température">Température</a></li>
+        <li><a href="#c-rate-vitesse-de-chargedécharge">C-rate (vitesse de charge/décharge)</a></li>
+        <li><a href="#cycles-partiels-vs-complets">Cycles partiels vs complets</a></li>
+        <li><a href="#vieillissement-calendaire">Vieillissement calendaire</a></li>
+        <li><a href="#qualité-du-bms">Qualité du BMS</a></li>
+      </ul>
+    </li>
+    <li><a href="#formules-appliquées">Formules appliquées</a></li>
+    <li><a href="#comment-interpréter-les-résultats">Comment interpréter les résultats</a>
+      <ul>
+        <li><a href="#si-lécart-entre-les-deux-scénarios-vous-semble-trop-important">Si l&rsquo;écart entre les deux scénarios vous semble trop important</a></li>
+        <li><a href="#si-vous-voulez-affiner-votre-cas">Si vous voulez affiner votre cas</a></li>
+        <li><a href="#coûtkwh-stocké--pour-quoi-faire">Coût/kWh stocké : pour quoi faire</a></li>
+      </ul>
+    </li>
+    <li><a href="#limites-de-cet-outil">Limites de cet outil</a>
+      <ul>
+        <li><a href="#ce-quil-ne-couvre-pas">Ce qu&rsquo;il ne couvre pas</a></li>
+        <li><a href="#ce-quil-faut-faire-en-complément">Ce qu&rsquo;il faut faire en complément</a></li>
+      </ul>
+    </li>
+    <li><a href="#évolutions-prévues-du-calculateur">Évolutions prévues du calculateur</a></li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+<article class="markdown book-article"><p>← <a href="http://localhost:1316/outils/calculateur-batterie-lfp/">Calculateur LFP</a> · <a href="http://localhost:1316/outils/">Tous les outils</a></p>
+<h1 id="méthodologie-du-calculateur-durée-de-vie-batterie-lfp">Méthodologie du calculateur durée de vie batterie LFP<a class="anchor" href="#m%c3%a9thodologie-du-calculateur-dur%c3%a9e-de-vie-batterie-lfp">#</a></h1><blockquote class='book-hint '>
+<p>Cette page détaille les sources, formules et hypothèses utilisées par notre calculateur. L&rsquo;objectif : transparence totale sur les chiffres, pour que vous puissiez vérifier, contester ou ajuster.</p>
+</blockquote><h2 id="pourquoi-2-scénarios">Pourquoi 2 scénarios<a class="anchor" href="#pourquoi-2-sc%c3%a9narios">#</a></h2><p>Les durées de vie annoncées par les constructeurs de batteries LFP (Pylontech, BYD, Victron, Huawei) sont mesurées en <strong>conditions de laboratoire</strong> : température constante de 25°C, charge/décharge à C/5 (très lente), BMS parfait, cellules neuves. Ces conditions ne reflètent <strong>jamais</strong> une installation résidentielle réelle.</p>
+<p>Les retours terrain (forums spécialisés, études tierces, méta-analyses) montrent un écart systématique de <strong>-25 à -40%</strong> entre les chiffres datasheet et la durée de vie effective en usage résidentiel quotidien.</p>
+<p>Notre calculateur affiche les <strong>deux</strong> scénarios en parallèle pour vous permettre de :</p>
+<ol>
+<li><strong>Voir l&rsquo;écart</strong> entre marketing constructeur et réalité documentée</li>
+<li><strong>Encadrer votre cas</strong> : votre installation sera quelque part entre les deux</li>
+<li><strong>Prendre une décision éclairée</strong> sur le dimensionnement et le ROI</li>
+</ol>
+<h2 id="quel-scénario-utiliser-">Quel scénario utiliser ?<a class="anchor" href="#quel-sc%c3%a9nario-utiliser-">#</a></h2><h3 id="scénario-constructeur">Scénario Constructeur<a class="anchor" href="#sc%c3%a9nario-constructeur">#</a></h3><p><strong>À utiliser pour</strong> :</p>
+<ul>
+<li>Vérifier ce qu&rsquo;annonce un installateur dans son devis</li>
+<li>Comparaison commerciale entre marques</li>
+<li>Établir une borne haute optimiste pour le ROI</li>
+<li>Comprendre le potentiel maximum de la techno</li>
+</ul>
+<p><strong>Ne pas utiliser pour</strong> :</p>
+<ul>
+<li>Dimensionnement réel d&rsquo;une installation</li>
+<li>Calcul de ROI honnête</li>
+<li>Engagement financier sérieux</li>
+</ul>
+<h3 id="scénario-réaliste-terrain">Scénario Réaliste terrain<a class="anchor" href="#sc%c3%a9nario-r%c3%a9aliste-terrain">#</a></h3><p><strong>À utiliser pour</strong> :</p>
+<ul>
+<li>Dimensionner votre installation correctement</li>
+<li>Calculer un ROI conservateur et fiable</li>
+<li>Estimer le coût réel du kWh stocké sur la durée</li>
+<li>Comparer avec d&rsquo;autres solutions de stockage</li>
+</ul>
+<p><strong>C&rsquo;est le scénario que nous recommandons par défaut</strong> pour toute prise de décision sérieuse.</p>
+<h2 id="sources-des-chiffres">Sources des chiffres<a class="anchor" href="#sources-des-chiffres">#</a></h2><h3 id="données-constructeur-scénario-1">Données constructeur (Scénario 1)<a class="anchor" href="#donn%c3%a9es-constructeur-sc%c3%a9nario-1">#</a></h3><h4 id="pylontech-us5000-datasheet-officiel">Pylontech US5000 (datasheet officiel)<a class="anchor" href="#pylontech-us5000-datasheet-officiel">#</a></h4><ul>
+<li><strong>Source</strong> : <a href="https://en.pylontech.com.cn/products/us5000">datasheet officiel Pylontech</a></li>
+<li><strong>Chiffres clés</strong> :
+<ul>
+<li>6000+ cycles à 80% DoD</li>
+<li>15+ years design life (durée de vie nominale)</li>
+<li>95% DoD utilisable</li>
+<li>Garantie 7 ans (extensible 10 ans)</li>
+</ul>
+</li>
+<li><strong>Conditions de test</strong> : 25°C, charge/décharge à C/5</li>
+</ul>
+<h4 id="byd-battery-box-premium-hvshvm">BYD Battery-Box Premium HVS/HVM<a class="anchor" href="#byd-battery-box-premium-hvshvm">#</a></h4><ul>
+<li><strong>Source</strong> : <a href="https://www.bydbatterybox.com">Limited Warranty Letter BYD Europe</a></li>
+<li><strong>Chiffres clés</strong> :
+<ul>
+<li>Garantie 10 ans à 60-80% capacité résiduelle</li>
+<li>Throughput minimum garanti (ex. HVS 12.8 = 38,53 MWh)</li>
+<li>Soit l&rsquo;équivalent de ~3000 cycles à 100% DoD garantis</li>
+</ul>
+</li>
+<li><strong>Conditions de test</strong> : 25-28°C, 100% DoD à 0.2C</li>
+</ul>
+<h4 id="norme-iec-62619">Norme IEC 62619<a class="anchor" href="#norme-iec-62619">#</a></h4><ul>
+<li><strong>Définition fin de vie</strong> : 80% de la capacité initiale</li>
+<li>Standard utilisé par tous les constructeurs LFP qualité</li>
+</ul>
+<h3 id="données-terrain-scénario-2">Données terrain (Scénario 2)<a class="anchor" href="#donn%c3%a9es-terrain-sc%c3%a9nario-2">#</a></h3><h4 id="clean-energy-reviews">Clean Energy Reviews<a class="anchor" href="#clean-energy-reviews">#</a></h4><ul>
+<li><strong>Source</strong> : <a href="https://www.cleanenergyreviews.info/blog/lithium-battery-life-explained">Battery Life Explained - Clean Energy Reviews</a></li>
+<li><strong>Citation</strong> : &ldquo;3000 to 5000 cycles over a battery life of 10 to 15 years&rdquo; (en pratique résidentielle)</li>
+<li><strong>Méthodologie</strong> : compilation de retours installateurs + tests indépendants</li>
+</ul>
+<h4 id="étude-scientifique-preger-2020">Étude scientifique Preger 2020<a class="anchor" href="#%c3%a9tude-scientifique-preger-2020">#</a></h4><ul>
+<li><strong>Source</strong> : Preger et al., <em>Journal of The Electrochemical Society</em>, 2020</li>
+<li><strong>Méthodologie</strong> : tests sur cellules LFP commerciales sous différentes conditions (température, DoD, C-rate)</li>
+<li><strong>Conclusions principales</strong> :
+<ul>
+<li>Température +10°C au-dessus de 25°C double approximativement la dégradation</li>
+<li>DoD au-delà de 90% accélère significativement le vieillissement</li>
+<li>C-rate élevé (&gt;C/2) introduit une fatigue mécanique des électrodes</li>
+</ul>
+</li>
+</ul>
+<h4 id="étude-home-storage-8-ans-arxiv-2024">Étude home storage 8 ans (arxiv 2024)<a class="anchor" href="#%c3%a9tude-home-storage-8-ans-arxiv-2024">#</a></h4><ul>
+<li><strong>Source</strong> : <a href="https://arxiv.org/pdf/2411.08025">Degradation mode estimation - 21 home storage systems</a></li>
+<li><strong>Méthodologie</strong> : suivi de 21 systèmes de stockage résidentiel sur 8 ans</li>
+<li><strong>Conclusions</strong> : la perte de stock de lithium (&ldquo;loss of lithium inventory&rdquo;) est le mode de dégradation dominant en conditions résidentielles</li>
+</ul>
+<h4 id="anern-performance-review-10-ans">Anern Performance Review 10 ans<a class="anchor" href="#anern-performance-review-10-ans">#</a></h4><ul>
+<li><strong>Source</strong> : <a href="https://www.anernstore.com/blogs/diy-solar-guides/lifepo4-battery-lifespan-performance">LiFePO4 Battery Lifespan: 10-Year Performance Review</a></li>
+<li><strong>Constat</strong> : 70-80% capacité résiduelle après 10 ans d&rsquo;usage résidentiel typique</li>
+</ul>
+<h2 id="tables-de-cycles-utilisées">Tables de cycles utilisées<a class="anchor" href="#tables-de-cycles-utilis%c3%a9es">#</a></h2><h3 id="scénario-constructeur-datasheets">Scénario Constructeur (datasheets)<a class="anchor" href="#sc%c3%a9nario-constructeur-datasheets">#</a></h3><table>
+  <thead>
+      <tr>
+          <th>DoD</th>
+          <th>Cycles</th>
+          <th>Source principale</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>30%</td>
+          <td>15 000</td>
+          <td>Interpolation Pylontech</td>
+      </tr>
+      <tr>
+          <td>50%</td>
+          <td>10 000</td>
+          <td>Interpolation Pylontech</td>
+      </tr>
+      <tr>
+          <td>70%</td>
+          <td>7 500</td>
+          <td>Interpolation Pylontech</td>
+      </tr>
+      <tr>
+          <td><strong>80%</strong></td>
+          <td><strong>6 000</strong></td>
+          <td><strong>Pylontech US5000 datasheet</strong></td>
+      </tr>
+      <tr>
+          <td>90%</td>
+          <td>4 500</td>
+          <td>Interpolation Pylontech</td>
+      </tr>
+      <tr>
+          <td>95%</td>
+          <td>4 000</td>
+          <td>Pylontech max DoD</td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="scénario-réaliste-terrain-1">Scénario Réaliste (terrain)<a class="anchor" href="#sc%c3%a9nario-r%c3%a9aliste-terrain-1">#</a></h3><table>
+  <thead>
+      <tr>
+          <th>DoD</th>
+          <th>Cycles</th>
+          <th>Écart vs constructeur</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>30%</td>
+          <td>11 000</td>
+          <td>-27%</td>
+      </tr>
+      <tr>
+          <td>50%</td>
+          <td>7 000</td>
+          <td>-30%</td>
+      </tr>
+      <tr>
+          <td>70%</td>
+          <td>5 250</td>
+          <td>-30%</td>
+      </tr>
+      <tr>
+          <td><strong>80%</strong></td>
+          <td><strong>4 000</strong></td>
+          <td><strong>-33%</strong></td>
+      </tr>
+      <tr>
+          <td>90%</td>
+          <td>2 700</td>
+          <td>-40%</td>
+      </tr>
+      <tr>
+          <td>95%</td>
+          <td>2 200</td>
+          <td>-45%</td>
+      </tr>
+  </tbody>
+</table>
+<p>L&rsquo;écart s&rsquo;aggrave avec une DoD élevée car la dégradation s&rsquo;accélère non-linéairement au-delà de 90% DoD (étude Preger 2020).</p>
+<h3 id="durée-calendaire-maximale">Durée calendaire maximale<a class="anchor" href="#dur%c3%a9e-calendaire-maximale">#</a></h3><ul>
+<li><strong>Scénario constructeur</strong> : 18 ans (datasheet &ldquo;15+ years&rdquo;)</li>
+<li><strong>Scénario réaliste</strong> : 15 ans (basé sur retours terrain et études long terme)</li>
+</ul>
+<p>Au-delà de cette durée, les cellules vieillissent même sans usage (oxydation, dégradation chimique des électrolytes).</p>
+<h2 id="facteurs-qui-dégradent-en-conditions-réelles">Facteurs qui dégradent en conditions réelles<a class="anchor" href="#facteurs-qui-d%c3%a9gradent-en-conditions-r%c3%a9elles">#</a></h2><h3 id="température">Température<a class="anchor" href="#temp%c3%a9rature">#</a></h3><p><strong>Le facteur le plus impactant.</strong></p>
+<ul>
+<li>Référence : 25°C</li>
+<li>Au-delà de 30°C : dégradation accélérée</li>
+<li>Règle générale : <strong>+10°C au-dessus de 25°C = dégradation × 2</strong> (étude Preger)</li>
+<li>Solutions : ventilation, local climatisé en été, isolation thermique</li>
+</ul>
+<h3 id="c-rate-vitesse-de-chargedécharge">C-rate (vitesse de charge/décharge)<a class="anchor" href="#c-rate-vitesse-de-charged%c3%a9charge">#</a></h3><ul>
+<li>Référence laboratoire : C/5 (charge en 5h)</li>
+<li>Résidentiel typique : C/4 à C/2 (peu impactant)</li>
+<li>Charge rapide intensive : -10 à -20% sur la durée</li>
+</ul>
+<h3 id="cycles-partiels-vs-complets">Cycles partiels vs complets<a class="anchor" href="#cycles-partiels-vs-complets">#</a></h3><ul>
+<li>Cyclage partiel = effet &ldquo;rainflow counting&rdquo; = peut être plus agressif que prévu</li>
+<li>Mieux modélisé dans les BMS modernes</li>
+<li>À DoD modérée (50-70%), peu d&rsquo;impact</li>
+</ul>
+<h3 id="vieillissement-calendaire">Vieillissement calendaire<a class="anchor" href="#vieillissement-calendaire">#</a></h3><ul>
+<li>Persistant même sans cycles</li>
+<li>Accéléré par : SOC élevé constant (&gt;80%), température élevée</li>
+<li>Recommandation : éviter de laisser la batterie pleine en permanence</li>
+</ul>
+<h3 id="qualité-du-bms">Qualité du BMS<a class="anchor" href="#qualit%c3%a9-du-bms">#</a></h3><ul>
+<li>Équilibrage des cellules essentiel</li>
+<li>BMS bas de gamme = dégradation accélérée d&rsquo;une cellule = pack entier dégradé</li>
+<li>Recommandation : top balancing tous les 7-10 jours via charge à 100%</li>
+</ul>
+<h2 id="formules-appliquées">Formules appliquées<a class="anchor" href="#formules-appliqu%c3%a9es">#</a></h2><pre tabindex="0"><code>Cycles_disponibles = Table(DoD)  # selon scénario choisi
+Durée_théorique = Cycles_disponibles ÷ Cycles_par_an
+Durée_effective = MIN(Durée_théorique, Durée_calendaire_max)
+
+Énergie_par_cycle = Capacité × DoD%
+Cycles_effectifs = Durée_effective × Cycles_par_an
+Énergie_totale_stockée = Cycles_effectifs × Énergie_par_cycle
+
+Coût_par_kWh_stocké = Prix_achat ÷ Énergie_totale_stockée</code></pre><h2 id="comment-interpréter-les-résultats">Comment interpréter les résultats<a class="anchor" href="#comment-interpr%c3%a9ter-les-r%c3%a9sultats">#</a></h2><h3 id="si-lécart-entre-les-deux-scénarios-vous-semble-trop-important">Si l&rsquo;écart entre les deux scénarios vous semble trop important<a class="anchor" href="#si-l%c3%a9cart-entre-les-deux-sc%c3%a9narios-vous-semble-trop-important">#</a></h3><p>C&rsquo;est normal. Cet écart est documenté par toute l&rsquo;industrie. Les marketeurs constructeurs utilisent les chiffres datasheet, les utilisateurs vivent avec les chiffres réalistes.</p>
+<h3 id="si-vous-voulez-affiner-votre-cas">Si vous voulez affiner votre cas<a class="anchor" href="#si-vous-voulez-affiner-votre-cas">#</a></h3><p>Considérez ces facteurs personnels :</p>
+<table>
+  <thead>
+      <tr>
+          <th>Votre cas</th>
+          <th>Tirer vers</th>
+          <th>Raison</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Local frais (cave, garage)</td>
+          <td>Constructeur</td>
+          <td>Température favorable</td>
+      </tr>
+      <tr>
+          <td>Local chaud (combles, plein soleil)</td>
+          <td>Réaliste, voire pire</td>
+          <td>Température dégrade</td>
+      </tr>
+      <tr>
+          <td>Charge solaire douce</td>
+          <td>Constructeur</td>
+          <td>Faible C-rate</td>
+      </tr>
+      <tr>
+          <td>Charge réseau intensive</td>
+          <td>Réaliste</td>
+          <td>C-rate élevé</td>
+      </tr>
+      <tr>
+          <td>Marque tier 1 (Pylontech, BYD, Victron)</td>
+          <td>Constructeur</td>
+          <td>BMS qualité</td>
+      </tr>
+      <tr>
+          <td>Marque inconnue / DIY</td>
+          <td>Réaliste, voire pire</td>
+          <td>BMS douteux</td>
+      </tr>
+      <tr>
+          <td>Climat tempéré stable</td>
+          <td>Constructeur</td>
+          <td>Cycles thermiques limités</td>
+      </tr>
+      <tr>
+          <td>Climat avec étés caniculaires</td>
+          <td>Réaliste</td>
+          <td>Dégradation accélérée</td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="coûtkwh-stocké--pour-quoi-faire">Coût/kWh stocké : pour quoi faire<a class="anchor" href="#co%c3%bbtkwh-stock%c3%a9--pour-quoi-faire">#</a></h3><p>Ce coût est utile pour comparer :</p>
+<ul>
+<li>Avec le tarif réseau (~0,21 €/kWh en 2026 en France)</li>
+<li>Entre différentes capacités de batterie</li>
+<li>Avec d&rsquo;autres solutions (lead-acid, batterie virtuelle)</li>
+</ul>
+<p><strong>Attention</strong> : ce coût n&rsquo;inclut <strong>pas</strong> :</p>
+<ul>
+<li>Les pertes de conversion (onduleur, charge/décharge ~10-15%)</li>
+<li>Le remplacement éventuel d&rsquo;éléments (BMS, onduleur) sur la durée</li>
+<li>Le coût du kWh solaire lui-même (si vous chargez avec votre PV)</li>
+</ul>
+<p>Pour le <strong>vrai coût final de l&rsquo;électricité solaire stockée</strong>, voir notre calculateur ROI installation solaire complète (à venir).</p>
+<h2 id="limites-de-cet-outil">Limites de cet outil<a class="anchor" href="#limites-de-cet-outil">#</a></h2><h3 id="ce-quil-ne-couvre-pas">Ce qu&rsquo;il ne couvre pas<a class="anchor" href="#ce-quil-ne-couvre-pas">#</a></h3><ul>
+<li>Variations de température détaillées (climat de votre région)</li>
+<li>Profil de charge réel (solaire vs réseau)</li>
+<li>Cycles partiels variables (utilisé en moyenne)</li>
+<li>Différences entre constructeurs spécifiques</li>
+<li>Vieillissement calendaire en condition stockage longue durée</li>
+</ul>
+<h3 id="ce-quil-faut-faire-en-complément">Ce qu&rsquo;il faut faire en complément<a class="anchor" href="#ce-quil-faut-faire-en-compl%c3%a9ment">#</a></h3><ul>
+<li>Vérifier les conditions environnementales de votre futur local batterie</li>
+<li>Demander la garantie effective (durée + capacité résiduelle) au constructeur</li>
+<li>Comparer plusieurs devis avec la même méthodologie</li>
+<li>Consulter un installateur RGE pour validation finale</li>
+</ul>
+<h2 id="évolutions-prévues-du-calculateur">Évolutions prévues du calculateur<a class="anchor" href="#%c3%a9volutions-pr%c3%a9vues-du-calculateur">#</a></h2><p>Cette première version se concentre sur la durée de vie. Les évolutions futures pourront inclure :</p>
+<ul>
+<li>Module température (impact climatique régional)</li>
+<li>Module C-rate (impact charge rapide)</li>
+<li>Comparateur entre marques spécifiques (Pylontech vs BYD vs Victron)</li>
+<li>Calcul TCO avec onduleur et installation</li>
+<li>Module ROI complet (avec PV)</li>
+</ul>
+<p>Si vous avez des suggestions, contactez-nous via le formulaire du Lab.</p>
+<hr>
+<p><strong>Dernière mise à jour</strong> : Mai 2026
+<strong>Sources principales</strong> : Pylontech, BYD, Clean Energy Reviews, Journal of The Electrochemical Society (Preger 2020), arxiv 2024 (home storage 8 ans), Anern Performance Review</p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+<div>
+
+</div>
+
+<div>
+
+</div>
+
+</div>
+
+
+
+
+
+  
+  
+  
+
+
+ 
+        
+  
+ 
+        
+        
+  
+ 
+        
+  
+  
+    <script>(function(){document.querySelectorAll("pre:has(code)").forEach(e=>{e.addEventListener("click",e.focus),e.addEventListener("copy",function(t){if(t.preventDefault(),navigator.clipboard){const t=window.getSelection().toString()||e.textContent;navigator.clipboard.writeText(t)}})})})()</script>
+  
+
+      </footer>
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+  
+  <aside class="book-toc">
+    <div class="book-toc-content">
+      
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#pourquoi-2-scénarios">Pourquoi 2 scénarios</a></li>
+    <li><a href="#quel-scénario-utiliser-">Quel scénario utiliser ?</a>
+      <ul>
+        <li><a href="#scénario-constructeur">Scénario Constructeur</a></li>
+        <li><a href="#scénario-réaliste-terrain">Scénario Réaliste terrain</a></li>
+      </ul>
+    </li>
+    <li><a href="#sources-des-chiffres">Sources des chiffres</a>
+      <ul>
+        <li><a href="#données-constructeur-scénario-1">Données constructeur (Scénario 1)</a>
+          <ul>
+            <li><a href="#pylontech-us5000-datasheet-officiel">Pylontech US5000 (datasheet officiel)</a></li>
+            <li><a href="#byd-battery-box-premium-hvshvm">BYD Battery-Box Premium HVS/HVM</a></li>
+            <li><a href="#norme-iec-62619">Norme IEC 62619</a></li>
+          </ul>
+        </li>
+        <li><a href="#données-terrain-scénario-2">Données terrain (Scénario 2)</a>
+          <ul>
+            <li><a href="#clean-energy-reviews">Clean Energy Reviews</a></li>
+            <li><a href="#étude-scientifique-preger-2020">Étude scientifique Preger 2020</a></li>
+            <li><a href="#étude-home-storage-8-ans-arxiv-2024">Étude home storage 8 ans (arxiv 2024)</a></li>
+            <li><a href="#anern-performance-review-10-ans">Anern Performance Review 10 ans</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#tables-de-cycles-utilisées">Tables de cycles utilisées</a>
+      <ul>
+        <li><a href="#scénario-constructeur-datasheets">Scénario Constructeur (datasheets)</a></li>
+        <li><a href="#scénario-réaliste-terrain-1">Scénario Réaliste (terrain)</a></li>
+        <li><a href="#durée-calendaire-maximale">Durée calendaire maximale</a></li>
+      </ul>
+    </li>
+    <li><a href="#facteurs-qui-dégradent-en-conditions-réelles">Facteurs qui dégradent en conditions réelles</a>
+      <ul>
+        <li><a href="#température">Température</a></li>
+        <li><a href="#c-rate-vitesse-de-chargedécharge">C-rate (vitesse de charge/décharge)</a></li>
+        <li><a href="#cycles-partiels-vs-complets">Cycles partiels vs complets</a></li>
+        <li><a href="#vieillissement-calendaire">Vieillissement calendaire</a></li>
+        <li><a href="#qualité-du-bms">Qualité du BMS</a></li>
+      </ul>
+    </li>
+    <li><a href="#formules-appliquées">Formules appliquées</a></li>
+    <li><a href="#comment-interpréter-les-résultats">Comment interpréter les résultats</a>
+      <ul>
+        <li><a href="#si-lécart-entre-les-deux-scénarios-vous-semble-trop-important">Si l&rsquo;écart entre les deux scénarios vous semble trop important</a></li>
+        <li><a href="#si-vous-voulez-affiner-votre-cas">Si vous voulez affiner votre cas</a></li>
+        <li><a href="#coûtkwh-stocké--pour-quoi-faire">Coût/kWh stocké : pour quoi faire</a></li>
+      </ul>
+    </li>
+    <li><a href="#limites-de-cet-outil">Limites de cet outil</a>
+      <ul>
+        <li><a href="#ce-quil-ne-couvre-pas">Ce qu&rsquo;il ne couvre pas</a></li>
+        <li><a href="#ce-quil-faut-faire-en-complément">Ce qu&rsquo;il faut faire en complément</a></li>
+      </ul>
+    </li>
+    <li><a href="#évolutions-prévues-du-calculateur">Évolutions prévues du calculateur</a></li>
+  </ul>
+</nav>
+
+
+
+    </div>
+  </aside>
+  
+ 
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

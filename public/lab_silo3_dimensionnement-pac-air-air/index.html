@@ -1,25 +1,831 @@
-<!doctype html><html lang=fr-FR dir=ltr><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Sécurité — Cet article est un support de compréhension technique à titre éducatif uniquement. Les valeurs, calculs et schémas présentés ne remplacent pas l’expertise d’un installateur certifié. Toute installation doit être réalisée et validée par un professionnel qualifié RGE. Autonomia Lab décline toute responsabilité en cas d’application directe de ces informations.
+<!DOCTYPE html>
+<html lang="fr-FR" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1316&amp;path=livereload" data-no-instant defer></script>
+  <!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Sécurité — Cet article est un support de compréhension technique à titre éducatif uniquement. Les valeurs, calculs et schémas présentés ne remplacent pas l’expertise d’un installateur certifié. Toute installation doit être réalisée et validée par un professionnel qualifié RGE. Autonomia Lab décline toute responsabilité en cas d’application directe de ces informations.
 Un sous-dimensionnement de 20% sur une PAC air-air force l’appoint électrique et peut augmenter significativement la facture en hiver (ADEME/Hellowatt/La Maison des Energies/Cozynergy, 2026). Le correct dimensionnement d’une PAC air-air en m2 ou BTU ne dépend pas d’un ratio empirique mais du calcul des déperditions thermiques : Volume (m³) x Coefficient d’isolation (G) x Delta de Température (°C). Ignorer cette formule invalide le retour sur investissement.
-"><meta name=theme-color media="(prefers-color-scheme: light)" content="#ffffff"><meta name=theme-color media="(prefers-color-scheme: dark)" content="#2e3440"><meta name=color-scheme content="light dark"><meta property="og:url" content="https://autonomia-lab.fr/lab_silo3_dimensionnement-pac-air-air/"><meta property="og:site_name" content="Autonomia Lab"><meta property="og:title" content="Dimensionnement PAC Air-Air : La formule exacte (Volume x Delta T)."><meta property="og:description" content="Sécurité — Cet article est un support de compréhension technique à titre éducatif uniquement. Les valeurs, calculs et schémas présentés ne remplacent pas l’expertise d’un installateur certifié. Toute installation doit être réalisée et validée par un professionnel qualifié RGE. Autonomia Lab décline toute responsabilité en cas d’application directe de ces informations.
-Un sous-dimensionnement de 20% sur une PAC air-air force l’appoint électrique et peut augmenter significativement la facture en hiver (ADEME/Hellowatt/La Maison des Energies/Cozynergy, 2026). Le correct dimensionnement d’une PAC air-air en m2 ou BTU ne dépend pas d’un ratio empirique mais du calcul des déperditions thermiques : Volume (m³) x Coefficient d’isolation (G) x Delta de Température (°C). Ignorer cette formule invalide le retour sur investissement."><meta property="og:locale" content="fr_FR"><meta property="og:type" content="article"><meta property="article:section" content="lab"><meta property="article:published_time" content="2026-05-01T00:00:00+00:00"><meta property="article:modified_time" content="2026-05-01T00:00:00+00:00"><meta itemprop=name content="Dimensionnement PAC Air-Air : La formule exacte (Volume x Delta T)."><meta itemprop=description content="Sécurité — Cet article est un support de compréhension technique à titre éducatif uniquement. Les valeurs, calculs et schémas présentés ne remplacent pas l’expertise d’un installateur certifié. Toute installation doit être réalisée et validée par un professionnel qualifié RGE. Autonomia Lab décline toute responsabilité en cas d’application directe de ces informations.
-Un sous-dimensionnement de 20% sur une PAC air-air force l’appoint électrique et peut augmenter significativement la facture en hiver (ADEME/Hellowatt/La Maison des Energies/Cozynergy, 2026). Le correct dimensionnement d’une PAC air-air en m2 ou BTU ne dépend pas d’un ratio empirique mais du calcul des déperditions thermiques : Volume (m³) x Coefficient d’isolation (G) x Delta de Température (°C). Ignorer cette formule invalide le retour sur investissement."><meta itemprop=datePublished content="2026-05-01T00:00:00+00:00"><meta itemprop=dateModified content="2026-05-01T00:00:00+00:00"><meta itemprop=wordCount content="1154"><title>Dimensionnement PAC air-air | Autonomia Lab</title><link rel=icon href=/favicon.png><link rel=manifest href=/manifest.json><link rel=canonical href=https://autonomia-lab.fr/lab_silo3_dimensionnement-pac-air-air/><link rel=stylesheet href=/book.min.92048bb3b20c265865fffa98ece7bfa06950ab86ca25d6108e24b45f8c754881.css integrity="sha256-kgSLs7IMJlhl//qY7Oe/oGlQq4bKJdYQjiS0X4x1SIE=" crossorigin=anonymous><script defer src=/fuse.min.js></script><script defer src=/en.search.min.542d6aa38af851634a052bfa0b90ba22992cdb0cf8ee957d31673092f8073ea3.js integrity="sha256-VC1qo4r4UWNKBSv6C5C6Ipks2wz47pV9MWcwkvgHPqM=" crossorigin=anonymous></script><meta name=color-scheme content="light"><meta name=theme-color content="#ffffff"><style>:root{color-scheme:light!important}html,body{color-scheme:light!important}</style></head><body dir=ltr class="book-kind-page book-type-lab"><input type=checkbox class="hidden toggle" id=menu-control>
-<input type=checkbox class="hidden toggle" id=toc-control><main class="container flex"><aside class=book-menu><div class=book-menu-content><nav><h2 class=book-brand><span class="flex align-center"><span>Autonomia Lab</span></span></h2><div class="book-search hidden"><input id=book-search-input type=text placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/><div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><script>document.querySelector(".book-search").classList.remove("hidden")</script><ul><li><a href=/>Accueil</a></li></ul><ul><li><input type=checkbox id=section-80a6eccb491e65aad6dae5f33ec481c5 class=toggle>
-<label for=section-80a6eccb491e65aad6dae5f33ec481c5 class=flex><a role=button data-silo=1>Solaire & Stockage</a>
-<img src=/icons/chevron-right.svg class=book-icon alt=Expand></label><ul><li><a href=/lab_silo1_cerbo-gx-pylontech-cablage/ data-silo=1>Cerbo GX & Pylontech</a></li><li><a href=/lab_silo1_erreur-11-victron-multiplus-ii/ data-silo=1>Erreur 11 Victron</a></li><li><a href=/lab_silo1_fusibles-dc-ou-disjoncteurs/ data-silo=1>Fusibles DC vs Disjoncteurs</a></li><li><a href=/lab_silo1_mppt-victron-100-20-100-30/ data-silo=1>MPPT 100/20 vs 100/30</a></li><li><a href=/lab_silo1_pvgis-off-grid-autonomie/ data-silo=1>PVGIS Off-Grid</a></li><li><a href=/lab_silo1_ratio-dc-ac-onduleur/ data-silo=1>Ratio DC/AC onduleur</a></li><li><a href=/lab_silo1_section-cable-batterie-48v/ data-silo=1>Section câble 48V</a></li></ul></li><li><input type=checkbox id=section-ff2b4a7940fbd23fb7c151ce892a38d0 class=toggle>
-<label for=section-ff2b4a7940fbd23fb7c151ce892a38d0 class=flex><a role=button data-silo=2>Hydraulique</a>
-<img src=/icons/chevron-right.svg class=book-icon alt=Expand></label><ul><li><a href=/lab_silo2_calcul-hmt-pompe-50m/ data-silo=2>Calcul HMT pompe 50m</a></li><li><a href=/lab_silo2_calcul-traitement-uvc/ data-silo=2>Calcul UV-C 40 mJ/cm²</a></li><li><a href=/lab_silo2_filtration-fer-manganese/ data-silo=2>Filtration fer/manganèse</a></li><li><a href=/lab_silo2_potabilisation-forage/ data-silo=2>Potabilisation forage</a></li><li><a href=/lab_silo2_rejet-osmose-inverse/ data-silo=2>Rejet osmose inverse</a></li></ul></li><li><input type=checkbox id=section-2ff767a3ea21b6cc828c74332a27d864 class=toggle checked>
-<label for=section-2ff767a3ea21b6cc828c74332a27d864 class=flex><a role=button data-silo=3>Thermique</a>
-<img src=/icons/chevron-right.svg class=book-icon alt=Expand></label><ul><li><a href=/lab_silo3_chauffe-eau-thermo-cop/ data-silo=3>Chauffe-eau thermodynamique</a></li><li><a href=/lab_silo3_dimensionnement-pac-air-air/ class=active data-silo=3>Dimensionnement PAC air-air</a></li><li><a href=/lab_silo3_isolation-toiture-r7/ data-silo=3>Isolation toiture R=7</a></li><li><a href=/lab_silo3_rendement-pac-grand-froid/ data-silo=3>PAC grand froid COP</a></li><li><a href=/lab_silo3_pac-releve-fioul-schema/ data-silo=3>PAC relève fioul schéma</a></li></ul></li><li><input type=checkbox id=section-d3532d0f76fc0e770fa43359b2f066c6 class=toggle>
-<label for=section-d3532d0f76fc0e770fa43359b2f066c6 class=flex><a role=button data-silo=4>Infrastructure</a>
-<img src=/icons/chevron-right.svg class=book-icon alt=Expand></label><ul><li><a href=/lab_silo4_differentiel-type-b/ data-silo=4>Différentiel Type B</a></li><li><a href=/lab_silo4_disjoncteur-courbe-d-vs-c/ data-silo=4>Disjoncteur D vs C</a></li><li><a href=/lab_silo4_puissance-reactive-linky/ data-silo=4>Puissance réactive Linky</a></li><li><a href=/lab_silo4_regime-neutre-tt-tn/ data-silo=4>Régime neutre TT/TN</a></li></ul></li></ul><ul><li><a href=/a-propos/>À propos</a></li></ul></nav><script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script></div></aside><div class=book-page><header class="book-header hidden"><div class="flex align-center justify-between"><label for=menu-control><img src=/icons/menu.svg class=book-icon alt=Menu></label><h3>Dimensionnement PAC air-air</h3><label for=toc-control><img src=/icons/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class=hidden><nav id=TableOfContents><ul><li><a href=#la-formule-de-calcul-des-déperditions--v-x-g-x-δt>La formule de calcul des déperditions : V x G x ΔT</a></li><li><a href=#étape-1--calcul-du-volume-à-chauffer-en-m>Étape 1 : Calcul du Volume à chauffer (en m³)</a></li><li><a href=#étape-2--définir-le-coefficient-disolation-g-wmc>Étape 2 : Définir le coefficient d&rsquo;isolation G (W/m³.°C)</a></li><li><a href=#étape-3--déterminer-le-δt-c-de-votre-zone-climatique>Étape 3 : Déterminer le ΔT (°C) de votre zone climatique</a></li><li><a href=#calcul-final-watts-et-conversion-en-btuh>Calcul final (Watts) et conversion en BTU/h</a></li><li><a href=#le-risque-du-sous-dimensionnement--une-perte-de-cop-de-100>Le risque du sous-dimensionnement : une perte de COP de 100%</a><ul><li><a href=#expertises-croisées>Expertises Croisées</a></li><li><a href=#faq--dimensionnement-pac-air-air>FAQ : Dimensionnement PAC Air-Air</a></li></ul></li></ul></nav></aside></header><article class="markdown book-article"><h1>Dimensionnement PAC Air-Air : La formule exacte (Volume x Delta T).</h1><p class=article-date>Publié le 1 mai 2026</p><blockquote class=book-hint><p><strong>Sécurité</strong> — Cet article est un support de compréhension technique à titre éducatif uniquement. Les valeurs, calculs et schémas présentés ne remplacent pas l&rsquo;expertise d&rsquo;un installateur certifié. Toute installation doit être réalisée et validée par un professionnel qualifié RGE. Autonomia Lab décline toute responsabilité en cas d&rsquo;application directe de ces informations.</p></blockquote><p>Un sous-dimensionnement de 20% sur une PAC air-air force l&rsquo;appoint électrique et peut augmenter significativement la facture en hiver (ADEME/Hellowatt/La Maison des Energies/Cozynergy, 2026). Le correct dimensionnement d&rsquo;une PAC air-air en m2 ou BTU ne dépend pas d&rsquo;un ratio empirique mais du calcul des déperditions thermiques : Volume (m³) x Coefficient d&rsquo;isolation (G) x Delta de Température (°C). Ignorer cette formule invalide le retour sur investissement.</p><h2 id=la-formule-de-calcul-des-déperditions--v-x-g-x-δt>La formule de calcul des déperditions : V x G x ΔT<a class=anchor href=#la-formule-de-calcul-des-d%c3%a9perditions--v-x-g-x-%ce%b4t>#</a></h2><p>Le calcul de puissance d&rsquo;une pompe à chaleur air-air se base sur la compensation des déperditions thermiques de l&rsquo;habitat. La formule à appliquer est <code>P = V x G x ΔT</code>.</p><ul><li><strong>P</strong> = Puissance requise en Watts (W) pour maintenir la température de consigne par la température de base extérieure.</li><li><strong>V</strong> = Volume total des pièces à chauffer, exprimé en mètres cubes (m³).</li><li><strong>G</strong> = Coefficient d&rsquo;isolation globale du logement, en W/m³.°C.</li><li><strong>ΔT</strong> (Delta T) = Différence entre la température intérieure de consigne et la température extérieure de base de la zone géographique, en degrés Celsius (°C).</li></ul><p>Toute approche basée sur une surface en m² est une simplification qui ignore la hauteur sous plafond et mène à des erreurs de dimensionnement.</p><h2 id=étape-1--calcul-du-volume-à-chauffer-en-m>Étape 1 : Calcul du Volume à chauffer (en m³)<a class=anchor href=#%c3%a9tape-1--calcul-du-volume-%c3%a0-chauffer-en-m>#</a></h2><p>La première variable est le volume, non la surface. Le calcul est une simple multiplication de la surface au sol par la hauteur sous plafond.</p><p>Pour un logement de 120 m² avec une hauteur sous plafond standard de 2,50 m :
-<code>Volume (V) = 120 m² x 2,50 m = 300 m³</code></p><p>Cette valeur de 300 m³ est la base de travail. Un calcul en m² aurait ignoré 600 m³ d&rsquo;air à traiter dans une maison avec une hauteur de 5 m (type mezzanine), faussant intégralement le résultat.</p><h2 id=étape-2--définir-le-coefficient-disolation-g-wmc>Étape 2 : Définir le coefficient d&rsquo;isolation G (W/m³.°C)<a class=anchor href=#%c3%a9tape-2--d%c3%a9finir-le-coefficient-disolation-g-wmc>#</a></h2><p>Le coefficient G quantifie la performance de l&rsquo;enveloppe du bâtiment. Il dépend de l&rsquo;année de construction et des normes thermiques respectées. Une valeur G basse indique une bonne isolation.</p><table><thead><tr><th>Norme d&rsquo;isolation & Type d&rsquo;habitat</th><th>Coefficient G (W/m³.°C)</th><th>Source & Date</th></tr></thead><tbody><tr><td>Logement non isolé (avant 1974)</td><td>1,8 à 2,0</td><td>RT 2005/RT 2012 (CSTB, 2005-2012)</td></tr><tr><td>Logement isolé (RT 2005)</td><td>1,1</td><td>RT 2005/RT 2012 (CSTB, 2005-2012)</td></tr><tr><td>Logement très bien isolé (RT 2012)</td><td>0,7</td><td>RT 2005/RT 2012 (CSTB, 2005-2012)</td></tr><tr><td>Logement passif (RE 2020)</td><td>0,4</td><td>(RE2020/ADEME, 2026)</td></tr></tbody></table><p>Le non-respect de l&rsquo;étanchéité à l&rsquo;air, mesurée par infiltrométrie (<code>Blower Door Test</code>), peut majorer ce coefficient de manière significative en conditions réelles (RE2020/SOLIDEO, 2024). La norme RE2020 impose un seuil de fuite inférieur à 0.6 vol·h⁻¹ (SOLIDEO, 2024).</p><h2 id=étape-3--déterminer-le-δt-c-de-votre-zone-climatique>Étape 3 : Déterminer le ΔT (°C) de votre zone climatique<a class=anchor href=#%c3%a9tape-3--d%c3%a9terminer-le-%ce%b4t-c-de-votre-zone-climatique>#</a></h2><p>Le ΔT est l&rsquo;écart entre la température de confort souhaitée (généralement 20°C ou 21°C) et la température de base extérieure, qui est la température la plus froide statistiquement atteinte sur 5 jours dans une région donnée.</p><p><code>ΔT = T° confort - T° de base extérieure</code></p><p>Les températures de base varient fortement sur le territoire.</p><table><thead><tr><th>Zone Climatique</th><th>Ville de référence</th><th>Température de base</th><th>ΔT (pour 21°C confort)</th></tr></thead><tbody><tr><td>Zone A (Sud-Est)</td><td>Marseille</td><td>-3,5°C</td><td>24,5°C</td></tr><tr><td>Zone B (Ouest)</td><td>Bordeaux</td><td>-6,5°C</td><td>27,5°C</td></tr><tr><td>Zone C (Centre)</td><td>Lyon</td><td>-9,5°C</td><td>30,5°C</td></tr><tr><td>Zone D (Nord)</td><td>Lille</td><td>-9,5°C</td><td>30,5°C</td></tr><tr><td>Zone E (Est)</td><td>Strasbourg</td><td>-9,5°C</td><td>30,5°C</td></tr></tbody></table><p><em>Températures de base : (NF EN 12831, CAP RENOV, 2021)</em></p><p>Le choix de la température de confort est un paramètre engageant. Chaque degré supplémentaire augmente la consommation électrique de 7 % (Primeo/ADEME/EDF, 2025).</p><h2 id=calcul-final-watts-et-conversion-en-btuh>Calcul final (Watts) et conversion en BTU/h<a class=anchor href=#calcul-final-watts-et-conversion-en-btuh>#</a></h2><p>Avec les données collectées, le calcul de la puissance (P) peut être finalisé.
-Exemple pour une maison de 300 m³ (120 m² x 2,5m), norme RT 2012 (G = 0,7), située à Lyon (ΔT = 30°C) :</p><p><code>P = 300 m³ x 0,7 W/m³.°C x 30°C = 6300 W</code></p><p>La puissance nécessaire est de 6,3 kW. Cette valeur correspond à la puissance calorifique que la PAC doit fournir à la température de base de -9°C pour maintenir 21°C à l&rsquo;intérieur, sans recours à un appoint.</p><p>Pour le <strong>dimensionnement de la PAC air-air en BTU</strong> (British Thermal Unit), la conversion est directe :
+">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#2e3440">
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="http://localhost:1316/lab_silo3_dimensionnement-pac-air-air/">
+  <meta property="og:site_name" content="Autonomia Lab">
+  <meta property="og:title" content="Dimensionnement PAC Air-Air : La formule exacte (Volume x Delta T).">
+  <meta property="og:description" content="Sécurité — Cet article est un support de compréhension technique à titre éducatif uniquement. Les valeurs, calculs et schémas présentés ne remplacent pas l’expertise d’un installateur certifié. Toute installation doit être réalisée et validée par un professionnel qualifié RGE. Autonomia Lab décline toute responsabilité en cas d’application directe de ces informations.
+Un sous-dimensionnement de 20% sur une PAC air-air force l’appoint électrique et peut augmenter significativement la facture en hiver (ADEME/Hellowatt/La Maison des Energies/Cozynergy, 2026). Le correct dimensionnement d’une PAC air-air en m2 ou BTU ne dépend pas d’un ratio empirique mais du calcul des déperditions thermiques : Volume (m³) x Coefficient d’isolation (G) x Delta de Température (°C). Ignorer cette formule invalide le retour sur investissement.">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="lab">
+    <meta property="article:published_time" content="2026-05-01T00:00:00+00:00">
+    <meta property="article:modified_time" content="2026-05-01T00:00:00+00:00">
+
+
+  <meta itemprop="name" content="Dimensionnement PAC Air-Air : La formule exacte (Volume x Delta T).">
+  <meta itemprop="description" content="Sécurité — Cet article est un support de compréhension technique à titre éducatif uniquement. Les valeurs, calculs et schémas présentés ne remplacent pas l’expertise d’un installateur certifié. Toute installation doit être réalisée et validée par un professionnel qualifié RGE. Autonomia Lab décline toute responsabilité en cas d’application directe de ces informations.
+Un sous-dimensionnement de 20% sur une PAC air-air force l’appoint électrique et peut augmenter significativement la facture en hiver (ADEME/Hellowatt/La Maison des Energies/Cozynergy, 2026). Le correct dimensionnement d’une PAC air-air en m2 ou BTU ne dépend pas d’un ratio empirique mais du calcul des déperditions thermiques : Volume (m³) x Coefficient d’isolation (G) x Delta de Température (°C). Ignorer cette formule invalide le retour sur investissement.">
+  <meta itemprop="datePublished" content="2026-05-01T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2026-05-01T00:00:00+00:00">
+  <meta itemprop="wordCount" content="1154">
+
+<title>Dimensionnement PAC air-air | Autonomia Lab</title>
+<link rel="icon" href="/favicon.png" >
+<link rel="manifest" href="/manifest.json">
+<link rel="canonical" href="http://localhost:1316/lab_silo3_dimensionnement-pac-air-air/">
+<link rel="stylesheet" href="/book.min.453fb55be7ab107bba557e0692b7eaa0ede3596828379ae8d7662b3ba23a3000.css" integrity="sha256-RT&#43;1W&#43;erEHu6VX4GkrfqoO3jWWgoN5ro12YrO6I6MAA=" crossorigin="anonymous">
+
+
+  <script defer src="/fuse.min.js"></script>
+  <script defer src="/en.search.min.9bf59abd320875686ebf669f40cdfe011bb03a54c05cf8728e888a6eabd9cd63.js" integrity="sha256-m/WavTIIdWhuv2afQM3&#43;ARuwOlTAXPhyjoiKbqvZzWM=" crossorigin="anonymous"></script>
+
+
+
+  
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#ffffff">
+<style>
+  :root { color-scheme: light !important; }
+  html, body { color-scheme: light !important; }
+</style>
+
+</head>
+<body dir="ltr" class="book-kind-page book-type-lab">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    
+<aside class="book-menu">
+  <div class="book-menu-content">
+    
+  <nav>
+<h2 class="book-brand">
+  <span class="flex align-center"><span>Autonomia Lab</span>
+  </span>
+</h2>
+
+
+<div class="book-search hidden">
+  <input id="book-search-input" type="text" 
+    placeholder="Search"
+    aria-label="Search"
+    maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+<script>document.querySelector(".book-search").classList.remove("hidden")</script>
+
+
+
+
+
+
+<ul><li><a href="/">Accueil</a></li></ul>
+
+
+
+
+
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <input type="checkbox" id="section-80a6eccb491e65aad6dae5f33ec481c5" class="toggle"  />
+    <label for="section-80a6eccb491e65aad6dae5f33ec481c5" class="flex">
+      <a role="button"
+         class="" data-silo="1">
+        Solaire &amp; Stockage</a>
+      <img src="/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo1_cerbo-gx-pylontech-cablage/" class="" data-silo="1">
+      Cerbo GX &amp; Pylontech</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo1_erreur-11-victron-multiplus-ii/" class="" data-silo="1">
+      Erreur 11 Victron</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo1_fusibles-dc-ou-disjoncteurs/" class="" data-silo="1">
+      Fusibles DC vs Disjoncteurs</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo1_mppt-victron-100-20-100-30/" class="" data-silo="1">
+      MPPT 100/20 vs 100/30</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo1_pvgis-off-grid-autonomie/" class="" data-silo="1">
+      PVGIS Off-Grid</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo1_ratio-dc-ac-onduleur/" class="" data-silo="1">
+      Ratio DC/AC onduleur</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo1_section-cable-batterie-48v/" class="" data-silo="1">
+      Section câble 48V</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <input type="checkbox" id="section-ff2b4a7940fbd23fb7c151ce892a38d0" class="toggle"  />
+    <label for="section-ff2b4a7940fbd23fb7c151ce892a38d0" class="flex">
+      <a role="button"
+         class="" data-silo="2">
+        Hydraulique</a>
+      <img src="/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo2_calcul-hmt-pompe-50m/" class="" data-silo="2">
+      Calcul HMT pompe 50m</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo2_calcul-traitement-uvc/" class="" data-silo="2">
+      Calcul UV-C 40 mJ/cm²</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo2_filtration-fer-manganese/" class="" data-silo="2">
+      Filtration fer/manganèse</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo2_potabilisation-forage/" class="" data-silo="2">
+      Potabilisation forage</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo2_rejet-osmose-inverse/" class="" data-silo="2">
+      Rejet osmose inverse</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <input type="checkbox" id="section-2ff767a3ea21b6cc828c74332a27d864" class="toggle" checked />
+    <label for="section-2ff767a3ea21b6cc828c74332a27d864" class="flex">
+      <a role="button"
+         class="" data-silo="3">
+        Thermique</a>
+      <img src="/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo3_chauffe-eau-thermo-cop/" class="" data-silo="3">
+      Chauffe-eau thermodynamique</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo3_dimensionnement-pac-air-air/" class="active" data-silo="3">
+      Dimensionnement PAC air-air</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo3_isolation-toiture-r7/" class="" data-silo="3">
+      Isolation toiture R=7</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo3_rendement-pac-grand-froid/" class="" data-silo="3">
+      PAC grand froid COP</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo3_pac-releve-fioul-schema/" class="" data-silo="3">
+      PAC relève fioul schéma</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <input type="checkbox" id="section-d3532d0f76fc0e770fa43359b2f066c6" class="toggle"  />
+    <label for="section-d3532d0f76fc0e770fa43359b2f066c6" class="flex">
+      <a role="button"
+         class="" data-silo="4">
+        Infrastructure</a>
+      <img src="/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo4_differentiel-type-b/" class="" data-silo="4">
+      Différentiel Type B</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo4_disjoncteur-courbe-d-vs-c/" class="" data-silo="4">
+      Disjoncteur D vs C</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo4_puissance-reactive-linky/" class="" data-silo="4">
+      Puissance réactive Linky</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo4_regime-neutre-tt-tn/" class="" data-silo="4">
+      Régime neutre TT/TN</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+<ul><li><a href="/outils/">Outils du Lab</a></li><li><a href="/a-propos/">À propos</a></li></ul>
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+
+  </div>
+</aside>
+ 
+
+    <div class="book-page">
+      <header class="book-header hidden">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/icons/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <h3>Dimensionnement PAC air-air</h3>
+
+  <label for="toc-control">
+    
+    <img src="/icons/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#la-formule-de-calcul-des-déperditions--v-x-g-x-δt">La formule de calcul des déperditions : V x G x ΔT</a></li>
+    <li><a href="#étape-1--calcul-du-volume-à-chauffer-en-m">Étape 1 : Calcul du Volume à chauffer (en m³)</a></li>
+    <li><a href="#étape-2--définir-le-coefficient-disolation-g-wmc">Étape 2 : Définir le coefficient d&rsquo;isolation G (W/m³.°C)</a></li>
+    <li><a href="#étape-3--déterminer-le-δt-c-de-votre-zone-climatique">Étape 3 : Déterminer le ΔT (°C) de votre zone climatique</a></li>
+    <li><a href="#calcul-final-watts-et-conversion-en-btuh">Calcul final (Watts) et conversion en BTU/h</a></li>
+    <li><a href="#le-risque-du-sous-dimensionnement--une-perte-de-cop-de-100">Le risque du sous-dimensionnement : une perte de COP de 100%</a>
+      <ul>
+        <li><a href="#expertises-croisées">Expertises Croisées</a></li>
+        <li><a href="#faq--dimensionnement-pac-air-air">FAQ : Dimensionnement PAC Air-Air</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+<article class="markdown book-article"><h1>Dimensionnement PAC Air-Air : La formule exacte (Volume x Delta T).</h1><p class="article-date">Publié le 1 mai 2026</p><blockquote class='book-hint '>
+<p><strong>Sécurité</strong> — Cet article est un support de compréhension technique à titre éducatif uniquement. Les valeurs, calculs et schémas présentés ne remplacent pas l&rsquo;expertise d&rsquo;un installateur certifié. Toute installation doit être réalisée et validée par un professionnel qualifié RGE. Autonomia Lab décline toute responsabilité en cas d&rsquo;application directe de ces informations.</p>
+</blockquote><p>Un sous-dimensionnement de 20% sur une PAC air-air force l&rsquo;appoint électrique et peut augmenter significativement la facture en hiver (ADEME/Hellowatt/La Maison des Energies/Cozynergy, 2026). Le correct dimensionnement d&rsquo;une PAC air-air en m2 ou BTU ne dépend pas d&rsquo;un ratio empirique mais du calcul des déperditions thermiques : Volume (m³) x Coefficient d&rsquo;isolation (G) x Delta de Température (°C). Ignorer cette formule invalide le retour sur investissement.</p>
+<h2 id="la-formule-de-calcul-des-déperditions--v-x-g-x-δt">La formule de calcul des déperditions : V x G x ΔT<a class="anchor" href="#la-formule-de-calcul-des-d%c3%a9perditions--v-x-g-x-%ce%b4t">#</a></h2><p>Le calcul de puissance d&rsquo;une pompe à chaleur air-air se base sur la compensation des déperditions thermiques de l&rsquo;habitat. La formule à appliquer est <code>P = V x G x ΔT</code>.</p>
+<ul>
+<li><strong>P</strong> = Puissance requise en Watts (W) pour maintenir la température de consigne par la température de base extérieure.</li>
+<li><strong>V</strong> = Volume total des pièces à chauffer, exprimé en mètres cubes (m³).</li>
+<li><strong>G</strong> = Coefficient d&rsquo;isolation globale du logement, en W/m³.°C.</li>
+<li><strong>ΔT</strong> (Delta T) = Différence entre la température intérieure de consigne et la température extérieure de base de la zone géographique, en degrés Celsius (°C).</li>
+</ul>
+<p>Toute approche basée sur une surface en m² est une simplification qui ignore la hauteur sous plafond et mène à des erreurs de dimensionnement.</p>
+<h2 id="étape-1--calcul-du-volume-à-chauffer-en-m">Étape 1 : Calcul du Volume à chauffer (en m³)<a class="anchor" href="#%c3%a9tape-1--calcul-du-volume-%c3%a0-chauffer-en-m">#</a></h2><p>La première variable est le volume, non la surface. Le calcul est une simple multiplication de la surface au sol par la hauteur sous plafond.</p>
+<p>Pour un logement de 120 m² avec une hauteur sous plafond standard de 2,50 m :
+<code>Volume (V) = 120 m² x 2,50 m = 300 m³</code></p>
+<p>Cette valeur de 300 m³ est la base de travail. Un calcul en m² aurait ignoré 600 m³ d&rsquo;air à traiter dans une maison avec une hauteur de 5 m (type mezzanine), faussant intégralement le résultat.</p>
+<h2 id="étape-2--définir-le-coefficient-disolation-g-wmc">Étape 2 : Définir le coefficient d&rsquo;isolation G (W/m³.°C)<a class="anchor" href="#%c3%a9tape-2--d%c3%a9finir-le-coefficient-disolation-g-wmc">#</a></h2><p>Le coefficient G quantifie la performance de l&rsquo;enveloppe du bâtiment. Il dépend de l&rsquo;année de construction et des normes thermiques respectées. Une valeur G basse indique une bonne isolation.</p>
+<table>
+  <thead>
+      <tr>
+          <th>Norme d&rsquo;isolation &amp; Type d&rsquo;habitat</th>
+          <th>Coefficient G (W/m³.°C)</th>
+          <th>Source &amp; Date</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Logement non isolé (avant 1974)</td>
+          <td>1,8 à 2,0</td>
+          <td>RT 2005/RT 2012 (CSTB, 2005-2012)</td>
+      </tr>
+      <tr>
+          <td>Logement isolé (RT 2005)</td>
+          <td>1,1</td>
+          <td>RT 2005/RT 2012 (CSTB, 2005-2012)</td>
+      </tr>
+      <tr>
+          <td>Logement très bien isolé (RT 2012)</td>
+          <td>0,7</td>
+          <td>RT 2005/RT 2012 (CSTB, 2005-2012)</td>
+      </tr>
+      <tr>
+          <td>Logement passif (RE 2020)</td>
+          <td>0,4</td>
+          <td>(RE2020/ADEME, 2026)</td>
+      </tr>
+  </tbody>
+</table>
+<p>Le non-respect de l&rsquo;étanchéité à l&rsquo;air, mesurée par infiltrométrie (<code>Blower Door Test</code>), peut majorer ce coefficient de manière significative en conditions réelles (RE2020/SOLIDEO, 2024). La norme RE2020 impose un seuil de fuite inférieur à 0.6 vol·h⁻¹ (SOLIDEO, 2024).</p>
+<h2 id="étape-3--déterminer-le-δt-c-de-votre-zone-climatique">Étape 3 : Déterminer le ΔT (°C) de votre zone climatique<a class="anchor" href="#%c3%a9tape-3--d%c3%a9terminer-le-%ce%b4t-c-de-votre-zone-climatique">#</a></h2><p>Le ΔT est l&rsquo;écart entre la température de confort souhaitée (généralement 20°C ou 21°C) et la température de base extérieure, qui est la température la plus froide statistiquement atteinte sur 5 jours dans une région donnée.</p>
+<p><code>ΔT = T° confort - T° de base extérieure</code></p>
+<p>Les températures de base varient fortement sur le territoire.</p>
+<table>
+  <thead>
+      <tr>
+          <th>Zone Climatique</th>
+          <th>Ville de référence</th>
+          <th>Température de base</th>
+          <th>ΔT (pour 21°C confort)</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Zone A (Sud-Est)</td>
+          <td>Marseille</td>
+          <td>-3,5°C</td>
+          <td>24,5°C</td>
+      </tr>
+      <tr>
+          <td>Zone B (Ouest)</td>
+          <td>Bordeaux</td>
+          <td>-6,5°C</td>
+          <td>27,5°C</td>
+      </tr>
+      <tr>
+          <td>Zone C (Centre)</td>
+          <td>Lyon</td>
+          <td>-9,5°C</td>
+          <td>30,5°C</td>
+      </tr>
+      <tr>
+          <td>Zone D (Nord)</td>
+          <td>Lille</td>
+          <td>-9,5°C</td>
+          <td>30,5°C</td>
+      </tr>
+      <tr>
+          <td>Zone E (Est)</td>
+          <td>Strasbourg</td>
+          <td>-9,5°C</td>
+          <td>30,5°C</td>
+      </tr>
+  </tbody>
+</table>
+<p><em>Températures de base : (NF EN 12831, CAP RENOV, 2021)</em></p>
+<p>Le choix de la température de confort est un paramètre engageant. Chaque degré supplémentaire augmente la consommation électrique de 7 % (Primeo/ADEME/EDF, 2025).</p>
+<h2 id="calcul-final-watts-et-conversion-en-btuh">Calcul final (Watts) et conversion en BTU/h<a class="anchor" href="#calcul-final-watts-et-conversion-en-btuh">#</a></h2><p>Avec les données collectées, le calcul de la puissance (P) peut être finalisé.
+Exemple pour une maison de 300 m³ (120 m² x 2,5m), norme RT 2012 (G = 0,7), située à Lyon (ΔT = 30°C) :</p>
+<p><code>P = 300 m³ x 0,7 W/m³.°C x 30°C = 6300 W</code></p>
+<p>La puissance nécessaire est de 6,3 kW. Cette valeur correspond à la puissance calorifique que la PAC doit fournir à la température de base de -9°C pour maintenir 21°C à l&rsquo;intérieur, sans recours à un appoint.</p>
+<p>Pour le <strong>dimensionnement de la PAC air-air en BTU</strong> (British Thermal Unit), la conversion est directe :
 <code>1 Watt ≈ 3.41 BTU/h</code>
-<code>6300 W x 3.41 = 21 483 BTU/h</code></p><p>Il faudra donc sélectionner un équipement capable de fournir une puissance nominale de 6,3 kW ou 21 500 BTU/h.</p><h2 id=le-risque-du-sous-dimensionnement--une-perte-de-cop-de-100>Le risque du sous-dimensionnement : une perte de COP de 100%<a class=anchor href=#le-risque-du-sous-dimensionnement--une-perte-de-cop-de-100>#</a></h2><p>Sous-dimensionner une PAC en se basant sur une température extérieure moyenne est une erreur critique. Par grand froid (ex: -15°C), une machine sous-dimensionnée ne parvient plus à atteindre le point de consigne.</p><p>Elle déclenche alors son appoint électrique, généralement une résistance. Le Coefficient de Performance (COP) du système s&rsquo;effondre à 1,0, contre un COP nominal de 4,2 (A7/W20, EN 14825 — ADEME/PAC Expertise/Eurovent, 2026) ou un SCOP saisonnier de 2,8 à 3,0 en zone H1 (ADEME/Hellowatt, 2024). La consommation électrique est alors multipliée par trois pour un confort dégradé.</p><hr><blockquote class=book-hint><p><strong>Les données présentées résultent d&rsquo;une analyse de sources officielles, de normes techniques et d&rsquo;études indépendantes à la date indiquée. Elles peuvent évoluer.</strong></p></blockquote><hr><h3 id=expertises-croisées>Expertises Croisées<a class=anchor href=#expertises-crois%c3%a9es>#</a></h3><ul><li><strong>Hydraulique & Eau :</strong> <a href=https://autonomia-lab.fr/lab_silo2_calcul-hmt-pompe-50m/>Pompe immergée à 50m : Calculer la HMT sans griller le moteur.</a></li><li><strong>Thermique & Habitat :</strong> <a href=https://autonomia-lab.fr/lab_silo3_pac-releve-fioul-schema/>PAC Air-Eau en relève de fioul : Le schéma (Bouteille de mélange).</a></li><li><strong>Infrastructure :</strong> <a href=https://autonomia-lab.fr/lab_silo4_regime-neutre-tt-tn/>Régime de neutre (TT vs TN) : L&rsquo;impact sur votre onduleur hybride.</a></li></ul><hr><h3 id=faq--dimensionnement-pac-air-air>FAQ : Dimensionnement PAC Air-Air<a class=anchor href=#faq--dimensionnement-pac-air-air>#</a></h3><p><strong>Comment calculer la puissance d&rsquo;une PAC air-air pour 100m² ?</strong>
-Le calcul ne se fait pas en m² mais en m³. Multipliez 100 m² par votre hauteur sous plafond (ex: 2,5m) pour obtenir le volume (250 m³). Appliquez ensuite la formule P = Volume x G (isolation) x ΔT (différence de température) pour obtenir les Watts nécessaires.</p><p><strong>C&rsquo;est quoi les BTU pour une PAC ou une climatisation ?</strong>
-Le BTU (British Thermal Unit) est une unité d&rsquo;énergie. Pour les PAC, on utilise les BTU/h, qui mesurent la puissance de chauffage ou de refroidissement. 1 Watt équivaut à environ 3.41 BTU/h. Un appareil de 3,5 kW (3500 W) a une puissance d&rsquo;environ 12 000 BTU/h.</p><p><strong>Quelle puissance de PAC pour une maison mal isolée ?</strong>
-Pour une maison mal isolée (avant 1974), le coefficient G est élevé (ex: 1,8 W/m³.°C). Pour un volume de 300 m³ à Lyon (ΔT 30°C), le besoin est de <code>300 x 1,8 x 30 = 16 200 W</code> soit 16,2 kW. L&rsquo;isolation est le premier chantier à adresser avant d&rsquo;installer une PAC.</p><p><strong>Faut-il surdimensionner une PAC air-air ?</strong>
-Non. Une PAC surdimensionnée fonctionnera par cycles courts et répétés (&ldquo;short cycling&rdquo;), ce qui provoque une usure prématurée du compresseur, une surconsommation électrique au démarrage et un mauvais contrôle de l&rsquo;hygrométrie. Le dimensionnement doit être exact.</p><p><em>Frank Vasseur — Expert Systèmes Énergétiques & Thermiques, Autonomia Lab</em></p></article><footer class=book-footer><div class="flex flex-wrap justify-between"><div></div><div></div></div><div class="flex flex-wrap justify-between"><span><a href=/lab_silo3_chauffe-eau-thermo-cop/ class="flex align-center"><img src=/icons/backward.svg class=book-icon alt=Backward>
-<span>Chauffe-eau thermodynamique</span>
-</a></span><span><a href=/lab_silo3_isolation-toiture-r7/ class="flex align-center"><span>Isolation toiture R=7</span>
-<img src=/icons/forward.svg class=book-icon alt=Forward></a></span></div><script>(function(){document.querySelectorAll("pre:has(code)").forEach(e=>{e.addEventListener("click",e.focus),e.addEventListener("copy",function(t){if(t.preventDefault(),navigator.clipboard){const t=window.getSelection().toString()||e.textContent;navigator.clipboard.writeText(t)}})})})()</script></footer><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents><ul><li><a href=#la-formule-de-calcul-des-déperditions--v-x-g-x-δt>La formule de calcul des déperditions : V x G x ΔT</a></li><li><a href=#étape-1--calcul-du-volume-à-chauffer-en-m>Étape 1 : Calcul du Volume à chauffer (en m³)</a></li><li><a href=#étape-2--définir-le-coefficient-disolation-g-wmc>Étape 2 : Définir le coefficient d&rsquo;isolation G (W/m³.°C)</a></li><li><a href=#étape-3--déterminer-le-δt-c-de-votre-zone-climatique>Étape 3 : Déterminer le ΔT (°C) de votre zone climatique</a></li><li><a href=#calcul-final-watts-et-conversion-en-btuh>Calcul final (Watts) et conversion en BTU/h</a></li><li><a href=#le-risque-du-sous-dimensionnement--une-perte-de-cop-de-100>Le risque du sous-dimensionnement : une perte de COP de 100%</a><ul><li><a href=#expertises-croisées>Expertises Croisées</a></li><li><a href=#faq--dimensionnement-pac-air-air>FAQ : Dimensionnement PAC Air-Air</a></li></ul></li></ul></nav></div></aside></main></body></html>
+<code>6300 W x 3.41 = 21 483 BTU/h</code></p>
+<p>Il faudra donc sélectionner un équipement capable de fournir une puissance nominale de 6,3 kW ou 21 500 BTU/h.</p>
+<h2 id="le-risque-du-sous-dimensionnement--une-perte-de-cop-de-100">Le risque du sous-dimensionnement : une perte de COP de 100%<a class="anchor" href="#le-risque-du-sous-dimensionnement--une-perte-de-cop-de-100">#</a></h2><p>Sous-dimensionner une PAC en se basant sur une température extérieure moyenne est une erreur critique. Par grand froid (ex: -15°C), une machine sous-dimensionnée ne parvient plus à atteindre le point de consigne.</p>
+<p>Elle déclenche alors son appoint électrique, généralement une résistance. Le Coefficient de Performance (COP) du système s&rsquo;effondre à 1,0, contre un COP nominal de 4,2 (A7/W20, EN 14825 — ADEME/PAC Expertise/Eurovent, 2026) ou un SCOP saisonnier de 2,8 à 3,0 en zone H1 (ADEME/Hellowatt, 2024). La consommation électrique est alors multipliée par trois pour un confort dégradé.</p>
+<hr>
+<blockquote class='book-hint '>
+<p><strong>Les données présentées résultent d&rsquo;une analyse de sources officielles, de normes techniques et d&rsquo;études indépendantes à la date indiquée. Elles peuvent évoluer.</strong></p>
+</blockquote><hr>
+<h3 id="expertises-croisées">Expertises Croisées<a class="anchor" href="#expertises-crois%c3%a9es">#</a></h3><ul>
+<li><strong>Hydraulique &amp; Eau :</strong> <a href="http://localhost:1316/lab_silo2_calcul-hmt-pompe-50m/">Pompe immergée à 50m : Calculer la HMT sans griller le moteur.</a></li>
+<li><strong>Thermique &amp; Habitat :</strong> <a href="http://localhost:1316/lab_silo3_pac-releve-fioul-schema/">PAC Air-Eau en relève de fioul : Le schéma (Bouteille de mélange).</a></li>
+<li><strong>Infrastructure :</strong> <a href="http://localhost:1316/lab_silo4_regime-neutre-tt-tn/">Régime de neutre (TT vs TN) : L&rsquo;impact sur votre onduleur hybride.</a></li>
+</ul>
+<hr>
+<h3 id="faq--dimensionnement-pac-air-air">FAQ : Dimensionnement PAC Air-Air<a class="anchor" href="#faq--dimensionnement-pac-air-air">#</a></h3><p><strong>Comment calculer la puissance d&rsquo;une PAC air-air pour 100m² ?</strong>
+Le calcul ne se fait pas en m² mais en m³. Multipliez 100 m² par votre hauteur sous plafond (ex: 2,5m) pour obtenir le volume (250 m³). Appliquez ensuite la formule P = Volume x G (isolation) x ΔT (différence de température) pour obtenir les Watts nécessaires.</p>
+<p><strong>C&rsquo;est quoi les BTU pour une PAC ou une climatisation ?</strong>
+Le BTU (British Thermal Unit) est une unité d&rsquo;énergie. Pour les PAC, on utilise les BTU/h, qui mesurent la puissance de chauffage ou de refroidissement. 1 Watt équivaut à environ 3.41 BTU/h. Un appareil de 3,5 kW (3500 W) a une puissance d&rsquo;environ 12 000 BTU/h.</p>
+<p><strong>Quelle puissance de PAC pour une maison mal isolée ?</strong>
+Pour une maison mal isolée (avant 1974), le coefficient G est élevé (ex: 1,8 W/m³.°C). Pour un volume de 300 m³ à Lyon (ΔT 30°C), le besoin est de <code>300 x 1,8 x 30 = 16 200 W</code> soit 16,2 kW. L&rsquo;isolation est le premier chantier à adresser avant d&rsquo;installer une PAC.</p>
+<p><strong>Faut-il surdimensionner une PAC air-air ?</strong>
+Non. Une PAC surdimensionnée fonctionnera par cycles courts et répétés (&ldquo;short cycling&rdquo;), ce qui provoque une usure prématurée du compresseur, une surconsommation électrique au démarrage et un mauvais contrôle de l&rsquo;hygrométrie. Le dimensionnement doit être exact.</p>
+<p><em>Frank Vasseur — Expert Systèmes Énergétiques &amp; Thermiques, Autonomia Lab</em></p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+<div>
+
+</div>
+
+<div>
+
+</div>
+
+</div>
+
+
+
+
+
+  
+  
+  
+  <div class="flex flex-wrap justify-between">
+    <span>
+    
+      <a href="/lab_silo3_chauffe-eau-thermo-cop/" class="flex align-center">
+        <img src="/icons/backward.svg" class="book-icon" alt="Backward" />
+        <span>Chauffe-eau thermodynamique</span>
+      </a>
+    
+    </span>
+    <span>
+    
+      <a href="/lab_silo3_isolation-toiture-r7/" class="flex align-center">
+        <span>Isolation toiture R=7</span>
+        <img src="/icons/forward.svg" class="book-icon" alt="Forward" />
+      </a>
+    
+    </span>
+  </div>
+  
+
+
+ 
+        
+  
+ 
+        
+        
+  
+ 
+        
+  
+  
+    <script>(function(){document.querySelectorAll("pre:has(code)").forEach(e=>{e.addEventListener("click",e.focus),e.addEventListener("copy",function(t){if(t.preventDefault(),navigator.clipboard){const t=window.getSelection().toString()||e.textContent;navigator.clipboard.writeText(t)}})})})()</script>
+  
+
+      </footer>
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+  
+  <aside class="book-toc">
+    <div class="book-toc-content">
+      
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#la-formule-de-calcul-des-déperditions--v-x-g-x-δt">La formule de calcul des déperditions : V x G x ΔT</a></li>
+    <li><a href="#étape-1--calcul-du-volume-à-chauffer-en-m">Étape 1 : Calcul du Volume à chauffer (en m³)</a></li>
+    <li><a href="#étape-2--définir-le-coefficient-disolation-g-wmc">Étape 2 : Définir le coefficient d&rsquo;isolation G (W/m³.°C)</a></li>
+    <li><a href="#étape-3--déterminer-le-δt-c-de-votre-zone-climatique">Étape 3 : Déterminer le ΔT (°C) de votre zone climatique</a></li>
+    <li><a href="#calcul-final-watts-et-conversion-en-btuh">Calcul final (Watts) et conversion en BTU/h</a></li>
+    <li><a href="#le-risque-du-sous-dimensionnement--une-perte-de-cop-de-100">Le risque du sous-dimensionnement : une perte de COP de 100%</a>
+      <ul>
+        <li><a href="#expertises-croisées">Expertises Croisées</a></li>
+        <li><a href="#faq--dimensionnement-pac-air-air">FAQ : Dimensionnement PAC Air-Air</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+    </div>
+  </aside>
+  
+ 
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

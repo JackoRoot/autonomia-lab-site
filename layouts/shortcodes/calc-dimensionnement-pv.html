@@ -1,0 +1,647 @@
+{{/*
+  Calculateur dimensionnement panneaux solaires — v2
+  Mode rapide (profils) + Mode manuel (postes de consommation détaillés)
+  Sources : PVGIS-SARAH3 JRC, Enedis bilan 2024, ADEME, CRE T14 2026
+  Usage: {{< calc-dimensionnement-pv >}}
+*/}}
+
+<div class="lab-calc lab-calc-dim-pv">
+
+<style>
+.lab-calc {
+  --c-accent: #F59E0B;
+  --c-bg: #FFFFFF;
+  --c-bg-alt: #FAFAF9;
+  --c-bg-result: #1F2937;
+  --c-border: #E5E5E5;
+  --c-text: #1F2937;
+  --c-text-muted: #6B7280;
+  --c-warning: #D97706;
+  --c-success: #059669;
+  --c-info: #2563EB;
+  --c-danger: #DC2626;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  max-width: 480px;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 1.5rem auto;
+  padding: 1.25rem;
+  background: var(--c-bg);
+  border: 1px solid var(--c-border);
+  border-radius: 10px;
+  color: var(--c-text);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+}
+.lab-calc-header {
+  display: flex; align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 1rem; padding-bottom: 0.75rem;
+  border-bottom: 2px solid var(--c-accent);
+}
+.lab-calc-header h3 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.05rem; margin: 0; font-weight: 600;
+}
+.lab-calc-header .badge {
+  font-size: 0.7rem; text-transform: uppercase;
+  letter-spacing: 0.05em; color: var(--c-accent); font-weight: 600;
+}
+.mode-toggle {
+  display: flex; gap: 0; margin-bottom: 1rem;
+  background: var(--c-bg-alt); border-radius: 6px; padding: 2px;
+}
+.mode-toggle button {
+  flex: 1; padding: 0.4rem 0.5rem;
+  background: transparent; border: none; cursor: pointer;
+  font-family: inherit; font-size: 0.75rem; font-weight: 500;
+  color: var(--c-text-muted); border-radius: 4px; transition: all 0.15s;
+}
+.mode-toggle button.active {
+  background: var(--c-bg); color: var(--c-text);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.08);
+}
+.section-title {
+  font-size: 0.7rem; text-transform: uppercase;
+  letter-spacing: 0.06em; font-weight: 600;
+  color: var(--c-text-muted); margin: 1rem 0 0.6rem;
+  padding-bottom: 0.3rem; border-bottom: 1px solid var(--c-border);
+}
+.lab-calc-field { margin-bottom: 0.75rem; }
+.lab-calc-field label {
+  display: flex; justify-content: space-between; align-items: baseline;
+  font-size: 0.75rem; color: var(--c-text-muted); font-weight: 500;
+  margin-bottom: 0.25rem; text-transform: uppercase; letter-spacing: 0.03em;
+}
+.lab-calc-field label .val {
+  font-size: 0.85rem; color: var(--c-accent); font-weight: 700;
+  text-transform: none; letter-spacing: 0;
+}
+.lab-calc-field input[type="range"] {
+  width: 100%; -webkit-appearance: none; appearance: none;
+  height: 3px; background: var(--c-border); border-radius: 2px;
+  outline: none; margin-top: 0.4rem;
+}
+.lab-calc-field input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none; width: 16px; height: 16px;
+  background: var(--c-accent); border-radius: 50%; cursor: pointer;
+}
+.lab-calc-field input[type="range"]::-moz-range-thumb {
+  width: 16px; height: 16px; background: var(--c-accent);
+  border-radius: 50%; cursor: pointer; border: none;
+}
+.lab-calc-field input[type="number"],
+.lab-calc-field select {
+  width: 100%; padding: 0.5rem 0.6rem;
+  border: 1px solid var(--c-border); border-radius: 5px;
+  font-size: 0.9rem; font-family: inherit;
+  background: var(--c-bg); box-sizing: border-box;
+}
+.lab-calc-field input[type="number"]:focus,
+.lab-calc-field select:focus { outline: none; border-color: var(--c-accent); }
+.lab-calc-help {
+  font-size: 0.7rem; color: var(--c-text-muted);
+  margin-top: 0.2rem; font-style: italic;
+}
+.row-2 { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 0.75rem; margin-bottom: 0.75rem; }
+.profils-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 0.4rem; margin-bottom: 0.75rem; }
+.profil-btn {
+  padding: 0.5rem 0.6rem; background: var(--c-bg-alt);
+  border: 1px solid var(--c-border); border-radius: 6px;
+  font-family: inherit; font-size: 0.72rem; font-weight: 500;
+  cursor: pointer; text-align: left; transition: all 0.15s; color: var(--c-text);
+}
+.profil-btn:hover { border-color: var(--c-accent); }
+.profil-btn.active { background: #FEF3C7; border-color: var(--c-accent); color: #92400E; }
+.profil-btn .pb-name { font-weight: 600; margin-bottom: 0.1rem; }
+.profil-btn .pb-kwh { font-size: 0.65rem; color: var(--c-text-muted); }
+.profil-btn.active .pb-kwh { color: #B45309; }
+.poste-row {
+  display: grid; grid-template-columns: 1fr auto auto;
+  align-items: center; gap: 0.5rem;
+  padding: 0.5rem 0; border-bottom: 1px solid var(--c-border); font-size: 0.75rem;
+}
+.poste-row:last-child { border-bottom: none; }
+.poste-row .pr-name { color: var(--c-text); }
+.poste-row .pr-kwh {
+  font-size: 0.7rem; font-weight: 600;
+  color: var(--c-accent); min-width: 60px; text-align: right;
+}
+.poste-row input[type="number"] {
+  width: 70px; padding: 0.3rem 0.4rem;
+  border: 1px solid var(--c-border); border-radius: 4px;
+  font-size: 0.8rem; font-family: inherit; text-align: right;
+}
+.poste-row input[type="number"]:focus { outline: none; border-color: var(--c-accent); }
+.conso-recap {
+  background: var(--c-bg-result); color: white;
+  border-radius: 8px; padding: 0.75rem 0.85rem;
+  display: flex; align-items: center; justify-content: space-between;
+  margin: 0.75rem 0;
+}
+.conso-recap .cr-label { font-size: 0.72rem; color: rgba(255,255,255,0.6); }
+.conso-recap .cr-val {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.5rem; font-weight: 700; color: var(--c-accent);
+}
+.conso-recap .cr-unit { font-size: 0.7rem; color: rgba(255,255,255,0.5); margin-left: 0.2rem; }
+.results-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 0.5rem; margin-top: 0.75rem; }
+.result-card { padding: 0.85rem; border-radius: 8px; box-sizing: border-box; min-width: 0; }
+.result-card.primary { background: var(--c-bg-result); border: 2px solid var(--c-accent); color: white; }
+.result-card.secondary { background: var(--c-bg-alt); border: 2px solid var(--c-border); }
+.result-card .rc-label {
+  font-size: 0.6rem; text-transform: uppercase;
+  letter-spacing: 0.08em; font-weight: 700; margin-bottom: 0.35rem;
+}
+.result-card.primary .rc-label { color: var(--c-accent); }
+.result-card.secondary .rc-label { color: var(--c-text-muted); }
+.result-card .rc-val {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.8rem; font-weight: 700; line-height: 1;
+}
+.result-card.primary .rc-val { color: var(--c-accent); }
+.result-card.secondary .rc-val { color: var(--c-text); }
+.result-card .rc-unit { font-size: 0.7rem; font-weight: 400; margin-left: 0.15rem; font-family: 'Inter', sans-serif; }
+.result-card.primary .rc-unit { color: rgba(255,255,255,0.6); }
+.result-card.secondary .rc-unit { color: var(--c-text-muted); }
+.result-card .rc-sub { font-size: 0.65rem; margin-top: 0.3rem; line-height: 1.4; }
+.result-card.primary .rc-sub { color: rgba(255,255,255,0.7); }
+.result-card.secondary .rc-sub { color: var(--c-text-muted); }
+.taux-barre { margin: 0.75rem 0; }
+.tb-header { display: flex; justify-content: space-between; font-size: 0.72rem; color: var(--c-text-muted); margin-bottom: 0.3rem; }
+.tb-bar { height: 10px; background: var(--c-border); border-radius: 5px; overflow: hidden; }
+.tb-fill { height: 100%; border-radius: 5px; transition: width 0.3s; }
+.alert-box { padding: 0.55rem 0.75rem; margin-top: 0.5rem; font-size: 0.72rem; border-radius: 0 4px 4px 0; line-height: 1.4; }
+.alert-warning { background: #FFFBEB; border-left: 3px solid var(--c-warning); color: #92400E; }
+.alert-success { background: #F0FDF4; border-left: 3px solid var(--c-success); color: #14532D; }
+.alert-info { background: #EFF6FF; border-left: 3px solid var(--c-info); color: #1E3A5F; }
+.detail-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 0.4rem; margin-top: 0.5rem; }
+.detail-item { background: var(--c-bg-alt); border-radius: 5px; padding: 0.5rem 0.6rem; font-size: 0.72rem; }
+.detail-item .di-label { color: var(--c-text-muted); margin-bottom: 0.15rem; }
+.detail-item .di-val { color: var(--c-text); font-weight: 600; }
+.lab-calc-details { margin-top: 0.85rem; }
+.lab-calc-details summary {
+  cursor: pointer; font-size: 0.75rem; color: var(--c-text-muted);
+  padding: 0.4rem 0; user-select: none; list-style: none;
+  display: flex; align-items: center; gap: 0.3rem;
+}
+.lab-calc-details summary::before { content: '▶'; font-size: 0.6rem; transition: transform 0.2s; }
+.lab-calc-details[open] summary::before { transform: rotate(90deg); }
+.lab-calc-actions { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 0.5rem; margin-top: 0.85rem; }
+.lab-calc-btn {
+  padding: 0.5rem; background: var(--c-bg-alt); color: var(--c-text);
+  border: 1px solid var(--c-border); border-radius: 5px;
+  font-family: inherit; font-size: 0.75rem; font-weight: 500;
+  cursor: pointer; transition: all 0.15s;
+  display: flex; align-items: center; justify-content: center; gap: 0.3rem;
+}
+.lab-calc-btn:hover { background: white; border-color: var(--c-accent); color: var(--c-accent); }
+.lab-calc-btn.copied { background: var(--c-accent); color: white; border-color: var(--c-accent); }
+.lab-calc-sources { margin-top: 0.75rem; font-size: 0.65rem; color: var(--c-text-muted); line-height: 1.6; }
+.lab-calc-sources a { color: var(--c-info); text-decoration: none; }
+.lab-calc-sources a:hover { text-decoration: underline; }
+.lab-calc-method-link {
+  display: block; margin-top: 0.5rem;
+  font-size: 0.72rem; color: var(--c-info); text-decoration: none;
+}
+.lab-calc-method-link:hover { text-decoration: underline; }
+</style>
+
+<div class="lab-calc-header">
+  <h3>Dimensionnement Panneaux Solaires</h3>
+  <span class="badge">Résidentiel</span>
+</div>
+
+<div class="mode-toggle">
+  <button id="btn-rapide" class="active" onclick="setMode('rapide')">Estimation rapide</button>
+  <button id="btn-manuel" onclick="setMode('manuel')">Configurer mon foyer</button>
+</div>
+
+<!-- MODE RAPIDE -->
+<div id="mode-rapide">
+  <div class="section-title">Profil de consommation</div>
+  <div class="profils-grid">
+    <button class="profil-btn" onclick="setProfil(2000)" id="p-2000">
+      <div class="pb-name">Studio / Appt</div>
+      <div class="pb-kwh">~2 000 kWh/an</div>
+    </button>
+    <button class="profil-btn active" onclick="setProfil(4300)" id="p-4300">
+      <div class="pb-name">Foyer moyen</div>
+      <div class="pb-kwh">~4 300 kWh/an</div>
+    </button>
+    <button class="profil-btn" onclick="setProfil(9000)" id="p-9000">
+      <div class="pb-name">Maison T3/T4</div>
+      <div class="pb-kwh">~9 000 kWh/an</div>
+    </button>
+    <button class="profil-btn" onclick="setProfil(14500)" id="p-14500">
+      <div class="pb-name">Maison 100m² élec.</div>
+      <div class="pb-kwh">~14 500 kWh/an</div>
+    </button>
+  </div>
+  <div class="lab-calc-field">
+    <label>Ou saisir directement <span class="val" id="conso-val">4 300 kWh/an</span></label>
+    <input type="range" id="conso" min="1000" max="20000" step="100" value="4300">
+    <div class="lab-calc-help">Source : relevé Linky ou dernière facture annuelle</div>
+  </div>
+</div>
+
+<!-- MODE MANUEL -->
+<div id="mode-manuel" style="display:none;">
+  <div class="section-title">Composition du foyer</div>
+  <div class="row-2">
+    <div class="lab-calc-field">
+      <label>Adultes <span class="val" id="adultes-val">2</span></label>
+      <input type="range" id="adultes" min="1" max="6" step="1" value="2">
+    </div>
+    <div class="lab-calc-field">
+      <label>Enfants <span class="val" id="enfants-val">0</span></label>
+      <input type="range" id="enfants" min="0" max="5" step="1" value="0">
+    </div>
+  </div>
+
+  <div class="section-title">Chauffage</div>
+  <div class="lab-calc-field">
+    <label>Mode de chauffage</label>
+    <select id="chauffage">
+      <option value="0">Pas de chauffage électrique</option>
+      <option value="1500">Radiateurs électriques — petit logement (1 500 kWh/an)</option>
+      <option value="3500">Radiateurs électriques — maison (3 500 kWh/an)</option>
+      <option value="6000">Radiateurs électriques — grande maison (6 000 kWh/an)</option>
+      <option value="1000">PAC air-air (1 000 kWh/an)</option>
+      <option value="2000">PAC air-eau (2 000 kWh/an)</option>
+    </select>
+    <div class="lab-calc-help">Source : ADEME — étude Elecdom. Chauffage = 62% facture en tout électrique.</div>
+  </div>
+
+  <div class="section-title">Eau chaude sanitaire</div>
+  <div class="lab-calc-field">
+    <label>Type de chauffe-eau</label>
+    <select id="ecs">
+      <option value="0">Pas d'ECS électrique (gaz, solaire...)</option>
+      <option value="800">Chauffe-eau thermodynamique — 1-2 personnes (800 kWh/an)</option>
+      <option value="1200" selected>Chauffe-eau thermodynamique — 3-4 personnes (1 200 kWh/an)</option>
+      <option value="1600">Chauffe-eau électrique résistance — 1-2 personnes (1 600 kWh/an)</option>
+      <option value="2500">Chauffe-eau électrique résistance — 3-4 personnes (2 500 kWh/an)</option>
+    </select>
+    <div class="lab-calc-help">Source : ADEME — étude Elecdom. ECS = 12% facture.</div>
+  </div>
+
+  <div class="section-title">Électroménager</div>
+  <div id="postes-list"></div>
+
+  <div class="section-title">Usages spécifiques</div>
+  <div class="row-2">
+    <div class="lab-calc-field">
+      <label>Voiture électrique <span class="val" id="ve-val">0 kWh/an</span></label>
+      <input type="range" id="ve" min="0" max="5000" step="200" value="0">
+      <div class="lab-calc-help">~200 kWh/10 000 km (VE efficient)</div>
+    </div>
+    <div class="lab-calc-field">
+      <label>Piscine / spa <span class="val" id="piscine-val">0 kWh/an</span></label>
+      <input type="range" id="piscine" min="0" max="3000" step="100" value="0">
+      <div class="lab-calc-help">Pompe de filtration : ~1 500 kWh/an</div>
+    </div>
+  </div>
+  <div class="lab-calc-field">
+    <label>Autres usages <span class="val" id="autres-val">0 kWh/an</span></label>
+    <input type="range" id="autres" min="0" max="3000" step="100" value="0">
+    <div class="lab-calc-help">Atelier, serveur, éclairage extérieur...</div>
+  </div>
+</div>
+
+<!-- CONSOMMATION TOTALE (commune aux deux modes) -->
+<div class="conso-recap" id="conso-recap">
+  <div>
+    <div class="cr-label">Consommation totale estimée</div>
+    <div style="font-size:0.65rem;color:rgba(255,255,255,0.4);margin-top:0.1rem;" id="vs-nationale"></div>
+  </div>
+  <div>
+    <span class="cr-val" id="conso-total">4 300</span>
+    <span class="cr-unit">kWh/an</span>
+  </div>
+</div>
+
+<!-- PARAMÈTRES INSTALLATION -->
+<div class="section-title">Votre installation</div>
+<div class="row-2">
+  <div class="lab-calc-field">
+    <label>Région</label>
+    <select id="region">
+      <option value="950">Nord — Paris (950 kWh/kWc/an)</option>
+      <option value="1200" selected>Centre — Lyon (1 200 kWh/kWc/an)</option>
+      <option value="1580">Sud — Marseille (1 580 kWh/kWc/an)</option>
+    </select>
+  </div>
+  <div class="lab-calc-field">
+    <label>Autoconsommation visée</label>
+    <select id="autoconso">
+      <option value="0.5">50% — sans batterie</option>
+      <option value="0.7" selected>70% — usage optimisé</option>
+      <option value="0.85">85% — avec batterie</option>
+    </select>
+  </div>
+</div>
+<div class="row-2">
+  <div class="lab-calc-field">
+    <label>Orientation toiture</label>
+    <select id="orientation">
+      <option value="1.0" selected>Plein Sud (100%)</option>
+      <option value="0.95">Sud-Est / Sud-Ouest (95%)</option>
+      <option value="0.85">Est / Ouest (85%)</option>
+      <option value="0.70">Nord-Est / Nord-Ouest (70%)</option>
+    </select>
+  </div>
+  <div class="lab-calc-field">
+    <label>Pertes système</label>
+    <select id="pertes">
+      <option value="0.14" selected>14% — standard (PVGIS)</option>
+      <option value="0.20">20% — installation ancienne</option>
+      <option value="0.10">10% — installation optimale</option>
+    </select>
+  </div>
+</div>
+
+<div id="results-zone"></div>
+
+<details class="lab-calc-details">
+  <summary>Détail du calcul</summary>
+  <div class="detail-grid" id="detail-grid"></div>
+</details>
+
+<div class="lab-calc-actions">
+  <button class="lab-calc-btn" onclick="resetCalc()">↺ Réinitialiser</button>
+  <button class="lab-calc-btn" id="copy-btn" onclick="copyLink()">⎘ Copier le lien</button>
+</div>
+
+<div class="lab-calc-sources">
+  Sources : <a href="https://re.jrc.ec.europa.eu/pvg_tools/fr/" target="_blank">PVGIS-SARAH3 JRC</a> · <a href="https://www.enedis.fr" target="_blank">Enedis bilan 2024</a> · <a href="https://agirpourlatransition.ademe.fr" target="_blank">ADEME — étude Elecdom</a> · <a href="https://www.cre.fr/documents/open-data/arretes-tarifaires-photovoltaiques-en-metropole.html" target="_blank">CRE T14 2026</a>
+</div>
+
+<a href="/outils/calculateur-dimensionnement-pv/" class="lab-calc-method-link" id="calc-dimensionnement-pv-embed-link">
+  🔗 Voir la page complète de ce calculateur
+</a>
+<a href="/outils/calculateur-dimensionnement-pv/methodologie/" class="lab-calc-method-link" style="margin-top:0.35rem;">
+  📐 Méthodologie et sources détaillées
+</a>
+
+<script>
+const PUISSANCE_PANNEAU = 400;
+const M2_PAR_PANNEAU = 2.0;
+const CONSO_NATIONALE = 4287;
+
+const POSTES = [
+  { id:'frigo',    label:'Réfrigérateur',     kwhDefault:346,  src:'ADEME Elecdom' },
+  { id:'lavelinge',label:'Lave-linge',         kwhDefault:180,  src:'ADEME 2024' },
+  { id:'lavevaiss',label:'Lave-vaisselle',     kwhDefault:220,  src:'ADEME 2024' },
+  { id:'seche',    label:'Sèche-linge',        kwhDefault:300,  src:'ADEME 2024' },
+  { id:'tv',       label:'TV + box + veilles', kwhDefault:400,  src:'ADEME 2024 (veilles incluses)' },
+  { id:'eclairage',label:'Éclairage',          kwhDefault:200,  src:'ADEME — LED standard foyer' },
+  { id:'cuisine',  label:'Cuisine (four, micro-ondes...)', kwhDefault:300, src:'ADEME Elecdom' },
+  { id:'ordi',     label:'Ordinateurs / téléphones', kwhDefault:150, src:'ADEME 2024' },
+];
+
+let currentMode = 'rapide';
+
+function setMode(mode) {
+  currentMode = mode;
+  document.getElementById('mode-rapide').style.display = mode === 'rapide' ? '' : 'none';
+  document.getElementById('mode-manuel').style.display = mode === 'manuel' ? '' : 'none';
+  document.getElementById('btn-rapide').classList.toggle('active', mode === 'rapide');
+  document.getElementById('btn-manuel').classList.toggle('active', mode === 'manuel');
+  if (mode === 'manuel') buildPostes();
+  calc();
+}
+
+function buildPostes() {
+  const list = document.getElementById('postes-list');
+  if (list.children.length > 0) return;
+  list.innerHTML = POSTES.map(p => `
+    <div class="poste-row">
+      <span class="pr-name">${p.label}</span>
+      <input type="number" id="kwh-${p.id}" value="${p.kwhDefault}" min="0" max="5000" step="10" onchange="calc()" oninput="calc()">
+      <span class="pr-kwh" id="pct-${p.id}">—</span>
+    </div>
+  `).join('');
+}
+
+function getConsoManuel() {
+  const adultes = parseInt(document.getElementById('adultes').value);
+  const enfants = parseInt(document.getElementById('enfants').value);
+  const chauffage = parseInt(document.getElementById('chauffage').value);
+  const ecs = parseInt(document.getElementById('ecs').value);
+  const ve = parseInt(document.getElementById('ve').value);
+  const piscine = parseInt(document.getElementById('piscine').value);
+  const autres = parseInt(document.getElementById('autres').value);
+
+  const basePersonnes = adultes * 500 + enfants * 200;
+
+  let electro = 0;
+  POSTES.forEach(p => {
+    const el = document.getElementById('kwh-' + p.id);
+    if (el) electro += parseInt(el.value) || 0;
+  });
+
+  return { total: basePersonnes + chauffage + ecs + electro + ve + piscine + autres, electro, chauffage, ecs, ve, piscine, autres, basePersonnes };
+}
+
+function getConsoRapide() {
+  return parseInt(document.getElementById('conso').value);
+}
+
+function fmtKwc(n) { return (Math.round(n * 10) / 10).toFixed(1) + ' kWc'; }
+function fmtKwh(n) { return Math.round(n).toLocaleString('fr-FR') + ' kWh'; }
+function fmtM2(n) { return Math.round(n) + ' m²'; }
+function fmtEur(n) { return Math.round(n).toLocaleString('fr-FR') + ' €'; }
+function couleurTaux(pct) {
+  if (pct >= 0.8) return '#059669';
+  if (pct >= 0.5) return '#D97706';
+  return '#DC2626';
+}
+
+function setProfil(kwh) {
+  document.getElementById('conso').value = kwh;
+  document.querySelectorAll('.profil-btn').forEach(b => b.classList.remove('active'));
+  const btn = document.getElementById('p-' + kwh);
+  if (btn) btn.classList.add('active');
+  calc();
+}
+
+function updateProfilBtns(conso) {
+  const vals = [2000, 4300, 9000, 14500];
+  document.querySelectorAll('.profil-btn').forEach(b => b.classList.remove('active'));
+  const closest = vals.reduce((a, b) => Math.abs(b - conso) < Math.abs(a - conso) ? b : a);
+  if (Math.abs(closest - conso) < 500) {
+    const btn = document.getElementById('p-' + closest);
+    if (btn) btn.classList.add('active');
+  }
+}
+
+function calc() {
+  let conso;
+  if (currentMode === 'rapide') {
+    conso = getConsoRapide();
+    document.getElementById('conso-val').textContent = Math.round(conso).toLocaleString('fr-FR') + ' kWh/an';
+    updateProfilBtns(conso);
+  } else {
+    const m = getConsoManuel();
+    conso = m.total;
+    document.getElementById('adultes-val').textContent = document.getElementById('adultes').value;
+    document.getElementById('enfants-val').textContent = document.getElementById('enfants').value;
+    document.getElementById('ve-val').textContent = document.getElementById('ve').value.toLocaleString('fr-FR') + ' kWh/an';
+    document.getElementById('piscine-val').textContent = document.getElementById('piscine').value.toLocaleString('fr-FR') + ' kWh/an';
+    document.getElementById('autres-val').textContent = document.getElementById('autres').value.toLocaleString('fr-FR') + ' kWh/an';
+    POSTES.forEach(p => {
+      const el = document.getElementById('pct-' + p.id);
+      const kwh = parseInt(document.getElementById('kwh-' + p.id)?.value) || 0;
+      if (el) el.textContent = kwh + ' kWh';
+    });
+  }
+
+  document.getElementById('conso-total').textContent = Math.round(conso).toLocaleString('fr-FR');
+  const diff = Math.round((conso / CONSO_NATIONALE - 1) * 100);
+  document.getElementById('vs-nationale').textContent = diff >= 0
+    ? '+' + diff + '% vs moyenne nationale (4 287 kWh/an)'
+    : diff + '% vs moyenne nationale (4 287 kWh/an)';
+
+  const region = parseInt(document.getElementById('region').value);
+  const autoconso = parseFloat(document.getElementById('autoconso').value);
+  const orientation = parseFloat(document.getElementById('orientation').value);
+  const pertes = parseFloat(document.getElementById('pertes').value);
+
+  const productibleReel = region * orientation * (1 - pertes);
+  const consoACobrir = conso * autoconso;
+  const kwcNecessaire = consoACobrir / productibleReel;
+  const kwcArrondi = Math.ceil(kwcNecessaire / 0.5) * 0.5;
+  const kwcLimite = Math.min(kwcArrondi, 9);
+  const kwcDepasse9 = kwcArrondi > 9;
+
+  const nbPanneaux = Math.ceil(kwcLimite * 1000 / PUISSANCE_PANNEAU);
+  const surfaceM2 = nbPanneaux * M2_PAR_PANNEAU;
+  const productionAnnuelle = kwcLimite * productibleReel;
+  const kwhAutoconso = productionAnnuelle * autoconso;
+  const kwhSurplus = productionAnnuelle * (1 - autoconso);
+  const tauxCouverture = Math.min(kwhAutoconso / conso, 1);
+
+  const prixEst = kwcLimite * 2000;
+  const primeCRE = 80 * kwcLimite;
+  const prixNet = prixEst - primeCRE;
+
+  let html = `
+    <div class="results-grid">
+      <div class="result-card primary">
+        <div class="rc-label">Puissance recommandée</div>
+        <div class="rc-val">${fmtKwc(kwcLimite)}</div>
+        <div class="rc-sub">${nbPanneaux} panneaux × 400 Wc<br>${fmtM2(surfaceM2)} de toiture</div>
+      </div>
+      <div class="result-card secondary">
+        <div class="rc-label">Production annuelle</div>
+        <div class="rc-val">${Math.round(productionAnnuelle / 100) * 100}<span class="rc-unit">kWh</span></div>
+        <div class="rc-sub">${fmtKwh(kwhAutoconso)} autoconsommés<br>${fmtKwh(kwhSurplus)} revendus EDF OA</div>
+      </div>
+    </div>
+    <div class="taux-barre">
+      <div class="tb-header">
+        <span>Couverture de votre consommation</span>
+        <span style="font-weight:600;color:${couleurTaux(tauxCouverture)};">${Math.round(tauxCouverture * 100)}%</span>
+      </div>
+      <div class="tb-bar"><div class="tb-fill" style="width:${Math.round(tauxCouverture*100)}%;background:${couleurTaux(tauxCouverture)};"></div></div>
+    </div>
+    <div class="alert-box alert-info">
+      Budget indicatif : <strong>${fmtEur(prixEst)} TTC</strong> → <strong>${fmtEur(prixNet)} net</strong> après prime CRE ${fmtEur(primeCRE)}. Prix ~2 000 €/kWc marché 2026.
+    </div>`;
+
+  if (kwcDepasse9) {
+    html += `<div class="alert-box alert-warning">Votre consommation nécessite ${fmtKwc(kwcArrondi)} pour couvrir ${Math.round(autoconso*100)}% — au-delà de 9 kWc, démarches et tarifs changent. Consultez un installateur RGE.</div>`;
+  }
+  if (tauxCouverture < 0.4) {
+    html += `<div class="alert-box alert-warning">Couverture faible (${Math.round(tauxCouverture*100)}%). Réduire la consommation (isolation, PAC) ou augmenter la puissance améliorera le ROI.</div>`;
+  } else if (tauxCouverture >= 0.8) {
+    html += `<div class="alert-box alert-success">Excellente couverture (${Math.round(tauxCouverture*100)}%). Avec une batterie, vous approchez de l'autonomie complète.</div>`;
+  }
+  if (autoconso >= 0.85) {
+    html += `<div class="alert-box alert-info">Taux 85% — nécessite une batterie (3 000-8 000 € supplémentaires). Voir notre <a href="/outils/calculateur-blackout-residentiel/">calculateur autonomie blackout</a>.</div>`;
+  }
+
+  document.getElementById('results-zone').innerHTML = html;
+  document.getElementById('detail-grid').innerHTML = `
+    <div class="detail-item"><div class="di-label">Productible réel</div><div class="di-val">${Math.round(productibleReel)} kWh/kWc/an</div></div>
+    <div class="detail-item"><div class="di-label">Pertes système</div><div class="di-val">${Math.round(pertes*100)}%</div></div>
+    <div class="detail-item"><div class="di-label">Correction orientation</div><div class="di-val">×${orientation} (${Math.round(orientation*100)}%)</div></div>
+    <div class="detail-item"><div class="di-label">Puissance brute</div><div class="di-val">${fmtKwc(kwcNecessaire)}</div></div>
+    <div class="detail-item"><div class="di-label">Prime CRE T14</div><div class="di-val">80€/kWc → ${fmtEur(primeCRE)}</div></div>
+    <div class="detail-item"><div class="di-label">Surface toiture</div><div class="di-val">${fmtM2(surfaceM2)} (${nbPanneaux}× 400Wc)</div></div>
+    <div class="detail-item"><div class="di-label">kWh couverts</div><div class="di-val">${fmtKwh(kwhAutoconso)}</div></div>
+    <div class="detail-item"><div class="di-label">kWh réseau restants</div><div class="di-val">${fmtKwh(Math.max(0, conso - kwhAutoconso))}</div></div>
+  `;
+}
+
+function resetCalc() {
+  currentMode = 'rapide';
+  document.getElementById('mode-rapide').style.display = '';
+  document.getElementById('mode-manuel').style.display = 'none';
+  document.getElementById('btn-rapide').classList.add('active');
+  document.getElementById('btn-manuel').classList.remove('active');
+  document.getElementById('conso').value = 4300;
+  document.getElementById('region').value = 1200;
+  document.getElementById('autoconso').value = 0.7;
+  document.getElementById('orientation').value = 1.0;
+  document.getElementById('pertes').value = 0.14;
+  document.querySelectorAll('.profil-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('p-4300').classList.add('active');
+  calc();
+}
+
+function copyLink() {
+  const conso = currentMode === 'rapide' ? getConsoRapide() : getConsoManuel().total;
+  const p = new URLSearchParams({
+    conso, region: document.getElementById('region').value,
+    autoconso: document.getElementById('autoconso').value,
+    orientation: document.getElementById('orientation').value,
+    pertes: document.getElementById('pertes').value
+  });
+  const url = window.location.href.split('?')[0] + '?' + p.toString();
+  navigator.clipboard.writeText(url).then(() => {
+    const btn = document.getElementById('copy-btn');
+    btn.textContent = '✓ Lien copié';
+    btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = '⎘ Copier le lien'; btn.classList.remove('copied'); }, 2000);
+  });
+}
+
+function loadFromUrl() {
+  const p = new URLSearchParams(window.location.search);
+  if (p.get('conso')) document.getElementById('conso').value = p.get('conso');
+  if (p.get('region')) document.getElementById('region').value = p.get('region');
+  if (p.get('autoconso')) document.getElementById('autoconso').value = p.get('autoconso');
+  if (p.get('orientation')) document.getElementById('orientation').value = p.get('orientation');
+  if (p.get('pertes')) document.getElementById('pertes').value = p.get('pertes');
+}
+
+['conso','region','autoconso','orientation','pertes'].forEach(id => {
+  const el = document.getElementById(id);
+  if (el) { el.addEventListener('input', calc); el.addEventListener('change', calc); }
+});
+['chauffage','ecs'].forEach(id => {
+  const el = document.getElementById(id);
+  if (el) el.addEventListener('change', calc);
+});
+['adultes','enfants','ve','piscine','autres'].forEach(id => {
+  const el = document.getElementById(id);
+  if (el) { el.addEventListener('input', calc); el.addEventListener('change', calc); }
+});
+
+loadFromUrl();
+document.getElementById('p-4300').classList.add('active');
+calc();
+</script>
+
+<script>
+(function() {
+  var h = window.location.hostname;
+  if (h === 'autonomia-lab.fr' || h === 'www.autonomia-lab.fr' || h === 'localhost' || h === '127.0.0.1') {
+    var el = document.getElementById('calc-dimensionnement-pv-embed-link');
+    if (el) el.style.display = 'none';
+  }
+})();
+</script>
+
+</div>

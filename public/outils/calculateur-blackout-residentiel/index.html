@@ -1,0 +1,1392 @@
+<!DOCTYPE html>
+<html lang="fr-FR" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1316&amp;path=livereload" data-no-instant defer></script>
+  <!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Combien d&#39;heures votre installation batterie &#43; solaire tient-elle en cas de coupure réseau ? Calculez selon vos équipements réels, votre saison et votre puissance PV.">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#2e3440">
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="http://localhost:1316/outils/calculateur-blackout-residentiel/">
+  <meta property="og:site_name" content="Autonomia Lab">
+  <meta property="og:title" content="Calculateur autonomie blackout résidentiel">
+  <meta property="og:description" content="Combien d&#39;heures votre installation batterie &#43; solaire tient-elle en cas de coupure réseau ? Calculez selon vos équipements réels, votre saison et votre puissance PV.">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="outils">
+    <meta property="article:published_time" content="2026-05-03T00:00:00+00:00">
+    <meta property="article:modified_time" content="2026-05-03T00:00:00+00:00">
+
+
+  <meta itemprop="name" content="Calculateur autonomie blackout résidentiel">
+  <meta itemprop="description" content="Combien d&#39;heures votre installation batterie &#43; solaire tient-elle en cas de coupure réseau ? Calculez selon vos équipements réels, votre saison et votre puissance PV.">
+  <meta itemprop="datePublished" content="2026-05-03T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2026-05-03T00:00:00+00:00">
+  <meta itemprop="wordCount" content="697">
+  <meta itemprop="keywords" content="blackout,coupure réseau,autonomie,batterie,solaire,îlotage,calculateur">
+
+<title>Calculateur autonomie blackout résidentiel | Autonomia Lab</title>
+<link rel="icon" href="/favicon.png" >
+<link rel="manifest" href="/manifest.json">
+<link rel="canonical" href="http://localhost:1316/outils/calculateur-blackout-residentiel/">
+<link rel="stylesheet" href="/book.min.453fb55be7ab107bba557e0692b7eaa0ede3596828379ae8d7662b3ba23a3000.css" integrity="sha256-RT&#43;1W&#43;erEHu6VX4GkrfqoO3jWWgoN5ro12YrO6I6MAA=" crossorigin="anonymous">
+
+
+  <script defer src="/fuse.min.js"></script>
+  <script defer src="/en.search.min.1f3c58629d551a5fb88fdd76295a5b7b21dba8dccbf58cbd2d52b86279d88b69.js" integrity="sha256-HzxYYp1VGl&#43;4j912KVpbeyHbqNzL9Yy9LVK4YnnYi2k=" crossorigin="anonymous"></script>
+
+
+
+  
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#ffffff">
+<style>
+  :root { color-scheme: light !important; }
+  html, body { color-scheme: light !important; }
+</style>
+
+</head>
+<body dir="ltr" class="book-kind-page book-type-outils">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    
+<aside class="book-menu">
+  <div class="book-menu-content">
+    
+  <nav>
+<h2 class="book-brand">
+  <span class="flex align-center"><span>Autonomia Lab</span>
+  </span>
+</h2>
+
+
+<div class="book-search hidden">
+  <input id="book-search-input" type="text" 
+    placeholder="Search"
+    aria-label="Search"
+    maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+<script>document.querySelector(".book-search").classList.remove("hidden")</script>
+
+
+
+
+
+
+<ul><li><a href="/">Accueil</a></li></ul>
+
+
+
+
+
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <input type="checkbox" id="section-80a6eccb491e65aad6dae5f33ec481c5" class="toggle"  />
+    <label for="section-80a6eccb491e65aad6dae5f33ec481c5" class="flex">
+      <a role="button"
+         class="" data-silo="1">
+        Solaire &amp; Stockage</a>
+      <img src="/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo1_cerbo-gx-pylontech-cablage/" class="" data-silo="1">
+      Cerbo GX &amp; Pylontech</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo1_erreur-11-victron-multiplus-ii/" class="" data-silo="1">
+      Erreur 11 Victron</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo1_fusibles-dc-ou-disjoncteurs/" class="" data-silo="1">
+      Fusibles DC vs Disjoncteurs</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo1_mppt-victron-100-20-100-30/" class="" data-silo="1">
+      MPPT 100/20 vs 100/30</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo1_pvgis-off-grid-autonomie/" class="" data-silo="1">
+      PVGIS Off-Grid</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo1_ratio-dc-ac-onduleur/" class="" data-silo="1">
+      Ratio DC/AC onduleur</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo1_section-cable-batterie-48v/" class="" data-silo="1">
+      Section câble 48V</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <input type="checkbox" id="section-ff2b4a7940fbd23fb7c151ce892a38d0" class="toggle"  />
+    <label for="section-ff2b4a7940fbd23fb7c151ce892a38d0" class="flex">
+      <a role="button"
+         class="" data-silo="2">
+        Hydraulique</a>
+      <img src="/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo2_calcul-hmt-pompe-50m/" class="" data-silo="2">
+      Calcul HMT pompe 50m</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo2_calcul-traitement-uvc/" class="" data-silo="2">
+      Calcul UV-C 40 mJ/cm²</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo2_filtration-fer-manganese/" class="" data-silo="2">
+      Filtration fer/manganèse</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo2_potabilisation-forage/" class="" data-silo="2">
+      Potabilisation forage</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo2_rejet-osmose-inverse/" class="" data-silo="2">
+      Rejet osmose inverse</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <input type="checkbox" id="section-2ff767a3ea21b6cc828c74332a27d864" class="toggle"  />
+    <label for="section-2ff767a3ea21b6cc828c74332a27d864" class="flex">
+      <a role="button"
+         class="" data-silo="3">
+        Thermique</a>
+      <img src="/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo3_chauffe-eau-thermo-cop/" class="" data-silo="3">
+      Chauffe-eau thermodynamique</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo3_dimensionnement-pac-air-air/" class="" data-silo="3">
+      Dimensionnement PAC air-air</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo3_isolation-toiture-r7/" class="" data-silo="3">
+      Isolation toiture R=7</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo3_rendement-pac-grand-froid/" class="" data-silo="3">
+      PAC grand froid COP</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo3_pac-releve-fioul-schema/" class="" data-silo="3">
+      PAC relève fioul schéma</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <input type="checkbox" id="section-d3532d0f76fc0e770fa43359b2f066c6" class="toggle"  />
+    <label for="section-d3532d0f76fc0e770fa43359b2f066c6" class="flex">
+      <a role="button"
+         class="" data-silo="4">
+        Infrastructure</a>
+      <img src="/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo4_differentiel-type-b/" class="" data-silo="4">
+      Différentiel Type B</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo4_disjoncteur-courbe-d-vs-c/" class="" data-silo="4">
+      Disjoncteur D vs C</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo4_puissance-reactive-linky/" class="" data-silo="4">
+      Puissance réactive Linky</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo4_regime-neutre-tt-tn/" class="" data-silo="4">
+      Régime neutre TT/TN</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+<ul><li><a href="/outils/">Outils du Lab</a></li><li><a href="/a-propos/">À propos</a></li></ul>
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+
+  </div>
+</aside>
+ 
+
+    <div class="book-page">
+      <header class="book-header hidden">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/icons/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <h3>Calculateur autonomie blackout résidentiel</h3>
+
+  <label for="toc-control">
+    
+    <img src="/icons/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#comment-utiliser-ce-calculateur">Comment utiliser ce calculateur</a></li>
+    <li><a href="#les-deux-scénarios-expliqués">Les deux scénarios expliqués</a></li>
+    <li><a href="#ce-qui-compte-vraiment">Ce qui compte vraiment</a></li>
+    <li><a href="#faq-rapide">FAQ rapide</a></li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+<article class="markdown book-article"><p>← <a href="http://localhost:1316/outils/">Tous les outils</a></p>
+<h1 id="combien-de-temps-tiendrez-vous-en-blackout-">Combien de temps tiendrez-vous en blackout ?<a class="anchor" href="#combien-de-temps-tiendrez-vous-en-blackout-">#</a></h1><p>Une coupure réseau survient. Votre installation batterie + panneaux solaires prend le relais — mais pour combien de temps ? Ce calculateur répond en tenant compte de vos équipements réels, de la production PV de la saison et de la capacité utilisable de votre batterie.</p>
+
+
+<div class="lab-calc lab-calc-blackout">
+
+<style>
+.lab-calc {
+  --c-accent: #F59E0B;
+  --c-bg: #FFFFFF;
+  --c-bg-alt: #FAFAF9;
+  --c-bg-result: #1F2937;
+  --c-border: #E5E5E5;
+  --c-text: #1F2937;
+  --c-text-muted: #6B7280;
+  --c-danger: #DC2626;
+  --c-warning: #D97706;
+  --c-success: #059669;
+  --c-info: #2563EB;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  max-width: 480px;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 1.5rem auto;
+  padding: 1.25rem;
+  background: var(--c-bg);
+  border: 1px solid var(--c-border);
+  border-radius: 10px;
+  color: var(--c-text);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+}
+.lab-calc-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid var(--c-danger);
+}
+.lab-calc-header h3 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.05rem;
+  margin: 0;
+  font-weight: 600;
+}
+.lab-calc-header .badge {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--c-danger);
+  font-weight: 600;
+}
+.lab-calc-scenario-box {
+  background: #FEF2F2;
+  border: 1px solid #FCA5A5;
+  border-radius: 6px;
+  padding: 0.7rem 0.85rem;
+  margin-bottom: 0.85rem;
+  font-size: 0.75rem;
+  line-height: 1.5;
+  color: #7F1D1D;
+}
+.lab-calc-scenario-box strong { color: #991B1B; }
+.section-title {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 600;
+  color: var(--c-text-muted);
+  margin: 1rem 0 0.6rem;
+  padding-bottom: 0.3rem;
+  border-bottom: 1px solid var(--c-border);
+}
+.equip-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+.equip-item {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: var(--c-bg-alt);
+  border: 1px solid var(--c-border);
+  border-radius: 6px;
+  padding: 0.45rem 0.6rem;
+  cursor: pointer;
+  transition: all 0.15s;
+  user-select: none;
+  box-sizing: border-box;
+  min-width: 0;
+}
+.equip-item.active {
+  background: #FEF3C7;
+  border-color: var(--c-accent);
+}
+.equip-item .eq-icon { font-size: 0.95rem; flex-shrink: 0; }
+.equip-item .eq-info { flex: 1; min-width: 0; }
+.equip-item .eq-name {
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: var(--c-text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.equip-item .eq-watts {
+  font-size: 0.65rem;
+  color: var(--c-text-muted);
+}
+.equip-item.active .eq-watts { color: var(--c-warning); font-weight: 600; }
+.equip-check {
+  width: 14px; height: 14px;
+  border-radius: 3px;
+  border: 1.5px solid var(--c-border);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.6rem;
+  flex-shrink: 0;
+}
+.equip-item.active .equip-check {
+  background: var(--c-accent);
+  border-color: var(--c-accent);
+  color: white;
+}
+.lab-calc-field { margin-bottom: 0.75rem; }
+.lab-calc-field label {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-size: 0.75rem;
+  color: var(--c-text-muted);
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+.lab-calc-field label .val {
+  font-size: 0.85rem;
+  color: var(--c-accent);
+  font-weight: 700;
+  text-transform: none;
+  letter-spacing: 0;
+}
+.lab-calc-field input[type="range"] {
+  width: 100%;
+  -webkit-appearance: none;
+  appearance: none;
+  height: 3px;
+  background: var(--c-border);
+  border-radius: 2px;
+  outline: none;
+  margin-top: 0.4rem;
+}
+.lab-calc-field input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 16px; height: 16px;
+  background: var(--c-accent);
+  border-radius: 50%;
+  cursor: pointer;
+}
+.lab-calc-field input[type="range"]::-moz-range-thumb {
+  width: 16px; height: 16px;
+  background: var(--c-accent);
+  border-radius: 50%;
+  cursor: pointer;
+  border: none;
+}
+.lab-calc-field select {
+  width: 100%;
+  padding: 0.5rem 0.6rem;
+  border: 1px solid var(--c-border);
+  border-radius: 5px;
+  font-size: 0.9rem;
+  font-family: inherit;
+  background: var(--c-bg);
+  box-sizing: border-box;
+}
+.lab-calc-field select:focus { outline: none; border-color: var(--c-accent); }
+.lab-calc-help {
+  font-size: 0.7rem;
+  color: var(--c-text-muted);
+  margin-top: 0.2rem;
+  font-style: italic;
+}
+.row-2 {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 0.75rem;
+}
+.conso-total {
+  background: var(--c-bg-result);
+  color: white;
+  border-radius: 8px;
+  padding: 0.85rem;
+  margin: 0.75rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+.conso-total .ct-label {
+  font-size: 0.72rem;
+  color: rgba(255,255,255,0.6);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.conso-total .ct-val {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--c-accent);
+}
+.conso-total .ct-unit {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.6);
+  margin-left: 0.2rem;
+}
+.autonomie-cards {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+.auto-card {
+  padding: 0.85rem;
+  border-radius: 8px;
+  text-align: center;
+  box-sizing: border-box;
+  min-width: 0;
+}
+.auto-card.sans-solaire {
+  background: var(--c-bg-alt);
+  border: 2px solid var(--c-border);
+}
+.auto-card.avec-solaire {
+  background: var(--c-bg-result);
+  border: 2px solid var(--c-accent);
+  color: white;
+}
+.auto-card .ac-label {
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+}
+.auto-card.sans-solaire .ac-label { color: var(--c-text-muted); }
+.auto-card.avec-solaire .ac-label { color: var(--c-accent); }
+.auto-card .ac-val {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1;
+}
+.auto-card.sans-solaire .ac-val { color: var(--c-text); }
+.auto-card.avec-solaire .ac-val { color: var(--c-accent); }
+.auto-card .ac-unit {
+  font-size: 0.72rem;
+  font-weight: 400;
+  display: block;
+  margin-top: 0.15rem;
+}
+.auto-card.sans-solaire .ac-unit { color: var(--c-text-muted); }
+.auto-card.avec-solaire .ac-unit { color: rgba(255,255,255,0.7); }
+.auto-card .ac-sub {
+  font-size: 0.65rem;
+  margin-top: 0.3rem;
+  line-height: 1.4;
+}
+.auto-card.sans-solaire .ac-sub { color: var(--c-text-muted); }
+.auto-card.avec-solaire .ac-sub { color: rgba(255,255,255,0.7); }
+.jauge-wrap { margin: 0.5rem 0; }
+.jauge-label {
+  font-size: 0.7rem;
+  color: var(--c-text-muted);
+  margin-bottom: 0.3rem;
+  display: flex;
+  justify-content: space-between;
+}
+.jauge-bar {
+  height: 8px;
+  background: var(--c-border);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.jauge-fill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.3s;
+}
+.alert-box {
+  padding: 0.55rem 0.75rem;
+  margin-top: 0.5rem;
+  font-size: 0.72rem;
+  border-radius: 0 4px 4px 0;
+  line-height: 1.4;
+}
+.alert-danger  { background: #FEF2F2; border-left: 3px solid var(--c-danger);  color: var(--c-danger); }
+.alert-warning { background: #FFFBEB; border-left: 3px solid var(--c-warning); color: #92400E; }
+.alert-success { background: #F0FDF4; border-left: 3px solid var(--c-success); color: #14532D; }
+.alert-info    { background: #EFF6FF; border-left: 3px solid var(--c-info);    color: #1E3A5F; }
+.equip-breakdown { margin-top: 0.75rem; }
+.equip-breakdown summary {
+  cursor: pointer;
+  font-size: 0.75rem;
+  color: var(--c-text-muted);
+  padding: 0.4rem 0;
+  user-select: none;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.equip-breakdown summary::before {
+  content: '▶';
+  font-size: 0.6rem;
+  transition: transform 0.2s;
+}
+.equip-breakdown[open] summary::before { transform: rotate(90deg); }
+.breakdown-list { margin-top: 0.4rem; font-size: 0.72rem; }
+.breakdown-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.3rem 0;
+  border-bottom: 1px solid var(--c-border);
+  color: var(--c-text-muted);
+}
+.breakdown-row:last-child { border-bottom: none; }
+.breakdown-row .br-name { color: var(--c-text); }
+.breakdown-row .br-pct {
+  font-size: 0.65rem;
+  background: var(--c-bg-alt);
+  padding: 0.1rem 0.4rem;
+  border-radius: 3px;
+}
+.lab-calc-actions {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 0.5rem;
+  margin-top: 0.85rem;
+}
+.lab-calc-btn {
+  padding: 0.5rem;
+  background: var(--c-bg-alt);
+  color: var(--c-text);
+  border: 1px solid var(--c-border);
+  border-radius: 5px;
+  font-family: inherit;
+  font-size: 0.75rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
+  box-sizing: border-box;
+}
+.lab-calc-btn:hover { background: white; border-color: var(--c-accent); color: var(--c-accent); }
+.lab-calc-btn.copied { background: var(--c-accent); color: white; border-color: var(--c-accent); }
+.lab-calc-sources {
+  margin-top: 0.75rem;
+  font-size: 0.65rem;
+  color: var(--c-text-muted);
+  line-height: 1.6;
+}
+.lab-calc-sources a { color: var(--c-info); text-decoration: none; }
+.lab-calc-sources a:hover { text-decoration: underline; }
+.lab-calc-method-link {
+  display: block;
+  text-align: center;
+  margin-top: 0.75rem;
+  padding: 0.55rem;
+  background: var(--c-bg-alt);
+  border: 1px solid var(--c-border);
+  border-radius: 5px;
+  font-size: 0.72rem;
+  color: var(--c-text-muted);
+  text-decoration: none;
+  transition: all 0.15s;
+  box-sizing: border-box;
+}
+.lab-calc-method-link:hover { background: var(--c-accent); color: white; }
+
+@media screen and (max-width: 440px) {
+  .lab-calc { padding: 0.9rem 0.75rem; margin: 1.5rem auto; }
+  .equip-grid { gap: 0.3rem; }
+  .equip-item { padding: 0.4rem 0.45rem; }
+  .equip-item .eq-name { font-size: 0.68rem; }
+  .autonomie-cards { gap: 0.3rem; }
+  .auto-card { padding: 0.65rem 0.5rem; }
+  .auto-card .ac-val { font-size: 1.6rem; }
+  .row-2 { gap: 0.5rem; }
+}
+</style>
+
+<div class="lab-calc-header">
+  <h3>Autonomie Blackout</h3>
+  <span class="badge">Résidentiel</span>
+</div>
+
+<div class="lab-calc-scenario-box">
+  <strong>Combien de temps tiendrez-vous ?</strong> Sélectionnez vos équipements essentiels, votre batterie et vos panneaux. Le calculateur estime votre autonomie réelle en heures et en jours, avec et sans solaire.
+</div>
+
+<div class="section-title">Équipements essentiels actifs</div>
+
+<div class="equip-grid" id="equip-grid"></div>
+
+<div class="section-title">Équipements custom</div>
+
+<div class="row-2" style="margin-bottom:0.75rem;">
+  <div class="lab-calc-field">
+    <label>Appareil supplémentaire <span class="val" id="custom-val">0 W</span></label>
+    <input type="range" id="custom-w" min="0" max="3000" step="50" value="0">
+    <div class="lab-calc-help">PAC, pompe, autre équipement</div>
+  </div>
+  <div class="lab-calc-field">
+    <label>Quantité</label>
+    <select id="custom-qty">
+      <option value="0">Aucun</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+    </select>
+  </div>
+</div>
+
+<div class="conso-total">
+  <div>
+    <div class="ct-label">Consommation totale</div>
+    <div style="font-size:0.65rem;color:rgba(255,255,255,0.5);margin-top:0.15rem;" id="equip-count-label">0 équipement actif</div>
+  </div>
+  <div>
+    <span class="ct-val" id="total-watts">0</span>
+    <span class="ct-unit">W</span>
+  </div>
+</div>
+
+<div class="section-title">Stockage et production</div>
+
+<div class="row-2">
+  <div class="lab-calc-field">
+    <label>Batterie <span class="val" id="bat-val">10 kWh</span></label>
+    <input type="range" id="bat-kwh" min="2" max="30" step="1" value="10">
+    <div class="lab-calc-help">Capacité utilisable (DoD 80%)</div>
+  </div>
+  <div class="lab-calc-field">
+    <label>Panneaux solaires <span class="val" id="pv-val">6 kWc</span></label>
+    <input type="range" id="pv-kwc" min="0" max="12" step="1" value="6">
+    <div class="lab-calc-help">0 = pas de panneaux</div>
+  </div>
+</div>
+
+<div class="row-2">
+  <div class="lab-calc-field">
+    <label>Saison</label>
+    <select id="saison">
+      <option value="1.7">Hiver (déc-fév) — 1,7 kWh/kWc/j</option>
+      <option value="4.1" selected>Printemps/Automne — 4,1 kWh/kWc/j</option>
+      <option value="4.7">Été (juin-août) — 4,7 kWh/kWc/j</option>
+    </select>
+  </div>
+  <div class="lab-calc-field">
+    <label>Rendement onduleur</label>
+    <select id="rendement">
+      <option value="0.85">85% — onduleur standard</option>
+      <option value="0.92" selected>92% — onduleur hybride récent</option>
+      <option value="0.97">97% — Victron Multiplus II</option>
+    </select>
+  </div>
+</div>
+
+<div id="results-zone"></div>
+
+<details class="equip-breakdown" id="breakdown-details">
+  <summary>Répartition par équipement</summary>
+  <div class="breakdown-list" id="breakdown-list"></div>
+</details>
+
+<div class="lab-calc-actions">
+  <button class="lab-calc-btn" onclick="resetCalc()">↺ Réinitialiser</button>
+  <button class="lab-calc-btn" id="copy-btn" onclick="copyLink()">⎘ Copier le lien</button>
+</div>
+
+<div class="lab-calc-sources">
+  Sources : <a href="https://agirpourlatransition.ademe.fr/particuliers/maison/economiser-energie/appareils-electromenagers/consommation-energie-appareils-electromenagers" target="_blank">ADEME — consommation équipements</a> · <a href="https://re.jrc.ec.europa.eu/pvg_tools/fr/" target="_blank">PVGIS-SARAH3 JRC (production PV hiver/été)</a> · Datasheets Pylontech US5000, BYD Battery-Box · Fiches techniques Victron, Deye
+</div>
+
+<a href="/outils/calculateur-blackout-residentiel/" class="lab-calc-method-link" id="calc-blackout-embed-link">
+  🔗 Voir la page complète de ce calculateur
+</a>
+<a href="/outils/calculateur-blackout-residentiel/methodologie/" class="lab-calc-method-link" style="margin-top:0.35rem;">
+  📐 Méthodologie et sources détaillées
+</a>
+
+<script>
+const EQUIPEMENTS = [
+  { id:'frigo',   icon:'🧊', name:'Réfrigérateur', watts:150,  src:'ADEME 2024' },
+  { id:'congel',  icon:'❄️', name:'Congélateur',   watts:120,  src:'ADEME 2024' },
+  { id:'box',     icon:'📡', name:'Box internet',  watts:20,   src:'Constructeurs 2024' },
+  { id:'tel',     icon:'📱', name:'Chargeurs ×2',  watts:30,   src:'Mesures terrain' },
+  { id:'lum4',    icon:'💡', name:'Éclairage ×4',  watts:36,   src:'LED 9W × 4 — ADEME' },
+  { id:'tv',      icon:'📺', name:'TV 55" LED',    watts:100,  src:'ADEME 2024' },
+  { id:'laptop',  icon:'💻', name:'Ordinateur',    watts:65,   src:'Laptop 65W — constructeurs' },
+  { id:'cwe',     icon:'🚿', name:'Chauffe-eau',   watts:2000, src:'Résistance 200L — ADEME' },
+  { id:'micro',   icon:'🍳', name:'Micro-ondes',   watts:900,  src:'Fiche technique moyenne marché' },
+  { id:'pomp',    icon:'💧', name:'Pompe forage',  watts:750,  src:'Pompe 0,75 kW — Grundfos, DAB' },
+];
+
+let actifs = new Set(['frigo','box','tel','lum4']);
+
+function buildGrid() {
+  const grid = document.getElementById('equip-grid');
+  grid.innerHTML = EQUIPEMENTS.map(eq => `
+    <div class="equip-item ${actifs.has(eq.id)?'active':''}" onclick="toggleEquip('${eq.id}')">
+      <span class="eq-icon">${eq.icon}</span>
+      <div class="eq-info">
+        <div class="eq-name">${eq.name}</div>
+        <div class="eq-watts">${eq.watts} W</div>
+      </div>
+      <div class="equip-check">${actifs.has(eq.id)?'✓':''}</div>
+    </div>
+  `).join('');
+}
+
+function toggleEquip(id) {
+  if (actifs.has(id)) actifs.delete(id); else actifs.add(id);
+  buildGrid();
+  calc();
+}
+
+function fmtDuree(heures) {
+  if (heures < 1) return { val: Math.round(heures * 60), unit: 'min', sub: 'autonomie' };
+  if (heures < 48) return { val: Math.round(heures * 10) / 10, unit: 'h', sub: Math.round(heures) + 'h autonomie' };
+  const jours = Math.round(heures / 24 * 10) / 10;
+  return { val: jours, unit: 'jours', sub: Math.round(heures) + 'h autonomie' };
+}
+
+function couleurJauge(pct) {
+  if (pct > 0.6) return '#059669';
+  if (pct > 0.3) return '#D97706';
+  return '#DC2626';
+}
+
+function calc() {
+  const customW   = parseInt(document.getElementById('custom-w').value);
+  const customQty = parseInt(document.getElementById('custom-qty').value);
+  const batKwh    = parseInt(document.getElementById('bat-kwh').value);
+  const pvKwc     = parseInt(document.getElementById('pv-kwc').value);
+  const saison    = parseFloat(document.getElementById('saison').value);
+  const rendement = parseFloat(document.getElementById('rendement').value);
+
+  document.getElementById('bat-val').textContent    = batKwh + ' kWh';
+  document.getElementById('pv-val').textContent     = pvKwc + ' kWc';
+  document.getElementById('custom-val').textContent = customW + ' W';
+
+  const equipsActifs = EQUIPEMENTS.filter(e => actifs.has(e.id));
+  let totalW = equipsActifs.reduce((s, e) => s + e.watts, 0);
+  totalW += customW * customQty;
+
+  const n = equipsActifs.length + (customQty > 0 ? 1 : 0);
+  document.getElementById('total-watts').textContent    = totalW.toLocaleString('fr-FR');
+  document.getElementById('equip-count-label').textContent = n + ' équipement' + (n>1?'s':'') + ' actif' + (n>1?'s':'');
+
+  if (totalW === 0) {
+    document.getElementById('results-zone').innerHTML = `<div class="alert-info alert-box">Sélectionnez au moins un équipement pour calculer l'autonomie.</div>`;
+    document.getElementById('breakdown-list').innerHTML = '';
+    return;
+  }
+
+  const capUtilisable  = batKwh * 0.8;
+  const consoPar24h    = totalW * 24 / 1000;
+  const pvProd24h      = pvKwc > 0 ? pvKwc * saison * rendement : 0;
+  const consoNette24h  = Math.max(0, consoPar24h - pvProd24h);
+  const autoSansSolaire = capUtilisable / (totalW / 1000);
+  const autoAvecSolaire = consoNette24h > 0 ? (capUtilisable / (consoNette24h / 24)) : Infinity;
+
+  const dSans = fmtDuree(autoSansSolaire);
+  const dAvec = fmtDuree(autoAvecSolaire);
+  const maxRef = 7 * 24;
+  const pctSans = Math.min(autoSansSolaire / maxRef, 1);
+  const pctAvec = autoAvecSolaire === Infinity ? 1 : Math.min(autoAvecSolaire / maxRef, 1);
+
+  let html = `
+    <div class="autonomie-cards">
+      <div class="auto-card sans-solaire">
+        <div class="ac-label">Batterie seule</div>
+        <div class="ac-val">${dSans.val}<span class="ac-unit">${dSans.unit}</span></div>
+        <div class="ac-sub">${dSans.sub}</div>
+      </div>
+      <div class="auto-card avec-solaire">
+        <div class="ac-label">Batterie + solaire</div>
+        <div class="ac-val">${autoAvecSolaire === Infinity ? '∞' : dAvec.val}<span class="ac-unit">${autoAvecSolaire === Infinity ? '' : dAvec.unit}</span></div>
+        <div class="ac-sub">${autoAvecSolaire === Infinity ? 'Autonomie illimitée — production > consommation' : dAvec.sub}</div>
+      </div>
+    </div>
+    <div class="jauge-wrap">
+      <div class="jauge-label"><span>Batterie seule</span><span>${Math.round(autoSansSolaire)}h</span></div>
+      <div class="jauge-bar"><div class="jauge-fill" style="width:${Math.round(pctSans*100)}%;background:${couleurJauge(pctSans)};"></div></div>
+    </div>`;
+
+  if (pvKwc > 0) {
+    html += `
+      <div class="jauge-wrap">
+        <div class="jauge-label"><span>Batterie + solaire</span><span>${autoAvecSolaire === Infinity ? '∞' : Math.round(autoAvecSolaire)+'h'}</span></div>
+        <div class="jauge-bar"><div class="jauge-fill" style="width:${Math.round(pctAvec*100)}%;background:${couleurJauge(pctAvec)};"></div></div>
+      </div>`;
+  }
+
+  if (autoSansSolaire < 6) {
+    html += `<div class="alert-danger alert-box">Autonomie critique : moins de 6 heures sans solaire. Le chauffe-eau (2 000 W) et le micro-ondes sont les équipements les plus gourmands — les couper en priorité prolonge significativement l'autonomie.</div>`;
+  } else if (autoSansSolaire < 24) {
+    html += `<div class="alert-warning alert-box">Autonomie inférieure à 24h sans solaire. En hiver avec peu de production PV, cette configuration ne couvre pas une coupure de longue durée.</div>`;
+  } else if (autoSansSolaire >= 72) {
+    html += `<div class="alert-success alert-box">Excellente autonomie — plus de 3 jours sans solaire. Cette configuration couvre la quasi-totalité des coupures réseau en France (médiane : 52 minutes selon RTE).</div>`;
+  }
+
+  if (pvKwc > 0 && autoAvecSolaire === Infinity) {
+    html += `<div class="alert-success alert-box">La production solaire couvre 100% de la consommation (${Math.round(pvProd24h*10)/10} kWh/j produits vs ${Math.round(consoPar24h*10)/10} kWh/j consommés). La batterie sert uniquement de tampon nuit/nuageux.</div>`;
+  }
+
+  if (actifs.has('cwe')) {
+    html += `<div class="alert-warning alert-box">Le chauffe-eau (2 000 W) représente ${Math.round(2000/totalW*100)}% de votre consommation totale. En mode blackout, programmer un cycle court en milieu de journée solaire réduit la charge batterie.</div>`;
+  }
+
+  document.getElementById('results-zone').innerHTML = html;
+
+  const breakdownRows = [...equipsActifs.map(e => ({ name: e.icon+' '+e.name, watts: e.watts, pct: Math.round(e.watts/totalW*100) }))];
+  if (customW > 0 && customQty > 0) {
+    breakdownRows.push({ name: '⚙️ Appareil custom ×'+customQty, watts: customW*customQty, pct: Math.round(customW*customQty/totalW*100) });
+  }
+  breakdownRows.sort((a,b) => b.watts - a.watts);
+
+  document.getElementById('breakdown-list').innerHTML = breakdownRows.map(r => `
+    <div class="breakdown-row">
+      <span class="br-name">${r.name}</span>
+      <span>${r.watts} W</span>
+      <span class="br-pct">${r.pct}%</span>
+    </div>
+  `).join('');
+}
+
+function resetCalc() {
+  actifs = new Set(['frigo','box','tel','lum4']);
+  document.getElementById('bat-kwh').value  = 10;
+  document.getElementById('pv-kwc').value   = 6;
+  document.getElementById('saison').value   = 4.1;
+  document.getElementById('rendement').value = 0.92;
+  document.getElementById('custom-w').value  = 0;
+  document.getElementById('custom-qty').value = 0;
+  buildGrid();
+  calc();
+}
+
+function copyLink() {
+  const p = new URLSearchParams({
+    equips: [...actifs].join(','),
+    bat:    document.getElementById('bat-kwh').value,
+    pv:     document.getElementById('pv-kwc').value,
+    saison: document.getElementById('saison').value,
+    rend:   document.getElementById('rendement').value,
+    cw:     document.getElementById('custom-w').value,
+    cq:     document.getElementById('custom-qty').value,
+  });
+  navigator.clipboard.writeText(window.location.href.split('?')[0]+'?'+p.toString()).then(() => {
+    const btn = document.getElementById('copy-btn');
+    btn.textContent = '✓ Lien copié';
+    btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = '⎘ Copier le lien'; btn.classList.remove('copied'); }, 2000);
+  });
+}
+
+function loadFromUrl() {
+  const p = new URLSearchParams(window.location.search);
+  if (p.get('equips')) actifs = new Set(p.get('equips').split(',').filter(Boolean));
+  if (p.get('bat'))    document.getElementById('bat-kwh').value   = p.get('bat');
+  if (p.get('pv'))     document.getElementById('pv-kwc').value    = p.get('pv');
+  if (p.get('saison')) document.getElementById('saison').value    = p.get('saison');
+  if (p.get('rend'))   document.getElementById('rendement').value = p.get('rend');
+  if (p.get('cw'))     document.getElementById('custom-w').value  = p.get('cw');
+  if (p.get('cq'))     document.getElementById('custom-qty').value = p.get('cq');
+}
+
+['bat-kwh','pv-kwc','saison','rendement','custom-w','custom-qty'].forEach(id => {
+  document.getElementById(id).addEventListener('input', calc);
+  document.getElementById(id).addEventListener('change', calc);
+});
+
+loadFromUrl();
+buildGrid();
+calc();
+
+(function() {
+  var h = window.location.hostname;
+  if (h === 'autonomia-lab.fr' || h === 'www.autonomia-lab.fr' || h === 'localhost' || h === '127.0.0.1') {
+    var el = document.getElementById('calc-blackout-embed-link');
+    if (el) el.style.display = 'none';
+  }
+})();
+</script>
+
+</div>
+
+<h2 id="comment-utiliser-ce-calculateur">Comment utiliser ce calculateur<a class="anchor" href="#comment-utiliser-ce-calculateur">#</a></h2><p>Cochez les équipements que vous voulez maintenir en fonctionnement pendant la coupure. Ajustez la puissance PV installée et la capacité batterie selon votre installation. Sélectionnez la saison pour adapter la production photovoltaïque journalière. Le calculateur affiche en parallèle l&rsquo;autonomie <strong>batterie seule</strong> (nuit, ciel couvert) et <strong>batterie + solaire</strong> (journée ensoleillée).</p>
+<h2 id="les-deux-scénarios-expliqués">Les deux scénarios expliqués<a class="anchor" href="#les-deux-sc%c3%a9narios-expliqu%c3%a9s">#</a></h2><p><strong>Batterie seule</strong> — c&rsquo;est le cas le plus défavorable : nuit complète, ciel couvert, pas de production solaire. Ce chiffre représente votre autonomie garantie quelles que soient les conditions météo. C&rsquo;est le minimum que vous pouvez promettre à votre famille.</p>
+<p><strong>Batterie + solaire</strong> — la production PV vient réduire la consommation nette que la batterie doit couvrir. En été, une installation correctement dimensionnée peut afficher &ldquo;autonomie illimitée&rdquo; : la batterie sert uniquement de tampon nuit/nuageux. En hiver, le gain est plus limité (1,7 kWh/kWc/jour à Lyon en décembre).</p>
+<h2 id="ce-qui-compte-vraiment">Ce qui compte vraiment<a class="anchor" href="#ce-qui-compte-vraiment">#</a></h2><p><strong>Le chauffe-eau électrique est le poste critique.</strong> Avec 2 000 W, il peut vider une batterie de 5 kWh en 2h30. En mode blackout, programmez un cycle court en milieu de journée (production PV maximale) et descendez la consigne à 50°C.</p>
+<p><strong>La pompe de forage démarre à 2-3× sa puissance nominale.</strong> Votre onduleur doit être dimensionné pour absorber ce pic. Victron Multiplus II et Deye hybride gèrent nativement ce courant de démarrage.</p>
+<p><strong>Pas tous les onduleurs ne fonctionnent en îlotage.</strong> Un onduleur réseau simple s&rsquo;éteint à la coupure — il ne peut pas alimenter votre maison. Vérifiez que votre onduleur supporte explicitement le mode &ldquo;off-grid&rdquo; ou &ldquo;îlotage&rdquo; avant de compter dessus.</p>
+<h2 id="faq-rapide">FAQ rapide<a class="anchor" href="#faq-rapide">#</a></h2><p><strong>Pourquoi la PAC air-eau n&rsquo;est-elle pas dans la liste ?</strong>
+La puissance d&rsquo;une PAC varie fortement avec la température extérieure (COP variable) et elle peut refuser de démarrer sous certains onduleurs (instabilité de fréquence). Un coefficient de performance de 3 en automne peut chuter à 1,5 en plein hiver. Ce cas requiert une analyse spécifique — consultez votre installateur.</p>
+<p><strong>L&rsquo;autonomie infinie, c&rsquo;est vraiment possible ?</strong>
+En été avec suffisamment de panneaux, oui : si la production journalière dépasse la consommation journalière, la batterie se recharge la journée et couvre la nuit. Mais un jour nuageux en hiver peut descendre à 0,5 kWh/kWc — l&rsquo;autonomie réelle revient alors au scénario batterie seule.</p>
+<p><strong>5 kWh suffisent-ils pour une coupure typique en France ?</strong>
+Oui, dans la grande majorité des cas. La durée médiane de coupure réseau en France est de 52 minutes (RTE 2024). Avec les équipements essentiels (frigo, éclairage, box), une batterie de 5 kWh couvre statistiquement 99% des incidents réseau. Voir la méthodologie complète pour les données RTE.</p>
+<p><strong>DoD 80% : pourquoi pas 100% ?</strong>
+Décharger une batterie LFP en dessous de 20% du SOC restant accélère significativement la dégradation des cellules. Les constructeurs (Pylontech, BYD) recommandent une DoD maximale de 80% pour maintenir la durée de vie garantie. En mode urgence, vous pouvez aller jusqu&rsquo;à 95% — mais de manière exceptionnelle.</p>
+<p>Méthodologie complète : sources, formules, données PVGIS et RTE</p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+<div>
+
+</div>
+
+<div>
+
+</div>
+
+</div>
+
+
+
+
+
+  
+  
+  
+
+
+ 
+        
+  
+ 
+        
+        
+  
+ 
+        
+  
+  
+    <script>(function(){document.querySelectorAll("pre:has(code)").forEach(e=>{e.addEventListener("click",e.focus),e.addEventListener("copy",function(t){if(t.preventDefault(),navigator.clipboard){const t=window.getSelection().toString()||e.textContent;navigator.clipboard.writeText(t)}})})})()</script>
+  
+
+      </footer>
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+  
+  <aside class="book-toc">
+    <div class="book-toc-content">
+      
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#comment-utiliser-ce-calculateur">Comment utiliser ce calculateur</a></li>
+    <li><a href="#les-deux-scénarios-expliqués">Les deux scénarios expliqués</a></li>
+    <li><a href="#ce-qui-compte-vraiment">Ce qui compte vraiment</a></li>
+    <li><a href="#faq-rapide">FAQ rapide</a></li>
+  </ul>
+</nav>
+
+
+
+    </div>
+  </aside>
+  
+ 
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

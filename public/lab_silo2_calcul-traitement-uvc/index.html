@@ -1,20 +1,763 @@
-<!doctype html><html lang=fr-FR dir=ltr><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Sécurité — Cet article est un support de compréhension technique à titre éducatif uniquement. Les valeurs, calculs et schémas présentés ne remplacent pas l’expertise d’un installateur certifié. Toute installation doit être réalisée et validée par un professionnel qualifié RGE. Autonomia Lab décline toute responsabilité en cas d’application directe de ces informations.
+<!DOCTYPE html>
+<html lang="fr-FR" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1316&amp;path=livereload" data-no-instant defer></script>
+  <!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Sécurité — Cet article est un support de compréhension technique à titre éducatif uniquement. Les valeurs, calculs et schémas présentés ne remplacent pas l’expertise d’un installateur certifié. Toute installation doit être réalisée et validée par un professionnel qualifié RGE. Autonomia Lab décline toute responsabilité en cas d’application directe de ces informations.
 Le dosage UV-C réglementaire pour la potabilisation d’eau de forage est fixé à 40 millijoules par centimètre carré (mJ/cm²). Le traitement UV-C et son débit en m3/h sont directement liés à la puissance de la lampe et à la turbidité de l’eau. Dépasser le débit nominal annule l’effet germicide et expose le réseau à une contamination microbiologique.
-"><meta name=theme-color media="(prefers-color-scheme: light)" content="#ffffff"><meta name=theme-color media="(prefers-color-scheme: dark)" content="#2e3440"><meta name=color-scheme content="light dark"><meta property="og:url" content="https://autonomia-lab.fr/lab_silo2_calcul-traitement-uvc/"><meta property="og:site_name" content="Autonomia Lab"><meta property="og:title" content="Stérilisateur UV-C : Calculer le débit max pour garantir 40 mJ/cm²."><meta property="og:description" content="Sécurité — Cet article est un support de compréhension technique à titre éducatif uniquement. Les valeurs, calculs et schémas présentés ne remplacent pas l’expertise d’un installateur certifié. Toute installation doit être réalisée et validée par un professionnel qualifié RGE. Autonomia Lab décline toute responsabilité en cas d’application directe de ces informations.
-Le dosage UV-C réglementaire pour la potabilisation d’eau de forage est fixé à 40 millijoules par centimètre carré (mJ/cm²). Le traitement UV-C et son débit en m3/h sont directement liés à la puissance de la lampe et à la turbidité de l’eau. Dépasser le débit nominal annule l’effet germicide et expose le réseau à une contamination microbiologique."><meta property="og:locale" content="fr_FR"><meta property="og:type" content="article"><meta property="article:section" content="lab"><meta property="article:published_time" content="2026-05-01T00:00:00+00:00"><meta property="article:modified_time" content="2026-05-01T00:00:00+00:00"><meta itemprop=name content="Stérilisateur UV-C : Calculer le débit max pour garantir 40 mJ/cm²."><meta itemprop=description content="Sécurité — Cet article est un support de compréhension technique à titre éducatif uniquement. Les valeurs, calculs et schémas présentés ne remplacent pas l’expertise d’un installateur certifié. Toute installation doit être réalisée et validée par un professionnel qualifié RGE. Autonomia Lab décline toute responsabilité en cas d’application directe de ces informations.
-Le dosage UV-C réglementaire pour la potabilisation d’eau de forage est fixé à 40 millijoules par centimètre carré (mJ/cm²). Le traitement UV-C et son débit en m3/h sont directement liés à la puissance de la lampe et à la turbidité de l’eau. Dépasser le débit nominal annule l’effet germicide et expose le réseau à une contamination microbiologique."><meta itemprop=datePublished content="2026-05-01T00:00:00+00:00"><meta itemprop=dateModified content="2026-05-01T00:00:00+00:00"><meta itemprop=wordCount content="1059"><title>Calcul UV-C 40 mJ/cm² | Autonomia Lab</title><link rel=icon href=/favicon.png><link rel=manifest href=/manifest.json><link rel=canonical href=https://autonomia-lab.fr/lab_silo2_calcul-traitement-uvc/><link rel=stylesheet href=/book.min.92048bb3b20c265865fffa98ece7bfa06950ab86ca25d6108e24b45f8c754881.css integrity="sha256-kgSLs7IMJlhl//qY7Oe/oGlQq4bKJdYQjiS0X4x1SIE=" crossorigin=anonymous><script defer src=/fuse.min.js></script><script defer src=/en.search.min.542d6aa38af851634a052bfa0b90ba22992cdb0cf8ee957d31673092f8073ea3.js integrity="sha256-VC1qo4r4UWNKBSv6C5C6Ipks2wz47pV9MWcwkvgHPqM=" crossorigin=anonymous></script><meta name=color-scheme content="light"><meta name=theme-color content="#ffffff"><style>:root{color-scheme:light!important}html,body{color-scheme:light!important}</style></head><body dir=ltr class="book-kind-page book-type-lab"><input type=checkbox class="hidden toggle" id=menu-control>
-<input type=checkbox class="hidden toggle" id=toc-control><main class="container flex"><aside class=book-menu><div class=book-menu-content><nav><h2 class=book-brand><span class="flex align-center"><span>Autonomia Lab</span></span></h2><div class="book-search hidden"><input id=book-search-input type=text placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/><div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><script>document.querySelector(".book-search").classList.remove("hidden")</script><ul><li><a href=/>Accueil</a></li></ul><ul><li><input type=checkbox id=section-80a6eccb491e65aad6dae5f33ec481c5 class=toggle>
-<label for=section-80a6eccb491e65aad6dae5f33ec481c5 class=flex><a role=button data-silo=1>Solaire & Stockage</a>
-<img src=/icons/chevron-right.svg class=book-icon alt=Expand></label><ul><li><a href=/lab_silo1_cerbo-gx-pylontech-cablage/ data-silo=1>Cerbo GX & Pylontech</a></li><li><a href=/lab_silo1_erreur-11-victron-multiplus-ii/ data-silo=1>Erreur 11 Victron</a></li><li><a href=/lab_silo1_fusibles-dc-ou-disjoncteurs/ data-silo=1>Fusibles DC vs Disjoncteurs</a></li><li><a href=/lab_silo1_mppt-victron-100-20-100-30/ data-silo=1>MPPT 100/20 vs 100/30</a></li><li><a href=/lab_silo1_pvgis-off-grid-autonomie/ data-silo=1>PVGIS Off-Grid</a></li><li><a href=/lab_silo1_ratio-dc-ac-onduleur/ data-silo=1>Ratio DC/AC onduleur</a></li><li><a href=/lab_silo1_section-cable-batterie-48v/ data-silo=1>Section câble 48V</a></li></ul></li><li><input type=checkbox id=section-ff2b4a7940fbd23fb7c151ce892a38d0 class=toggle checked>
-<label for=section-ff2b4a7940fbd23fb7c151ce892a38d0 class=flex><a role=button data-silo=2>Hydraulique</a>
-<img src=/icons/chevron-right.svg class=book-icon alt=Expand></label><ul><li><a href=/lab_silo2_calcul-hmt-pompe-50m/ data-silo=2>Calcul HMT pompe 50m</a></li><li><a href=/lab_silo2_calcul-traitement-uvc/ class=active data-silo=2>Calcul UV-C 40 mJ/cm²</a></li><li><a href=/lab_silo2_filtration-fer-manganese/ data-silo=2>Filtration fer/manganèse</a></li><li><a href=/lab_silo2_potabilisation-forage/ data-silo=2>Potabilisation forage</a></li><li><a href=/lab_silo2_rejet-osmose-inverse/ data-silo=2>Rejet osmose inverse</a></li></ul></li><li><input type=checkbox id=section-2ff767a3ea21b6cc828c74332a27d864 class=toggle>
-<label for=section-2ff767a3ea21b6cc828c74332a27d864 class=flex><a role=button data-silo=3>Thermique</a>
-<img src=/icons/chevron-right.svg class=book-icon alt=Expand></label><ul><li><a href=/lab_silo3_chauffe-eau-thermo-cop/ data-silo=3>Chauffe-eau thermodynamique</a></li><li><a href=/lab_silo3_dimensionnement-pac-air-air/ data-silo=3>Dimensionnement PAC air-air</a></li><li><a href=/lab_silo3_isolation-toiture-r7/ data-silo=3>Isolation toiture R=7</a></li><li><a href=/lab_silo3_rendement-pac-grand-froid/ data-silo=3>PAC grand froid COP</a></li><li><a href=/lab_silo3_pac-releve-fioul-schema/ data-silo=3>PAC relève fioul schéma</a></li></ul></li><li><input type=checkbox id=section-d3532d0f76fc0e770fa43359b2f066c6 class=toggle>
-<label for=section-d3532d0f76fc0e770fa43359b2f066c6 class=flex><a role=button data-silo=4>Infrastructure</a>
-<img src=/icons/chevron-right.svg class=book-icon alt=Expand></label><ul><li><a href=/lab_silo4_differentiel-type-b/ data-silo=4>Différentiel Type B</a></li><li><a href=/lab_silo4_disjoncteur-courbe-d-vs-c/ data-silo=4>Disjoncteur D vs C</a></li><li><a href=/lab_silo4_puissance-reactive-linky/ data-silo=4>Puissance réactive Linky</a></li><li><a href=/lab_silo4_regime-neutre-tt-tn/ data-silo=4>Régime neutre TT/TN</a></li></ul></li></ul><ul><li><a href=/a-propos/>À propos</a></li></ul></nav><script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script></div></aside><div class=book-page><header class="book-header hidden"><div class="flex align-center justify-between"><label for=menu-control><img src=/icons/menu.svg class=book-icon alt=Menu></label><h3>Calcul UV-C 40 mJ/cm²</h3><label for=toc-control><img src=/icons/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class=hidden><nav id=TableOfContents><ul><li><a href=#dosage-uv-c--la-norme-de-40-mjcm-pour-linactivation-de-ladn>Dosage UV-C : La norme de 40 mJ/cm² pour l&rsquo;inactivation de l&rsquo;ADN</a></li><li><a href=#calcul-du-débit-mh--la-relation-entre-puissance-w-et-transmittance->Calcul du débit (m³/h) : La relation entre puissance (W) et transmittance (%)</a></li><li><a href=#les-3-facteurs-de-déclassement-terrain>Les 3 facteurs de déclassement terrain</a></li><li><a href=#schéma-de-montage-et-points-de-contrôle>Schéma de montage et points de contrôle</a><ul><li><a href=#expertises-croisées>Expertises Croisées</a></li><li><a href=#faq--stérilisateur-uv-c>FAQ : Stérilisateur UV-C</a></li></ul></li></ul></nav></aside></header><article class="markdown book-article"><h1>Stérilisateur UV-C : Calculer le débit max pour garantir 40 mJ/cm².</h1><p class=article-date>Publié le 1 mai 2026</p><blockquote class=book-hint><p><strong>Sécurité</strong> — Cet article est un support de compréhension technique à titre éducatif uniquement. Les valeurs, calculs et schémas présentés ne remplacent pas l&rsquo;expertise d&rsquo;un installateur certifié. Toute installation doit être réalisée et validée par un professionnel qualifié RGE. Autonomia Lab décline toute responsabilité en cas d&rsquo;application directe de ces informations.</p></blockquote><p>Le dosage UV-C réglementaire pour la potabilisation d&rsquo;eau de forage est fixé à 40 millijoules par centimètre carré (mJ/cm²). Le traitement UV-C et son débit en m3/h sont directement liés à la puissance de la lampe et à la turbidité de l&rsquo;eau. Dépasser le débit nominal annule l&rsquo;effet germicide et expose le réseau à une contamination microbiologique.</p><h2 id=dosage-uv-c--la-norme-de-40-mjcm-pour-linactivation-de-ladn>Dosage UV-C : La norme de 40 mJ/cm² pour l&rsquo;inactivation de l&rsquo;ADN<a class=anchor href=#dosage-uv-c--la-norme-de-40-mjcm-pour-linactivation-de-ladn>#</a></h2><p>La désinfection par ultraviolets de type C (UV-C) repose sur une action physique. Le rayonnement à une longueur d&rsquo;onde de 253,7 nanomètres irradie l&rsquo;eau et pénètre le noyau des micro-organismes (bactéries, virus, protozoaires). Cette exposition modifie la structure de leur ADN et ARN, les rendant incapables de se répliquer et donc inoffensifs.</p><p>Le seuil d&rsquo;efficacité pour la potabilisation d&rsquo;une eau brute est une dose germicide de 40 mJ/cm². Cette valeur garantit l&rsquo;inactivation de 99,99% des pathogènes résistants comme <em>Escherichia coli</em>, dont la présence est un indicateur de contamination fécale (seuil réglementaire à 0 UFC/100 mL, Code de la santé publique, 2021). En deçà de ce dosage, l&rsquo;eau n&rsquo;est pas considérée comme traitée.</p><h2 id=calcul-du-débit-mh--la-relation-entre-puissance-w-et-transmittance->Calcul du débit (m³/h) : La relation entre puissance (W) et transmittance (%)<a class=anchor href=#calcul-du-d%c3%a9bit-mh--la-relation-entre-puissance-w-et-transmittance->#</a></h2><p>Le débit maximal admissible dans un réacteur UV-C est une fonction directe de trois paramètres : la puissance de la lampe, la dose cible et la clarté de l&rsquo;eau (transmittance). La formule de dimensionnement est la suivante :</p><p><code>Débit (m³/h) = (Puissance UV-C en W * 3.6) / (Dose en mJ/cm² * Surface en m²)</code></p><p>En pratique, les constructeurs fournissent des abaques qui intègrent ces variables. Le paramètre critique est la transmittance UV (UVT), qui mesure le pourcentage de lumière UV-C traversant l&rsquo;eau sur 1 cm. Une eau claire aura une UVT élevée (ex: 98%), une eau chargée en sédiments ou en fer dissous aura une UVT faible.</p><p>Un traitement UV-C n&rsquo;est viable qu&rsquo;avec une eau préalablement filtrée. Toute turbidité crée des &ldquo;zones d&rsquo;ombre&rdquo; protégeant les bactéries du rayonnement. Une filtration sédimentaire à 5 microns en amont est un prérequis technique non négociable.</p><table><thead><tr><th>Paramètre</th><th>Eau brute (forage)</th><th>Eau filtrée (5 µm)</th><th>Impact sur le débit</th></tr></thead><tbody><tr><td>Transmittance UVT</td><td>75%</td><td>95%</td><td>Débit max. multiplié par 2,5 (Viqua/Atlantic UV, 2020-2021)</td></tr><tr><td>Turbidité</td><td>> 5 NTU</td><td>&lt; 1 NTU</td><td>Traitement UV-C non conforme</td></tr></tbody></table><p><em>Pour chaque baisse de 10% de l&rsquo;UVT, le débit maximal admissible doit être réduit d&rsquo;environ 36 à 38% pour maintenir la dose létale de 40 mJ/cm² (Viqua/Atlantic UV, 2021).</em></p><p>Pour un réacteur équipé d&rsquo;une lampe de 55 W, le débit maximal pour atteindre 40 mJ/cm² avec une UVT de 95% doit être calculé selon les abaques du constructeur (NF EN 14897, 2006). Si le débit de la pompe dépasse cette valeur, le temps d&rsquo;exposition diminue et la dose germicide délivrée chute sous le seuil de conformité.</p><h2 id=les-3-facteurs-de-déclassement-terrain>Les 3 facteurs de déclassement terrain<a class=anchor href=#les-3-facteurs-de-d%c3%a9classement-terrain>#</a></h2><p>La performance théorique d&rsquo;un stérilisateur UV-C se dégrade en conditions réelles. Trois points de vigilance conditionnent la pérennité du traitement.</p><p><strong>1. Le colmatage de la gaine quartz :</strong> La lampe UV-C est isolée de l&rsquo;eau par une gaine en quartz. Le calcaire, le fer et le manganèse peuvent précipiter à sa surface, créant un film opaque qui bloque le rayonnement. Un nettoyage trimestriel est impératif.</p><p><strong>2. La turbidité en amont :</strong> Un Porte-filtre Big Blue 20 pouces : Dimensionner la filtration sédiment et charbon. sous-dimensionné ou colmaté laisse passer des particules. Ces dernières protègent les pathogènes, rendant le traitement inefficace même avec une lampe neuve.</p><p><strong>3. Le vieillissement de la lampe :</strong> Une lampe UV-C a une durée de vie effective de 9 000 heures (Viqua, 2025). Au-delà, elle produit toujours de la lumière visible, mais son rendement dans le spectre germicide de 253,7 nm s&rsquo;est effondré. Le remplacement annuel est une opération de maintenance préventive, pas curative.</p><h2 id=schéma-de-montage-et-points-de-contrôle>Schéma de montage et points de contrôle<a class=anchor href=#sch%c3%a9ma-de-montage-et-points-de-contr%c3%b4le>#</a></h2><p>L&rsquo;intégration d&rsquo;un stérilisateur UV-C dans un réseau hydraulique suit des règles strictes pour garantir son efficacité et sa maintenabilité.</p><p>L&rsquo;appareil doit être le dernier élément de la chaîne de traitement, positionné après la filtration et juste avant le réseau de distribution. Il se monte verticalement pour une purge d&rsquo;air efficace, avec l&rsquo;entrée d&rsquo;eau par le bas.</p><p>Un bypass avec vannes d&rsquo;isolement doit être installé pour permettre le remplacement de la lampe et le nettoyage de la gaine quartz sans couper l&rsquo;alimentation en eau de l&rsquo;habitation. Il est interdit d&rsquo;installer un clapet anti-retour en sortie immédiate du réacteur.</p><p>Le contrôle de fonctionnement s&rsquo;effectue via un compteur horaire ou une alarme visuelle/sonore qui signale la fin de vie de la lampe. Les modèles professionnels intègrent un capteur UV qui mesure l&rsquo;intensité réelle et alerte en cas de chute de performance due à l&rsquo;eau ou au matériel.</p><hr><blockquote class=book-hint><p><strong>Les données présentées résultent d&rsquo;une analyse de sources officielles, de normes techniques et d&rsquo;études indépendantes à la date indiquée. Elles peuvent évoluer.</strong></p></blockquote><hr><h3 id=expertises-croisées>Expertises Croisées<a class=anchor href=#expertises-crois%c3%a9es>#</a></h3><ul><li><strong>Hydraulique & Eau :</strong> <a href=https://autonomia-lab.fr/lab_silo2_calcul-hmt-pompe-50m/>Pompe immergée à 50m : Calculer la HMT sans griller le moteur.</a></li><li><strong>Thermique & Habitat :</strong> <a href=https://autonomia-lab.fr/lab_silo3_pac-releve-fioul-schema/>PAC Air-Eau en relève de fioul : Le schéma (Bouteille de mélange).</a></li><li><strong>Infrastructure :</strong> <a href=https://autonomia-lab.fr/lab_silo4_regime-neutre-tt-tn/>Régime de neutre (TT vs TN) : L&rsquo;impact sur votre onduleur hybride.</a></li></ul><hr><h3 id=faq--stérilisateur-uv-c>FAQ : Stérilisateur UV-C<a class=anchor href=#faq--st%c3%a9rilisateur-uv-c>#</a></h3><p><strong>Un traitement UV-C est-il suffisant pour rendre l&rsquo;eau de pluie potable ?</strong>
-Non. Un traitement UV-C seul ne retire ni les sédiments, ni les goûts, ni les odeurs, ni les polluants chimiques. Il est une étape de désinfection finale qui doit obligatoirement être précédée d&rsquo;une filtration mécanique (5 microns) et d&rsquo;une filtration sur charbon actif.</p><p><strong>Quelle puissance UV pour une maison de 4 personnes ?</strong>
-Le dimensionnement ne dépend pas du nombre de personnes mais du débit instantané maximal de la pompe. Pour un débit donné, la puissance minimale de la lampe doit être déterminée selon les abaques du constructeur pour garantir les 40 mJ/cm² (NF EN 14897, 2006).</p><p><strong>Quand changer la lampe UV de mon stérilisateur ?</strong>
-La lampe doit être remplacée après 9 000 heures d&rsquo;utilisation, soit un an de fonctionnement continu (Viqua, 2025). Même si elle s&rsquo;allume encore, son efficacité germicide chute drastiquement après cette période. Noter la date d&rsquo;installation sur le réacteur.</p><p><em>Frank Vasseur — Expert Systèmes Énergétiques & Thermiques, Autonomia Lab</em></p></article><footer class=book-footer><div class="flex flex-wrap justify-between"><div></div><div></div></div><div class="flex flex-wrap justify-between"><span><a href=/lab_silo2_calcul-hmt-pompe-50m/ class="flex align-center"><img src=/icons/backward.svg class=book-icon alt=Backward>
-<span>Calcul HMT pompe 50m</span>
-</a></span><span><a href=/lab_silo2_filtration-fer-manganese/ class="flex align-center"><span>Filtration fer/manganèse</span>
-<img src=/icons/forward.svg class=book-icon alt=Forward></a></span></div><script>(function(){document.querySelectorAll("pre:has(code)").forEach(e=>{e.addEventListener("click",e.focus),e.addEventListener("copy",function(t){if(t.preventDefault(),navigator.clipboard){const t=window.getSelection().toString()||e.textContent;navigator.clipboard.writeText(t)}})})})()</script></footer><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents><ul><li><a href=#dosage-uv-c--la-norme-de-40-mjcm-pour-linactivation-de-ladn>Dosage UV-C : La norme de 40 mJ/cm² pour l&rsquo;inactivation de l&rsquo;ADN</a></li><li><a href=#calcul-du-débit-mh--la-relation-entre-puissance-w-et-transmittance->Calcul du débit (m³/h) : La relation entre puissance (W) et transmittance (%)</a></li><li><a href=#les-3-facteurs-de-déclassement-terrain>Les 3 facteurs de déclassement terrain</a></li><li><a href=#schéma-de-montage-et-points-de-contrôle>Schéma de montage et points de contrôle</a><ul><li><a href=#expertises-croisées>Expertises Croisées</a></li><li><a href=#faq--stérilisateur-uv-c>FAQ : Stérilisateur UV-C</a></li></ul></li></ul></nav></div></aside></main></body></html>
+">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#2e3440">
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="http://localhost:1316/lab_silo2_calcul-traitement-uvc/">
+  <meta property="og:site_name" content="Autonomia Lab">
+  <meta property="og:title" content="Stérilisateur UV-C : Calculer le débit max pour garantir 40 mJ/cm².">
+  <meta property="og:description" content="Sécurité — Cet article est un support de compréhension technique à titre éducatif uniquement. Les valeurs, calculs et schémas présentés ne remplacent pas l’expertise d’un installateur certifié. Toute installation doit être réalisée et validée par un professionnel qualifié RGE. Autonomia Lab décline toute responsabilité en cas d’application directe de ces informations.
+Le dosage UV-C réglementaire pour la potabilisation d’eau de forage est fixé à 40 millijoules par centimètre carré (mJ/cm²). Le traitement UV-C et son débit en m3/h sont directement liés à la puissance de la lampe et à la turbidité de l’eau. Dépasser le débit nominal annule l’effet germicide et expose le réseau à une contamination microbiologique.">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="lab">
+    <meta property="article:published_time" content="2026-05-01T00:00:00+00:00">
+    <meta property="article:modified_time" content="2026-05-01T00:00:00+00:00">
+
+
+  <meta itemprop="name" content="Stérilisateur UV-C : Calculer le débit max pour garantir 40 mJ/cm².">
+  <meta itemprop="description" content="Sécurité — Cet article est un support de compréhension technique à titre éducatif uniquement. Les valeurs, calculs et schémas présentés ne remplacent pas l’expertise d’un installateur certifié. Toute installation doit être réalisée et validée par un professionnel qualifié RGE. Autonomia Lab décline toute responsabilité en cas d’application directe de ces informations.
+Le dosage UV-C réglementaire pour la potabilisation d’eau de forage est fixé à 40 millijoules par centimètre carré (mJ/cm²). Le traitement UV-C et son débit en m3/h sont directement liés à la puissance de la lampe et à la turbidité de l’eau. Dépasser le débit nominal annule l’effet germicide et expose le réseau à une contamination microbiologique.">
+  <meta itemprop="datePublished" content="2026-05-01T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2026-05-01T00:00:00+00:00">
+  <meta itemprop="wordCount" content="1059">
+
+<title>Calcul UV-C 40 mJ/cm² | Autonomia Lab</title>
+<link rel="icon" href="/favicon.png" >
+<link rel="manifest" href="/manifest.json">
+<link rel="canonical" href="http://localhost:1316/lab_silo2_calcul-traitement-uvc/">
+<link rel="stylesheet" href="/book.min.453fb55be7ab107bba557e0692b7eaa0ede3596828379ae8d7662b3ba23a3000.css" integrity="sha256-RT&#43;1W&#43;erEHu6VX4GkrfqoO3jWWgoN5ro12YrO6I6MAA=" crossorigin="anonymous">
+
+
+  <script defer src="/fuse.min.js"></script>
+  <script defer src="/en.search.min.9bf59abd320875686ebf669f40cdfe011bb03a54c05cf8728e888a6eabd9cd63.js" integrity="sha256-m/WavTIIdWhuv2afQM3&#43;ARuwOlTAXPhyjoiKbqvZzWM=" crossorigin="anonymous"></script>
+
+
+
+  
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#ffffff">
+<style>
+  :root { color-scheme: light !important; }
+  html, body { color-scheme: light !important; }
+</style>
+
+</head>
+<body dir="ltr" class="book-kind-page book-type-lab">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    
+<aside class="book-menu">
+  <div class="book-menu-content">
+    
+  <nav>
+<h2 class="book-brand">
+  <span class="flex align-center"><span>Autonomia Lab</span>
+  </span>
+</h2>
+
+
+<div class="book-search hidden">
+  <input id="book-search-input" type="text" 
+    placeholder="Search"
+    aria-label="Search"
+    maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+<script>document.querySelector(".book-search").classList.remove("hidden")</script>
+
+
+
+
+
+
+<ul><li><a href="/">Accueil</a></li></ul>
+
+
+
+
+
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <input type="checkbox" id="section-80a6eccb491e65aad6dae5f33ec481c5" class="toggle"  />
+    <label for="section-80a6eccb491e65aad6dae5f33ec481c5" class="flex">
+      <a role="button"
+         class="" data-silo="1">
+        Solaire &amp; Stockage</a>
+      <img src="/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo1_cerbo-gx-pylontech-cablage/" class="" data-silo="1">
+      Cerbo GX &amp; Pylontech</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo1_erreur-11-victron-multiplus-ii/" class="" data-silo="1">
+      Erreur 11 Victron</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo1_fusibles-dc-ou-disjoncteurs/" class="" data-silo="1">
+      Fusibles DC vs Disjoncteurs</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo1_mppt-victron-100-20-100-30/" class="" data-silo="1">
+      MPPT 100/20 vs 100/30</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo1_pvgis-off-grid-autonomie/" class="" data-silo="1">
+      PVGIS Off-Grid</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo1_ratio-dc-ac-onduleur/" class="" data-silo="1">
+      Ratio DC/AC onduleur</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo1_section-cable-batterie-48v/" class="" data-silo="1">
+      Section câble 48V</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <input type="checkbox" id="section-ff2b4a7940fbd23fb7c151ce892a38d0" class="toggle" checked />
+    <label for="section-ff2b4a7940fbd23fb7c151ce892a38d0" class="flex">
+      <a role="button"
+         class="" data-silo="2">
+        Hydraulique</a>
+      <img src="/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo2_calcul-hmt-pompe-50m/" class="" data-silo="2">
+      Calcul HMT pompe 50m</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo2_calcul-traitement-uvc/" class="active" data-silo="2">
+      Calcul UV-C 40 mJ/cm²</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo2_filtration-fer-manganese/" class="" data-silo="2">
+      Filtration fer/manganèse</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo2_potabilisation-forage/" class="" data-silo="2">
+      Potabilisation forage</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo2_rejet-osmose-inverse/" class="" data-silo="2">
+      Rejet osmose inverse</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <input type="checkbox" id="section-2ff767a3ea21b6cc828c74332a27d864" class="toggle"  />
+    <label for="section-2ff767a3ea21b6cc828c74332a27d864" class="flex">
+      <a role="button"
+         class="" data-silo="3">
+        Thermique</a>
+      <img src="/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo3_chauffe-eau-thermo-cop/" class="" data-silo="3">
+      Chauffe-eau thermodynamique</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo3_dimensionnement-pac-air-air/" class="" data-silo="3">
+      Dimensionnement PAC air-air</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo3_isolation-toiture-r7/" class="" data-silo="3">
+      Isolation toiture R=7</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo3_rendement-pac-grand-froid/" class="" data-silo="3">
+      PAC grand froid COP</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo3_pac-releve-fioul-schema/" class="" data-silo="3">
+      PAC relève fioul schéma</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <input type="checkbox" id="section-d3532d0f76fc0e770fa43359b2f066c6" class="toggle"  />
+    <label for="section-d3532d0f76fc0e770fa43359b2f066c6" class="flex">
+      <a role="button"
+         class="" data-silo="4">
+        Infrastructure</a>
+      <img src="/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo4_differentiel-type-b/" class="" data-silo="4">
+      Différentiel Type B</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo4_disjoncteur-courbe-d-vs-c/" class="" data-silo="4">
+      Disjoncteur D vs C</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo4_puissance-reactive-linky/" class="" data-silo="4">
+      Puissance réactive Linky</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo4_regime-neutre-tt-tn/" class="" data-silo="4">
+      Régime neutre TT/TN</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+<ul><li><a href="/outils/">Outils du Lab</a></li><li><a href="/a-propos/">À propos</a></li></ul>
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+
+  </div>
+</aside>
+ 
+
+    <div class="book-page">
+      <header class="book-header hidden">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/icons/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <h3>Calcul UV-C 40 mJ/cm²</h3>
+
+  <label for="toc-control">
+    
+    <img src="/icons/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#dosage-uv-c--la-norme-de-40-mjcm-pour-linactivation-de-ladn">Dosage UV-C : La norme de 40 mJ/cm² pour l&rsquo;inactivation de l&rsquo;ADN</a></li>
+    <li><a href="#calcul-du-débit-mh--la-relation-entre-puissance-w-et-transmittance-">Calcul du débit (m³/h) : La relation entre puissance (W) et transmittance (%)</a></li>
+    <li><a href="#les-3-facteurs-de-déclassement-terrain">Les 3 facteurs de déclassement terrain</a></li>
+    <li><a href="#schéma-de-montage-et-points-de-contrôle">Schéma de montage et points de contrôle</a>
+      <ul>
+        <li><a href="#expertises-croisées">Expertises Croisées</a></li>
+        <li><a href="#faq--stérilisateur-uv-c">FAQ : Stérilisateur UV-C</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+<article class="markdown book-article"><h1>Stérilisateur UV-C : Calculer le débit max pour garantir 40 mJ/cm².</h1><p class="article-date">Publié le 1 mai 2026</p><blockquote class='book-hint '>
+<p><strong>Sécurité</strong> — Cet article est un support de compréhension technique à titre éducatif uniquement. Les valeurs, calculs et schémas présentés ne remplacent pas l&rsquo;expertise d&rsquo;un installateur certifié. Toute installation doit être réalisée et validée par un professionnel qualifié RGE. Autonomia Lab décline toute responsabilité en cas d&rsquo;application directe de ces informations.</p>
+</blockquote><p>Le dosage UV-C réglementaire pour la potabilisation d&rsquo;eau de forage est fixé à 40 millijoules par centimètre carré (mJ/cm²). Le traitement UV-C et son débit en m3/h sont directement liés à la puissance de la lampe et à la turbidité de l&rsquo;eau. Dépasser le débit nominal annule l&rsquo;effet germicide et expose le réseau à une contamination microbiologique.</p>
+<h2 id="dosage-uv-c--la-norme-de-40-mjcm-pour-linactivation-de-ladn">Dosage UV-C : La norme de 40 mJ/cm² pour l&rsquo;inactivation de l&rsquo;ADN<a class="anchor" href="#dosage-uv-c--la-norme-de-40-mjcm-pour-linactivation-de-ladn">#</a></h2><p>La désinfection par ultraviolets de type C (UV-C) repose sur une action physique. Le rayonnement à une longueur d&rsquo;onde de 253,7 nanomètres irradie l&rsquo;eau et pénètre le noyau des micro-organismes (bactéries, virus, protozoaires). Cette exposition modifie la structure de leur ADN et ARN, les rendant incapables de se répliquer et donc inoffensifs.</p>
+<p>Le seuil d&rsquo;efficacité pour la potabilisation d&rsquo;une eau brute est une dose germicide de 40 mJ/cm². Cette valeur garantit l&rsquo;inactivation de 99,99% des pathogènes résistants comme <em>Escherichia coli</em>, dont la présence est un indicateur de contamination fécale (seuil réglementaire à 0 UFC/100 mL, Code de la santé publique, 2021). En deçà de ce dosage, l&rsquo;eau n&rsquo;est pas considérée comme traitée.</p>
+<h2 id="calcul-du-débit-mh--la-relation-entre-puissance-w-et-transmittance-">Calcul du débit (m³/h) : La relation entre puissance (W) et transmittance (%)<a class="anchor" href="#calcul-du-d%c3%a9bit-mh--la-relation-entre-puissance-w-et-transmittance-">#</a></h2><p>Le débit maximal admissible dans un réacteur UV-C est une fonction directe de trois paramètres : la puissance de la lampe, la dose cible et la clarté de l&rsquo;eau (transmittance). La formule de dimensionnement est la suivante :</p>
+<p><code>Débit (m³/h) = (Puissance UV-C en W * 3.6) / (Dose en mJ/cm² * Surface en m²)</code></p>
+<p>En pratique, les constructeurs fournissent des abaques qui intègrent ces variables. Le paramètre critique est la transmittance UV (UVT), qui mesure le pourcentage de lumière UV-C traversant l&rsquo;eau sur 1 cm. Une eau claire aura une UVT élevée (ex: 98%), une eau chargée en sédiments ou en fer dissous aura une UVT faible.</p>
+<p>Un traitement UV-C n&rsquo;est viable qu&rsquo;avec une eau préalablement filtrée. Toute turbidité crée des &ldquo;zones d&rsquo;ombre&rdquo; protégeant les bactéries du rayonnement. Une filtration sédimentaire à 5 microns en amont est un prérequis technique non négociable.</p>
+<table>
+  <thead>
+      <tr>
+          <th>Paramètre</th>
+          <th>Eau brute (forage)</th>
+          <th>Eau filtrée (5 µm)</th>
+          <th>Impact sur le débit</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Transmittance UVT</td>
+          <td>75%</td>
+          <td>95%</td>
+          <td>Débit max. multiplié par 2,5 (Viqua/Atlantic UV, 2020-2021)</td>
+      </tr>
+      <tr>
+          <td>Turbidité</td>
+          <td>&gt; 5 NTU</td>
+          <td>&lt; 1 NTU</td>
+          <td>Traitement UV-C non conforme</td>
+      </tr>
+  </tbody>
+</table>
+<p><em>Pour chaque baisse de 10% de l&rsquo;UVT, le débit maximal admissible doit être réduit d&rsquo;environ 36 à 38% pour maintenir la dose létale de 40 mJ/cm² (Viqua/Atlantic UV, 2021).</em></p>
+<p>Pour un réacteur équipé d&rsquo;une lampe de 55 W, le débit maximal pour atteindre 40 mJ/cm² avec une UVT de 95% doit être calculé selon les abaques du constructeur (NF EN 14897, 2006). Si le débit de la pompe dépasse cette valeur, le temps d&rsquo;exposition diminue et la dose germicide délivrée chute sous le seuil de conformité.</p>
+<h2 id="les-3-facteurs-de-déclassement-terrain">Les 3 facteurs de déclassement terrain<a class="anchor" href="#les-3-facteurs-de-d%c3%a9classement-terrain">#</a></h2><p>La performance théorique d&rsquo;un stérilisateur UV-C se dégrade en conditions réelles. Trois points de vigilance conditionnent la pérennité du traitement.</p>
+<p><strong>1. Le colmatage de la gaine quartz :</strong> La lampe UV-C est isolée de l&rsquo;eau par une gaine en quartz. Le calcaire, le fer et le manganèse peuvent précipiter à sa surface, créant un film opaque qui bloque le rayonnement. Un nettoyage trimestriel est impératif.</p>
+<p><strong>2. La turbidité en amont :</strong> Un Porte-filtre Big Blue 20 pouces : Dimensionner la filtration sédiment et charbon. sous-dimensionné ou colmaté laisse passer des particules. Ces dernières protègent les pathogènes, rendant le traitement inefficace même avec une lampe neuve.</p>
+<p><strong>3. Le vieillissement de la lampe :</strong> Une lampe UV-C a une durée de vie effective de 9 000 heures (Viqua, 2025). Au-delà, elle produit toujours de la lumière visible, mais son rendement dans le spectre germicide de 253,7 nm s&rsquo;est effondré. Le remplacement annuel est une opération de maintenance préventive, pas curative.</p>
+<h2 id="schéma-de-montage-et-points-de-contrôle">Schéma de montage et points de contrôle<a class="anchor" href="#sch%c3%a9ma-de-montage-et-points-de-contr%c3%b4le">#</a></h2><p>L&rsquo;intégration d&rsquo;un stérilisateur UV-C dans un réseau hydraulique suit des règles strictes pour garantir son efficacité et sa maintenabilité.</p>
+<p>L&rsquo;appareil doit être le dernier élément de la chaîne de traitement, positionné après la filtration et juste avant le réseau de distribution. Il se monte verticalement pour une purge d&rsquo;air efficace, avec l&rsquo;entrée d&rsquo;eau par le bas.</p>
+<p>Un bypass avec vannes d&rsquo;isolement doit être installé pour permettre le remplacement de la lampe et le nettoyage de la gaine quartz sans couper l&rsquo;alimentation en eau de l&rsquo;habitation. Il est interdit d&rsquo;installer un clapet anti-retour en sortie immédiate du réacteur.</p>
+<p>Le contrôle de fonctionnement s&rsquo;effectue via un compteur horaire ou une alarme visuelle/sonore qui signale la fin de vie de la lampe. Les modèles professionnels intègrent un capteur UV qui mesure l&rsquo;intensité réelle et alerte en cas de chute de performance due à l&rsquo;eau ou au matériel.</p>
+<hr>
+<blockquote class='book-hint '>
+<p><strong>Les données présentées résultent d&rsquo;une analyse de sources officielles, de normes techniques et d&rsquo;études indépendantes à la date indiquée. Elles peuvent évoluer.</strong></p>
+</blockquote><hr>
+<h3 id="expertises-croisées">Expertises Croisées<a class="anchor" href="#expertises-crois%c3%a9es">#</a></h3><ul>
+<li><strong>Hydraulique &amp; Eau :</strong> <a href="http://localhost:1316/lab_silo2_calcul-hmt-pompe-50m/">Pompe immergée à 50m : Calculer la HMT sans griller le moteur.</a></li>
+<li><strong>Thermique &amp; Habitat :</strong> <a href="http://localhost:1316/lab_silo3_pac-releve-fioul-schema/">PAC Air-Eau en relève de fioul : Le schéma (Bouteille de mélange).</a></li>
+<li><strong>Infrastructure :</strong> <a href="http://localhost:1316/lab_silo4_regime-neutre-tt-tn/">Régime de neutre (TT vs TN) : L&rsquo;impact sur votre onduleur hybride.</a></li>
+</ul>
+<hr>
+<h3 id="faq--stérilisateur-uv-c">FAQ : Stérilisateur UV-C<a class="anchor" href="#faq--st%c3%a9rilisateur-uv-c">#</a></h3><p><strong>Un traitement UV-C est-il suffisant pour rendre l&rsquo;eau de pluie potable ?</strong>
+Non. Un traitement UV-C seul ne retire ni les sédiments, ni les goûts, ni les odeurs, ni les polluants chimiques. Il est une étape de désinfection finale qui doit obligatoirement être précédée d&rsquo;une filtration mécanique (5 microns) et d&rsquo;une filtration sur charbon actif.</p>
+<p><strong>Quelle puissance UV pour une maison de 4 personnes ?</strong>
+Le dimensionnement ne dépend pas du nombre de personnes mais du débit instantané maximal de la pompe. Pour un débit donné, la puissance minimale de la lampe doit être déterminée selon les abaques du constructeur pour garantir les 40 mJ/cm² (NF EN 14897, 2006).</p>
+<p><strong>Quand changer la lampe UV de mon stérilisateur ?</strong>
+La lampe doit être remplacée après 9 000 heures d&rsquo;utilisation, soit un an de fonctionnement continu (Viqua, 2025). Même si elle s&rsquo;allume encore, son efficacité germicide chute drastiquement après cette période. Noter la date d&rsquo;installation sur le réacteur.</p>
+<p><em>Frank Vasseur — Expert Systèmes Énergétiques &amp; Thermiques, Autonomia Lab</em></p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+<div>
+
+</div>
+
+<div>
+
+</div>
+
+</div>
+
+
+
+
+
+  
+  
+  
+  <div class="flex flex-wrap justify-between">
+    <span>
+    
+      <a href="/lab_silo2_calcul-hmt-pompe-50m/" class="flex align-center">
+        <img src="/icons/backward.svg" class="book-icon" alt="Backward" />
+        <span>Calcul HMT pompe 50m</span>
+      </a>
+    
+    </span>
+    <span>
+    
+      <a href="/lab_silo2_filtration-fer-manganese/" class="flex align-center">
+        <span>Filtration fer/manganèse</span>
+        <img src="/icons/forward.svg" class="book-icon" alt="Forward" />
+      </a>
+    
+    </span>
+  </div>
+  
+
+
+ 
+        
+  
+ 
+        
+        
+  
+ 
+        
+  
+  
+    <script>(function(){document.querySelectorAll("pre:has(code)").forEach(e=>{e.addEventListener("click",e.focus),e.addEventListener("copy",function(t){if(t.preventDefault(),navigator.clipboard){const t=window.getSelection().toString()||e.textContent;navigator.clipboard.writeText(t)}})})})()</script>
+  
+
+      </footer>
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+  
+  <aside class="book-toc">
+    <div class="book-toc-content">
+      
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#dosage-uv-c--la-norme-de-40-mjcm-pour-linactivation-de-ladn">Dosage UV-C : La norme de 40 mJ/cm² pour l&rsquo;inactivation de l&rsquo;ADN</a></li>
+    <li><a href="#calcul-du-débit-mh--la-relation-entre-puissance-w-et-transmittance-">Calcul du débit (m³/h) : La relation entre puissance (W) et transmittance (%)</a></li>
+    <li><a href="#les-3-facteurs-de-déclassement-terrain">Les 3 facteurs de déclassement terrain</a></li>
+    <li><a href="#schéma-de-montage-et-points-de-contrôle">Schéma de montage et points de contrôle</a>
+      <ul>
+        <li><a href="#expertises-croisées">Expertises Croisées</a></li>
+        <li><a href="#faq--stérilisateur-uv-c">FAQ : Stérilisateur UV-C</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+    </div>
+  </aside>
+  
+ 
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

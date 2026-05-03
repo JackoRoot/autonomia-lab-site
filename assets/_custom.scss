@@ -157,6 +157,8 @@ main.container {
 .book-menu nav a[data-silo="4"]:hover, .book-menu nav a[data-silo="4"].active { border-left-color: #10B981; }
 // À propos — bordure noire
 .book-menu nav a[href*="a-propos"]:hover, .book-menu nav a[href*="a-propos"].active { border-left-color: #1E293B !important; }
+// Outils du Lab — bordure noire
+.book-menu nav a[href*="outils"]:hover, .book-menu nav a[href*="outils"].active { border-left-color: #1E293B !important; }
 
 // Search bar sidebar
 .book-search input {
@@ -198,7 +200,7 @@ main.container {
 .book-page .markdown {
   max-width: 720px;
   margin: 0 auto;
-  padding: 48px 24px;
+  padding: 48px 16px;
 
   // H1 article
   > h1:first-child {
@@ -741,7 +743,7 @@ blockquote {
 
   // Article — H1 + padding
   .book-page .markdown {
-    padding: 32px 16px;
+    padding: 32px 10px;
 
     > h1:first-child {
       font-size: 1.625rem; // 26px

@@ -1,21 +1,811 @@
-<!doctype html><html lang=fr-FR dir=ltr><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Sécurité — Cet article est un support de compréhension technique à titre éducatif uniquement. Les valeurs, calculs et schémas présentés ne remplacent pas l’expertise d’un installateur certifié. Toute installation doit être réalisée et validée par un professionnel qualifié RGE. Autonomia Lab décline toute responsabilité en cas d’application directe de ces informations.
+<!DOCTYPE html>
+<html lang="fr-FR" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1316&amp;path=livereload" data-no-instant defer></script>
+  <!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Sécurité — Cet article est un support de compréhension technique à titre éducatif uniquement. Les valeurs, calculs et schémas présentés ne remplacent pas l’expertise d’un installateur certifié. Toute installation doit être réalisée et validée par un professionnel qualifié RGE. Autonomia Lab décline toute responsabilité en cas d’application directe de ces informations.
 Le rendement d’une PAC grand froid à -10°C est directement lié à la physique de son fluide frigorigène. En conditions de givrage, un compresseur au R32 doit brider sa vitesse pour ne pas dépasser 120°C en refoulement. Cette limitation force le recours à un appoint électrique (COP de 1,0), effondrant le rendement global. Le R290, plus stable, maintient son régime nominal et sa puissance sans appoint.
-"><meta name=theme-color media="(prefers-color-scheme: light)" content="#ffffff"><meta name=theme-color media="(prefers-color-scheme: dark)" content="#2e3440"><meta name=color-scheme content="light dark"><meta property="og:url" content="https://autonomia-lab.fr/lab_silo3_rendement-pac-grand-froid/"><meta property="og:site_name" content="Autonomia Lab"><meta property="og:title" content="PAC grand froid : La vérité sur le givrage et le COP à -10°C."><meta property="og:description" content="Sécurité — Cet article est un support de compréhension technique à titre éducatif uniquement. Les valeurs, calculs et schémas présentés ne remplacent pas l’expertise d’un installateur certifié. Toute installation doit être réalisée et validée par un professionnel qualifié RGE. Autonomia Lab décline toute responsabilité en cas d’application directe de ces informations.
-Le rendement d’une PAC grand froid à -10°C est directement lié à la physique de son fluide frigorigène. En conditions de givrage, un compresseur au R32 doit brider sa vitesse pour ne pas dépasser 120°C en refoulement. Cette limitation force le recours à un appoint électrique (COP de 1,0), effondrant le rendement global. Le R290, plus stable, maintient son régime nominal et sa puissance sans appoint."><meta property="og:locale" content="fr_FR"><meta property="og:type" content="article"><meta property="article:section" content="lab"><meta property="article:published_time" content="2026-05-01T00:00:00+00:00"><meta property="article:modified_time" content="2026-05-01T00:00:00+00:00"><meta itemprop=name content="PAC grand froid : La vérité sur le givrage et le COP à -10°C."><meta itemprop=description content="Sécurité — Cet article est un support de compréhension technique à titre éducatif uniquement. Les valeurs, calculs et schémas présentés ne remplacent pas l’expertise d’un installateur certifié. Toute installation doit être réalisée et validée par un professionnel qualifié RGE. Autonomia Lab décline toute responsabilité en cas d’application directe de ces informations.
-Le rendement d’une PAC grand froid à -10°C est directement lié à la physique de son fluide frigorigène. En conditions de givrage, un compresseur au R32 doit brider sa vitesse pour ne pas dépasser 120°C en refoulement. Cette limitation force le recours à un appoint électrique (COP de 1,0), effondrant le rendement global. Le R290, plus stable, maintient son régime nominal et sa puissance sans appoint."><meta itemprop=datePublished content="2026-05-01T00:00:00+00:00"><meta itemprop=dateModified content="2026-05-01T00:00:00+00:00"><meta itemprop=wordCount content="1135"><title>PAC grand froid COP | Autonomia Lab</title><link rel=icon href=/favicon.png><link rel=manifest href=/manifest.json><link rel=canonical href=https://autonomia-lab.fr/lab_silo3_rendement-pac-grand-froid/><link rel=stylesheet href=/book.min.92048bb3b20c265865fffa98ece7bfa06950ab86ca25d6108e24b45f8c754881.css integrity="sha256-kgSLs7IMJlhl//qY7Oe/oGlQq4bKJdYQjiS0X4x1SIE=" crossorigin=anonymous><script defer src=/fuse.min.js></script><script defer src=/en.search.min.542d6aa38af851634a052bfa0b90ba22992cdb0cf8ee957d31673092f8073ea3.js integrity="sha256-VC1qo4r4UWNKBSv6C5C6Ipks2wz47pV9MWcwkvgHPqM=" crossorigin=anonymous></script><meta name=color-scheme content="light"><meta name=theme-color content="#ffffff"><style>:root{color-scheme:light!important}html,body{color-scheme:light!important}</style></head><body dir=ltr class="book-kind-page book-type-lab"><input type=checkbox class="hidden toggle" id=menu-control>
-<input type=checkbox class="hidden toggle" id=toc-control><main class="container flex"><aside class=book-menu><div class=book-menu-content><nav><h2 class=book-brand><span class="flex align-center"><span>Autonomia Lab</span></span></h2><div class="book-search hidden"><input id=book-search-input type=text placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/><div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><script>document.querySelector(".book-search").classList.remove("hidden")</script><ul><li><a href=/>Accueil</a></li></ul><ul><li><input type=checkbox id=section-80a6eccb491e65aad6dae5f33ec481c5 class=toggle>
-<label for=section-80a6eccb491e65aad6dae5f33ec481c5 class=flex><a role=button data-silo=1>Solaire & Stockage</a>
-<img src=/icons/chevron-right.svg class=book-icon alt=Expand></label><ul><li><a href=/lab_silo1_cerbo-gx-pylontech-cablage/ data-silo=1>Cerbo GX & Pylontech</a></li><li><a href=/lab_silo1_erreur-11-victron-multiplus-ii/ data-silo=1>Erreur 11 Victron</a></li><li><a href=/lab_silo1_fusibles-dc-ou-disjoncteurs/ data-silo=1>Fusibles DC vs Disjoncteurs</a></li><li><a href=/lab_silo1_mppt-victron-100-20-100-30/ data-silo=1>MPPT 100/20 vs 100/30</a></li><li><a href=/lab_silo1_pvgis-off-grid-autonomie/ data-silo=1>PVGIS Off-Grid</a></li><li><a href=/lab_silo1_ratio-dc-ac-onduleur/ data-silo=1>Ratio DC/AC onduleur</a></li><li><a href=/lab_silo1_section-cable-batterie-48v/ data-silo=1>Section câble 48V</a></li></ul></li><li><input type=checkbox id=section-ff2b4a7940fbd23fb7c151ce892a38d0 class=toggle>
-<label for=section-ff2b4a7940fbd23fb7c151ce892a38d0 class=flex><a role=button data-silo=2>Hydraulique</a>
-<img src=/icons/chevron-right.svg class=book-icon alt=Expand></label><ul><li><a href=/lab_silo2_calcul-hmt-pompe-50m/ data-silo=2>Calcul HMT pompe 50m</a></li><li><a href=/lab_silo2_calcul-traitement-uvc/ data-silo=2>Calcul UV-C 40 mJ/cm²</a></li><li><a href=/lab_silo2_filtration-fer-manganese/ data-silo=2>Filtration fer/manganèse</a></li><li><a href=/lab_silo2_potabilisation-forage/ data-silo=2>Potabilisation forage</a></li><li><a href=/lab_silo2_rejet-osmose-inverse/ data-silo=2>Rejet osmose inverse</a></li></ul></li><li><input type=checkbox id=section-2ff767a3ea21b6cc828c74332a27d864 class=toggle checked>
-<label for=section-2ff767a3ea21b6cc828c74332a27d864 class=flex><a role=button data-silo=3>Thermique</a>
-<img src=/icons/chevron-right.svg class=book-icon alt=Expand></label><ul><li><a href=/lab_silo3_chauffe-eau-thermo-cop/ data-silo=3>Chauffe-eau thermodynamique</a></li><li><a href=/lab_silo3_dimensionnement-pac-air-air/ data-silo=3>Dimensionnement PAC air-air</a></li><li><a href=/lab_silo3_isolation-toiture-r7/ data-silo=3>Isolation toiture R=7</a></li><li><a href=/lab_silo3_rendement-pac-grand-froid/ class=active data-silo=3>PAC grand froid COP</a></li><li><a href=/lab_silo3_pac-releve-fioul-schema/ data-silo=3>PAC relève fioul schéma</a></li></ul></li><li><input type=checkbox id=section-d3532d0f76fc0e770fa43359b2f066c6 class=toggle>
-<label for=section-d3532d0f76fc0e770fa43359b2f066c6 class=flex><a role=button data-silo=4>Infrastructure</a>
-<img src=/icons/chevron-right.svg class=book-icon alt=Expand></label><ul><li><a href=/lab_silo4_differentiel-type-b/ data-silo=4>Différentiel Type B</a></li><li><a href=/lab_silo4_disjoncteur-courbe-d-vs-c/ data-silo=4>Disjoncteur D vs C</a></li><li><a href=/lab_silo4_puissance-reactive-linky/ data-silo=4>Puissance réactive Linky</a></li><li><a href=/lab_silo4_regime-neutre-tt-tn/ data-silo=4>Régime neutre TT/TN</a></li></ul></li></ul><ul><li><a href=/a-propos/>À propos</a></li></ul></nav><script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script></div></aside><div class=book-page><header class="book-header hidden"><div class="flex align-center justify-between"><label for=menu-control><img src=/icons/menu.svg class=book-icon alt=Menu></label><h3>PAC grand froid COP</h3><label for=toc-control><img src=/icons/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class=hidden><nav id=TableOfContents><ul><li><a href=#fluides-frigorigènes--r32-prg-675-vs-r290-prg-3>Fluides frigorigènes : R32 (PRG 675) vs R290 (PRG 3)</a></li><li><a href=#cop-mesuré-à--10c--limpact-du-bridage-compresseur>COP mesuré à -10°C : l&rsquo;impact du bridage compresseur</a></li><li><a href=#température-de-refoulement--120c-le-seuil-de-rupture-pour-lhuile>Température de refoulement : 120°C, le seuil de rupture pour l&rsquo;huile</a></li><li><a href=#appoint-électrique--le-cop-réel-tombe-à-10-en-cas-de-givrage-intense>Appoint électrique : le COP réel tombe à 1,0 en cas de givrage intense</a></li><li><a href=#réglementation-f-gas-ue-2024573--fin-du-r32-en-2027-pour-le-neuf>Réglementation F-Gas (UE 2024/573) : fin du R32 en 2027 pour le neuf</a><ul><li><a href=#expertises-croisées>Expertises Croisées</a></li><li><a href=#faq--pac-grand-froid-et-givrage>FAQ : PAC grand froid et givrage</a></li></ul></li></ul></nav></aside></header><article class="markdown book-article"><h1>PAC grand froid : La vérité sur le givrage et le COP à -10°C.</h1><p class=article-date>Publié le 1 mai 2026</p><blockquote class=book-hint><p><strong>Sécurité</strong> — Cet article est un support de compréhension technique à titre éducatif uniquement. Les valeurs, calculs et schémas présentés ne remplacent pas l&rsquo;expertise d&rsquo;un installateur certifié. Toute installation doit être réalisée et validée par un professionnel qualifié RGE. Autonomia Lab décline toute responsabilité en cas d&rsquo;application directe de ces informations.</p></blockquote><p>Le rendement d&rsquo;une PAC grand froid à -10°C est directement lié à la physique de son fluide frigorigène. En conditions de givrage, un compresseur au R32 doit brider sa vitesse pour ne pas dépasser 120°C en refoulement. Cette limitation force le recours à un appoint électrique (COP de 1,0), effondrant le rendement global. Le R290, plus stable, maintient son régime nominal et sa puissance sans appoint.</p><h2 id=fluides-frigorigènes--r32-prg-675-vs-r290-prg-3>Fluides frigorigènes : R32 (PRG 675) vs R290 (PRG 3)<a class=anchor href=#fluides-frigorig%c3%a8nes--r32-prg-675-vs-r290-prg-3>#</a></h2><p>L&rsquo;architecture d&rsquo;une pompe à chaleur air-eau est dictée par les propriétés thermodynamiques du fluide qui circule en circuit fermé. Le choix entre le difluorométhane (R32) et le propane (R290) a des conséquences directes sur la plage de fonctionnement, la fiabilité mécanique et la conformité réglementaire à long terme de l&rsquo;équipement.</p><p>La comparaison des données physiques brutes est un prérequis à toute analyse de performance.</p><table><thead><tr><th>Propriété Thermophysique et Environnementale</th><th>R290 (Propane)</th><th>R32 (Difluorométhane)</th><th>Source</th></tr></thead><tbody><tr><td><strong>Potentiel Réchauffement Global (PRG 100 ans)</strong></td><td>3</td><td>675</td><td>Climalife (2022) / Comm. EU (2024)</td></tr><tr><td><strong>Classe de sécurité (NF EN 378)</strong></td><td>A3 (hautement inflammable)</td><td>A2L (légèrement inflammable)</td><td>ASHRAE / Daikin (2024)</td></tr><tr><td><strong>Température critique</strong></td><td>96,7 °C</td><td>78,1 °C</td><td>Climalife (2022) / Sinteco (2019)</td></tr><tr><td><strong>Ratio chaleurs spécifiques (γ = Cp/Cv)</strong></td><td>1,136</td><td>1,253</td><td>Climalife (2022) / Sinteco (2019)</td></tr></tbody></table><p>La température critique basse du R32 (78,1 °C) limite sa capacité à produire de l&rsquo;eau à haute température pour des radiateurs en fonte sans dégrader son cycle thermodynamique. Le R290, avec une température critique de 96,7 °C, maintient une condensation efficace sur une plage de température plus étendue.</p><h2 id=cop-mesuré-à--10c--limpact-du-bridage-compresseur>COP mesuré à -10°C : l&rsquo;impact du bridage compresseur<a class=anchor href=#cop-mesur%c3%a9-%c3%a0--10c--limpact-du-bridage-compresseur>#</a></h2><p>Le Coefficient de Performance (COP) affiché par les constructeurs est une donnée instantanée. Le SCOP (Coefficient de Performance Saisonnier) selon la norme NF EN 14825 intègre les cycles de dégivrage et les appoints, ce qui donne une image plus exacte de la consommation annuelle.</p><p>Les mesures en chambre climatique révèlent un écart significatif de rendement en conditions extrêmes.</p><table><thead><tr><th>Condition Opérationnelle (Norme NF EN 14825)</th><th>Métrique</th><th>R32</th><th>R290</th><th>Source</th></tr></thead><tbody><tr><td><strong>Point de test A-10/W35 (Air -10°C / Eau 35°C)</strong></td><td>COP instantané</td><td>2,97</td><td>2,97</td><td>HeatPro (2024) / Viessmann (2024)</td></tr><tr><td><strong>Climat Froid (Moyenne -20°C à 0°C)</strong></td><td>SCOP certifié</td><td>3,39</td><td>4,48</td><td>ZNFU (2025)</td></tr><tr><td><strong>Température maximale de sortie d&rsquo;eau</strong></td><td>T° max.</td><td>60 °C</td><td>75 °C</td><td>Daikin (2024) / Mitsubishi (2023)</td></tr></tbody></table><p>À -10°C, le COP instantané semble identique. En réalité, une PAC au R32 doit enclencher des stratégies complexes d&rsquo;injection de vapeur pour maintenir ce chiffre, au prix d&rsquo;une surconsommation. Sur une saison froide entière, le SCOP du R290 est supérieur de 34% (ZNFU, 2025), car il n&rsquo;a pas besoin de brider sa puissance.</p><h2 id=température-de-refoulement--120c-le-seuil-de-rupture-pour-lhuile>Température de refoulement : 120°C, le seuil de rupture pour l&rsquo;huile<a class=anchor href=#temp%c3%a9rature-de-refoulement--120c-le-seuil-de-rupture-pour-lhuile>#</a></h2><p>La physique de la compression des gaz explique la différence de comportement par grand froid. La température en sortie de compresseur est fonction du taux de compression et du ratio des chaleurs spécifiques (γ).</p><p>Le R32, avec un ratio γ élevé (1,253), voit sa température de refoulement augmenter de manière exponentielle à mesure que la température extérieure baisse. Elle dépasse fréquemment 120,0 °C, le seuil de dégradation chimique des huiles lubrifiantes de type polyolester (POE) (Purdue University, 2016). Pour éviter un grippage du compresseur, la régulation Inverter réduit la vitesse de rotation.</p><p>Le R290 possède un ratio γ structurellement plus faible (1,136). Sa température de refoulement reste mécaniquement basse, même par -25°C. Le compresseur peut donc fonctionner à son régime nominal sans risque pour sa longévité.</p><h2 id=appoint-électrique--le-cop-réel-tombe-à-10-en-cas-de-givrage-intense>Appoint électrique : le COP réel tombe à 1,0 en cas de givrage intense<a class=anchor href=#appoint-%c3%a9lectrique--le-cop-r%c3%a9el-tombe-%c3%a0-10-en-cas-de-givrage-intense>#</a></h2><p>Une PAC au R32 qui bride son compresseur perd en puissance calorifique. Pour maintenir la consigne de température dans l&rsquo;habitat, elle doit activer ses résistances électriques d&rsquo;appoint.</p><p>Ces résistances fonctionnent avec un COP de 1,0 (Thermodynamique Standard, 2024). Cet appoint annule le bénéfice de la pompe à chaleur et fait chuter le SCOP global. Une PAC au R290, capable de fournir de l&rsquo;eau à 75°C par grand froid, peut assurer le chauffage sans aucun appoint, préservant ainsi son rendement saisonnier.</p><h2 id=réglementation-f-gas-ue-2024573--fin-du-r32-en-2027-pour-le-neuf>Réglementation F-Gas (UE 2024/573) : fin du R32 en 2027 pour le neuf<a class=anchor href=#r%c3%a9glementation-f-gas-ue-2024573--fin-du-r32-en-2027-pour-le-neuf>#</a></h2><p>Un investissement dans un équipement de chauffage doit considérer sa conformité sur 20 ans. Le règlement européen F-Gas III (UE 2024/573) programme l&rsquo;élimination des fluides à fort impact climatique.</p><p>À compter du 1er janvier 2027, la mise sur le marché de PAC monoblocs neuves de moins de 12 kW contenant un fluide avec un Potentiel de Réchauffement Global (PRG) supérieur ou égal à 150 sera interdite (Commission Européenne, 2024).</p><p>Le R32, avec un PRG de 675, est de fait exclu du marché du neuf résidentiel et de la rénovation à cette échéance. Le R290 (PRG de 3) assure une conformité totale avec la législation post-2027. Choisir un équipement au R32 aujourd&rsquo;hui expose à des difficultés de maintenance et à une obsolescence réglementaire programmée.</p><hr><blockquote class=book-hint><p><strong>Les données présentées résultent d&rsquo;une analyse de sources officielles, de normes techniques et d&rsquo;études indépendantes à la date indiquée. Elles peuvent évoluer.</strong></p></blockquote><hr><h3 id=expertises-croisées>Expertises Croisées<a class=anchor href=#expertises-crois%c3%a9es>#</a></h3><ul><li><strong>Hydraulique & Eau :</strong> <a href=https://autonomia-lab.fr/lab_silo2_calcul-hmt-pompe-50m/>Pompe immergée à 50m : Calculer la HMT sans griller le moteur.</a></li><li><strong>Thermique & Habitat :</strong> <a href=https://autonomia-lab.fr/lab_silo3_pac-releve-fioul-schema/>PAC Air-Eau en relève de fioul : Le schéma (Bouteille de mélange).</a></li><li><strong>Infrastructure :</strong> <a href=https://autonomia-lab.fr/lab_silo4_regime-neutre-tt-tn/>Régime de neutre (TT vs TN) : L&rsquo;impact sur votre onduleur hybride.</a></li></ul><hr><h3 id=faq--pac-grand-froid-et-givrage>FAQ : PAC grand froid et givrage<a class=anchor href=#faq--pac-grand-froid-et-givrage>#</a></h3><p><strong>Une PAC R32 fonctionne-t-elle encore à -15°C ?</strong>
-Oui, mais avec un rendement dégradé. Pour protéger son compresseur de la surchauffe, sa puissance est électroniquement limitée (&ldquo;bridée&rdquo;). Le complément de chauffage est alors assuré par des résistances électriques d&rsquo;appoint, ce qui augmente considérablement la consommation électrique.</p><p><strong>Pourquoi une PAC R290 est-elle plus chère à l&rsquo;achat ?</strong>
-Le surcoût est lié à la classification A3 (hautement inflammable) du R290. Cela impose des composants certifiés anti-déflagrants, un circuit frigorifique scellé plus robuste et des détecteurs de fuite. Le compresseur est également plus volumineux pour fournir une puissance équivalente.</p><p><strong>Le givrage est-il un signe de panne sur une PAC ?</strong>
-Non, le givrage de l&rsquo;unité extérieure est un phénomène physique normal lorsque la température est basse et l&rsquo;humidité élevée. Toutes les PAC sont équipées de cycles de dégivrage automatiques. Un givrage excessif ou permanent peut cependant signaler un manque de fluide ou un défaut de sonde.</p><p><strong>Faut-il un contrat d&rsquo;entretien spécifique pour une PAC R290 ?</strong>
-L&rsquo;entretien annuel est obligatoire pour toute PAC contenant plus de 2 kg de fluide. Pour le R290, l&rsquo;intervenant doit posséder une attestation d&rsquo;aptitude à la manipulation des fluides de catégorie A3. Le circuit étant scellé en usine (monobloc extérieur), les interventions sur le fluide sont rares.</p><p><em>Frank Vasseur — Expert Systèmes Énergétiques & Thermiques, Autonomia Lab</em></p></article><footer class=book-footer><div class="flex flex-wrap justify-between"><div></div><div></div></div><div class="flex flex-wrap justify-between"><span><a href=/lab_silo3_isolation-toiture-r7/ class="flex align-center"><img src=/icons/backward.svg class=book-icon alt=Backward>
-<span>Isolation toiture R=7</span>
-</a></span><span><a href=/lab_silo3_pac-releve-fioul-schema/ class="flex align-center"><span>PAC relève fioul schéma</span>
-<img src=/icons/forward.svg class=book-icon alt=Forward></a></span></div><script>(function(){document.querySelectorAll("pre:has(code)").forEach(e=>{e.addEventListener("click",e.focus),e.addEventListener("copy",function(t){if(t.preventDefault(),navigator.clipboard){const t=window.getSelection().toString()||e.textContent;navigator.clipboard.writeText(t)}})})})()</script></footer><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents><ul><li><a href=#fluides-frigorigènes--r32-prg-675-vs-r290-prg-3>Fluides frigorigènes : R32 (PRG 675) vs R290 (PRG 3)</a></li><li><a href=#cop-mesuré-à--10c--limpact-du-bridage-compresseur>COP mesuré à -10°C : l&rsquo;impact du bridage compresseur</a></li><li><a href=#température-de-refoulement--120c-le-seuil-de-rupture-pour-lhuile>Température de refoulement : 120°C, le seuil de rupture pour l&rsquo;huile</a></li><li><a href=#appoint-électrique--le-cop-réel-tombe-à-10-en-cas-de-givrage-intense>Appoint électrique : le COP réel tombe à 1,0 en cas de givrage intense</a></li><li><a href=#réglementation-f-gas-ue-2024573--fin-du-r32-en-2027-pour-le-neuf>Réglementation F-Gas (UE 2024/573) : fin du R32 en 2027 pour le neuf</a><ul><li><a href=#expertises-croisées>Expertises Croisées</a></li><li><a href=#faq--pac-grand-froid-et-givrage>FAQ : PAC grand froid et givrage</a></li></ul></li></ul></nav></div></aside></main></body></html>
+">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#2e3440">
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="http://localhost:1316/lab_silo3_rendement-pac-grand-froid/">
+  <meta property="og:site_name" content="Autonomia Lab">
+  <meta property="og:title" content="PAC grand froid : La vérité sur le givrage et le COP à -10°C.">
+  <meta property="og:description" content="Sécurité — Cet article est un support de compréhension technique à titre éducatif uniquement. Les valeurs, calculs et schémas présentés ne remplacent pas l’expertise d’un installateur certifié. Toute installation doit être réalisée et validée par un professionnel qualifié RGE. Autonomia Lab décline toute responsabilité en cas d’application directe de ces informations.
+Le rendement d’une PAC grand froid à -10°C est directement lié à la physique de son fluide frigorigène. En conditions de givrage, un compresseur au R32 doit brider sa vitesse pour ne pas dépasser 120°C en refoulement. Cette limitation force le recours à un appoint électrique (COP de 1,0), effondrant le rendement global. Le R290, plus stable, maintient son régime nominal et sa puissance sans appoint.">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="lab">
+    <meta property="article:published_time" content="2026-05-01T00:00:00+00:00">
+    <meta property="article:modified_time" content="2026-05-01T00:00:00+00:00">
+
+
+  <meta itemprop="name" content="PAC grand froid : La vérité sur le givrage et le COP à -10°C.">
+  <meta itemprop="description" content="Sécurité — Cet article est un support de compréhension technique à titre éducatif uniquement. Les valeurs, calculs et schémas présentés ne remplacent pas l’expertise d’un installateur certifié. Toute installation doit être réalisée et validée par un professionnel qualifié RGE. Autonomia Lab décline toute responsabilité en cas d’application directe de ces informations.
+Le rendement d’une PAC grand froid à -10°C est directement lié à la physique de son fluide frigorigène. En conditions de givrage, un compresseur au R32 doit brider sa vitesse pour ne pas dépasser 120°C en refoulement. Cette limitation force le recours à un appoint électrique (COP de 1,0), effondrant le rendement global. Le R290, plus stable, maintient son régime nominal et sa puissance sans appoint.">
+  <meta itemprop="datePublished" content="2026-05-01T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2026-05-01T00:00:00+00:00">
+  <meta itemprop="wordCount" content="1135">
+
+<title>PAC grand froid COP | Autonomia Lab</title>
+<link rel="icon" href="/favicon.png" >
+<link rel="manifest" href="/manifest.json">
+<link rel="canonical" href="http://localhost:1316/lab_silo3_rendement-pac-grand-froid/">
+<link rel="stylesheet" href="/book.min.453fb55be7ab107bba557e0692b7eaa0ede3596828379ae8d7662b3ba23a3000.css" integrity="sha256-RT&#43;1W&#43;erEHu6VX4GkrfqoO3jWWgoN5ro12YrO6I6MAA=" crossorigin="anonymous">
+
+
+  <script defer src="/fuse.min.js"></script>
+  <script defer src="/en.search.min.9bf59abd320875686ebf669f40cdfe011bb03a54c05cf8728e888a6eabd9cd63.js" integrity="sha256-m/WavTIIdWhuv2afQM3&#43;ARuwOlTAXPhyjoiKbqvZzWM=" crossorigin="anonymous"></script>
+
+
+
+  
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#ffffff">
+<style>
+  :root { color-scheme: light !important; }
+  html, body { color-scheme: light !important; }
+</style>
+
+</head>
+<body dir="ltr" class="book-kind-page book-type-lab">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    
+<aside class="book-menu">
+  <div class="book-menu-content">
+    
+  <nav>
+<h2 class="book-brand">
+  <span class="flex align-center"><span>Autonomia Lab</span>
+  </span>
+</h2>
+
+
+<div class="book-search hidden">
+  <input id="book-search-input" type="text" 
+    placeholder="Search"
+    aria-label="Search"
+    maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+<script>document.querySelector(".book-search").classList.remove("hidden")</script>
+
+
+
+
+
+
+<ul><li><a href="/">Accueil</a></li></ul>
+
+
+
+
+
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <input type="checkbox" id="section-80a6eccb491e65aad6dae5f33ec481c5" class="toggle"  />
+    <label for="section-80a6eccb491e65aad6dae5f33ec481c5" class="flex">
+      <a role="button"
+         class="" data-silo="1">
+        Solaire &amp; Stockage</a>
+      <img src="/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo1_cerbo-gx-pylontech-cablage/" class="" data-silo="1">
+      Cerbo GX &amp; Pylontech</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo1_erreur-11-victron-multiplus-ii/" class="" data-silo="1">
+      Erreur 11 Victron</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo1_fusibles-dc-ou-disjoncteurs/" class="" data-silo="1">
+      Fusibles DC vs Disjoncteurs</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo1_mppt-victron-100-20-100-30/" class="" data-silo="1">
+      MPPT 100/20 vs 100/30</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo1_pvgis-off-grid-autonomie/" class="" data-silo="1">
+      PVGIS Off-Grid</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo1_ratio-dc-ac-onduleur/" class="" data-silo="1">
+      Ratio DC/AC onduleur</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo1_section-cable-batterie-48v/" class="" data-silo="1">
+      Section câble 48V</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <input type="checkbox" id="section-ff2b4a7940fbd23fb7c151ce892a38d0" class="toggle"  />
+    <label for="section-ff2b4a7940fbd23fb7c151ce892a38d0" class="flex">
+      <a role="button"
+         class="" data-silo="2">
+        Hydraulique</a>
+      <img src="/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo2_calcul-hmt-pompe-50m/" class="" data-silo="2">
+      Calcul HMT pompe 50m</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo2_calcul-traitement-uvc/" class="" data-silo="2">
+      Calcul UV-C 40 mJ/cm²</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo2_filtration-fer-manganese/" class="" data-silo="2">
+      Filtration fer/manganèse</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo2_potabilisation-forage/" class="" data-silo="2">
+      Potabilisation forage</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo2_rejet-osmose-inverse/" class="" data-silo="2">
+      Rejet osmose inverse</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <input type="checkbox" id="section-2ff767a3ea21b6cc828c74332a27d864" class="toggle" checked />
+    <label for="section-2ff767a3ea21b6cc828c74332a27d864" class="flex">
+      <a role="button"
+         class="" data-silo="3">
+        Thermique</a>
+      <img src="/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo3_chauffe-eau-thermo-cop/" class="" data-silo="3">
+      Chauffe-eau thermodynamique</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo3_dimensionnement-pac-air-air/" class="" data-silo="3">
+      Dimensionnement PAC air-air</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo3_isolation-toiture-r7/" class="" data-silo="3">
+      Isolation toiture R=7</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo3_rendement-pac-grand-froid/" class="active" data-silo="3">
+      PAC grand froid COP</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo3_pac-releve-fioul-schema/" class="" data-silo="3">
+      PAC relève fioul schéma</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <input type="checkbox" id="section-d3532d0f76fc0e770fa43359b2f066c6" class="toggle"  />
+    <label for="section-d3532d0f76fc0e770fa43359b2f066c6" class="flex">
+      <a role="button"
+         class="" data-silo="4">
+        Infrastructure</a>
+      <img src="/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo4_differentiel-type-b/" class="" data-silo="4">
+      Différentiel Type B</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo4_disjoncteur-courbe-d-vs-c/" class="" data-silo="4">
+      Disjoncteur D vs C</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo4_puissance-reactive-linky/" class="" data-silo="4">
+      Puissance réactive Linky</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo4_regime-neutre-tt-tn/" class="" data-silo="4">
+      Régime neutre TT/TN</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+<ul><li><a href="/outils/">Outils du Lab</a></li><li><a href="/a-propos/">À propos</a></li></ul>
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+
+  </div>
+</aside>
+ 
+
+    <div class="book-page">
+      <header class="book-header hidden">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/icons/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <h3>PAC grand froid COP</h3>
+
+  <label for="toc-control">
+    
+    <img src="/icons/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#fluides-frigorigènes--r32-prg-675-vs-r290-prg-3">Fluides frigorigènes : R32 (PRG 675) vs R290 (PRG 3)</a></li>
+    <li><a href="#cop-mesuré-à--10c--limpact-du-bridage-compresseur">COP mesuré à -10°C : l&rsquo;impact du bridage compresseur</a></li>
+    <li><a href="#température-de-refoulement--120c-le-seuil-de-rupture-pour-lhuile">Température de refoulement : 120°C, le seuil de rupture pour l&rsquo;huile</a></li>
+    <li><a href="#appoint-électrique--le-cop-réel-tombe-à-10-en-cas-de-givrage-intense">Appoint électrique : le COP réel tombe à 1,0 en cas de givrage intense</a></li>
+    <li><a href="#réglementation-f-gas-ue-2024573--fin-du-r32-en-2027-pour-le-neuf">Réglementation F-Gas (UE 2024/573) : fin du R32 en 2027 pour le neuf</a>
+      <ul>
+        <li><a href="#expertises-croisées">Expertises Croisées</a></li>
+        <li><a href="#faq--pac-grand-froid-et-givrage">FAQ : PAC grand froid et givrage</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+<article class="markdown book-article"><h1>PAC grand froid : La vérité sur le givrage et le COP à -10°C.</h1><p class="article-date">Publié le 1 mai 2026</p><blockquote class='book-hint '>
+<p><strong>Sécurité</strong> — Cet article est un support de compréhension technique à titre éducatif uniquement. Les valeurs, calculs et schémas présentés ne remplacent pas l&rsquo;expertise d&rsquo;un installateur certifié. Toute installation doit être réalisée et validée par un professionnel qualifié RGE. Autonomia Lab décline toute responsabilité en cas d&rsquo;application directe de ces informations.</p>
+</blockquote><p>Le rendement d&rsquo;une PAC grand froid à -10°C est directement lié à la physique de son fluide frigorigène. En conditions de givrage, un compresseur au R32 doit brider sa vitesse pour ne pas dépasser 120°C en refoulement. Cette limitation force le recours à un appoint électrique (COP de 1,0), effondrant le rendement global. Le R290, plus stable, maintient son régime nominal et sa puissance sans appoint.</p>
+<h2 id="fluides-frigorigènes--r32-prg-675-vs-r290-prg-3">Fluides frigorigènes : R32 (PRG 675) vs R290 (PRG 3)<a class="anchor" href="#fluides-frigorig%c3%a8nes--r32-prg-675-vs-r290-prg-3">#</a></h2><p>L&rsquo;architecture d&rsquo;une pompe à chaleur air-eau est dictée par les propriétés thermodynamiques du fluide qui circule en circuit fermé. Le choix entre le difluorométhane (R32) et le propane (R290) a des conséquences directes sur la plage de fonctionnement, la fiabilité mécanique et la conformité réglementaire à long terme de l&rsquo;équipement.</p>
+<p>La comparaison des données physiques brutes est un prérequis à toute analyse de performance.</p>
+<table>
+  <thead>
+      <tr>
+          <th>Propriété Thermophysique et Environnementale</th>
+          <th>R290 (Propane)</th>
+          <th>R32 (Difluorométhane)</th>
+          <th>Source</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>Potentiel Réchauffement Global (PRG 100 ans)</strong></td>
+          <td>3</td>
+          <td>675</td>
+          <td>Climalife (2022) / Comm. EU (2024)</td>
+      </tr>
+      <tr>
+          <td><strong>Classe de sécurité (NF EN 378)</strong></td>
+          <td>A3 (hautement inflammable)</td>
+          <td>A2L (légèrement inflammable)</td>
+          <td>ASHRAE / Daikin (2024)</td>
+      </tr>
+      <tr>
+          <td><strong>Température critique</strong></td>
+          <td>96,7 °C</td>
+          <td>78,1 °C</td>
+          <td>Climalife (2022) / Sinteco (2019)</td>
+      </tr>
+      <tr>
+          <td><strong>Ratio chaleurs spécifiques (γ = Cp/Cv)</strong></td>
+          <td>1,136</td>
+          <td>1,253</td>
+          <td>Climalife (2022) / Sinteco (2019)</td>
+      </tr>
+  </tbody>
+</table>
+<p>La température critique basse du R32 (78,1 °C) limite sa capacité à produire de l&rsquo;eau à haute température pour des radiateurs en fonte sans dégrader son cycle thermodynamique. Le R290, avec une température critique de 96,7 °C, maintient une condensation efficace sur une plage de température plus étendue.</p>
+<h2 id="cop-mesuré-à--10c--limpact-du-bridage-compresseur">COP mesuré à -10°C : l&rsquo;impact du bridage compresseur<a class="anchor" href="#cop-mesur%c3%a9-%c3%a0--10c--limpact-du-bridage-compresseur">#</a></h2><p>Le Coefficient de Performance (COP) affiché par les constructeurs est une donnée instantanée. Le SCOP (Coefficient de Performance Saisonnier) selon la norme NF EN 14825 intègre les cycles de dégivrage et les appoints, ce qui donne une image plus exacte de la consommation annuelle.</p>
+<p>Les mesures en chambre climatique révèlent un écart significatif de rendement en conditions extrêmes.</p>
+<table>
+  <thead>
+      <tr>
+          <th>Condition Opérationnelle (Norme NF EN 14825)</th>
+          <th>Métrique</th>
+          <th>R32</th>
+          <th>R290</th>
+          <th>Source</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>Point de test A-10/W35 (Air -10°C / Eau 35°C)</strong></td>
+          <td>COP instantané</td>
+          <td>2,97</td>
+          <td>2,97</td>
+          <td>HeatPro (2024) / Viessmann (2024)</td>
+      </tr>
+      <tr>
+          <td><strong>Climat Froid (Moyenne -20°C à 0°C)</strong></td>
+          <td>SCOP certifié</td>
+          <td>3,39</td>
+          <td>4,48</td>
+          <td>ZNFU (2025)</td>
+      </tr>
+      <tr>
+          <td><strong>Température maximale de sortie d&rsquo;eau</strong></td>
+          <td>T° max.</td>
+          <td>60 °C</td>
+          <td>75 °C</td>
+          <td>Daikin (2024) / Mitsubishi (2023)</td>
+      </tr>
+  </tbody>
+</table>
+<p>À -10°C, le COP instantané semble identique. En réalité, une PAC au R32 doit enclencher des stratégies complexes d&rsquo;injection de vapeur pour maintenir ce chiffre, au prix d&rsquo;une surconsommation. Sur une saison froide entière, le SCOP du R290 est supérieur de 34% (ZNFU, 2025), car il n&rsquo;a pas besoin de brider sa puissance.</p>
+<h2 id="température-de-refoulement--120c-le-seuil-de-rupture-pour-lhuile">Température de refoulement : 120°C, le seuil de rupture pour l&rsquo;huile<a class="anchor" href="#temp%c3%a9rature-de-refoulement--120c-le-seuil-de-rupture-pour-lhuile">#</a></h2><p>La physique de la compression des gaz explique la différence de comportement par grand froid. La température en sortie de compresseur est fonction du taux de compression et du ratio des chaleurs spécifiques (γ).</p>
+<p>Le R32, avec un ratio γ élevé (1,253), voit sa température de refoulement augmenter de manière exponentielle à mesure que la température extérieure baisse. Elle dépasse fréquemment 120,0 °C, le seuil de dégradation chimique des huiles lubrifiantes de type polyolester (POE) (Purdue University, 2016). Pour éviter un grippage du compresseur, la régulation Inverter réduit la vitesse de rotation.</p>
+<p>Le R290 possède un ratio γ structurellement plus faible (1,136). Sa température de refoulement reste mécaniquement basse, même par -25°C. Le compresseur peut donc fonctionner à son régime nominal sans risque pour sa longévité.</p>
+<h2 id="appoint-électrique--le-cop-réel-tombe-à-10-en-cas-de-givrage-intense">Appoint électrique : le COP réel tombe à 1,0 en cas de givrage intense<a class="anchor" href="#appoint-%c3%a9lectrique--le-cop-r%c3%a9el-tombe-%c3%a0-10-en-cas-de-givrage-intense">#</a></h2><p>Une PAC au R32 qui bride son compresseur perd en puissance calorifique. Pour maintenir la consigne de température dans l&rsquo;habitat, elle doit activer ses résistances électriques d&rsquo;appoint.</p>
+<p>Ces résistances fonctionnent avec un COP de 1,0 (Thermodynamique Standard, 2024). Cet appoint annule le bénéfice de la pompe à chaleur et fait chuter le SCOP global. Une PAC au R290, capable de fournir de l&rsquo;eau à 75°C par grand froid, peut assurer le chauffage sans aucun appoint, préservant ainsi son rendement saisonnier.</p>
+<h2 id="réglementation-f-gas-ue-2024573--fin-du-r32-en-2027-pour-le-neuf">Réglementation F-Gas (UE 2024/573) : fin du R32 en 2027 pour le neuf<a class="anchor" href="#r%c3%a9glementation-f-gas-ue-2024573--fin-du-r32-en-2027-pour-le-neuf">#</a></h2><p>Un investissement dans un équipement de chauffage doit considérer sa conformité sur 20 ans. Le règlement européen F-Gas III (UE 2024/573) programme l&rsquo;élimination des fluides à fort impact climatique.</p>
+<p>À compter du 1er janvier 2027, la mise sur le marché de PAC monoblocs neuves de moins de 12 kW contenant un fluide avec un Potentiel de Réchauffement Global (PRG) supérieur ou égal à 150 sera interdite (Commission Européenne, 2024).</p>
+<p>Le R32, avec un PRG de 675, est de fait exclu du marché du neuf résidentiel et de la rénovation à cette échéance. Le R290 (PRG de 3) assure une conformité totale avec la législation post-2027. Choisir un équipement au R32 aujourd&rsquo;hui expose à des difficultés de maintenance et à une obsolescence réglementaire programmée.</p>
+<hr>
+<blockquote class='book-hint '>
+<p><strong>Les données présentées résultent d&rsquo;une analyse de sources officielles, de normes techniques et d&rsquo;études indépendantes à la date indiquée. Elles peuvent évoluer.</strong></p>
+</blockquote><hr>
+<h3 id="expertises-croisées">Expertises Croisées<a class="anchor" href="#expertises-crois%c3%a9es">#</a></h3><ul>
+<li><strong>Hydraulique &amp; Eau :</strong> <a href="http://localhost:1316/lab_silo2_calcul-hmt-pompe-50m/">Pompe immergée à 50m : Calculer la HMT sans griller le moteur.</a></li>
+<li><strong>Thermique &amp; Habitat :</strong> <a href="http://localhost:1316/lab_silo3_pac-releve-fioul-schema/">PAC Air-Eau en relève de fioul : Le schéma (Bouteille de mélange).</a></li>
+<li><strong>Infrastructure :</strong> <a href="http://localhost:1316/lab_silo4_regime-neutre-tt-tn/">Régime de neutre (TT vs TN) : L&rsquo;impact sur votre onduleur hybride.</a></li>
+</ul>
+<hr>
+<h3 id="faq--pac-grand-froid-et-givrage">FAQ : PAC grand froid et givrage<a class="anchor" href="#faq--pac-grand-froid-et-givrage">#</a></h3><p><strong>Une PAC R32 fonctionne-t-elle encore à -15°C ?</strong>
+Oui, mais avec un rendement dégradé. Pour protéger son compresseur de la surchauffe, sa puissance est électroniquement limitée (&ldquo;bridée&rdquo;). Le complément de chauffage est alors assuré par des résistances électriques d&rsquo;appoint, ce qui augmente considérablement la consommation électrique.</p>
+<p><strong>Pourquoi une PAC R290 est-elle plus chère à l&rsquo;achat ?</strong>
+Le surcoût est lié à la classification A3 (hautement inflammable) du R290. Cela impose des composants certifiés anti-déflagrants, un circuit frigorifique scellé plus robuste et des détecteurs de fuite. Le compresseur est également plus volumineux pour fournir une puissance équivalente.</p>
+<p><strong>Le givrage est-il un signe de panne sur une PAC ?</strong>
+Non, le givrage de l&rsquo;unité extérieure est un phénomène physique normal lorsque la température est basse et l&rsquo;humidité élevée. Toutes les PAC sont équipées de cycles de dégivrage automatiques. Un givrage excessif ou permanent peut cependant signaler un manque de fluide ou un défaut de sonde.</p>
+<p><strong>Faut-il un contrat d&rsquo;entretien spécifique pour une PAC R290 ?</strong>
+L&rsquo;entretien annuel est obligatoire pour toute PAC contenant plus de 2 kg de fluide. Pour le R290, l&rsquo;intervenant doit posséder une attestation d&rsquo;aptitude à la manipulation des fluides de catégorie A3. Le circuit étant scellé en usine (monobloc extérieur), les interventions sur le fluide sont rares.</p>
+<p><em>Frank Vasseur — Expert Systèmes Énergétiques &amp; Thermiques, Autonomia Lab</em></p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+<div>
+
+</div>
+
+<div>
+
+</div>
+
+</div>
+
+
+
+
+
+  
+  
+  
+  <div class="flex flex-wrap justify-between">
+    <span>
+    
+      <a href="/lab_silo3_isolation-toiture-r7/" class="flex align-center">
+        <img src="/icons/backward.svg" class="book-icon" alt="Backward" />
+        <span>Isolation toiture R=7</span>
+      </a>
+    
+    </span>
+    <span>
+    
+      <a href="/lab_silo3_pac-releve-fioul-schema/" class="flex align-center">
+        <span>PAC relève fioul schéma</span>
+        <img src="/icons/forward.svg" class="book-icon" alt="Forward" />
+      </a>
+    
+    </span>
+  </div>
+  
+
+
+ 
+        
+  
+ 
+        
+        
+  
+ 
+        
+  
+  
+    <script>(function(){document.querySelectorAll("pre:has(code)").forEach(e=>{e.addEventListener("click",e.focus),e.addEventListener("copy",function(t){if(t.preventDefault(),navigator.clipboard){const t=window.getSelection().toString()||e.textContent;navigator.clipboard.writeText(t)}})})})()</script>
+  
+
+      </footer>
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+  
+  <aside class="book-toc">
+    <div class="book-toc-content">
+      
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#fluides-frigorigènes--r32-prg-675-vs-r290-prg-3">Fluides frigorigènes : R32 (PRG 675) vs R290 (PRG 3)</a></li>
+    <li><a href="#cop-mesuré-à--10c--limpact-du-bridage-compresseur">COP mesuré à -10°C : l&rsquo;impact du bridage compresseur</a></li>
+    <li><a href="#température-de-refoulement--120c-le-seuil-de-rupture-pour-lhuile">Température de refoulement : 120°C, le seuil de rupture pour l&rsquo;huile</a></li>
+    <li><a href="#appoint-électrique--le-cop-réel-tombe-à-10-en-cas-de-givrage-intense">Appoint électrique : le COP réel tombe à 1,0 en cas de givrage intense</a></li>
+    <li><a href="#réglementation-f-gas-ue-2024573--fin-du-r32-en-2027-pour-le-neuf">Réglementation F-Gas (UE 2024/573) : fin du R32 en 2027 pour le neuf</a>
+      <ul>
+        <li><a href="#expertises-croisées">Expertises Croisées</a></li>
+        <li><a href="#faq--pac-grand-froid-et-givrage">FAQ : PAC grand froid et givrage</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+    </div>
+  </aside>
+  
+ 
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

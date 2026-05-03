@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<html lang="fr-FR" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1316&amp;path=livereload" data-no-instant defer></script>
+  <!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Sources, formules et hypothèses du calculateur ROI solaire. Prime CRE T14, PVGIS-SARAH3, TRVE 2026 et TVA 5,5% vs 20%.">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#2e3440">
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="http://localhost:1316/outils/calculateur-roi-solaire/methodologie/">
+  <meta property="og:site_name" content="Autonomia Lab">
+  <meta property="og:title" content="Méthodologie : Calculateur ROI installation solaire résidentielle">
+  <meta property="og:description" content="Sources, formules et hypothèses du calculateur ROI solaire. Prime CRE T14, PVGIS-SARAH3, TRVE 2026 et TVA 5,5% vs 20%.">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="outils">
+    <meta property="article:published_time" content="2026-05-03T00:00:00+00:00">
+    <meta property="article:modified_time" content="2026-05-03T00:00:00+00:00">
+
+
+  <meta itemprop="name" content="Méthodologie : Calculateur ROI installation solaire résidentielle">
+  <meta itemprop="description" content="Sources, formules et hypothèses du calculateur ROI solaire. Prime CRE T14, PVGIS-SARAH3, TRVE 2026 et TVA 5,5% vs 20%.">
+  <meta itemprop="datePublished" content="2026-05-03T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2026-05-03T00:00:00+00:00">
+  <meta itemprop="wordCount" content="1427">
+
+<title>Méthodologie : Calculateur ROI installation solaire résidentielle | Autonomia Lab</title>
+<link rel="icon" href="/favicon.png" >
+<link rel="manifest" href="/manifest.json">
+<link rel="canonical" href="http://localhost:1316/outils/calculateur-roi-solaire/methodologie/">
+<link rel="stylesheet" href="/book.min.453fb55be7ab107bba557e0692b7eaa0ede3596828379ae8d7662b3ba23a3000.css" integrity="sha256-RT&#43;1W&#43;erEHu6VX4GkrfqoO3jWWgoN5ro12YrO6I6MAA=" crossorigin="anonymous">
+
+
+  <script defer src="/fuse.min.js"></script>
+  <script defer src="/en.search.min.18b3dfc1ac5b57380c23e15dd63831a39374700bb1e12298f1cd0d43441676c5.js" integrity="sha256-GLPfwaxbVzgMI&#43;Fd1jgxo5N0cAux4SKY8c0NQ0QWdsU=" crossorigin="anonymous"></script>
+
+
+
+  
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#ffffff">
+<style>
+  :root { color-scheme: light !important; }
+  html, body { color-scheme: light !important; }
+</style>
+
+</head>
+<body dir="ltr" class="book-kind-page book-type-outils">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    
+<aside class="book-menu">
+  <div class="book-menu-content">
+    
+  <nav>
+<h2 class="book-brand">
+  <span class="flex align-center"><span>Autonomia Lab</span>
+  </span>
+</h2>
+
+
+<div class="book-search hidden">
+  <input id="book-search-input" type="text" 
+    placeholder="Search"
+    aria-label="Search"
+    maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+<script>document.querySelector(".book-search").classList.remove("hidden")</script>
+
+
+
+
+
+
+<ul><li><a href="/">Accueil</a></li></ul>
+
+
+
+
+
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <input type="checkbox" id="section-80a6eccb491e65aad6dae5f33ec481c5" class="toggle"  />
+    <label for="section-80a6eccb491e65aad6dae5f33ec481c5" class="flex">
+      <a role="button"
+         class="" data-silo="1">
+        Solaire &amp; Stockage</a>
+      <img src="/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo1_cerbo-gx-pylontech-cablage/" class="" data-silo="1">
+      Cerbo GX &amp; Pylontech</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo1_erreur-11-victron-multiplus-ii/" class="" data-silo="1">
+      Erreur 11 Victron</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo1_fusibles-dc-ou-disjoncteurs/" class="" data-silo="1">
+      Fusibles DC vs Disjoncteurs</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo1_mppt-victron-100-20-100-30/" class="" data-silo="1">
+      MPPT 100/20 vs 100/30</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo1_pvgis-off-grid-autonomie/" class="" data-silo="1">
+      PVGIS Off-Grid</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo1_ratio-dc-ac-onduleur/" class="" data-silo="1">
+      Ratio DC/AC onduleur</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo1_section-cable-batterie-48v/" class="" data-silo="1">
+      Section câble 48V</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <input type="checkbox" id="section-ff2b4a7940fbd23fb7c151ce892a38d0" class="toggle"  />
+    <label for="section-ff2b4a7940fbd23fb7c151ce892a38d0" class="flex">
+      <a role="button"
+         class="" data-silo="2">
+        Hydraulique</a>
+      <img src="/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo2_calcul-hmt-pompe-50m/" class="" data-silo="2">
+      Calcul HMT pompe 50m</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo2_calcul-traitement-uvc/" class="" data-silo="2">
+      Calcul UV-C 40 mJ/cm²</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo2_filtration-fer-manganese/" class="" data-silo="2">
+      Filtration fer/manganèse</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo2_potabilisation-forage/" class="" data-silo="2">
+      Potabilisation forage</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo2_rejet-osmose-inverse/" class="" data-silo="2">
+      Rejet osmose inverse</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <input type="checkbox" id="section-2ff767a3ea21b6cc828c74332a27d864" class="toggle"  />
+    <label for="section-2ff767a3ea21b6cc828c74332a27d864" class="flex">
+      <a role="button"
+         class="" data-silo="3">
+        Thermique</a>
+      <img src="/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo3_chauffe-eau-thermo-cop/" class="" data-silo="3">
+      Chauffe-eau thermodynamique</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo3_dimensionnement-pac-air-air/" class="" data-silo="3">
+      Dimensionnement PAC air-air</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo3_isolation-toiture-r7/" class="" data-silo="3">
+      Isolation toiture R=7</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo3_rendement-pac-grand-froid/" class="" data-silo="3">
+      PAC grand froid COP</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo3_pac-releve-fioul-schema/" class="" data-silo="3">
+      PAC relève fioul schéma</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <input type="checkbox" id="section-d3532d0f76fc0e770fa43359b2f066c6" class="toggle"  />
+    <label for="section-d3532d0f76fc0e770fa43359b2f066c6" class="flex">
+      <a role="button"
+         class="" data-silo="4">
+        Infrastructure</a>
+      <img src="/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo4_differentiel-type-b/" class="" data-silo="4">
+      Différentiel Type B</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo4_disjoncteur-courbe-d-vs-c/" class="" data-silo="4">
+      Disjoncteur D vs C</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo4_puissance-reactive-linky/" class="" data-silo="4">
+      Puissance réactive Linky</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo4_regime-neutre-tt-tn/" class="" data-silo="4">
+      Régime neutre TT/TN</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+<ul><li><a href="/outils/">Outils du Lab</a></li><li><a href="/a-propos/">À propos</a></li></ul>
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+
+  </div>
+</aside>
+ 
+
+    <div class="book-page">
+      <header class="book-header hidden">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/icons/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <h3>Méthodologie : Calculateur ROI installation solaire résidentielle</h3>
+
+  <label for="toc-control">
+    
+    <img src="/icons/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#approche-du-calculateur">Approche du calculateur</a>
+      <ul>
+        <li><a href="#deux-modes-de-calcul">Deux modes de calcul</a></li>
+        <li><a href="#deux-scénarios-en-parallèle">Deux scénarios en parallèle</a></li>
+      </ul>
+    </li>
+    <li><a href="#données-de-référence">Données de référence</a>
+      <ul>
+        <li><a href="#prime-à-lautoconsommation--cre-t14-2026">Prime à l&rsquo;autoconsommation — CRE T14 2026</a></li>
+        <li><a href="#tarif-de-rachat-du-surplus--edf-oa-2026">Tarif de rachat du surplus — EDF OA 2026</a></li>
+        <li><a href="#tva-applicable-en-2026">TVA applicable en 2026</a></li>
+        <li><a href="#prix-de-lélectricité--trve-2026">Prix de l&rsquo;électricité — TRVE 2026</a></li>
+        <li><a href="#productible-solaire--pvgis-sarah3">Productible solaire — PVGIS-SARAH3</a></li>
+        <li><a href="#prix-du-marché--installations-clé-en-main-2026">Prix du marché — installations clé en main 2026</a></li>
+      </ul>
+    </li>
+    <li><a href="#formules-appliquées">Formules appliquées</a></li>
+    <li><a href="#projection-20-ans--mode-manuel">Projection 20 ans — mode manuel</a>
+      <ul>
+        <li><a href="#dégradation-des-panneaux">Dégradation des panneaux</a></li>
+        <li><a href="#évolution-du-prix-de-lélectricité">Évolution du prix de l&rsquo;électricité</a></li>
+      </ul>
+    </li>
+    <li><a href="#taux-dautoconsommation--que-choisir-">Taux d&rsquo;autoconsommation — que choisir ?</a></li>
+    <li><a href="#ce-que-le-calculateur-ne-couvre-pas">Ce que le calculateur ne couvre pas</a>
+      <ul>
+        <li><a href="#dégradation-des-panneaux-mode-rapide-uniquement">Dégradation des panneaux (mode rapide uniquement)</a></li>
+        <li><a href="#maintenance-et-assurance">Maintenance et assurance</a></li>
+        <li><a href="#batterie-de-stockage">Batterie de stockage</a></li>
+        <li><a href="#aides-locales-variables">Aides locales variables</a></li>
+      </ul>
+    </li>
+    <li><a href="#interpréter-les-résultats">Interpréter les résultats</a>
+      <ul>
+        <li><a href="#roi--10-ans">ROI &lt; 10 ans</a></li>
+        <li><a href="#roi-entre-10-et-15-ans">ROI entre 10 et 15 ans</a></li>
+        <li><a href="#roi--15-ans">ROI &gt; 15 ans</a></li>
+      </ul>
+    </li>
+    <li><a href="#évolutions-prévues">Évolutions prévues</a></li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+<article class="markdown book-article"><p>← <a href="http://localhost:1316/outils/calculateur-roi-solaire/">Calculateur ROI solaire</a> · ← <a href="http://localhost:1316/outils/">Tous les outils</a></p>
+<h1 id="méthodologie-du-calculateur-roi-installation-solaire-résidentielle">Méthodologie du calculateur ROI installation solaire résidentielle<a class="anchor" href="#m%c3%a9thodologie-du-calculateur-roi-installation-solaire-r%c3%a9sidentielle">#</a></h1><blockquote class='book-hint '>
+<p>Cette page détaille l&rsquo;origine de chaque chiffre utilisé par notre calculateur. L&rsquo;objectif : transparence totale pour vous permettre de vérifier, contester ou ajuster selon votre situation réelle.</p>
+</blockquote><h2 id="approche-du-calculateur">Approche du calculateur<a class="anchor" href="#approche-du-calculateur">#</a></h2><h3 id="deux-modes-de-calcul">Deux modes de calcul<a class="anchor" href="#deux-modes-de-calcul">#</a></h3><p><strong>Mode estimation rapide</strong> : saisissez la puissance, la région, le prix global et le taux d&rsquo;autoconsommation. Résultat en 30 secondes. Idéal pour un ordre de grandeur avant de solliciter des devis.</p>
+<p><strong>Mode &ldquo;Configurer mon projet&rdquo;</strong> : décomposez votre devis réel (matériel HT + pose RGE + batterie optionnelle), renseignez les aides réellement obtenues (prime CRE + aides locales), votre consommation annuelle réelle et votre tarif HP/HC. Le calculateur projette sur 20 ans avec dégradation des panneaux et évolution du prix de l&rsquo;électricité. C&rsquo;est le mode recommandé avant tout engagement financier.</p>
+<p><strong>Le mode manuel calcule également la TVA automatiquement</strong> selon le type de panneaux choisi (5,5% certifiés PPE2-V2 ou 20% standard) et affiche un récapitulatif du coût net ligne par ligne.</p>
+<h3 id="deux-scénarios-en-parallèle">Deux scénarios en parallèle<a class="anchor" href="#deux-sc%c3%a9narios-en-parall%c3%a8le">#</a></h3><p>Le calculateur propose <strong>2 scénarios en parallèle</strong> :</p>
+<p><strong>Scénario autoconsommation seule</strong> : le ROI repose uniquement sur les économies réalisées en substituant du kWh réseau par du kWh solaire autoproduit. C&rsquo;est le scénario pessimiste mais le plus proche de la réalité pour une installation sans optimisation.</p>
+<p><strong>Scénario autoconsommation + revente</strong> : le ROI intègre à la fois les économies sur facture ET les revenus issus de la vente du surplus à EDF OA sur 20 ans. C&rsquo;est le scénario recommandé pour dimensionner un projet sérieux.</p>
+<p><strong>Pourquoi 2 scénarios ?</strong> Le tarif de rachat du surplus a chuté de <strong>−68% depuis 2020</strong> (de 0,126 €/kWh à 0,04 €/kWh en 2026). La rentabilité d&rsquo;une installation solaire résidentielle repose désormais quasi-exclusivement sur l&rsquo;autoconsommation, pas sur la revente. Ce calculateur le matérialise.</p>
+<hr>
+<h2 id="données-de-référence">Données de référence<a class="anchor" href="#donn%c3%a9es-de-r%c3%a9f%c3%a9rence">#</a></h2><h3 id="prime-à-lautoconsommation--cre-t14-2026">Prime à l&rsquo;autoconsommation — CRE T14 2026<a class="anchor" href="#prime-%c3%a0-lautoconsommation--cre-t14-2026">#</a></h3><ul>
+<li><strong>Montant</strong> : 80 €/kWc pour les installations ≤9 kWc</li>
+<li><strong>Trimestre de référence</strong> : T14 (depuis le 01/04/2025, stable)</li>
+<li><strong>Versement</strong> : en une seule fois, à la première facturation EDF OA (environ 1 an après mise en service)</li>
+<li><strong>Condition</strong> : installation raccordée au réseau, artisan RGE, conformité Consuel</li>
+</ul>
+<p><strong>Source officielle</strong> : <a href="https://www.cre.fr/documents/open-data/arretes-tarifaires-photovoltaiques-en-metropole.html">CRE — Arrêtés tarifaires photovoltaïques en métropole (open data)</a></p>
+<table>
+  <thead>
+      <tr>
+          <th>Puissance</th>
+          <th>Prime T14 (€/kWc)</th>
+          <th>Prime totale exemple</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>3 kWc</td>
+          <td>80 €/kWc</td>
+          <td>240 €</td>
+      </tr>
+      <tr>
+          <td>6 kWc</td>
+          <td>80 €/kWc</td>
+          <td>480 €</td>
+      </tr>
+      <tr>
+          <td>9 kWc</td>
+          <td>80 €/kWc</td>
+          <td>720 €</td>
+      </tr>
+  </tbody>
+</table>
+<blockquote class='book-hint '>
+<p><strong>Note</strong> : La prime CRE est révisée trimestriellement. Le montant de 80 €/kWc est celui du T14. Vérifier le trimestre en cours sur cre.fr avant tout engagement.</p>
+</blockquote><h3 id="tarif-de-rachat-du-surplus--edf-oa-2026">Tarif de rachat du surplus — EDF OA 2026<a class="anchor" href="#tarif-de-rachat-du-surplus--edf-oa-2026">#</a></h3><ul>
+<li><strong>Tarif</strong> : 0,04 €/kWh (≤9 kWc, vente du surplus uniquement)</li>
+<li><strong>Contrat</strong> : 20 ans, garanti à la date de raccordement</li>
+<li><strong>Condition</strong> : autoconsommation avec vente du surplus (pas vente totale)</li>
+</ul>
+<p><strong>Source officielle</strong> : <a href="https://www.cre.fr/documents/open-data/arretes-tarifaires-photovoltaiques-en-metropole.html">CRE — Arrêtés tarifaires obligation d&rsquo;achat photovoltaïque</a></p>
+<h3 id="tva-applicable-en-2026">TVA applicable en 2026<a class="anchor" href="#tva-applicable-en-2026">#</a></h3><p>Depuis le 1er janvier 2026, le régime de TVA sur le photovoltaïque résidentiel est <strong>binaire</strong> :</p>
+<table>
+  <thead>
+      <tr>
+          <th>Taux</th>
+          <th>Conditions</th>
+          <th>Cas typique</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>5,5%</strong></td>
+          <td>Puissance ≤9 kWc + panneaux certifiés bas carbone (PPE2-V2, empreinte &lt;530 kgCO2eq/kWc) + système gestionnaire d&rsquo;énergie</td>
+          <td>Panneaux européens certifiés (DualSun, Voltec, Sunpower)</td>
+      </tr>
+      <tr>
+          <td><strong>20%</strong></td>
+          <td>Toutes les autres installations</td>
+          <td>Majorité des installations avec panneaux importés</td>
+      </tr>
+  </tbody>
+</table>
+<blockquote class='book-hint '>
+<p><strong>Important</strong> : Le taux de 10% a été définitivement supprimé au 1er janvier 2026 (BOFiP-ACTU-2025-00165 du 22 octobre 2025). La TVA à 5,5% nécessite l&rsquo;éligibilité des modules sur <a href="https://www.certisolis.com/certisolis/bilan-carbone/">Certisolis</a>.</p>
+</blockquote><p><strong>Sources</strong> :</p>
+<ul>
+<li><a href="https://www.service-public.fr/particuliers/actualites/A18469">Service-Public.fr — Changement de TVA pour les panneaux photovoltaïques</a></li>
+<li>Arrêté du 8 septembre 2025 (Journal officiel)</li>
+<li>BOFiP-ACTU-2025-00165 du 22 octobre 2025</li>
+</ul>
+<h3 id="prix-de-lélectricité--trve-2026">Prix de l&rsquo;électricité — TRVE 2026<a class="anchor" href="#prix-de-l%c3%a9lectricit%c3%a9--trve-2026">#</a></h3><ul>
+<li><strong>Option Base TTC</strong> : 0,1940 €/kWh</li>
+<li><strong>Heures Pleines</strong> : 0,2065 €/kWh</li>
+<li><strong>Heures Creuses</strong> : 0,1579 €/kWh</li>
+<li><strong>Date de référence</strong> : Tarif en vigueur depuis février 2026</li>
+</ul>
+<p><strong>Source officielle</strong> : <a href="https://www.cre.fr/consommateurs/marche-de-detail/tarifs-reglementes-de-vente-d-electricite/trv-tarifs-reglementes-de-vente-d-electricite">CRE — Tarifs réglementés de vente d&rsquo;électricité</a></p>
+<blockquote class='book-hint '>
+<p>Le calculateur utilise le tarif Base (0,1940 €/kWh). Si vous êtes en option HP/HC et que votre production solaire coïncide principalement avec les Heures Pleines, ajustez le curseur vers 0,2065 €/kWh.</p>
+</blockquote><h3 id="productible-solaire--pvgis-sarah3">Productible solaire — PVGIS-SARAH3<a class="anchor" href="#productible-solaire--pvgis-sarah3">#</a></h3><p><strong>Paramètres de simulation</strong> :</p>
+<ul>
+<li>Technologie : c-Si (silicium cristallin)</li>
+<li>Inclinaison : 35° (optimum France)</li>
+<li>Orientation : plein Sud (azimut 0°)</li>
+<li>Pertes système : 14%</li>
+<li>Type de montage : free-standing</li>
+</ul>
+<table>
+  <thead>
+      <tr>
+          <th>Zone géographique</th>
+          <th>Productible (kWh/kWc/an)</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Nord — Paris, Île-de-France</td>
+          <td>950 kWh/kWc/an</td>
+      </tr>
+      <tr>
+          <td>Centre — Lyon, Auvergne-Rhône-Alpes</td>
+          <td>1 200 kWh/kWc/an</td>
+      </tr>
+      <tr>
+          <td>Sud — Marseille, PACA</td>
+          <td>1 580 kWh/kWc/an</td>
+      </tr>
+  </tbody>
+</table>
+<blockquote class='book-hint '>
+<p>Ces valeurs sont des moyennes calculées sur la période 2005-2023. Une année défavorable peut être 10-15% en dessous.</p>
+</blockquote><p><strong>Source officielle</strong> : <a href="https://re.jrc.ec.europa.eu/pvg_tools/fr/">PVGIS — JRC, Commission Européenne</a></p>
+<h3 id="prix-du-marché--installations-clé-en-main-2026">Prix du marché — installations clé en main 2026<a class="anchor" href="#prix-du-march%c3%a9--installations-cl%c3%a9-en-main-2026">#</a></h3><table>
+  <thead>
+      <tr>
+          <th>Puissance</th>
+          <th>Fourchette marché 2026 (TTC, pose incluse)</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>3 kWc</td>
+          <td>6 000 – 9 000 €</td>
+      </tr>
+      <tr>
+          <td>6 kWc</td>
+          <td>10 000 – 15 000 €</td>
+      </tr>
+      <tr>
+          <td>9 kWc</td>
+          <td>15 000 – 22 000 €</td>
+      </tr>
+  </tbody>
+</table>
+<blockquote class='book-hint '>
+<p>Données de marché agrégées (ENERPLAN, SER-SOLER, Hello Watt 2026). <strong>Demandez plusieurs devis RGE</strong> avant tout engagement.</p>
+</blockquote><hr>
+<h2 id="formules-appliquées">Formules appliquées<a class="anchor" href="#formules-appliqu%c3%a9es">#</a></h2><pre tabindex="0"><code>Production_annuelle (kWh) = Puissance_kWc × Productible_région
+
+kWh_autoconsommés = Production_annuelle × Taux_autoconsommation
+kWh_revendus = Production_annuelle × (1 - Taux_autoconsommation)
+
+Économies_annuelles (€) = kWh_autoconsommés × Prix_TRVE
+Revenus_revente (€) = kWh_revendus × 0,04 €/kWh
+
+Gain_annuel_auto = Économies_annuelles
+Gain_annuel_full = Économies_annuelles + Revenus_revente
+
+Mode rapide :
+Prime_CRE = 80 €/kWc × Puissance_kWc
+Coût_net = Prix_achat_TTC - Prime_CRE
+
+Mode manuel :
+TVA_matériel_pose = (Matériel_HT + Pose_HT) × Taux_TVA (5,5% ou 20%)
+TVA_batterie = Batterie_HT × 20% (toujours 20%)
+Prix_TTC = Matériel_HT + Pose_HT + TVA_matériel_pose + Batterie + TVA_batterie
+Coût_net = Prix_TTC - Prime_CRE - Aides_locales
+
+ROI_simple = Coût_net / Gain_annuel_full
+
+Projection 20 ans (mode manuel) :
+Pour chaque année n de 1 à 20 :
+  Facteur_dégradation = (1 - Taux_dégradation)^(n-1)
+  Facteur_élec = (1 + Hausse_élec)^(n-1)
+  Gain_année_n = Gain_annuel_full × Facteur_dégradation × Facteur_élec
+  Cumul += Gain_année_n
+  Si Cumul ≥ Coût_net → ROI atteint à l&#39;année n
+
+Bénéfice_net_20_ans = Cumul_20_ans - Coût_net</code></pre><hr>
+<h2 id="projection-20-ans--mode-manuel">Projection 20 ans — mode manuel<a class="anchor" href="#projection-20-ans--mode-manuel">#</a></h2><h3 id="dégradation-des-panneaux">Dégradation des panneaux<a class="anchor" href="#d%c3%a9gradation-des-panneaux">#</a></h3><p>Les cellules photovoltaïques perdent du rendement chaque année sous l&rsquo;effet des cycles thermiques, des UV et du vieillissement des encapsulants.</p>
+<table>
+  <thead>
+      <tr>
+          <th>Scénario</th>
+          <th>Taux annuel</th>
+          <th>Perte cumulée 20 ans</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Calcul simplifié</td>
+          <td>0%/an</td>
+          <td>0%</td>
+      </tr>
+      <tr>
+          <td>Réaliste terrain</td>
+          <td><strong>0,5%/an</strong></td>
+          <td>~10%</td>
+      </tr>
+      <tr>
+          <td>Panneaux premium (tier 1)</td>
+          <td>0,3%/an</td>
+          <td>~6%</td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>Source</strong> : Étude Preger et al. 2020 (Journal of The Electrochemical Society) · Clean Energy Reviews · Garanties constructeurs Pylontech, BYD, Victron</p>
+<h3 id="évolution-du-prix-de-lélectricité">Évolution du prix de l&rsquo;électricité<a class="anchor" href="#%c3%a9volution-du-prix-de-l%c3%a9lectricit%c3%a9">#</a></h3><p>Le TRVE a augmenté en moyenne de +3,5%/an sur 2010-2026. En 2026, il se stabilise à 0,194 €/kWh après les hausses de 2022-2024.</p>
+<table>
+  <thead>
+      <tr>
+          <th>Scénario</th>
+          <th>Hausse annuelle</th>
+          <th>Impact ROI</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Prix constant</td>
+          <td>0%/an</td>
+          <td>ROI conservateur</td>
+      </tr>
+      <tr>
+          <td>Tendance historique</td>
+          <td><strong>+2%/an</strong></td>
+          <td>ROI amélioré</td>
+      </tr>
+      <tr>
+          <td>Scénario haussier</td>
+          <td>+4%/an</td>
+          <td>ROI très amélioré</td>
+      </tr>
+  </tbody>
+</table>
+<blockquote class='book-hint '>
+<p>La combinaison dégradation 0,5%/an + hausse électricité +2%/an est le scénario le plus réaliste pour une projection 20 ans.</p>
+</blockquote><hr>
+<h2 id="taux-dautoconsommation--que-choisir-">Taux d&rsquo;autoconsommation — que choisir ?<a class="anchor" href="#taux-dautoconsommation--que-choisir-">#</a></h2><table>
+  <thead>
+      <tr>
+          <th>Taux</th>
+          <th>Profil typique</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>50%</strong></td>
+          <td>Logement sans optimisation, personnes absentes en journée, pas de batterie</td>
+      </tr>
+      <tr>
+          <td><strong>70%</strong></td>
+          <td>Usage optimisé : lave-linge et lave-vaisselle programmés en journée, présence partielle</td>
+      </tr>
+      <tr>
+          <td><strong>85%</strong></td>
+          <td>Avec batterie de stockage ou présence permanente (télétravail, retraite)</td>
+      </tr>
+  </tbody>
+</table>
+<blockquote class='book-hint '>
+<p>Un taux d&rsquo;autoconsommation élevé est toujours plus rentable qu&rsquo;une augmentation de puissance en 2026, compte tenu de la faiblesse du tarif de rachat (0,04 €/kWh vs 0,194 €/kWh de valeur évitée).</p>
+</blockquote><hr>
+<h2 id="ce-que-le-calculateur-ne-couvre-pas">Ce que le calculateur ne couvre pas<a class="anchor" href="#ce-que-le-calculateur-ne-couvre-pas">#</a></h2><h3 id="dégradation-des-panneaux-mode-rapide-uniquement">Dégradation des panneaux (mode rapide uniquement)<a class="anchor" href="#d%c3%a9gradation-des-panneaux-mode-rapide-uniquement">#</a></h3><p>En mode rapide, le calcul utilise la production constante de l&rsquo;année 1. Le mode manuel intègre la dégradation réelle — utilisez-le pour une décision d&rsquo;investissement sérieuse.</p>
+<h3 id="maintenance-et-assurance">Maintenance et assurance<a class="anchor" href="#maintenance-et-assurance">#</a></h3><p>Non intégrés dans les deux modes :</p>
+<ul>
+<li>Nettoyage annuel (~100 €/an)</li>
+<li>Remplacement onduleur à mi-vie (~800-1 500 € vers 10-12 ans)</li>
+<li>Surprime d&rsquo;assurance habitation (~50-100 €/an)</li>
+</ul>
+<p>Ces coûts peuvent allonger le ROI réel de 1 à 2 ans.</p>
+<h3 id="batterie-de-stockage">Batterie de stockage<a class="anchor" href="#batterie-de-stockage">#</a></h3><p>Le coût de la batterie est intégrable dans le mode manuel. Son ROI propre dépend de votre taux d&rsquo;autoconsommation actuel et de la capacité choisie — voir notre <a href="http://localhost:1316/outils/calculateur-batterie-lfp/">calculateur durée de vie batterie LFP</a>.</p>
+<h3 id="aides-locales-variables">Aides locales variables<a class="anchor" href="#aides-locales-variables">#</a></h3><p>Les montants des aides régionales, départementales et communales varient fortement selon votre territoire. Le mode manuel vous permet de les saisir manuellement une fois obtenues.</p>
+<hr>
+<h2 id="interpréter-les-résultats">Interpréter les résultats<a class="anchor" href="#interpr%c3%a9ter-les-r%c3%a9sultats">#</a></h2><h3 id="roi--10-ans">ROI &lt; 10 ans<a class="anchor" href="#roi--10-ans">#</a></h3><p>Excellent — dans la fourchette haute du marché. Vérifiez que les hypothèses sont réalistes.</p>
+<h3 id="roi-entre-10-et-15-ans">ROI entre 10 et 15 ans<a class="anchor" href="#roi-entre-10-et-15-ans">#</a></h3><p>Standard pour une installation résidentielle en 2026. Rentable sur la durée de vie des panneaux (25-30 ans), mais exige de ne pas déménager avant l&rsquo;amortissement.</p>
+<h3 id="roi--15-ans">ROI &gt; 15 ans<a class="anchor" href="#roi--15-ans">#</a></h3><p>À optimiser : réduire le prix d&rsquo;achat, augmenter l&rsquo;autoconsommation, vérifier le dimensionnement.</p>
+<hr>
+<h2 id="évolutions-prévues">Évolutions prévues<a class="anchor" href="#%c3%a9volutions-pr%c3%a9vues">#</a></h2><ul>
+<li>Module orientation/inclinaison réelle (calcul PVGIS selon azimut et tilt saisis)</li>
+<li>Comparateur régions avec carte interactive France</li>
+<li>Module remplacement onduleur à mi-vie dans la projection 20 ans</li>
+<li>Simulation mois par mois (saisonnalité production vs consommation)</li>
+</ul>
+<p>Si vous avez des suggestions, contactez-nous via le formulaire du Lab.</p>
+<hr>
+<p><strong>Dernière mise à jour</strong> : Mai 2026
+<strong>Sources principales</strong> : CRE (arrêtés tarifaires T14 2026), PVGIS-SARAH3 JRC (simulations 2005-2023), Service-Public.fr (TVA 5,5% arrêté 8 septembre 2025), BOFiP-ACTU-2025-00165, TRVE CRE février 2026</p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+<div>
+
+</div>
+
+<div>
+
+</div>
+
+</div>
+
+
+
+
+
+  
+  
+  
+
+
+ 
+        
+  
+ 
+        
+        
+  
+ 
+        
+  
+  
+    <script>(function(){document.querySelectorAll("pre:has(code)").forEach(e=>{e.addEventListener("click",e.focus),e.addEventListener("copy",function(t){if(t.preventDefault(),navigator.clipboard){const t=window.getSelection().toString()||e.textContent;navigator.clipboard.writeText(t)}})})})()</script>
+  
+
+      </footer>
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+  
+  <aside class="book-toc">
+    <div class="book-toc-content">
+      
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#approche-du-calculateur">Approche du calculateur</a>
+      <ul>
+        <li><a href="#deux-modes-de-calcul">Deux modes de calcul</a></li>
+        <li><a href="#deux-scénarios-en-parallèle">Deux scénarios en parallèle</a></li>
+      </ul>
+    </li>
+    <li><a href="#données-de-référence">Données de référence</a>
+      <ul>
+        <li><a href="#prime-à-lautoconsommation--cre-t14-2026">Prime à l&rsquo;autoconsommation — CRE T14 2026</a></li>
+        <li><a href="#tarif-de-rachat-du-surplus--edf-oa-2026">Tarif de rachat du surplus — EDF OA 2026</a></li>
+        <li><a href="#tva-applicable-en-2026">TVA applicable en 2026</a></li>
+        <li><a href="#prix-de-lélectricité--trve-2026">Prix de l&rsquo;électricité — TRVE 2026</a></li>
+        <li><a href="#productible-solaire--pvgis-sarah3">Productible solaire — PVGIS-SARAH3</a></li>
+        <li><a href="#prix-du-marché--installations-clé-en-main-2026">Prix du marché — installations clé en main 2026</a></li>
+      </ul>
+    </li>
+    <li><a href="#formules-appliquées">Formules appliquées</a></li>
+    <li><a href="#projection-20-ans--mode-manuel">Projection 20 ans — mode manuel</a>
+      <ul>
+        <li><a href="#dégradation-des-panneaux">Dégradation des panneaux</a></li>
+        <li><a href="#évolution-du-prix-de-lélectricité">Évolution du prix de l&rsquo;électricité</a></li>
+      </ul>
+    </li>
+    <li><a href="#taux-dautoconsommation--que-choisir-">Taux d&rsquo;autoconsommation — que choisir ?</a></li>
+    <li><a href="#ce-que-le-calculateur-ne-couvre-pas">Ce que le calculateur ne couvre pas</a>
+      <ul>
+        <li><a href="#dégradation-des-panneaux-mode-rapide-uniquement">Dégradation des panneaux (mode rapide uniquement)</a></li>
+        <li><a href="#maintenance-et-assurance">Maintenance et assurance</a></li>
+        <li><a href="#batterie-de-stockage">Batterie de stockage</a></li>
+        <li><a href="#aides-locales-variables">Aides locales variables</a></li>
+      </ul>
+    </li>
+    <li><a href="#interpréter-les-résultats">Interpréter les résultats</a>
+      <ul>
+        <li><a href="#roi--10-ans">ROI &lt; 10 ans</a></li>
+        <li><a href="#roi-entre-10-et-15-ans">ROI entre 10 et 15 ans</a></li>
+        <li><a href="#roi--15-ans">ROI &gt; 15 ans</a></li>
+      </ul>
+    </li>
+    <li><a href="#évolutions-prévues">Évolutions prévues</a></li>
+  </ul>
+</nav>
+
+
+
+    </div>
+  </aside>
+  
+ 
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

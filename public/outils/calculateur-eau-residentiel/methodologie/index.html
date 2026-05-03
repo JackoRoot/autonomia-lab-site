@@ -1,0 +1,1272 @@
+<!DOCTYPE html>
+<html lang="fr-FR" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1316&amp;path=livereload" data-no-instant defer></script>
+  <!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Sources, tables détaillées par équipement et hypothèses du calculateur. CIEAU, ADEME, SISPEA et constructeurs.">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#2e3440">
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="http://localhost:1316/outils/calculateur-eau-residentiel/methodologie/">
+  <meta property="og:site_name" content="Autonomia Lab">
+  <meta property="og:title" content="Méthodologie : Calculateur autonomie eau résidentielle">
+  <meta property="og:description" content="Sources, tables détaillées par équipement et hypothèses du calculateur. CIEAU, ADEME, SISPEA et constructeurs.">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="outils">
+    <meta property="article:published_time" content="2026-05-03T00:00:00+00:00">
+    <meta property="article:modified_time" content="2026-05-03T00:00:00+00:00">
+
+
+  <meta itemprop="name" content="Méthodologie : Calculateur autonomie eau résidentielle">
+  <meta itemprop="description" content="Sources, tables détaillées par équipement et hypothèses du calculateur. CIEAU, ADEME, SISPEA et constructeurs.">
+  <meta itemprop="datePublished" content="2026-05-03T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2026-05-03T00:00:00+00:00">
+  <meta itemprop="wordCount" content="1691">
+
+<title>Méthodologie : Calculateur autonomie eau résidentielle | Autonomia Lab</title>
+<link rel="icon" href="/favicon.png" >
+<link rel="manifest" href="/manifest.json">
+<link rel="canonical" href="http://localhost:1316/outils/calculateur-eau-residentiel/methodologie/">
+<link rel="stylesheet" href="/book.min.92048bb3b20c265865fffa98ece7bfa06950ab86ca25d6108e24b45f8c754881.css" integrity="sha256-kgSLs7IMJlhl//qY7Oe/oGlQq4bKJdYQjiS0X4x1SIE=" crossorigin="anonymous">
+
+
+  <script defer src="/fuse.min.js"></script>
+  <script defer src="/en.search.min.7f810466b69ce4ffce1abc52650078cff38fb602310c43a62f707ea615452e9a.js" integrity="sha256-f4EEZrac5P/OGrxSZQB4z/OPtgIxDEOmL3B&#43;phVFLpo=" crossorigin="anonymous"></script>
+
+
+
+  
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#ffffff">
+<style>
+  :root { color-scheme: light !important; }
+  html, body { color-scheme: light !important; }
+</style>
+
+</head>
+<body dir="ltr" class="book-kind-page book-type-outils">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    
+<aside class="book-menu">
+  <div class="book-menu-content">
+    
+  <nav>
+<h2 class="book-brand">
+  <span class="flex align-center"><span>Autonomia Lab</span>
+  </span>
+</h2>
+
+
+<div class="book-search hidden">
+  <input id="book-search-input" type="text" 
+    placeholder="Search"
+    aria-label="Search"
+    maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+<script>document.querySelector(".book-search").classList.remove("hidden")</script>
+
+
+
+
+
+
+<ul><li><a href="/">Accueil</a></li></ul>
+
+
+
+
+
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <input type="checkbox" id="section-80a6eccb491e65aad6dae5f33ec481c5" class="toggle"  />
+    <label for="section-80a6eccb491e65aad6dae5f33ec481c5" class="flex">
+      <a role="button"
+         class="" data-silo="1">
+        Solaire &amp; Stockage</a>
+      <img src="/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo1_cerbo-gx-pylontech-cablage/" class="" data-silo="1">
+      Cerbo GX &amp; Pylontech</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo1_erreur-11-victron-multiplus-ii/" class="" data-silo="1">
+      Erreur 11 Victron</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo1_fusibles-dc-ou-disjoncteurs/" class="" data-silo="1">
+      Fusibles DC vs Disjoncteurs</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo1_mppt-victron-100-20-100-30/" class="" data-silo="1">
+      MPPT 100/20 vs 100/30</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo1_pvgis-off-grid-autonomie/" class="" data-silo="1">
+      PVGIS Off-Grid</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo1_ratio-dc-ac-onduleur/" class="" data-silo="1">
+      Ratio DC/AC onduleur</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo1_section-cable-batterie-48v/" class="" data-silo="1">
+      Section câble 48V</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <input type="checkbox" id="section-ff2b4a7940fbd23fb7c151ce892a38d0" class="toggle"  />
+    <label for="section-ff2b4a7940fbd23fb7c151ce892a38d0" class="flex">
+      <a role="button"
+         class="" data-silo="2">
+        Hydraulique</a>
+      <img src="/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo2_calcul-hmt-pompe-50m/" class="" data-silo="2">
+      Calcul HMT pompe 50m</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo2_calcul-traitement-uvc/" class="" data-silo="2">
+      Calcul UV-C 40 mJ/cm²</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo2_filtration-fer-manganese/" class="" data-silo="2">
+      Filtration fer/manganèse</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo2_potabilisation-forage/" class="" data-silo="2">
+      Potabilisation forage</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo2_rejet-osmose-inverse/" class="" data-silo="2">
+      Rejet osmose inverse</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <input type="checkbox" id="section-2ff767a3ea21b6cc828c74332a27d864" class="toggle"  />
+    <label for="section-2ff767a3ea21b6cc828c74332a27d864" class="flex">
+      <a role="button"
+         class="" data-silo="3">
+        Thermique</a>
+      <img src="/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo3_chauffe-eau-thermo-cop/" class="" data-silo="3">
+      Chauffe-eau thermodynamique</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo3_dimensionnement-pac-air-air/" class="" data-silo="3">
+      Dimensionnement PAC air-air</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo3_isolation-toiture-r7/" class="" data-silo="3">
+      Isolation toiture R=7</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo3_rendement-pac-grand-froid/" class="" data-silo="3">
+      PAC grand froid COP</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo3_pac-releve-fioul-schema/" class="" data-silo="3">
+      PAC relève fioul schéma</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <input type="checkbox" id="section-d3532d0f76fc0e770fa43359b2f066c6" class="toggle"  />
+    <label for="section-d3532d0f76fc0e770fa43359b2f066c6" class="flex">
+      <a role="button"
+         class="" data-silo="4">
+        Infrastructure</a>
+      <img src="/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo4_differentiel-type-b/" class="" data-silo="4">
+      Différentiel Type B</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo4_disjoncteur-courbe-d-vs-c/" class="" data-silo="4">
+      Disjoncteur D vs C</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo4_puissance-reactive-linky/" class="" data-silo="4">
+      Puissance réactive Linky</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo4_regime-neutre-tt-tn/" class="" data-silo="4">
+      Régime neutre TT/TN</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+<ul><li><a href="/a-propos/">À propos</a></li></ul>
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+
+  </div>
+</aside>
+ 
+
+    <div class="book-page">
+      <header class="book-header hidden">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/icons/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <h3>Méthodologie : Calculateur autonomie eau résidentielle</h3>
+
+  <label for="toc-control">
+    
+    <img src="/icons/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#approche-du-calculateur">Approche du calculateur</a></li>
+    <li><a href="#données-de-référence-nationales">Données de référence nationales</a>
+      <ul>
+        <li><a href="#consommation-moyenne-france">Consommation moyenne France</a></li>
+        <li><a href="#variations-par-profil">Variations par profil</a></li>
+        <li><a href="#variations-géographiques">Variations géographiques</a></li>
+      </ul>
+    </li>
+    <li><a href="#décomposition-officielle-cieau">Décomposition officielle CIEAU</a></li>
+    <li><a href="#tables-détaillées-par-équipement">Tables détaillées par équipement</a>
+      <ul>
+        <li><a href="#wc--toilettes">WC / Toilettes</a></li>
+        <li><a href="#hygiène-corporelle">Hygiène corporelle</a>
+          <ul>
+            <li><a href="#douche">Douche</a></li>
+            <li><a href="#bain">Bain</a></li>
+            <li><a href="#calculs-du-calculateur">Calculs du calculateur</a></li>
+          </ul>
+        </li>
+        <li><a href="#lave-linge">Lave-linge</a></li>
+        <li><a href="#lave-vaisselle">Lave-vaisselle</a></li>
+        <li><a href="#cuisine-et-boisson">Cuisine et boisson</a></li>
+        <li><a href="#entretien-logement">Entretien logement</a></li>
+        <li><a href="#jardin-et-arrosage">Jardin et arrosage</a></li>
+      </ul>
+    </li>
+    <li><a href="#méthode-de-répartition-potable--technique">Méthode de répartition potable / technique</a>
+      <ul>
+        <li><a href="#eau-potable-nécessaire-qualité-réseau">Eau potable nécessaire (qualité réseau)</a></li>
+        <li><a href="#eau-technique-peut-être-eau-pluie-filtrée">Eau technique (peut être eau pluie filtrée)</a></li>
+        <li><a href="#important-sur-cette-répartition">Important sur cette répartition</a></li>
+      </ul>
+    </li>
+    <li><a href="#formules-appliquées-mode-détaillé">Formules appliquées (mode détaillé)</a></li>
+    <li><a href="#comment-interpréter-les-résultats">Comment interpréter les résultats</a>
+      <ul>
+        <li><a href="#le-résultat-est-plus-haut-que-prévu">Le résultat est plus haut que prévu</a></li>
+        <li><a href="#le-résultat-est-plus-bas-que-prévu">Le résultat est plus bas que prévu</a></li>
+        <li><a href="#le-résultat-est-cohérent-avec-la-moyenne-nationale-148-lpersjour">Le résultat est cohérent avec la moyenne nationale (148 L/pers/jour)</a></li>
+      </ul>
+    </li>
+    <li><a href="#tableau-votre-cas--ajustements">Tableau &ldquo;Votre cas → Ajustements&rdquo;</a></li>
+    <li><a href="#limites-de-cet-outil">Limites de cet outil</a>
+      <ul>
+        <li><a href="#ce-quil-ne-couvre-pas-précisément">Ce qu&rsquo;il ne couvre pas précisément</a></li>
+        <li><a href="#ce-quil-faut-compléter">Ce qu&rsquo;il faut compléter</a></li>
+      </ul>
+    </li>
+    <li><a href="#évolutions-prévues-du-calculateur">Évolutions prévues du calculateur</a></li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+<article class="markdown book-article"><p>← <a href="http://localhost:1316/outils/calculateur-eau-residentiel/">Calculateur eau</a> · <a href="http://localhost:1316/outils/">Tous les outils</a></p>
+<h1 id="méthodologie-du-calculateur-autonomie-eau-résidentielle">Méthodologie du calculateur autonomie eau résidentielle<a class="anchor" href="#m%c3%a9thodologie-du-calculateur-autonomie-eau-r%c3%a9sidentielle">#</a></h1><blockquote class='book-hint '>
+<p>Cette page détaille l&rsquo;origine de chaque chiffre utilisé par notre calculateur. L&rsquo;objectif : transparence totale pour vous permettre de vérifier, contester ou ajuster selon votre situation réelle.</p>
+</blockquote><h2 id="approche-du-calculateur">Approche du calculateur<a class="anchor" href="#approche-du-calculateur">#</a></h2><p>Le calculateur propose deux modes complémentaires :</p>
+<p><strong>Mode &ldquo;Estimation rapide&rdquo;</strong> : applique la moyenne nationale CIEAU (148 L/personne/jour) avec des paramètres minimaux. Idéal pour un ordre de grandeur en 30 secondes.</p>
+<p><strong>Mode &ldquo;Configurer mon foyer&rdquo;</strong> : décompose la consommation par poste réel selon vos équipements. Plus précis, plus long à remplir, mais beaucoup plus utile pour un dimensionnement sérieux d&rsquo;installation autonome.</p>
+<p>Le mode détaillé est celui que nous recommandons pour toute prise de décision (dimensionnement de cuve, projet d&rsquo;autonomie, calcul d&rsquo;impact d&rsquo;un changement d&rsquo;équipement).</p>
+<h2 id="données-de-référence-nationales">Données de référence nationales<a class="anchor" href="#donn%c3%a9es-de-r%c3%a9f%c3%a9rence-nationales">#</a></h2><h3 id="consommation-moyenne-france">Consommation moyenne France<a class="anchor" href="#consommation-moyenne-france">#</a></h3><ul>
+<li><strong>148 à 150 litres par personne et par jour</strong> en France</li>
+<li>Stable depuis 2014 (variation 144-150 L)</li>
+<li>Tendance baissière entre 2004 (165 L) et 2014 (143 L) puis stabilisation</li>
+</ul>
+<p><strong>Sources</strong> :</p>
+<ul>
+<li><a href="https://www.cieau.com/le-metier-de-leau/usages-consommation-conseils/calculateur-consommation-eau-annuelle/">CIEAU - Centre d&rsquo;Information sur l&rsquo;Eau</a> (2024)</li>
+<li><a href="https://www.services.eaufrance.fr/">SISPEA - Rapport 2025 données 2023</a> : 145 L/jour/personne</li>
+<li><a href="https://www.notre-environnement.gouv.fr/themes/societe/le-mode-de-vie-des-menages-ressources/article/quelle-est-la-consommation-des-menages-en-eau-potable">notre-environnement.gouv.fr</a> (décembre 2025)</li>
+</ul>
+<h3 id="variations-par-profil">Variations par profil<a class="anchor" href="#variations-par-profil">#</a></h3><table>
+  <thead>
+      <tr>
+          <th>Profil</th>
+          <th>Consommation</th>
+          <th>Source</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Adulte moyen</td>
+          <td>148-150 L/jour</td>
+          <td>CIEAU 2024</td>
+      </tr>
+      <tr>
+          <td>Enfant</td>
+          <td>55 L/jour</td>
+          <td>SISPEA 2024</td>
+      </tr>
+      <tr>
+          <td>Personne âgée (domicile)</td>
+          <td>105 L/jour</td>
+          <td>CIEAU</td>
+      </tr>
+      <tr>
+          <td>Revenus modestes</td>
+          <td>90 L/jour</td>
+          <td>CIEAU</td>
+      </tr>
+      <tr>
+          <td>Sportif</td>
+          <td>204 L/jour</td>
+          <td>CIEAU</td>
+      </tr>
+      <tr>
+          <td>En vacances</td>
+          <td>230 L/jour</td>
+          <td>CIEAU</td>
+      </tr>
+      <tr>
+          <td>Personne âgée en résidence</td>
+          <td>240-310 L/jour</td>
+          <td>CIEAU</td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="variations-géographiques">Variations géographiques<a class="anchor" href="#variations-g%c3%a9ographiques">#</a></h3><table>
+  <thead>
+      <tr>
+          <th>Région</th>
+          <th>Conso moyenne</th>
+          <th>Source</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Nord-Pas-de-Calais</td>
+          <td>109 L/jour</td>
+          <td>SISPEA</td>
+      </tr>
+      <tr>
+          <td>Provence-Alpes-Côte d&rsquo;Azur</td>
+          <td>228 L/jour</td>
+          <td>SISPEA</td>
+      </tr>
+      <tr>
+          <td>Île-de-France (133 communes SEDIF)</td>
+          <td>100 L/jour</td>
+          <td>INSEE 2019</td>
+      </tr>
+  </tbody>
+</table>
+<p>Le climat est le facteur principal de variation : régions chaudes = jardins, piscines, arrosage, +50 à +100% de consommation par rapport aux régions tempérées.</p>
+<h2 id="décomposition-officielle-cieau">Décomposition officielle CIEAU<a class="anchor" href="#d%c3%a9composition-officielle-cieau">#</a></h2><p>Selon le <a href="https://www.cieau.com/le-metier-de-leau/ressource-en-eau-eau-potable-eaux-usees/quels-sont-les-usages-domestiques-de-leau/">CIEAU</a> :</p>
+<table>
+  <thead>
+      <tr>
+          <th>Usage</th>
+          <th>% conso</th>
+          <th>Litres/jour (sur 148L)</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Hygiène corporelle (douches, bains, lavabos)</td>
+          <td>39 %</td>
+          <td>58 L</td>
+      </tr>
+      <tr>
+          <td>Sanitaires (WC)</td>
+          <td>20 %</td>
+          <td>30 L</td>
+      </tr>
+      <tr>
+          <td>Lessive (lave-linge)</td>
+          <td>12 %</td>
+          <td>18 L</td>
+      </tr>
+      <tr>
+          <td>Vaisselle</td>
+          <td>10 %</td>
+          <td>15 L</td>
+      </tr>
+      <tr>
+          <td>Préparation alimentaire (cuisson)</td>
+          <td>6 %</td>
+          <td>9 L</td>
+      </tr>
+      <tr>
+          <td>Entretien logement</td>
+          <td>6 %</td>
+          <td>9 L</td>
+      </tr>
+      <tr>
+          <td>Jardin / voiture / divers</td>
+          <td>6 %</td>
+          <td>9 L</td>
+      </tr>
+      <tr>
+          <td>Boisson</td>
+          <td>1 %</td>
+          <td>1,5 L</td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>93%</strong> est dédié à l&rsquo;hygiène et au nettoyage (incluant l&rsquo;entretien et les usages secondaires), <strong>7%</strong> à l&rsquo;alimentation (boisson + cuisine).</p>
+<h2 id="tables-détaillées-par-équipement">Tables détaillées par équipement<a class="anchor" href="#tables-d%c3%a9taill%c3%a9es-par-%c3%a9quipement">#</a></h2><h3 id="wc--toilettes">WC / Toilettes<a class="anchor" href="#wc--toilettes">#</a></h3><p>Source : <a href="https://agirpourlatransition.ademe.fr/particuliers/economiser/eau/conseils-economie-eau-maison">ADEME</a>, Geberit, Planetoscope</p>
+<table>
+  <thead>
+      <tr>
+          <th>Type de WC</th>
+          <th>Litres par chasse</th>
+          <th>Économie vs ancien</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Anciens WC simple</td>
+          <td>9-12 L</td>
+          <td>référence</td>
+      </tr>
+      <tr>
+          <td>WC modernes</td>
+          <td>6-9 L</td>
+          <td>-25%</td>
+      </tr>
+      <tr>
+          <td>Double débit 3/6 L</td>
+          <td>4,5 L mix moyen</td>
+          <td>-55%</td>
+      </tr>
+      <tr>
+          <td>WC siphonique sans réservoir</td>
+          <td>4 L</td>
+          <td>-60%</td>
+      </tr>
+      <tr>
+          <td>Ultra-économe (Jacob Delafon, Gustavsberg)</td>
+          <td>2,6 / 4 L</td>
+          <td>-65 à -70%</td>
+      </tr>
+      <tr>
+          <td><strong>Toilettes sèches</strong></td>
+          <td><strong>0 L</strong></td>
+          <td><strong>-100%</strong></td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>Fréquence moyenne</strong> : 4-6 passages par jour selon les sources (CIEAU = 4, Aubade = 4, autres études = 5-6).</p>
+<p><strong>Pour 4 chasses/jour avec WC standard 7,5 L</strong> = 30 L/personne/jour, soit 20% de la consommation totale (cohérent avec CIEAU).</p>
+<p><strong>Important</strong> : un WC qui fuit consomme jusqu&rsquo;à <strong>600 L/jour</strong> (Espace Aubade). Vérifier régulièrement.</p>
+<h3 id="hygiène-corporelle">Hygiène corporelle<a class="anchor" href="#hygi%c3%a8ne-corporelle">#</a></h3><p>Sources : <a href="https://agirpourlatransition.ademe.fr">ADEME</a>, <a href="https://eau.selectra.info/consommation/douche">Selectra</a>, Engie</p>
+<h4 id="douche">Douche<a class="anchor" href="#douche">#</a></h4><table>
+  <thead>
+      <tr>
+          <th>Type de pommeau</th>
+          <th>Débit (L/min)</th>
+          <th>Source</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Pommeau standard</td>
+          <td>15-20 L/min</td>
+          <td>ADEME</td>
+      </tr>
+      <tr>
+          <td>Pommeau économe</td>
+          <td>6-8 L/min</td>
+          <td>ADEME</td>
+      </tr>
+      <tr>
+          <td>Pommeau ultra-éco (type Hydrao)</td>
+          <td>4-6 L/min</td>
+          <td>Constructeur</td>
+      </tr>
+      <tr>
+          <td>Pommeau &ldquo;ciel de pluie&rdquo;</td>
+          <td>jusqu&rsquo;à 20 L/min</td>
+          <td>ADEME</td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>Économie d&rsquo;eau avec pommeau économe</strong> : jusqu&rsquo;à <strong>75%</strong> selon ADEME.</p>
+<h4 id="bain">Bain<a class="anchor" href="#bain">#</a></h4><ul>
+<li><strong>Bain complet</strong> : 150-200 litres (ADEME)</li>
+<li>Une douche de 5 minutes avec pommeau standard = 75-100 L = équivalent à un demi-bain</li>
+<li>Une douche de 10 minutes avec pommeau standard = 150-200 L = équivalent à un bain complet</li>
+</ul>
+<p><strong>Conclusion</strong> : la douche n&rsquo;est plus économe que le bain au-delà de 10 minutes.</p>
+<h4 id="calculs-du-calculateur">Calculs du calculateur<a class="anchor" href="#calculs-du-calculateur">#</a></h4><ul>
+<li>Bain : valeur fixe <strong>175 L/usage</strong> (moyenne 150-200)</li>
+<li>Douche standard : <strong>15 L/min × durée</strong></li>
+<li>Douche économe : <strong>8 L/min × durée</strong></li>
+<li>Douche ultra-éco : <strong>6 L/min × durée</strong></li>
+<li>Seau / minimaliste : <strong>10 L/usage</strong> (estimation pour douche au seau)</li>
+</ul>
+<h3 id="lave-linge">Lave-linge<a class="anchor" href="#lave-linge">#</a></h3><p>Sources : <a href="https://blog.but.fr/article/combien-deau-consomme-une-machine-a-laver/">BUT</a>, ADEME, Selectra, Engie</p>
+<table>
+  <thead>
+      <tr>
+          <th>Génération</th>
+          <th>Litres par cycle</th>
+          <th>Source</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Très récent (classe A)</td>
+          <td>40-50 L</td>
+          <td>BUT, ADEME</td>
+      </tr>
+      <tr>
+          <td>Récent (classe A à A+)</td>
+          <td>50-70 L</td>
+          <td>Engie</td>
+      </tr>
+      <tr>
+          <td>Standard</td>
+          <td>70 L</td>
+          <td>Selectra moyenne</td>
+      </tr>
+      <tr>
+          <td>Ancien</td>
+          <td>100-120 L</td>
+          <td>BUT</td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>Cycles moyens</strong> : 3-4 par semaine pour un foyer de 2-3 personnes, jusqu&rsquo;à 7-10 pour un foyer avec enfants.</p>
+<p><strong>Note</strong> : depuis fin 2025, les modèles vendus neufs ne peuvent plus être en dessous de la classe A+ (réglementation européenne).</p>
+<h3 id="lave-vaisselle">Lave-vaisselle<a class="anchor" href="#lave-vaisselle">#</a></h3><p>Sources : ADEME, Selectra, Hydrao</p>
+<table>
+  <thead>
+      <tr>
+          <th>Méthode</th>
+          <th>Litres</th>
+          <th>Conditions</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Lave-vaisselle récent (classe A+)</td>
+          <td>9-12 L/cycle</td>
+          <td>Selectra</td>
+      </tr>
+      <tr>
+          <td>Lave-vaisselle standard</td>
+          <td>10-16 L/cycle</td>
+          <td>ADEME</td>
+      </tr>
+      <tr>
+          <td>Lave-vaisselle ancien</td>
+          <td>16-20 L/cycle</td>
+          <td>Hydrao</td>
+      </tr>
+      <tr>
+          <td>À la main, robinet ouvert</td>
+          <td>30-60 L/jour</td>
+          <td>Hydrao (débit robinet 12 L/min)</td>
+      </tr>
+      <tr>
+          <td>À la main, 2 bacs (éco)</td>
+          <td>10-15 L/jour</td>
+          <td>ADEME</td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>Cycles moyens</strong> : 1 cycle/jour pour un foyer de 4 personnes, moins pour un foyer plus petit.</p>
+<p><strong>Comparaison économique</strong> (pour 250 cycles/an, 5 personnes) :</p>
+<ul>
+<li>Lave-vaisselle : 0,09 à 0,28 €/cycle d&rsquo;énergie</li>
+<li>À la main : 0,47 €/jour d&rsquo;énergie (eau chaude)</li>
+<li><strong>Économie possible avec lave-vaisselle : ~95 €/an</strong></li>
+</ul>
+<h3 id="cuisine-et-boisson">Cuisine et boisson<a class="anchor" href="#cuisine-et-boisson">#</a></h3><p>Source : CIEAU (7% de la consommation totale)</p>
+<ul>
+<li><strong>Boisson</strong> : ~1,5 L par personne par jour</li>
+<li><strong>Cuisson + préparation alimentaire</strong> : ~8,5 L par personne par jour</li>
+<li><strong>Total</strong> : ~10 L/personne/jour</li>
+</ul>
+<p>Variable selon habitudes (cuisine maison vs plats préparés, fréquence des soupes/pâtes/etc.).</p>
+<h3 id="entretien-logement">Entretien logement<a class="anchor" href="#entretien-logement">#</a></h3><p>Source : CIEAU (6% de la consommation totale)</p>
+<p>Largement <strong>incompressible</strong> quel que soit le nombre de personnes au foyer, comme le rappelle le CIEAU :</p>
+<blockquote class='book-hint '>
+<p>&ldquo;Le nettoyage du logement est un poste globalement incompressible, tout comme le volume d&rsquo;eau nécessaire à une vaisselle ou une lessive en machine reste le même.&rdquo;</p>
+</blockquote><table>
+  <thead>
+      <tr>
+          <th>Niveau</th>
+          <th>Litres/jour (foyer entier)</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Léger</td>
+          <td>~5 L</td>
+      </tr>
+      <tr>
+          <td>Standard</td>
+          <td>~9 L</td>
+      </tr>
+      <tr>
+          <td>Intensif</td>
+          <td>~15 L</td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="jardin-et-arrosage">Jardin et arrosage<a class="anchor" href="#jardin-et-arrosage">#</a></h3><p>Sources : <a href="https://agirpourlatransition.ademe.fr">ADEME</a>, Hydrao</p>
+<p>L&rsquo;ADEME indique : <strong>environ 10 L pour arroser 1 m² de jardin</strong>.</p>
+<p>Mais cette valeur varie énormément selon :</p>
+<ul>
+<li>La saison (juillet-août : x2 ; mars-octobre : x1 ; hiver : 0)</li>
+<li>Le type de plantation (gazon, potager, fleurs, plantes méditerranéennes)</li>
+<li>Le climat régional</li>
+<li>Le mode d&rsquo;arrosage (goutte-à-goutte = -50%, arrosage classique au tuyau)</li>
+</ul>
+<p>Le calculateur propose 4 niveaux :</p>
+<table>
+  <thead>
+      <tr>
+          <th>Niveau</th>
+          <th>Litres/m²/jour</th>
+          <th>Cas typique</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Aucun</td>
+          <td>0 L/m²/j</td>
+          <td>Pas d&rsquo;arrosage</td>
+      </tr>
+      <tr>
+          <td>Léger</td>
+          <td>3 L/m²/j</td>
+          <td>Potager occasionnel, plantes adaptées</td>
+      </tr>
+      <tr>
+          <td>Modéré</td>
+          <td>6 L/m²/j</td>
+          <td>Potager + gazon entretenu</td>
+      </tr>
+      <tr>
+          <td>Intensif</td>
+          <td>10 L/m²/j</td>
+          <td>Arrosage été plein, recommandation ADEME</td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>Le slider &ldquo;Autres usages extérieur&rdquo;</strong> couvre : lavage voiture, terrasse, piscine, etc. À ajuster selon votre situation.</p>
+<h2 id="méthode-de-répartition-potable--technique">Méthode de répartition potable / technique<a class="anchor" href="#m%c3%a9thode-de-r%c3%a9partition-potable--technique">#</a></h2><p>Pour le calcul de la cuve, le calculateur sépare :</p>
+<h3 id="eau-potable-nécessaire-qualité-réseau">Eau potable nécessaire (qualité réseau)<a class="anchor" href="#eau-potable-n%c3%a9cessaire-qualit%c3%a9-r%c3%a9seau">#</a></h3><ul>
+<li>Hygiène corporelle (39%)</li>
+<li>Cuisine + boisson (7%)</li>
+<li>Entretien logement (6%)</li>
+</ul>
+<p><strong>Total : ~52% de la consommation = environ 84 L/personne/jour</strong></p>
+<h3 id="eau-technique-peut-être-eau-pluie-filtrée">Eau technique (peut être eau pluie filtrée)<a class="anchor" href="#eau-technique-peut-%c3%aatre-eau-pluie-filtr%c3%a9e">#</a></h3><ul>
+<li>WC (20%)</li>
+<li>Lave-linge (12%)</li>
+<li>Vaisselle (10%) — discutable selon usage final</li>
+<li>Jardin / extérieur (6%)</li>
+</ul>
+<p><strong>Total : ~48% de la consommation = environ 64 L/personne/jour</strong></p>
+<h3 id="important-sur-cette-répartition">Important sur cette répartition<a class="anchor" href="#important-sur-cette-r%c3%a9partition">#</a></h3><p>Cette répartition est une <strong>moyenne calculée</strong> à partir des % CIEAU. Votre cas réel dépend :</p>
+<ul>
+<li>De la qualité de votre installation de récupération d&rsquo;eau de pluie (filtration, traitement UV)</li>
+<li>De votre réglementation locale (certaines communes interdisent l&rsquo;eau de pluie pour la lessive)</li>
+<li>De votre confort personnel (certains préfèrent rester sur eau réseau pour la vaisselle)</li>
+</ul>
+<p>Le calculateur donne un <strong>ordre de grandeur de capacité de cuve</strong> ; l&rsquo;usage final eau pluie vs eau réseau dépend de votre installation finale.</p>
+<h2 id="formules-appliquées-mode-détaillé">Formules appliquées (mode détaillé)<a class="anchor" href="#formules-appliqu%c3%a9es-mode-d%c3%a9taill%c3%a9">#</a></h2><pre tabindex="0"><code>WC = Litres_par_chasse × Passages_par_jour × Personnes
+Hygiène = (Litres_par_usage × Fréquence_par_semaine ÷ 7) × Personnes
+Vaisselle (machine) = (Litres_par_cycle × Cycles_par_semaine) ÷ 7
+Vaisselle (main) = Litres_par_jour (constant)
+Linge = (Litres_par_cycle × Cycles_par_semaine) ÷ 7
+Cuisine = 10 L × Personnes_équivalent  (1 enfant = 0,37 adulte selon SISPEA)
+Entretien = Litres_par_jour selon niveau (foyer)
+Jardin = (Surface × Ratio_arrosage) + Autres_usages
+
+Conso_totale_jour = WC + Hygiène + Vaisselle + Linge + Cuisine + Entretien + Jardin
+Eau_potable = Hygiène + Cuisine + Entretien
+Eau_technique = WC + Vaisselle + Linge + Jardin
+Cuve_recommandée = Conso_correspondante × Jours_d_autonomie</code></pre><h2 id="comment-interpréter-les-résultats">Comment interpréter les résultats<a class="anchor" href="#comment-interpr%c3%a9ter-les-r%c3%a9sultats">#</a></h2><h3 id="le-résultat-est-plus-haut-que-prévu">Le résultat est plus haut que prévu<a class="anchor" href="#le-r%c3%a9sultat-est-plus-haut-que-pr%c3%a9vu">#</a></h3><p><strong>Causes possibles</strong> :</p>
+<ul>
+<li>Vous avez un type de WC ancien encore en place</li>
+<li>Votre lave-linge ou lave-vaisselle est ancien</li>
+<li>Votre durée de douche dépasse 10 minutes</li>
+<li>Votre jardin est plus consommateur que vous pensiez</li>
+</ul>
+<p><strong>Solution</strong> : utilisez le calculateur pour simuler l&rsquo;impact d&rsquo;un changement d&rsquo;équipement avant de décider.</p>
+<h3 id="le-résultat-est-plus-bas-que-prévu">Le résultat est plus bas que prévu<a class="anchor" href="#le-r%c3%a9sultat-est-plus-bas-que-pr%c3%a9vu">#</a></h3><p><strong>Vérifiez</strong> :</p>
+<ul>
+<li>Vous n&rsquo;avez pas oublié un usage (piscine, animaux, atelier)</li>
+<li>Vous n&rsquo;oubliez pas les invités occasionnels</li>
+<li>Vous tenez compte des saisons (jardin été)</li>
+</ul>
+<h3 id="le-résultat-est-cohérent-avec-la-moyenne-nationale-148-lpersjour">Le résultat est cohérent avec la moyenne nationale (148 L/pers/jour)<a class="anchor" href="#le-r%c3%a9sultat-est-coh%c3%a9rent-avec-la-moyenne-nationale-148-lpersjour">#</a></h3><p><strong>Bon signe</strong>. Cela veut dire que vos paramètres reflètent une consommation typique. Le calculateur est utile pour :</p>
+<ul>
+<li>Identifier les postes les plus gourmands</li>
+<li>Simuler des améliorations</li>
+<li>Dimensionner une cuve d&rsquo;autonomie</li>
+</ul>
+<h2 id="tableau-votre-cas--ajustements">Tableau &ldquo;Votre cas → Ajustements&rdquo;<a class="anchor" href="#tableau-votre-cas--ajustements">#</a></h2><table>
+  <thead>
+      <tr>
+          <th>Votre situation</th>
+          <th>Ajustement à faire</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Foyer multigénérationnel (grands-parents)</td>
+          <td>+20-40% sur le total (les personnes âgées en résidence montent à 240-310 L)</td>
+      </tr>
+      <tr>
+          <td>Foyer avec adolescents</td>
+          <td>+10-20% (douches longues fréquentes)</td>
+      </tr>
+      <tr>
+          <td>Foyer en région PACA / Occitanie</td>
+          <td>+30-50% (climat, jardin, arrosage)</td>
+      </tr>
+      <tr>
+          <td>Foyer en région Nord / Hauts-de-France</td>
+          <td>-20-30% (climat tempéré, moins d&rsquo;arrosage)</td>
+      </tr>
+      <tr>
+          <td>Maison passive avec récupération pluie complète</td>
+          <td>-30-40% sur &ldquo;eau potable&rdquo;</td>
+      </tr>
+      <tr>
+          <td>Famille avec enfants en bas âge</td>
+          <td>+15% (lavages plus fréquents)</td>
+      </tr>
+      <tr>
+          <td>Travail à domicile</td>
+          <td>+10-15% (plus de temps à la maison)</td>
+      </tr>
+      <tr>
+          <td>Animaux (chiens)</td>
+          <td>+5-10 L/jour par chien moyen</td>
+      </tr>
+      <tr>
+          <td>Piscine privée</td>
+          <td>+30-50 L/jour selon taille (évaporation + nettoyage)</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="limites-de-cet-outil">Limites de cet outil<a class="anchor" href="#limites-de-cet-outil">#</a></h2><h3 id="ce-quil-ne-couvre-pas-précisément">Ce qu&rsquo;il ne couvre pas précisément<a class="anchor" href="#ce-quil-ne-couvre-pas-pr%c3%a9cis%c3%a9ment">#</a></h3><ul>
+<li><strong>Saisonnalité jardin</strong> : le calcul utilise un ratio constant, mais en réalité l&rsquo;arrosage est concentré sur 5-6 mois</li>
+<li><strong>Variations hebdomadaires</strong> : weekend vs semaine, présence à domicile</li>
+<li><strong>Habitudes individuelles</strong> : certains prennent 2 douches par jour, d&rsquo;autres 3 par semaine</li>
+<li><strong>Climat régional fin</strong> : les ratios sont nationaux</li>
+<li><strong>Consommation invisible</strong> : fuites, évaporation, gel</li>
+<li><strong>Eau virtuelle</strong> : empreinte cachée (alimentation, vêtements, etc.) qui représente ~6 000 L/jour selon ADEME, mais hors scope du calculateur</li>
+</ul>
+<h3 id="ce-quil-faut-compléter">Ce qu&rsquo;il faut compléter<a class="anchor" href="#ce-quil-faut-compl%c3%a9ter">#</a></h3><ul>
+<li>Mesurer votre consommation réelle au compteur sur quelques mois</li>
+<li>Identifier les fuites éventuelles (relevé du compteur la nuit)</li>
+<li>Adapter les saisons pour le jardin</li>
+<li>Consulter un installateur pour le dimensionnement final d&rsquo;une cuve</li>
+</ul>
+<h2 id="évolutions-prévues-du-calculateur">Évolutions prévues du calculateur<a class="anchor" href="#%c3%a9volutions-pr%c3%a9vues-du-calculateur">#</a></h2><ul>
+<li>Module saisonnier (variation conso jardin selon mois)</li>
+<li>Module économies (combien gagner avec WC double débit + douche éco)</li>
+<li>Module récupération eau pluie (combien votre toit peut récupérer)</li>
+<li>Comparateur d&rsquo;équipements (impact ROI d&rsquo;un changement)</li>
+<li>Module climat régional fin</li>
+</ul>
+<p>Si vous avez des suggestions, contactez-nous via le formulaire du Lab.</p>
+<hr>
+<p><strong>Dernière mise à jour</strong> : Mai 2026
+<strong>Sources principales</strong> : CIEAU (2024), ADEME, SISPEA (rapport 2025 données 2023), notre-environnement.gouv.fr, INSEE, BUT, Selectra, Hydrao, Geberit</p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+<div>
+
+</div>
+
+<div>
+
+</div>
+
+</div>
+
+
+
+
+
+  
+  
+  
+
+
+ 
+        
+  
+ 
+        
+        
+  
+ 
+        
+  
+  
+    <script>(function(){document.querySelectorAll("pre:has(code)").forEach(e=>{e.addEventListener("click",e.focus),e.addEventListener("copy",function(t){if(t.preventDefault(),navigator.clipboard){const t=window.getSelection().toString()||e.textContent;navigator.clipboard.writeText(t)}})})})()</script>
+  
+
+      </footer>
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+  
+  <aside class="book-toc">
+    <div class="book-toc-content">
+      
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#approche-du-calculateur">Approche du calculateur</a></li>
+    <li><a href="#données-de-référence-nationales">Données de référence nationales</a>
+      <ul>
+        <li><a href="#consommation-moyenne-france">Consommation moyenne France</a></li>
+        <li><a href="#variations-par-profil">Variations par profil</a></li>
+        <li><a href="#variations-géographiques">Variations géographiques</a></li>
+      </ul>
+    </li>
+    <li><a href="#décomposition-officielle-cieau">Décomposition officielle CIEAU</a></li>
+    <li><a href="#tables-détaillées-par-équipement">Tables détaillées par équipement</a>
+      <ul>
+        <li><a href="#wc--toilettes">WC / Toilettes</a></li>
+        <li><a href="#hygiène-corporelle">Hygiène corporelle</a>
+          <ul>
+            <li><a href="#douche">Douche</a></li>
+            <li><a href="#bain">Bain</a></li>
+            <li><a href="#calculs-du-calculateur">Calculs du calculateur</a></li>
+          </ul>
+        </li>
+        <li><a href="#lave-linge">Lave-linge</a></li>
+        <li><a href="#lave-vaisselle">Lave-vaisselle</a></li>
+        <li><a href="#cuisine-et-boisson">Cuisine et boisson</a></li>
+        <li><a href="#entretien-logement">Entretien logement</a></li>
+        <li><a href="#jardin-et-arrosage">Jardin et arrosage</a></li>
+      </ul>
+    </li>
+    <li><a href="#méthode-de-répartition-potable--technique">Méthode de répartition potable / technique</a>
+      <ul>
+        <li><a href="#eau-potable-nécessaire-qualité-réseau">Eau potable nécessaire (qualité réseau)</a></li>
+        <li><a href="#eau-technique-peut-être-eau-pluie-filtrée">Eau technique (peut être eau pluie filtrée)</a></li>
+        <li><a href="#important-sur-cette-répartition">Important sur cette répartition</a></li>
+      </ul>
+    </li>
+    <li><a href="#formules-appliquées-mode-détaillé">Formules appliquées (mode détaillé)</a></li>
+    <li><a href="#comment-interpréter-les-résultats">Comment interpréter les résultats</a>
+      <ul>
+        <li><a href="#le-résultat-est-plus-haut-que-prévu">Le résultat est plus haut que prévu</a></li>
+        <li><a href="#le-résultat-est-plus-bas-que-prévu">Le résultat est plus bas que prévu</a></li>
+        <li><a href="#le-résultat-est-cohérent-avec-la-moyenne-nationale-148-lpersjour">Le résultat est cohérent avec la moyenne nationale (148 L/pers/jour)</a></li>
+      </ul>
+    </li>
+    <li><a href="#tableau-votre-cas--ajustements">Tableau &ldquo;Votre cas → Ajustements&rdquo;</a></li>
+    <li><a href="#limites-de-cet-outil">Limites de cet outil</a>
+      <ul>
+        <li><a href="#ce-quil-ne-couvre-pas-précisément">Ce qu&rsquo;il ne couvre pas précisément</a></li>
+        <li><a href="#ce-quil-faut-compléter">Ce qu&rsquo;il faut compléter</a></li>
+      </ul>
+    </li>
+    <li><a href="#évolutions-prévues-du-calculateur">Évolutions prévues du calculateur</a></li>
+  </ul>
+</nav>
+
+
+
+    </div>
+  </aside>
+  
+ 
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

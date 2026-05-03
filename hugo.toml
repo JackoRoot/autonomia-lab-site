@@ -36,6 +36,11 @@ enableRobotsTXT = true
     weight = 1
 
   [[menu.after]]
+    name = "Outils du Lab"
+    url  = "/outils/"
+    weight = 1
+
+  [[menu.after]]
     name = "À propos"
     url  = "/a-propos/"
-    weight = 1
+    weight = 2

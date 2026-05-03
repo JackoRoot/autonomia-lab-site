@@ -13,12 +13,12 @@
     <p class="silo-description">{{ . }}</p>
     {{- end -}}
     {{- with .Content -}}<div class="silo-header-content">{{ . }}</div>{{- end -}}
-    {{- if .Pages -}}
+    {{- if and .Pages (not .Params.hideChildPages) -}}
     <p class="silo-count">{{ len .Pages }} dossier{{ if gt (len .Pages) 1 }}s{{ end }} technique{{ if gt (len .Pages) 1 }}s{{ end }}</p>
     {{- end -}}
   </div>
 
-  {{- if .Pages -}}
+  {{- if and .Pages (not .Params.hideChildPages) -}}
   <div class="silo-grid">
     {{- range .Pages.ByDate.Reverse -}}
     <article class="silo-card">

@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+<html lang="fr-FR" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1316&amp;path=livereload" data-no-instant defer></script>
+  <!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Sources, consommations réelles des équipements, production PV en îlotage et formules du calculateur blackout.">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#2e3440">
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="http://localhost:1316/outils/calculateur-blackout-residentiel/methodologie/">
+  <meta property="og:site_name" content="Autonomia Lab">
+  <meta property="og:title" content="Méthodologie : Calculateur autonomie blackout résidentiel">
+  <meta property="og:description" content="Sources, consommations réelles des équipements, production PV en îlotage et formules du calculateur blackout.">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="outils">
+    <meta property="article:published_time" content="2026-05-03T00:00:00+00:00">
+    <meta property="article:modified_time" content="2026-05-03T00:00:00+00:00">
+
+
+  <meta itemprop="name" content="Méthodologie : Calculateur autonomie blackout résidentiel">
+  <meta itemprop="description" content="Sources, consommations réelles des équipements, production PV en îlotage et formules du calculateur blackout.">
+  <meta itemprop="datePublished" content="2026-05-03T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2026-05-03T00:00:00+00:00">
+  <meta itemprop="wordCount" content="1302">
+
+<title>Méthodologie : Calculateur autonomie blackout résidentiel | Autonomia Lab</title>
+<link rel="icon" href="/favicon.png" >
+<link rel="manifest" href="/manifest.json">
+<link rel="canonical" href="http://localhost:1316/outils/calculateur-blackout-residentiel/methodologie/">
+<link rel="stylesheet" href="/book.min.453fb55be7ab107bba557e0692b7eaa0ede3596828379ae8d7662b3ba23a3000.css" integrity="sha256-RT&#43;1W&#43;erEHu6VX4GkrfqoO3jWWgoN5ro12YrO6I6MAA=" crossorigin="anonymous">
+
+
+  <script defer src="/fuse.min.js"></script>
+  <script defer src="/en.search.min.af9f1b87e69b1ca30528531a40afed9a010005cb64ece866400d5eccb301c893.js" integrity="sha256-r58bh&#43;abHKMFKFMaQK/tmgEABctk7OhmQA1ezLMByJM=" crossorigin="anonymous"></script>
+
+
+
+  
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#ffffff">
+<style>
+  :root { color-scheme: light !important; }
+  html, body { color-scheme: light !important; }
+</style>
+
+</head>
+<body dir="ltr" class="book-kind-page book-type-outils">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    
+<aside class="book-menu">
+  <div class="book-menu-content">
+    
+  <nav>
+<h2 class="book-brand">
+  <span class="flex align-center"><span>Autonomia Lab</span>
+  </span>
+</h2>
+
+
+<div class="book-search hidden">
+  <input id="book-search-input" type="text" 
+    placeholder="Search"
+    aria-label="Search"
+    maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+<script>document.querySelector(".book-search").classList.remove("hidden")</script>
+
+
+
+
+
+
+<ul><li><a href="/">Accueil</a></li></ul>
+
+
+
+
+
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <input type="checkbox" id="section-80a6eccb491e65aad6dae5f33ec481c5" class="toggle"  />
+    <label for="section-80a6eccb491e65aad6dae5f33ec481c5" class="flex">
+      <a role="button"
+         class="" data-silo="1">
+        Solaire &amp; Stockage</a>
+      <img src="/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo1_cerbo-gx-pylontech-cablage/" class="" data-silo="1">
+      Cerbo GX &amp; Pylontech</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo1_erreur-11-victron-multiplus-ii/" class="" data-silo="1">
+      Erreur 11 Victron</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo1_fusibles-dc-ou-disjoncteurs/" class="" data-silo="1">
+      Fusibles DC vs Disjoncteurs</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo1_mppt-victron-100-20-100-30/" class="" data-silo="1">
+      MPPT 100/20 vs 100/30</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo1_pvgis-off-grid-autonomie/" class="" data-silo="1">
+      PVGIS Off-Grid</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo1_ratio-dc-ac-onduleur/" class="" data-silo="1">
+      Ratio DC/AC onduleur</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo1_section-cable-batterie-48v/" class="" data-silo="1">
+      Section câble 48V</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <input type="checkbox" id="section-ff2b4a7940fbd23fb7c151ce892a38d0" class="toggle"  />
+    <label for="section-ff2b4a7940fbd23fb7c151ce892a38d0" class="flex">
+      <a role="button"
+         class="" data-silo="2">
+        Hydraulique</a>
+      <img src="/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo2_calcul-hmt-pompe-50m/" class="" data-silo="2">
+      Calcul HMT pompe 50m</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo2_calcul-traitement-uvc/" class="" data-silo="2">
+      Calcul UV-C 40 mJ/cm²</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo2_filtration-fer-manganese/" class="" data-silo="2">
+      Filtration fer/manganèse</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo2_potabilisation-forage/" class="" data-silo="2">
+      Potabilisation forage</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo2_rejet-osmose-inverse/" class="" data-silo="2">
+      Rejet osmose inverse</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <input type="checkbox" id="section-2ff767a3ea21b6cc828c74332a27d864" class="toggle"  />
+    <label for="section-2ff767a3ea21b6cc828c74332a27d864" class="flex">
+      <a role="button"
+         class="" data-silo="3">
+        Thermique</a>
+      <img src="/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo3_chauffe-eau-thermo-cop/" class="" data-silo="3">
+      Chauffe-eau thermodynamique</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo3_dimensionnement-pac-air-air/" class="" data-silo="3">
+      Dimensionnement PAC air-air</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo3_isolation-toiture-r7/" class="" data-silo="3">
+      Isolation toiture R=7</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo3_rendement-pac-grand-froid/" class="" data-silo="3">
+      PAC grand froid COP</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo3_pac-releve-fioul-schema/" class="" data-silo="3">
+      PAC relève fioul schéma</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <input type="checkbox" id="section-d3532d0f76fc0e770fa43359b2f066c6" class="toggle"  />
+    <label for="section-d3532d0f76fc0e770fa43359b2f066c6" class="flex">
+      <a role="button"
+         class="" data-silo="4">
+        Infrastructure</a>
+      <img src="/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo4_differentiel-type-b/" class="" data-silo="4">
+      Différentiel Type B</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo4_disjoncteur-courbe-d-vs-c/" class="" data-silo="4">
+      Disjoncteur D vs C</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo4_puissance-reactive-linky/" class="" data-silo="4">
+      Puissance réactive Linky</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo4_regime-neutre-tt-tn/" class="" data-silo="4">
+      Régime neutre TT/TN</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+<ul><li><a href="/outils/">Outils du Lab</a></li><li><a href="/a-propos/">À propos</a></li></ul>
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+
+  </div>
+</aside>
+ 
+
+    <div class="book-page">
+      <header class="book-header hidden">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/icons/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <h3>Méthodologie : Calculateur autonomie blackout résidentiel</h3>
+
+  <label for="toc-control">
+    
+    <img src="/icons/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#approche-du-calculateur">Approche du calculateur</a></li>
+    <li><a href="#données-de-référence--consommations-équipements">Données de référence — consommations équipements</a>
+      <ul>
+        <li><a href="#réfrigérateur">Réfrigérateur</a></li>
+        <li><a href="#congélateur-coffre">Congélateur coffre</a></li>
+        <li><a href="#box-internet--routeur">Box internet / routeur</a></li>
+        <li><a href="#éclairage-led-4-ampoules">Éclairage LED (×4 ampoules)</a></li>
+        <li><a href="#télévision-55-pouces-led">Télévision 55 pouces LED</a></li>
+        <li><a href="#ordinateur-portable">Ordinateur portable</a></li>
+        <li><a href="#chauffe-eau-électrique-200l">Chauffe-eau électrique 200L</a></li>
+        <li><a href="#micro-ondes">Micro-ondes</a></li>
+        <li><a href="#pompe-immergée-forage-075-kw">Pompe immergée forage (0,75 kW)</a></li>
+        <li><a href="#chargeurs-smartphoneslaptops-2">Chargeurs smartphones/laptops (×2)</a></li>
+      </ul>
+    </li>
+    <li><a href="#production-pv-en-mode-îlotage--pvgis-sarah3">Production PV en mode îlotage — PVGIS-SARAH3</a>
+      <ul>
+        <li><a href="#compatibilité-onduleur-hybride-en-îlotage">Compatibilité onduleur hybride en îlotage</a></li>
+        <li><a href="#productible-journalier-par-saison">Productible journalier par saison</a></li>
+        <li><a href="#rendement-onduleur-en-îlotage">Rendement onduleur en îlotage</a></li>
+      </ul>
+    </li>
+    <li><a href="#capacité-batterie--valeurs-réelles">Capacité batterie — valeurs réelles</a></li>
+    <li><a href="#formules-appliquées">Formules appliquées</a></li>
+    <li><a href="#contexte--durée-réelle-des-coupures-en-france">Contexte : durée réelle des coupures en France</a></li>
+    <li><a href="#ce-que-le-calculateur-ne-couvre-pas">Ce que le calculateur ne couvre pas</a>
+      <ul>
+        <li><a href="#courant-de-démarrage-des-moteurs">Courant de démarrage des moteurs</a></li>
+        <li><a href="#pac-air-eau">PAC air-eau</a></li>
+        <li><a href="#stockage-thermique">Stockage thermique</a></li>
+        <li><a href="#consommation-vampire-veille">Consommation vampire (veille)</a></li>
+      </ul>
+    </li>
+    <li><a href="#interpréter-les-résultats">Interpréter les résultats</a>
+      <ul>
+        <li><a href="#autonomie--6-heures">Autonomie &lt; 6 heures</a></li>
+        <li><a href="#autonomie-6-24-heures">Autonomie 6-24 heures</a></li>
+        <li><a href="#autonomie--3-jours">Autonomie &gt; 3 jours</a></li>
+        <li><a href="#autonomie-infinie-">Autonomie infinie (∞)</a></li>
+      </ul>
+    </li>
+    <li><a href="#évolutions-prévues">Évolutions prévues</a></li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+<article class="markdown book-article"><p>← <a href="http://localhost:1316/outils/calculateur-blackout-residentiel/">Calculateur blackout</a> · <a href="http://localhost:1316/outils/">Tous les outils</a></p>
+<h1 id="méthodologie-du-calculateur-autonomie-blackout-résidentiel">Méthodologie du calculateur autonomie blackout résidentiel<a class="anchor" href="#m%c3%a9thodologie-du-calculateur-autonomie-blackout-r%c3%a9sidentiel">#</a></h1><blockquote class='book-hint '>
+<p>Cette page détaille l&rsquo;origine de chaque chiffre utilisé par notre calculateur. L&rsquo;objectif : transparence totale pour vous permettre de vérifier, contester ou ajuster selon votre situation réelle.</p>
+</blockquote><h2 id="approche-du-calculateur">Approche du calculateur<a class="anchor" href="#approche-du-calculateur">#</a></h2><p>Le calculateur propose <strong>2 scénarios en parallèle</strong> :</p>
+<p><strong>Batterie seule</strong> : autonomie calculée uniquement sur la capacité de stockage. C&rsquo;est le pire cas — nuit complète, ciel couvert, pas de production solaire.</p>
+<p><strong>Batterie + solaire</strong> : autonomie calculée en tenant compte de la production photovoltaïque journalière selon la saison. Si la production dépasse la consommation, l&rsquo;autonomie devient théoriquement illimitée — la batterie sert alors de tampon nuit/nuageux.</p>
+<hr>
+<h2 id="données-de-référence--consommations-équipements">Données de référence — consommations équipements<a class="anchor" href="#donn%c3%a9es-de-r%c3%a9f%c3%a9rence--consommations-%c3%a9quipements">#</a></h2><h3 id="réfrigérateur">Réfrigérateur<a class="anchor" href="#r%c3%a9frig%c3%a9rateur">#</a></h3><ul>
+<li><strong>Puissance absorbée</strong> : 150 W (puissance moyenne de fonctionnement — cycle compresseur inclus)</li>
+<li><strong>Consommation annuelle classe A+</strong> : ~200 kWh/an soit ~23 W en moyenne continue</li>
+<li><strong>Note</strong> : La valeur de 150 W intègre les cycles de démarrage du compresseur. En mode économie d&rsquo;énergie blackout, réduire les ouvertures divise la consommation par 2.</li>
+</ul>
+<p><strong>Source</strong> : <a href="https://agirpourlatransition.ademe.fr/particuliers/maison/economiser-energie/appareils-electromenagers/consommation-energie-appareils-electromenagers">ADEME — Consommation des appareils électroménagers</a></p>
+<h3 id="congélateur-coffre">Congélateur coffre<a class="anchor" href="#cong%c3%a9lateur-coffre">#</a></h3><ul>
+<li><strong>Puissance absorbée</strong> : 120 W (puissance moyenne de fonctionnement)</li>
+<li><strong>Consommation annuelle classe A+</strong> : ~180 kWh/an</li>
+</ul>
+<p><strong>Source</strong> : ADEME 2024 — données appareils électroménagers</p>
+<h3 id="box-internet--routeur">Box internet / routeur<a class="anchor" href="#box-internet--routeur">#</a></h3><ul>
+<li><strong>Puissance absorbée</strong> : 20 W (fibres et ADSL confondus)</li>
+<li><strong>Données constructeurs</strong> : Orange Livebox 6 = 12-18 W, SFR Box 8 = 15-20 W, Freebox Pop = 18-22 W</li>
+</ul>
+<p><strong>Source</strong> : Fiches techniques constructeurs Orange, SFR, Free 2024</p>
+<h3 id="éclairage-led-4-ampoules">Éclairage LED (×4 ampoules)<a class="anchor" href="#%c3%a9clairage-led-4-ampoules">#</a></h3><ul>
+<li><strong>Puissance unitaire</strong> : 9 W par ampoule LED équivalent 60W incandescent</li>
+<li><strong>Total ×4</strong> : 36 W</li>
+<li><strong>Économie vs incandescent</strong> : −85% de consommation</li>
+</ul>
+<p><strong>Source</strong> : <a href="https://agirpourlatransition.ademe.fr/particuliers/maison/economiser-energie/eclairage">ADEME — Guide éclairage</a></p>
+<h3 id="télévision-55-pouces-led">Télévision 55 pouces LED<a class="anchor" href="#t%c3%a9l%c3%a9vision-55-pouces-led">#</a></h3><ul>
+<li><strong>Puissance absorbée</strong> : 100 W (LCD/LED 55 pouces standard)</li>
+<li><strong>OLED 55 pouces</strong> : 130-170 W en usage typique</li>
+<li><strong>Mode veille</strong> : &lt;0,5 W (non intégré au calcul)</li>
+</ul>
+<p><strong>Source</strong> : ADEME 2024 — mesures appareils audiovisuels</p>
+<h3 id="ordinateur-portable">Ordinateur portable<a class="anchor" href="#ordinateur-portable">#</a></h3><ul>
+<li><strong>Puissance absorbée</strong> : 65 W (chargeur 65W — usage intensif)</li>
+<li><strong>Usage bureautique léger</strong> : 30-45 W</li>
+<li><strong>Valeur retenue</strong> : 65 W (pire cas)</li>
+</ul>
+<p><strong>Source</strong> : Fiches techniques constructeurs (Dell, HP, Lenovo 2024)</p>
+<h3 id="chauffe-eau-électrique-200l">Chauffe-eau électrique 200L<a class="anchor" href="#chauffe-eau-%c3%a9lectrique-200l">#</a></h3><ul>
+<li><strong>Puissance de la résistance</strong> : 2 000 W</li>
+<li><strong>Durée de chauffe</strong> : 2-4 heures pour remonter de 15°C à 60°C (200L)</li>
+<li><strong>Énergie totale</strong> : ~4-8 kWh par cycle complet</li>
+</ul>
+<blockquote class='book-hint '>
+<p><strong>Note blackout</strong> : Le chauffe-eau représente souvent le poste le plus gourmand. En mode blackout, programmer un cycle court en milieu de journée solaire (production PV maximale) et réduire la consigne à 50°C réduit significativement l&rsquo;impact sur la batterie.</p>
+</blockquote><p><strong>Source</strong> : ADEME 2024 — eau chaude sanitaire</p>
+<h3 id="micro-ondes">Micro-ondes<a class="anchor" href="#micro-ondes">#</a></h3><ul>
+<li><strong>Puissance absorbée</strong> : 900 W (puissance nominale micro-ondes 900W standard)</li>
+<li><strong>Usage typique</strong> : 3-5 minutes par utilisation soit 45-75 Wh par usage</li>
+</ul>
+<p><strong>Source</strong> : Fiches techniques marché (Samsung, Whirlpool, LG 2024)</p>
+<h3 id="pompe-immergée-forage-075-kw">Pompe immergée forage (0,75 kW)<a class="anchor" href="#pompe-immerg%c3%a9e-forage-075-kw">#</a></h3><ul>
+<li><strong>Puissance absorbée</strong> : 750 W</li>
+<li><strong>Courant de démarrage</strong> : 2-3× la puissance nominale pendant 1-3 secondes</li>
+<li><strong>Compatibilité onduleur</strong> : vérifier que l&rsquo;onduleur supporte le courant de démarrage (Victron Multiplus II : compatible ; vérifier pour les autres marques)</li>
+</ul>
+<p><strong>Source</strong> : Fiches techniques Grundfos, DAB, Wilo 2024</p>
+<h3 id="chargeurs-smartphoneslaptops-2">Chargeurs smartphones/laptops (×2)<a class="anchor" href="#chargeurs-smartphoneslaptops-2">#</a></h3><ul>
+<li><strong>Puissance totale</strong> : 30 W (2 × 15 W en charge active)</li>
+<li><strong>Charge complète smartphone</strong> : ~10 Wh (batterie 3 000 mAh)</li>
+</ul>
+<p><strong>Source</strong> : Mesures terrain (chargeurs USB-C standard 2024)</p>
+<hr>
+<h2 id="production-pv-en-mode-îlotage--pvgis-sarah3">Production PV en mode îlotage — PVGIS-SARAH3<a class="anchor" href="#production-pv-en-mode-%c3%aelotage--pvgis-sarah3">#</a></h2><h3 id="compatibilité-onduleur-hybride-en-îlotage">Compatibilité onduleur hybride en îlotage<a class="anchor" href="#compatibilit%c3%a9-onduleur-hybride-en-%c3%aelotage">#</a></h3><blockquote class='book-hint '>
+<p><strong>Point critique</strong> : tous les onduleurs ne fonctionnent pas en mode îlotage (hors réseau). Vérifiez la compatibilité de votre modèle :</p>
+<ul>
+<li><strong>Victron Multiplus II</strong> : îlotage natif ✅</li>
+<li><strong>Deye hybride</strong> : îlotage natif ✅</li>
+<li><strong>Huawei SUN2000</strong> : îlotage sur modèles récents ✅</li>
+<li><strong>SMA Sunny Boy</strong> : nécessite module Secure Power Supply ⚠️</li>
+<li><strong>Onduleurs réseau simples</strong> : incompatibles — s&rsquo;éteignent à la coupure réseau ❌</li>
+</ul>
+</blockquote><h3 id="productible-journalier-par-saison">Productible journalier par saison<a class="anchor" href="#productible-journalier-par-saison">#</a></h3><p>Les valeurs sont issues des simulations PVGIS-SARAH3 pour Lyon (zone H2 — représentative du Centre-France), paramètres : c-Si, 35° inclinaison, plein Sud, pertes 14%.</p>
+<table>
+  <thead>
+      <tr>
+          <th>Saison</th>
+          <th>Productible journalier</th>
+          <th>Détail</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Hiver (décembre-février)</td>
+          <td>1,7 kWh/kWc/jour</td>
+          <td>PVGIS Lyon décembre réel (1,68 kWh/kWc/j)</td>
+      </tr>
+      <tr>
+          <td>Printemps/Automne (mars-mai, sept-nov)</td>
+          <td>4,1 kWh/kWc/jour</td>
+          <td>Moyenne mars-avril PVGIS Lyon</td>
+      </tr>
+      <tr>
+          <td>Été (juin-août)</td>
+          <td>4,7 kWh/kWc/jour</td>
+          <td>Moyenne juin-juillet PVGIS Lyon</td>
+      </tr>
+  </tbody>
+</table>
+<blockquote class='book-hint '>
+<p><strong>Variabilité</strong> : Ces valeurs sont des moyennes. Un jour nuageux en hiver peut descendre à 0,5 kWh/kWc/jour. L&rsquo;autonomie en cas de blackout hiver nuageux est donc comparable au scénario &ldquo;batterie seule&rdquo;.</p>
+</blockquote><p><strong>Source</strong> : <a href="https://re.jrc.ec.europa.eu/pvg_tools/fr/">PVGIS-SARAH3 — JRC, Commission Européenne</a></p>
+<h3 id="rendement-onduleur-en-îlotage">Rendement onduleur en îlotage<a class="anchor" href="#rendement-onduleur-en-%c3%aelotage">#</a></h3><table>
+  <thead>
+      <tr>
+          <th>Modèle / Type</th>
+          <th>Rendement</th>
+          <th>Source</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Onduleur standard</td>
+          <td>85%</td>
+          <td>Moyenne marché</td>
+      </tr>
+      <tr>
+          <td>Onduleur hybride récent</td>
+          <td>92%</td>
+          <td>Fiche technique Deye, Huawei 2024</td>
+      </tr>
+      <tr>
+          <td>Victron Multiplus II</td>
+          <td>97%</td>
+          <td>Datasheet Victron Energy</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<h2 id="capacité-batterie--valeurs-réelles">Capacité batterie — valeurs réelles<a class="anchor" href="#capacit%c3%a9-batterie--valeurs-r%c3%a9elles">#</a></h2><table>
+  <thead>
+      <tr>
+          <th>Modèle</th>
+          <th>Capacité nominale</th>
+          <th>Capacité utilisable (DoD 80%)</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Pylontech US5000 (×1)</td>
+          <td>4,8 kWh</td>
+          <td>3,84 kWh</td>
+      </tr>
+      <tr>
+          <td>Pylontech US5000 (×2)</td>
+          <td>9,6 kWh</td>
+          <td>7,68 kWh</td>
+      </tr>
+      <tr>
+          <td>BYD Battery-Box HVS 10.2</td>
+          <td>10,2 kWh</td>
+          <td>8,16 kWh</td>
+      </tr>
+      <tr>
+          <td>BYD Battery-Box HVS 20.4</td>
+          <td>20,4 kWh</td>
+          <td>16,32 kWh</td>
+      </tr>
+  </tbody>
+</table>
+<blockquote class='book-hint '>
+<p>Le calculateur utilise une DoD de 80% — conforme aux recommandations constructeurs pour préserver la durée de vie des cellules LFP. Voir notre <a href="http://localhost:1316/outils/calculateur-batterie-lfp/">calculateur durée de vie batterie LFP</a> pour le détail.</p>
+</blockquote><p><strong>Sources</strong> : <a href="https://en.pylontech.com.cn/products/us5000">Pylontech — US5000 datasheet</a> · <a href="https://www.bydbatterybox.com">BYD Battery-Box — warranty letter</a></p>
+<hr>
+<h2 id="formules-appliquées">Formules appliquées<a class="anchor" href="#formules-appliqu%c3%a9es">#</a></h2><pre tabindex="0"><code>Consommation_totale_W = Σ(Watts_équipements_actifs)
+
+Consommation_24h_kWh = Consommation_totale_W × 24 / 1000
+
+Production_PV_24h_kWh = kWc_installés
+                        × Productible_journalier_saison
+                        × Rendement_onduleur
+
+Conso_nette_24h = MAX(0, Consommation_24h_kWh - Production_PV_24h_kWh)
+
+Capacité_utilisable = Capacité_batterie_kWh × 0,80
+
+Autonomie_sans_solaire (h) = Capacité_utilisable / (Consommation_totale_W / 1000)
+
+Si Conso_nette_24h &gt; 0 :
+  Autonomie_avec_solaire (h) = Capacité_utilisable / (Conso_nette_24h / 24)
+Sinon :
+  Autonomie_avec_solaire = ∞ (production ≥ consommation)</code></pre><hr>
+<h2 id="contexte--durée-réelle-des-coupures-en-france">Contexte : durée réelle des coupures en France<a class="anchor" href="#contexte--dur%c3%a9e-r%c3%a9elle-des-coupures-en-france">#</a></h2><p>Pour relativiser les résultats :</p>
+<table>
+  <thead>
+      <tr>
+          <th>Indicateur</th>
+          <th>Valeur</th>
+          <th>Source</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Durée médiane de coupure</td>
+          <td>52 minutes</td>
+          <td>RTE — bilan électrique 2024</td>
+      </tr>
+      <tr>
+          <td>Durée moyenne de coupure</td>
+          <td>1h45</td>
+          <td>RTE — bilan électrique 2024</td>
+      </tr>
+      <tr>
+          <td>Coupures &gt; 3h</td>
+          <td>&lt;5% des incidents</td>
+          <td>RTE 2024</td>
+      </tr>
+      <tr>
+          <td>Coupures &gt; 24h (hors tempête)</td>
+          <td>Exceptionnelles</td>
+          <td>RTE 2024</td>
+      </tr>
+  </tbody>
+</table>
+<blockquote class='book-hint '>
+<p>La grande majorité des coupures réseau en France durent moins de 2 heures. Une batterie de 5 kWh avec les équipements essentiels (frigo, éclairage, box) couvre statistiquement 99% des incidents réseau.</p>
+</blockquote><hr>
+<h2 id="ce-que-le-calculateur-ne-couvre-pas">Ce que le calculateur ne couvre pas<a class="anchor" href="#ce-que-le-calculateur-ne-couvre-pas">#</a></h2><h3 id="courant-de-démarrage-des-moteurs">Courant de démarrage des moteurs<a class="anchor" href="#courant-de-d%c3%a9marrage-des-moteurs">#</a></h3><p>Les équipements à moteur (pompe, compresseur frigo, PAC) consomment 2 à 5× leur puissance nominale pendant 1-3 secondes au démarrage. L&rsquo;onduleur doit être dimensionné pour absorber ces pics. Le calculateur utilise les puissances nominales (usage continu).</p>
+<h3 id="pac-air-eau">PAC air-eau<a class="anchor" href="#pac-air-eau">#</a></h3><p>La puissance absorbée d&rsquo;une PAC air-eau varie fortement avec la température extérieure (COP variable). À −5°C, une PAC de 10 kW thermique peut absorber 4-5 kW électrique. La PAC peut également refuser de démarrer sous certains onduleurs (fréquence instable). <strong>Consultez votre installateur avant de compter sur la PAC en blackout.</strong></p>
+<h3 id="stockage-thermique">Stockage thermique<a class="anchor" href="#stockage-thermique">#</a></h3><p>Un chauffe-eau bien isolé maintient la température 24-48h sans chauffe. Un congélateur plein tient 48h sans électricité. Ces &ldquo;réservoirs thermiques&rdquo; ne sont pas modélisés dans le calculateur.</p>
+<h3 id="consommation-vampire-veille">Consommation vampire (veille)<a class="anchor" href="#consommation-vampire-veille">#</a></h3><p>Les box TV, consoles, chargeurs en veille consomment 0,5 à 5 W chacun en permanence. Non intégrés au calcul par défaut — à ajouter via le curseur &ldquo;appareil custom&rdquo;.</p>
+<hr>
+<h2 id="interpréter-les-résultats">Interpréter les résultats<a class="anchor" href="#interpr%c3%a9ter-les-r%c3%a9sultats">#</a></h2><h3 id="autonomie--6-heures">Autonomie &lt; 6 heures<a class="anchor" href="#autonomie--6-heures">#</a></h3><p>Configuration insuffisante pour une coupure sérieuse. Identifier les équipements les plus consommateurs (chauffe-eau, micro-ondes) et les couper en blackout.</p>
+<h3 id="autonomie-6-24-heures">Autonomie 6-24 heures<a class="anchor" href="#autonomie-6-24-heures">#</a></h3><p>Couvre la quasi-totalité des incidents réseau en France. Suffisant pour la majorité des situations résidentielles.</p>
+<h3 id="autonomie--3-jours">Autonomie &gt; 3 jours<a class="anchor" href="#autonomie--3-jours">#</a></h3><p>Excellente configuration. Couvre les incidents graves (tempête, panne de grande ampleur). La production solaire en été peut assurer une autonomie illimitée.</p>
+<h3 id="autonomie-infinie-">Autonomie infinie (∞)<a class="anchor" href="#autonomie-infinie-">#</a></h3><p>La production solaire journalière dépasse la consommation. La batterie couvre les périodes nocturnes et les jours nuageux. Configuration autonome complète en été.</p>
+<hr>
+<h2 id="évolutions-prévues">Évolutions prévues<a class="anchor" href="#%c3%a9volutions-pr%c3%a9vues">#</a></h2><ul>
+<li>Module courant de démarrage moteurs (pic vs nominal)</li>
+<li>Simulation PAC air-eau avec COP variable selon température extérieure</li>
+<li>Module stockage thermique (inertie frigo/congélateur)</li>
+<li>Carte régionale France (productible PVGIS par département)</li>
+<li>Scénario tempête (3 jours nuageux consécutifs en hiver)</li>
+</ul>
+<p>Si vous avez des suggestions, contactez-nous via le formulaire du Lab.</p>
+<hr>
+<p><strong>Dernière mise à jour</strong> : Mai 2026
+<strong>Sources principales</strong> : ADEME (consommation appareils électroménagers 2024), PVGIS-SARAH3 JRC (production PV saisonnière), Pylontech US5000 datasheet, BYD Battery-Box warranty, Victron Multiplus II datasheet, RTE bilan électrique 2024</p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+<div>
+
+</div>
+
+<div>
+
+</div>
+
+</div>
+
+
+
+
+
+  
+  
+  
+
+
+ 
+        
+  
+ 
+        
+        
+  
+ 
+        
+  
+  
+    <script>(function(){document.querySelectorAll("pre:has(code)").forEach(e=>{e.addEventListener("click",e.focus),e.addEventListener("copy",function(t){if(t.preventDefault(),navigator.clipboard){const t=window.getSelection().toString()||e.textContent;navigator.clipboard.writeText(t)}})})})()</script>
+  
+
+      </footer>
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+  
+  <aside class="book-toc">
+    <div class="book-toc-content">
+      
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#approche-du-calculateur">Approche du calculateur</a></li>
+    <li><a href="#données-de-référence--consommations-équipements">Données de référence — consommations équipements</a>
+      <ul>
+        <li><a href="#réfrigérateur">Réfrigérateur</a></li>
+        <li><a href="#congélateur-coffre">Congélateur coffre</a></li>
+        <li><a href="#box-internet--routeur">Box internet / routeur</a></li>
+        <li><a href="#éclairage-led-4-ampoules">Éclairage LED (×4 ampoules)</a></li>
+        <li><a href="#télévision-55-pouces-led">Télévision 55 pouces LED</a></li>
+        <li><a href="#ordinateur-portable">Ordinateur portable</a></li>
+        <li><a href="#chauffe-eau-électrique-200l">Chauffe-eau électrique 200L</a></li>
+        <li><a href="#micro-ondes">Micro-ondes</a></li>
+        <li><a href="#pompe-immergée-forage-075-kw">Pompe immergée forage (0,75 kW)</a></li>
+        <li><a href="#chargeurs-smartphoneslaptops-2">Chargeurs smartphones/laptops (×2)</a></li>
+      </ul>
+    </li>
+    <li><a href="#production-pv-en-mode-îlotage--pvgis-sarah3">Production PV en mode îlotage — PVGIS-SARAH3</a>
+      <ul>
+        <li><a href="#compatibilité-onduleur-hybride-en-îlotage">Compatibilité onduleur hybride en îlotage</a></li>
+        <li><a href="#productible-journalier-par-saison">Productible journalier par saison</a></li>
+        <li><a href="#rendement-onduleur-en-îlotage">Rendement onduleur en îlotage</a></li>
+      </ul>
+    </li>
+    <li><a href="#capacité-batterie--valeurs-réelles">Capacité batterie — valeurs réelles</a></li>
+    <li><a href="#formules-appliquées">Formules appliquées</a></li>
+    <li><a href="#contexte--durée-réelle-des-coupures-en-france">Contexte : durée réelle des coupures en France</a></li>
+    <li><a href="#ce-que-le-calculateur-ne-couvre-pas">Ce que le calculateur ne couvre pas</a>
+      <ul>
+        <li><a href="#courant-de-démarrage-des-moteurs">Courant de démarrage des moteurs</a></li>
+        <li><a href="#pac-air-eau">PAC air-eau</a></li>
+        <li><a href="#stockage-thermique">Stockage thermique</a></li>
+        <li><a href="#consommation-vampire-veille">Consommation vampire (veille)</a></li>
+      </ul>
+    </li>
+    <li><a href="#interpréter-les-résultats">Interpréter les résultats</a>
+      <ul>
+        <li><a href="#autonomie--6-heures">Autonomie &lt; 6 heures</a></li>
+        <li><a href="#autonomie-6-24-heures">Autonomie 6-24 heures</a></li>
+        <li><a href="#autonomie--3-jours">Autonomie &gt; 3 jours</a></li>
+        <li><a href="#autonomie-infinie-">Autonomie infinie (∞)</a></li>
+      </ul>
+    </li>
+    <li><a href="#évolutions-prévues">Évolutions prévues</a></li>
+  </ul>
+</nav>
+
+
+
+    </div>
+  </aside>
+  
+ 
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

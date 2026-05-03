@@ -1,0 +1,858 @@
+{{/*
+  Calculateur durée de vie batterie LFP — v3
+  2 scénarios : Constructeur (datasheet) vs Réaliste (terrain)
+  Sources : Pylontech, BYD, Clean Energy Reviews, étude Preger 2020
+  Usage: {{< calc-lfp >}}
+*/}}
+
+<div class="lab-calc lab-calc-lfp">
+
+  <style>
+    .lab-calc {
+      --c-accent: #F59E0B;
+      --c-bg: #FFFFFF;
+      --c-bg-alt: #FAFAF9;
+      --c-bg-result: #1F2937;
+      --c-border: #E5E5E5;
+      --c-text: #1F2937;
+      --c-text-muted: #6B7280;
+      --c-warning: #DC2626;
+      --c-info: #2563EB;
+      --c-success: #059669;
+
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      max-width: 480px;
+      width: 100%;
+      box-sizing: border-box;
+      margin: 1.5rem auto;
+      padding: 1.25rem;
+      background: var(--c-bg);
+      border: 1px solid var(--c-border);
+      border-radius: 10px;
+      color: var(--c-text);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    }
+
+    .lab-calc-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 1rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 2px solid var(--c-accent);
+    }
+
+    .lab-calc-header h3 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.05rem;
+      margin: 0;
+      font-weight: 600;
+    }
+
+    .lab-calc-header .badge {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--c-accent);
+      font-weight: 600;
+    }
+
+    /* Scenario explainer box */
+    .lab-calc-scenario-box {
+      background: var(--c-bg-alt);
+      border: 1px solid var(--c-border);
+      border-radius: 6px;
+      padding: 0.7rem 0.85rem;
+      margin-bottom: 0.85rem;
+      font-size: 0.75rem;
+      line-height: 1.5;
+      color: var(--c-text-muted);
+    }
+
+    .lab-calc-scenario-box strong {
+      color: var(--c-text);
+    }
+
+    .lab-calc-scenario-box .sb-icon {
+      color: var(--c-accent);
+      font-weight: 700;
+    }
+
+    /* Toggle mode capacité */
+    .lab-calc-toggle {
+      display: flex;
+      gap: 0;
+      margin-bottom: 0.75rem;
+      background: var(--c-bg-alt);
+      border-radius: 6px;
+      padding: 2px;
+    }
+
+    .lab-calc-toggle button {
+      flex: 1;
+      padding: 0.4rem 0.5rem;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--c-text-muted);
+      border-radius: 4px;
+      transition: all 0.15s;
+    }
+
+    .lab-calc-toggle button.active {
+      background: var(--c-bg);
+      color: var(--c-text);
+      box-shadow: 0 1px 2px rgba(0,0,0,0.08);
+    }
+
+    /* Fields */
+    .lab-calc-row {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.75rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .lab-calc-row.cols-2 {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .lab-calc-field label {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      font-size: 0.75rem;
+      color: var(--c-text-muted);
+      font-weight: 500;
+      margin-bottom: 0.25rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+
+    .lab-calc-field label .val {
+      font-size: 0.85rem;
+      color: var(--c-accent);
+      font-weight: 700;
+      font-variant-numeric: tabular-nums;
+      text-transform: none;
+      letter-spacing: 0;
+    }
+
+    .lab-calc-field input[type="number"],
+    .lab-calc-field select {
+      width: 100%;
+      padding: 0.5rem 0.6rem;
+      border: 1px solid var(--c-border);
+      border-radius: 5px;
+      font-size: 0.9rem;
+      font-family: inherit;
+      background: var(--c-bg);
+      box-sizing: border-box;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .lab-calc-field input[type="number"]:focus,
+    .lab-calc-field select:focus {
+      outline: none;
+      border-color: var(--c-accent);
+    }
+
+    .lab-calc-field input[type="range"] {
+      width: 100%;
+      -webkit-appearance: none;
+      appearance: none;
+      height: 3px;
+      background: var(--c-border);
+      border-radius: 2px;
+      outline: none;
+      margin-top: 0.5rem;
+    }
+
+    .lab-calc-field input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 16px;
+      height: 16px;
+      background: var(--c-accent);
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+    .lab-calc-field input[type="range"]::-moz-range-thumb {
+      width: 16px;
+      height: 16px;
+      background: var(--c-accent);
+      border-radius: 50%;
+      cursor: pointer;
+      border: none;
+    }
+
+    .lab-calc-help {
+      font-size: 0.7rem;
+      color: var(--c-text-muted);
+      margin-top: 0.2rem;
+      font-style: italic;
+    }
+
+    /* Résultats DOUBLES (constructeur + réaliste côte à côte) */
+    .lab-calc-results-dual {
+      margin-top: 1rem;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 0.5rem;
+    }
+
+    .lab-calc-result-card {
+      padding: 0.85rem 0.85rem;
+      border-radius: 8px;
+      position: relative;
+      box-sizing: border-box;
+      min-width: 0;
+    }
+
+    .lab-calc-result-card.constructor {
+      background: var(--c-bg-alt);
+      border: 2px solid var(--c-border);
+      color: var(--c-text);
+    }
+
+    .lab-calc-result-card.realistic {
+      background: var(--c-bg-result);
+      color: white;
+      border: 2px solid var(--c-accent);
+    }
+
+    .lab-calc-result-card .scenario-label {
+      font-size: 0.6rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 700;
+      margin-bottom: 0.35rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .lab-calc-result-card.constructor .scenario-label {
+      color: var(--c-text-muted);
+    }
+
+    .lab-calc-result-card.realistic .scenario-label {
+      color: var(--c-accent);
+    }
+
+    .lab-calc-result-card .scenario-tag {
+      font-size: 0.55rem;
+      padding: 0.1rem 0.35rem;
+      border-radius: 3px;
+      font-weight: 600;
+    }
+
+    .lab-calc-result-card.constructor .scenario-tag {
+      background: rgba(0,0,0,0.05);
+      color: var(--c-text-muted);
+    }
+
+    .lab-calc-result-card.realistic .scenario-tag {
+      background: var(--c-accent);
+      color: var(--c-bg-result);
+    }
+
+    .lab-calc-result-card .num {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      line-height: 1;
+      font-variant-numeric: tabular-nums;
+      margin-bottom: 0.15rem;
+    }
+
+    .lab-calc-result-card.constructor .num {
+      color: var(--c-text);
+    }
+
+    .lab-calc-result-card.realistic .num {
+      color: var(--c-accent);
+    }
+
+    .lab-calc-result-card .num .unit {
+      font-size: 0.7rem;
+      font-weight: 400;
+      margin-left: 0.15rem;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .lab-calc-result-card.constructor .num .unit {
+      color: var(--c-text-muted);
+    }
+
+    .lab-calc-result-card.realistic .num .unit {
+      color: rgba(255,255,255,0.7);
+    }
+
+    .lab-calc-result-card .sub {
+      font-size: 0.65rem;
+      margin-top: 0.3rem;
+      line-height: 1.4;
+    }
+
+    .lab-calc-result-card.constructor .sub {
+      color: var(--c-text-muted);
+    }
+
+    .lab-calc-result-card.realistic .sub {
+      color: rgba(255,255,255,0.75);
+    }
+
+    .lab-calc-result-card .cost {
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-top: 0.25rem;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .lab-calc-result-card.constructor .cost {
+      color: var(--c-text);
+    }
+
+    .lab-calc-result-card.realistic .cost {
+      color: white;
+    }
+
+    /* Écart entre les deux */
+    .lab-calc-gap {
+      background: rgba(245,158,11,0.1);
+      border-left: 3px solid var(--c-accent);
+      padding: 0.5rem 0.75rem;
+      margin-top: 0.5rem;
+      font-size: 0.75rem;
+      color: var(--c-text);
+      border-radius: 0 5px 5px 0;
+      line-height: 1.4;
+    }
+
+    .lab-calc-gap strong {
+      color: var(--c-accent);
+    }
+
+    /* Warnings */
+    .lab-calc-warning {
+      background: #FEF2F2;
+      border-left: 3px solid var(--c-warning);
+      padding: 0.55rem 0.75rem;
+      margin-top: 0.5rem;
+      font-size: 0.75rem;
+      color: var(--c-warning);
+      border-radius: 0 4px 4px 0;
+    }
+
+    /* Boutons */
+    .lab-calc-actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.5rem;
+      margin-top: 0.85rem;
+    }
+
+    .lab-calc-btn {
+      padding: 0.5rem;
+      background: var(--c-bg-alt);
+      color: var(--c-text);
+      border: 1px solid var(--c-border);
+      border-radius: 5px;
+      font-family: inherit;
+      font-size: 0.75rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.15s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.3rem;
+    }
+
+    .lab-calc-btn:hover {
+      background: white;
+      border-color: var(--c-accent);
+      color: var(--c-accent);
+    }
+
+    .lab-calc-btn.copied {
+      background: var(--c-accent);
+      color: white;
+      border-color: var(--c-accent);
+    }
+
+    /* Détails */
+    .lab-calc-details {
+      margin-top: 0.85rem;
+    }
+
+    .lab-calc-details summary {
+      cursor: pointer;
+      font-size: 0.75rem;
+      color: var(--c-text-muted);
+      padding: 0.4rem 0;
+      user-select: none;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .lab-calc-details summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .lab-calc-details summary::before {
+      content: "▸";
+      font-size: 0.7rem;
+      transition: transform 0.15s;
+    }
+
+    .lab-calc-details[open] summary::before {
+      transform: rotate(90deg);
+    }
+
+    .lab-calc-details summary:hover {
+      color: var(--c-accent);
+    }
+
+    .lab-calc-formula {
+      background: var(--c-bg-alt);
+      padding: 0.7rem;
+      border-radius: 5px;
+      font-family: 'SF Mono', Monaco, monospace;
+      font-size: 0.7rem;
+      line-height: 1.6;
+      color: var(--c-text);
+      margin: 0.5rem 0;
+      overflow-x: auto;
+    }
+
+    .lab-calc-formula .var {
+      color: var(--c-accent);
+      font-weight: 600;
+    }
+
+    .lab-calc-sources {
+      font-size: 0.7rem;
+      color: var(--c-text-muted);
+      line-height: 1.5;
+      padding-left: 1rem;
+      margin: 0.3rem 0;
+    }
+
+    .lab-calc-sources li {
+      margin-bottom: 0.3rem;
+    }
+
+    .lab-calc-sources a {
+      color: var(--c-accent);
+      text-decoration: none;
+    }
+
+    .lab-calc-sources a:hover {
+      text-decoration: underline;
+    }
+
+    .lab-calc-method-link {
+      display: block;
+      text-align: center;
+      margin-top: 0.75rem;
+      padding: 0.55rem;
+      font-size: 0.75rem;
+      color: var(--c-accent);
+      text-decoration: none;
+      border: 1px dashed var(--c-accent);
+      border-radius: 5px;
+      transition: all 0.15s;
+    }
+
+    .lab-calc-method-link:hover {
+      background: var(--c-accent);
+      color: white;
+    }
+
+    .lab-calc-disclaimer {
+      font-size: 0.65rem;
+      color: var(--c-text-muted);
+      margin-top: 0.7rem;
+      padding-top: 0.5rem;
+      border-top: 1px solid var(--c-border);
+      font-style: italic;
+      line-height: 1.5;
+    }
+
+    /* Mobile — cartes résultats côte à côte trop larges */
+    @media screen and (max-width: 440px) {
+      .lab-calc {
+        padding: 0.9rem 0.75rem;
+        margin: 1.5rem auto;
+      }
+      .lab-calc-results-dual {
+        gap: 0.25rem;
+        align-items: stretch;
+      }
+      .lab-calc-result-card {
+        padding: 0.6rem 0.5rem;
+      }
+      .lab-calc-result-card .num {
+        font-size: 1.45rem;
+      }
+    }
+  </style>
+
+  <div class="lab-calc-header">
+    <h3>Durée de vie batterie LFP</h3>
+    <span class="badge">2 scénarios</span>
+  </div>
+
+  <!-- Explainer scénarios -->
+  <div class="lab-calc-scenario-box">
+    <span class="sb-icon">⚡</span> <strong>Cet outil affiche 2 scénarios en parallèle :</strong> les chiffres <strong>constructeur</strong> (conditions idéales 25°C, charge lente) et les chiffres <strong>réalistes terrain</strong> (résidentiel classique). L'écart entre les deux est documenté par les études et retours utilisateurs. Votre cas réel sera entre les deux.
+  </div>
+
+  <!-- Toggle mode capacité -->
+  <div class="lab-calc-toggle">
+    <button type="button" class="active" data-mode="kwh">kWh</button>
+    <button type="button" data-mode="ahv">Ah × V</button>
+  </div>
+
+  <!-- Mode kWh -->
+  <div class="lab-calc-mode-kwh">
+    <div class="lab-calc-field">
+      <label>Capacité <span class="val"><span class="cap-kwh-display">5.0</span> kWh</span></label>
+      <input type="number" id="cap-kwh" value="5" min="0.5" max="100" step="0.5">
+    </div>
+  </div>
+
+  <!-- Mode Ah×V -->
+  <div class="lab-calc-mode-ahv" style="display:none;">
+    <div class="lab-calc-row cols-2">
+      <div class="lab-calc-field">
+        <label>Capacité <span class="val">Ah</span></label>
+        <input type="number" id="cap-ah" value="100" min="10" max="2000" step="10">
+      </div>
+      <div class="lab-calc-field">
+        <label>Tension <span class="val">V</span></label>
+        <select id="cap-v">
+          <option value="24">24 V</option>
+          <option value="48" selected>48 V</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <!-- DoD -->
+  <div class="lab-calc-field">
+    <label>Profondeur de décharge (DoD) <span class="val"><span class="dod-display">80</span> %</span></label>
+    <input type="range" id="dod" value="80" min="30" max="95" step="5">
+    <span class="lab-calc-help">⚠️ DoD &gt; 90% accélère fortement la dégradation (étude Clean Energy Reviews)</span>
+  </div>
+
+  <!-- Cycles/an -->
+  <div class="lab-calc-field">
+    <label>Cycles par an <span class="val"><span class="cycles-year-display">365</span></span></label>
+    <input type="range" id="cycles-year" value="365" min="50" max="730" step="5">
+    <span class="lab-calc-help">Backup ~75 · Quotidien ~365 · Intensif ~500-700</span>
+  </div>
+
+  <!-- Prix -->
+  <div class="lab-calc-field">
+    <label>Prix payé <span class="val"><span class="price-display">3 500</span> €</span></label>
+    <input type="number" id="price" value="3500" min="100" max="100000" step="50">
+    <span class="lab-calc-help">Repère 2026 : ~600-800 €/kWh installé pour LFP qualité</span>
+  </div>
+
+  <!-- Résultats DOUBLES -->
+  <div class="lab-calc-results-dual">
+    <!-- Constructeur -->
+    <div class="lab-calc-result-card constructor">
+      <div class="scenario-label">
+        <span>Constructeur</span>
+        <span class="scenario-tag">datasheet</span>
+      </div>
+      <div class="num"><span id="result-c-years">15.0</span><span class="unit">ans</span></div>
+      <div class="cost"><span id="result-c-cost">0.064</span> €/kWh</div>
+      <div class="sub">
+        <span id="result-c-cycles">5 475</span> cycles<br>
+        <span id="result-c-energy">21 900</span> kWh stockés
+      </div>
+    </div>
+
+    <!-- Réaliste -->
+    <div class="lab-calc-result-card realistic">
+      <div class="scenario-label">
+        <span>Réaliste terrain</span>
+        <span class="scenario-tag">recommandé</span>
+      </div>
+      <div class="num"><span id="result-r-years">11.0</span><span class="unit">ans</span></div>
+      <div class="cost"><span id="result-r-cost">0.087</span> €/kWh</div>
+      <div class="sub">
+        <span id="result-r-cycles">4 015</span> cycles<br>
+        <span id="result-r-energy">16 060</span> kWh stockés
+      </div>
+    </div>
+  </div>
+
+  <!-- Écart -->
+  <div class="lab-calc-gap">
+    <strong>Écart constructeur → réalité :</strong> environ <strong>-27%</strong> sur la durée de vie et <strong>+36%</strong> sur le coût/kWh stocké. Documenté par étude Preger 2020 et Clean Energy Reviews.
+  </div>
+
+  <!-- Warning calendaire -->
+  <div id="warning-calendar" class="lab-calc-warning" style="display:none;">
+    <strong>Plafond calendaire atteint :</strong> au-delà de 15-18 ans, une LFP vieillit même sans usage (oxydation chimique).
+  </div>
+
+  <!-- Boutons -->
+  <div class="lab-calc-actions">
+    <button class="lab-calc-btn" id="btn-share" type="button">
+      <span>📋</span><span class="btn-label">Copier le lien</span>
+    </button>
+    <button class="lab-calc-btn" id="btn-reset" type="button">
+      <span>↺</span><span>Réinitialiser</span>
+    </button>
+  </div>
+
+  <!-- Détails dépliables -->
+  <details class="lab-calc-details">
+    <summary>Calculs et sources</summary>
+
+    <div class="lab-calc-formula">
+<span class="var">Cycles à DoD (Constructeur)</span> : 30%→15000 · 50%→10000 · 70%→7500 · 80%→6000 · 90%→4500 · 95%→4000
+<span class="var">Cycles à DoD (Réaliste)</span> : -30% en moyenne (terrain résidentiel)
+<span class="var">Durée vie</span> = MIN(Cycles ÷ Cycles/an, 18 ans calendaires)
+<span class="var">Énergie stockée</span> = Cycles effectifs × Capacité × DoD
+<span class="var">Coût/kWh</span> = Prix ÷ Énergie stockée
+    </div>
+
+    <ul class="lab-calc-sources">
+      <li><strong>Datasheet Pylontech US5000</strong> (constructeur) : <a href="https://en.pylontech.com.cn/products/us5000" target="_blank" rel="noopener">en.pylontech.com.cn/products/us5000</a> - 6000+ cycles à 80% DoD, 15+ ans design life</li>
+      <li><strong>BYD Battery-Box Premium Warranty</strong> : 10 ans, capacité résiduelle 60-80%</li>
+      <li><strong>Clean Energy Reviews</strong> (terrain) : <a href="https://www.cleanenergyreviews.info/blog/lithium-battery-life-explained" target="_blank" rel="noopener">cleanenergyreviews.info</a> - "3000-5000 cycles sur 10-15 ans" en pratique résidentielle</li>
+      <li><strong>Étude Preger 2020</strong> (Journal of The Electrochemical Society) : impact température, DoD et C-rate sur dégradation LFP</li>
+      <li><strong>Étude Anern 2025</strong> : 70-80% capacité résiduelle après 10 ans d'usage résidentiel typique</li>
+      <li><strong>Norme IEC 62619</strong> : fin de vie = 80% capacité initiale</li>
+      <li><strong>Limites</strong> : ne couvre pas variations température (+10°C = dégradation x2), C-rate élevé (-10 à -20%), qualité BMS variable</li>
+    </ul>
+
+    <a href="/outils/calculateur-batterie-lfp/methodologie/" class="lab-calc-method-link">
+      📐 Méthodologie complète : pourquoi 2 scénarios, sources détaillées, comment interpréter
+    </a>
+  </details>
+
+  <div class="lab-calc-disclaimer">
+    Outil indicatif. Les chiffres constructeur sont mesurés en laboratoire (25°C, 0.2C). Les chiffres réalistes
+    se basent sur études tierces et retours terrain. Votre installation peut différer selon climat, qualité du BMS,
+    et habitudes d'usage. Pour un dimensionnement précis, consultez un installateur RGE.
+  </div>
+
+  <a href="/outils/calculateur-batterie-lfp/" class="lab-calc-method-link" id="calc-lfp-embed-link">
+    🔗 Voir la page complète de ce calculateur
+  </a>
+  <a href="/outils/calculateur-batterie-lfp/methodologie/" class="lab-calc-method-link" style="margin-top:0.35rem;">
+    📐 Méthodologie et sources détaillées
+  </a>
+
+  <script>
+    (function() {
+      var h = window.location.hostname;
+      if (h === 'autonomia-lab.fr' || h === 'www.autonomia-lab.fr' || h === 'localhost' || h === '127.0.0.1') {
+        var el = document.getElementById('calc-lfp-embed-link');
+        if (el) el.style.display = 'none';
+      }
+    })();
+  </script>
+
+</div>
+
+<script>
+(function() {
+  const root = document.currentScript.parentElement;
+  const $ = (sel) => root.querySelector(sel);
+  const $$ = (sel) => root.querySelectorAll(sel);
+
+  // Données validées
+  // CONSTRUCTEUR : datasheets Pylontech, BYD (conditions idéales)
+  const CYCLES_CONSTRUCTOR = {
+    30: 15000, 35: 13500, 40: 12000, 45: 11000, 50: 10000,
+    55: 9000, 60: 8500, 65: 8000, 70: 7500, 75: 6750,
+    80: 6000, 85: 5250, 90: 4500, 95: 4000
+  };
+
+  // RÉALISTE : -30% en moyenne (Clean Energy Reviews + études terrain)
+  // Plus marqué au-delà de 90% DoD (étude scientifique)
+  const CYCLES_REALISTIC = {
+    30: 11000, 35: 9800, 40: 8700, 45: 7900, 50: 7000,
+    55: 6300, 60: 5950, 65: 5600, 70: 5250, 75: 4700,
+    80: 4000, 85: 3300, 90: 2700, 95: 2200  // chute marquée >90%
+  };
+
+  const MAX_CALENDAR_CONSTRUCTOR = 18;  // datasheet
+  const MAX_CALENDAR_REALISTIC = 15;    // terrain
+
+  // Toggle mode
+  const toggleButtons = root.querySelectorAll('.lab-calc-toggle button');
+  const modeKwhDiv = root.querySelector('.lab-calc-mode-kwh');
+  const modeAhvDiv = root.querySelector('.lab-calc-mode-ahv');
+
+  toggleButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      toggleButtons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const mode = btn.dataset.mode;
+      modeKwhDiv.style.display = mode === 'kwh' ? 'block' : 'none';
+      modeAhvDiv.style.display = mode === 'ahv' ? 'block' : 'none';
+      compute();
+    });
+  });
+
+  function getCapacityKwh() {
+    const activeMode = root.querySelector('.lab-calc-toggle button.active').dataset.mode;
+    if (activeMode === 'kwh') {
+      return parseFloat($('#cap-kwh').value) || 0;
+    } else {
+      const ah = parseFloat($('#cap-ah').value) || 0;
+      const v = parseFloat($('#cap-v').value) || 48;
+      return (ah * v) / 1000;
+    }
+  }
+
+  function computeScenario(capKwh, dod, cyclesYear, price, cyclesTable, maxCalendar) {
+    const cyclesTotal = cyclesTable[dod] || 5000;
+    const yearsByCycles = cyclesTotal / cyclesYear;
+    const yearsEffective = Math.min(yearsByCycles, maxCalendar);
+
+    const energyPerCycle = capKwh * (dod / 100);
+    const cyclesEffective = yearsEffective * cyclesYear;
+    const energyTotal = cyclesEffective * energyPerCycle;
+    const costPerKwh = energyTotal > 0 ? price / energyTotal : 0;
+
+    return {
+      years: yearsEffective,
+      yearsByCycles: yearsByCycles,
+      cycles: cyclesEffective,
+      energy: energyTotal,
+      cost: costPerKwh
+    };
+  }
+
+  function compute() {
+    const capKwh = getCapacityKwh();
+    const dod = parseInt($('#dod').value);
+    const cyclesYear = parseInt($('#cycles-year').value);
+    const price = parseFloat($('#price').value) || 0;
+
+    $('.cap-kwh-display').textContent = capKwh.toFixed(1);
+    $('.dod-display').textContent = dod;
+    $('.cycles-year-display').textContent = cyclesYear.toLocaleString('fr-FR');
+    $('.price-display').textContent = Math.round(price).toLocaleString('fr-FR');
+
+    // Calcul des 2 scénarios
+    const constr = computeScenario(capKwh, dod, cyclesYear, price, CYCLES_CONSTRUCTOR, MAX_CALENDAR_CONSTRUCTOR);
+    const real = computeScenario(capKwh, dod, cyclesYear, price, CYCLES_REALISTIC, MAX_CALENDAR_REALISTIC);
+
+    // Affichage Constructeur
+    $('#result-c-years').textContent = constr.years.toFixed(1);
+    $('#result-c-cycles').textContent = Math.round(constr.cycles).toLocaleString('fr-FR');
+    $('#result-c-cost').textContent = constr.cost.toFixed(3);
+    $('#result-c-energy').textContent = Math.round(constr.energy).toLocaleString('fr-FR');
+
+    // Affichage Réaliste
+    $('#result-r-years').textContent = real.years.toFixed(1);
+    $('#result-r-cycles').textContent = Math.round(real.cycles).toLocaleString('fr-FR');
+    $('#result-r-cost').textContent = real.cost.toFixed(3);
+    $('#result-r-energy').textContent = Math.round(real.energy).toLocaleString('fr-FR');
+
+    // Warning calendaire si applicable (l'un des 2 scénarios atteint le plafond)
+    const calendarReached = constr.yearsByCycles > MAX_CALENDAR_CONSTRUCTOR ||
+                            real.yearsByCycles > MAX_CALENDAR_REALISTIC;
+    $('#warning-calendar').style.display = calendarReached ? 'block' : 'none';
+  }
+
+  function buildShareUrl() {
+    const activeMode = root.querySelector('.lab-calc-toggle button.active').dataset.mode;
+    const params = new URLSearchParams();
+    params.set('mode', activeMode);
+    if (activeMode === 'kwh') {
+      params.set('cap_kwh', $('#cap-kwh').value);
+    } else {
+      params.set('cap_ah', $('#cap-ah').value);
+      params.set('cap_v', $('#cap-v').value);
+    }
+    params.set('dod', $('#dod').value);
+    params.set('cycles', $('#cycles-year').value);
+    params.set('price', $('#price').value);
+    return window.location.origin + window.location.pathname + '?' + params.toString();
+  }
+
+  function loadFromUrl() {
+    const params = new URLSearchParams(window.location.search);
+    const mode = params.get('mode');
+    if (mode === 'ahv') {
+      toggleButtons.forEach(b => b.classList.remove('active'));
+      root.querySelector('.lab-calc-toggle button[data-mode="ahv"]').classList.add('active');
+      modeKwhDiv.style.display = 'none';
+      modeAhvDiv.style.display = 'block';
+    }
+    if (params.get('cap_kwh')) $('#cap-kwh').value = params.get('cap_kwh');
+    if (params.get('cap_ah')) $('#cap-ah').value = params.get('cap_ah');
+    if (params.get('cap_v')) $('#cap-v').value = params.get('cap_v');
+    if (params.get('dod')) $('#dod').value = params.get('dod');
+    if (params.get('cycles')) $('#cycles-year').value = params.get('cycles');
+    if (params.get('price')) $('#price').value = params.get('price');
+  }
+
+  // Bouton partage
+  $('#btn-share').addEventListener('click', async () => {
+    const url = buildShareUrl();
+    const btn = $('#btn-share');
+    const label = btn.querySelector('.btn-label');
+    const originalLabel = label.textContent;
+
+    try {
+      await navigator.clipboard.writeText(url);
+      btn.classList.add('copied');
+      label.textContent = 'Copié !';
+      setTimeout(() => {
+        btn.classList.remove('copied');
+        label.textContent = originalLabel;
+      }, 2000);
+    } catch (e) {
+      window.prompt('Copiez ce lien :', url);
+    }
+  });
+
+  // Bouton reset
+  $('#btn-reset').addEventListener('click', () => {
+    $('#cap-kwh').value = 5;
+    $('#cap-ah').value = 100;
+    $('#cap-v').value = 48;
+    $('#dod').value = 80;
+    $('#cycles-year').value = 365;
+    $('#price').value = 3500;
+    toggleButtons.forEach(b => b.classList.remove('active'));
+    root.querySelector('.lab-calc-toggle button[data-mode="kwh"]').classList.add('active');
+    modeKwhDiv.style.display = 'block';
+    modeAhvDiv.style.display = 'none';
+    compute();
+  });
+
+  // Listeners
+  ['#cap-kwh', '#cap-ah', '#cap-v', '#dod', '#cycles-year', '#price'].forEach(sel => {
+    const el = $(sel);
+    if (el) {
+      el.addEventListener('input', compute);
+      el.addEventListener('change', compute);
+    }
+  });
+
+  loadFromUrl();
+  compute();
+})();
+</script>

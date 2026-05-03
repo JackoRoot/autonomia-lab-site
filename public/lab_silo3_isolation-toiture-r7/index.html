@@ -1,21 +1,834 @@
-<!doctype html><html lang=fr-FR dir=ltr><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Sécurité — Cet article est un support de compréhension technique à titre éducatif uniquement. Les valeurs, calculs et schémas présentés ne remplacent pas l’expertise d’un installateur certifié. Toute installation doit être réalisée et validée par un professionnel qualifié RGE. Autonomia Lab décline toute responsabilité en cas d’application directe de ces informations.
+<!DOCTYPE html>
+<html lang="fr-FR" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1316&amp;path=livereload" data-no-instant defer></script>
+  <!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Sécurité — Cet article est un support de compréhension technique à titre éducatif uniquement. Les valeurs, calculs et schémas présentés ne remplacent pas l’expertise d’un installateur certifié. Toute installation doit être réalisée et validée par un professionnel qualifié RGE. Autonomia Lab décline toute responsabilité en cas d’application directe de ces informations.
 Atteindre un R=7 en isolation de toiture pour des rampants coûte sensiblement plus cher qu’en combles perdus. L’arbitrage ne se fait pas sur le coût seul mais sur la capacité de l’isolant à déphaser l’onde de chaleur estivale, un critère clé de la RE2020 pour éviter la surchauffe. Cet arbitrage définit le confort d’été et la valeur du bien.
-"><meta name=theme-color media="(prefers-color-scheme: light)" content="#ffffff"><meta name=theme-color media="(prefers-color-scheme: dark)" content="#2e3440"><meta name=color-scheme content="light dark"><meta property="og:url" content="https://autonomia-lab.fr/lab_silo3_isolation-toiture-r7/"><meta property="og:site_name" content="Autonomia Lab"><meta property="og:title" content="R=7 en toiture : Le coût du Sarking vs Rampants vs Combles perdus."><meta property="og:description" content="Sécurité — Cet article est un support de compréhension technique à titre éducatif uniquement. Les valeurs, calculs et schémas présentés ne remplacent pas l’expertise d’un installateur certifié. Toute installation doit être réalisée et validée par un professionnel qualifié RGE. Autonomia Lab décline toute responsabilité en cas d’application directe de ces informations.
-Atteindre un R=7 en isolation de toiture pour des rampants coûte sensiblement plus cher qu’en combles perdus. L’arbitrage ne se fait pas sur le coût seul mais sur la capacité de l’isolant à déphaser l’onde de chaleur estivale, un critère clé de la RE2020 pour éviter la surchauffe. Cet arbitrage définit le confort d’été et la valeur du bien."><meta property="og:locale" content="fr_FR"><meta property="og:type" content="article"><meta property="article:section" content="lab"><meta property="article:published_time" content="2026-05-01T00:00:00+00:00"><meta property="article:modified_time" content="2026-05-01T00:00:00+00:00"><meta itemprop=name content="R=7 en toiture : Le coût du Sarking vs Rampants vs Combles perdus."><meta itemprop=description content="Sécurité — Cet article est un support de compréhension technique à titre éducatif uniquement. Les valeurs, calculs et schémas présentés ne remplacent pas l’expertise d’un installateur certifié. Toute installation doit être réalisée et validée par un professionnel qualifié RGE. Autonomia Lab décline toute responsabilité en cas d’application directe de ces informations.
-Atteindre un R=7 en isolation de toiture pour des rampants coûte sensiblement plus cher qu’en combles perdus. L’arbitrage ne se fait pas sur le coût seul mais sur la capacité de l’isolant à déphaser l’onde de chaleur estivale, un critère clé de la RE2020 pour éviter la surchauffe. Cet arbitrage définit le confort d’été et la valeur du bien."><meta itemprop=datePublished content="2026-05-01T00:00:00+00:00"><meta itemprop=dateModified content="2026-05-01T00:00:00+00:00"><meta itemprop=wordCount content="1286"><title>Isolation toiture R=7 | Autonomia Lab</title><link rel=icon href=/favicon.png><link rel=manifest href=/manifest.json><link rel=canonical href=https://autonomia-lab.fr/lab_silo3_isolation-toiture-r7/><link rel=stylesheet href=/book.min.92048bb3b20c265865fffa98ece7bfa06950ab86ca25d6108e24b45f8c754881.css integrity="sha256-kgSLs7IMJlhl//qY7Oe/oGlQq4bKJdYQjiS0X4x1SIE=" crossorigin=anonymous><script defer src=/fuse.min.js></script><script defer src=/en.search.min.542d6aa38af851634a052bfa0b90ba22992cdb0cf8ee957d31673092f8073ea3.js integrity="sha256-VC1qo4r4UWNKBSv6C5C6Ipks2wz47pV9MWcwkvgHPqM=" crossorigin=anonymous></script><meta name=color-scheme content="light"><meta name=theme-color content="#ffffff"><style>:root{color-scheme:light!important}html,body{color-scheme:light!important}</style></head><body dir=ltr class="book-kind-page book-type-lab"><input type=checkbox class="hidden toggle" id=menu-control>
-<input type=checkbox class="hidden toggle" id=toc-control><main class="container flex"><aside class=book-menu><div class=book-menu-content><nav><h2 class=book-brand><span class="flex align-center"><span>Autonomia Lab</span></span></h2><div class="book-search hidden"><input id=book-search-input type=text placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/><div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><script>document.querySelector(".book-search").classList.remove("hidden")</script><ul><li><a href=/>Accueil</a></li></ul><ul><li><input type=checkbox id=section-80a6eccb491e65aad6dae5f33ec481c5 class=toggle>
-<label for=section-80a6eccb491e65aad6dae5f33ec481c5 class=flex><a role=button data-silo=1>Solaire & Stockage</a>
-<img src=/icons/chevron-right.svg class=book-icon alt=Expand></label><ul><li><a href=/lab_silo1_cerbo-gx-pylontech-cablage/ data-silo=1>Cerbo GX & Pylontech</a></li><li><a href=/lab_silo1_erreur-11-victron-multiplus-ii/ data-silo=1>Erreur 11 Victron</a></li><li><a href=/lab_silo1_fusibles-dc-ou-disjoncteurs/ data-silo=1>Fusibles DC vs Disjoncteurs</a></li><li><a href=/lab_silo1_mppt-victron-100-20-100-30/ data-silo=1>MPPT 100/20 vs 100/30</a></li><li><a href=/lab_silo1_pvgis-off-grid-autonomie/ data-silo=1>PVGIS Off-Grid</a></li><li><a href=/lab_silo1_ratio-dc-ac-onduleur/ data-silo=1>Ratio DC/AC onduleur</a></li><li><a href=/lab_silo1_section-cable-batterie-48v/ data-silo=1>Section câble 48V</a></li></ul></li><li><input type=checkbox id=section-ff2b4a7940fbd23fb7c151ce892a38d0 class=toggle>
-<label for=section-ff2b4a7940fbd23fb7c151ce892a38d0 class=flex><a role=button data-silo=2>Hydraulique</a>
-<img src=/icons/chevron-right.svg class=book-icon alt=Expand></label><ul><li><a href=/lab_silo2_calcul-hmt-pompe-50m/ data-silo=2>Calcul HMT pompe 50m</a></li><li><a href=/lab_silo2_calcul-traitement-uvc/ data-silo=2>Calcul UV-C 40 mJ/cm²</a></li><li><a href=/lab_silo2_filtration-fer-manganese/ data-silo=2>Filtration fer/manganèse</a></li><li><a href=/lab_silo2_potabilisation-forage/ data-silo=2>Potabilisation forage</a></li><li><a href=/lab_silo2_rejet-osmose-inverse/ data-silo=2>Rejet osmose inverse</a></li></ul></li><li><input type=checkbox id=section-2ff767a3ea21b6cc828c74332a27d864 class=toggle checked>
-<label for=section-2ff767a3ea21b6cc828c74332a27d864 class=flex><a role=button data-silo=3>Thermique</a>
-<img src=/icons/chevron-right.svg class=book-icon alt=Expand></label><ul><li><a href=/lab_silo3_chauffe-eau-thermo-cop/ data-silo=3>Chauffe-eau thermodynamique</a></li><li><a href=/lab_silo3_dimensionnement-pac-air-air/ data-silo=3>Dimensionnement PAC air-air</a></li><li><a href=/lab_silo3_isolation-toiture-r7/ class=active data-silo=3>Isolation toiture R=7</a></li><li><a href=/lab_silo3_rendement-pac-grand-froid/ data-silo=3>PAC grand froid COP</a></li><li><a href=/lab_silo3_pac-releve-fioul-schema/ data-silo=3>PAC relève fioul schéma</a></li></ul></li><li><input type=checkbox id=section-d3532d0f76fc0e770fa43359b2f066c6 class=toggle>
-<label for=section-d3532d0f76fc0e770fa43359b2f066c6 class=flex><a role=button data-silo=4>Infrastructure</a>
-<img src=/icons/chevron-right.svg class=book-icon alt=Expand></label><ul><li><a href=/lab_silo4_differentiel-type-b/ data-silo=4>Différentiel Type B</a></li><li><a href=/lab_silo4_disjoncteur-courbe-d-vs-c/ data-silo=4>Disjoncteur D vs C</a></li><li><a href=/lab_silo4_puissance-reactive-linky/ data-silo=4>Puissance réactive Linky</a></li><li><a href=/lab_silo4_regime-neutre-tt-tn/ data-silo=4>Régime neutre TT/TN</a></li></ul></li></ul><ul><li><a href=/a-propos/>À propos</a></li></ul></nav><script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script></div></aside><div class=book-page><header class="book-header hidden"><div class="flex align-center justify-between"><label for=menu-control><img src=/icons/menu.svg class=book-icon alt=Menu></label><h3>Isolation toiture R=7</h3><label for=toc-control><img src=/icons/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class=hidden><nav id=TableOfContents><ul><li><a href=#objectif-r7-mkw--la-nouvelle-norme-de-fait-re2020>Objectif R=7 m².K/W : La nouvelle norme de fait (RE2020)</a></li><li><a href=#cas-n1--combles-perdus--15-à-30-m-pour-une-efficacité-immédiate>Cas N°1 : Combles perdus — 15 à 30 €/m² pour une efficacité immédiate</a></li><li><a href=#cas-n2--rampants-aménagés--le-déphasage-de-11h-comme-critère-décisif>Cas N°2 : Rampants aménagés — Le déphasage de 11h comme critère décisif</a></li><li><a href=#cas-n3--sarking--un-investissement-élevé-pour-la-suppression-des-ponts-thermiques>Cas N°3 : Sarking — Un investissement élevé pour la suppression des ponts thermiques</a></li><li><a href=#bilan-technique-et-financier--le-synoptique-des-3-configurations>Bilan technique et financier : Le synoptique des 3 configurations</a><ul><li><a href=#expertises-croisées>Expertises Croisées</a></li><li><a href=#faq--isolation-toiture-r7>FAQ : Isolation toiture R=7</a></li></ul></li></ul></nav></aside></header><article class="markdown book-article"><h1>R=7 en toiture : Le coût du Sarking vs Rampants vs Combles perdus.</h1><p class=article-date>Publié le 1 mai 2026</p><blockquote class=book-hint><p><strong>Sécurité</strong> — Cet article est un support de compréhension technique à titre éducatif uniquement. Les valeurs, calculs et schémas présentés ne remplacent pas l&rsquo;expertise d&rsquo;un installateur certifié. Toute installation doit être réalisée et validée par un professionnel qualifié RGE. Autonomia Lab décline toute responsabilité en cas d&rsquo;application directe de ces informations.</p></blockquote><p>Atteindre un R=7 en isolation de toiture pour des rampants coûte sensiblement plus cher qu&rsquo;en combles perdus. L&rsquo;arbitrage ne se fait pas sur le coût seul mais sur la capacité de l&rsquo;isolant à déphaser l&rsquo;onde de chaleur estivale, un critère clé de la RE2020 pour éviter la surchauffe. Cet arbitrage définit le confort d&rsquo;été et la valeur du bien.</p><h2 id=objectif-r7-mkw--la-nouvelle-norme-de-fait-re2020>Objectif R=7 m².K/W : La nouvelle norme de fait (RE2020)<a class=anchor href=#objectif-r7-mkw--la-nouvelle-norme-de-fait-re2020>#</a></h2><p>La Réglementation Environnementale 2020 n&rsquo;impose pas un coefficient de résistance thermique R de 7 m².K/W de manière frontale. Elle impose un résultat, notamment sur le confort d&rsquo;été, via l&rsquo;indicateur Degrés-Heures (DH). Un bâtiment dépassant le seuil de 1250 DH est jugé non conforme (RE 2020 / ADEME, 2026). En pratique, pour une toiture, seul un R supérieur ou égal à 7 permet de contenir cet indicateur sans recourir à une climatisation active.</p><p>Le dimensionnement de l&rsquo;isolation de toiture est donc un arbitrage direct entre le coût d&rsquo;investissement et le risque de non-conformité réglementaire ou de surcoût énergétique futur. Trois architectures techniques se distinguent sur le terrain.</p><h2 id=cas-n1--combles-perdus--15-à-30-m-pour-une-efficacité-immédiate>Cas N°1 : Combles perdus — 15 à 30 €/m² pour une efficacité immédiate<a class=anchor href=#cas-n1--combles-perdus--15-%c3%a0-30-m-pour-une-efficacit%c3%a9-imm%c3%a9diate>#</a></h2><p>La configuration en combles perdus est la plus directe et la moins coûteuse. La mise en œuvre consiste en un soufflage mécanique d&rsquo;isolant en vrac sur le plancher des combles, jusqu&rsquo;à atteindre l&rsquo;épaisseur requise.</p><p>Pour un R de 7 m².K/W, l&rsquo;épaisseur varie selon la conductivité thermique (lambda, λ) de l&rsquo;isolant :</p><ul><li><strong>Ouate de cellulose (λ=0.039) :</strong> Épaisseur requise de 27,3 cm.</li><li><strong>Laine de roche en vrac (λ=0.044) :</strong> Épaisseur requise de 30,8 cm.</li></ul><p>Le coût matière de la ouate de cellulose, matériau biosourcé à fort déphasage, s&rsquo;aligne sur les solutions minérales, avec un prix d&rsquo;achat autour de 15,00 €/m² pour un R=7 (RE 2020 / ADEME, 2026). Le coût final, pose incluse par une entreprise certifiée, se situe dans une fourchette de 20 à 70 €/m² (Synthèse HelloWatt/Travaux.com, 2026) selon les régions et les prestataires.</p><p>L&rsquo;intervention ne nécessite aucune modification de la structure existante et se réalise en une demi-journée pour un pavillon standard. Le principal point de vigilance est le traitement de la trappe d&rsquo;accès et le contour des spots encastrés pour garantir la continuité de l&rsquo;isolation et l&rsquo;étanchéité à l&rsquo;air.</p><h2 id=cas-n2--rampants-aménagés--le-déphasage-de-11h-comme-critère-décisif>Cas N°2 : Rampants aménagés — Le déphasage de 11h comme critère décisif<a class=anchor href=#cas-n2--rampants-am%c3%a9nag%c3%a9s--le-d%c3%a9phasage-de-11h-comme-crit%c3%a8re-d%c3%a9cisif>#</a></h2><p>L&rsquo;isolation des rampants de toiture concerne les combles habitables. La complexité et le coût augmentent significativement. L&rsquo;objectif R=7 est atteint par une pose bi-couche : une première couche entre chevrons, complétée par une seconde couche croisée sous chevrons. Cette architecture limite les ponts thermiques.</p><p>Le choix de l&rsquo;isolant est ici critique, non pas pour l&rsquo;hiver, mais pour le confort d&rsquo;été. Le déphasage thermique, c&rsquo;est-à-dire le temps que met l&rsquo;onde de chaleur à traverser l&rsquo;isolant, devient le paramètre dimensionnant.</p><table><thead><tr><th>Paramètre Technique</th><th>Fibre de Bois (Panneau)</th><th>Ouate de Cellulose (Insufflé)</th><th>Laine de Verre (Panneau)</th><th>Source & Date</th></tr></thead><tbody><tr><td>Conductivité (λ)</td><td>0.036 W/(m.K)</td><td>0.041 W/(m.K)</td><td>0.032 W/(m.K)</td><td>ACERMI / fiches constructeurs, 2026</td></tr><tr><td>Masse Volumique (ρ)</td><td>55 kg/m³</td><td>55 kg/m³</td><td>30 kg/m³</td><td>ACERMI / fiches constructeurs, 2026</td></tr><tr><td>Chaleur Massique (Cp)</td><td>2100 J/(kg.K)</td><td>2100 J/(kg.K)</td><td>840 J/(kg.K)</td><td>ACERMI / fiches constructeurs, 2026</td></tr><tr><td><strong>Déphasage (R=7)</strong></td><td><strong>11,0 heures</strong></td><td><strong>~11,0 heures</strong></td><td><strong>4,5 heures</strong></td><td><strong>ACERMI / fiches constructeurs, 2026</strong></td></tr></tbody></table><p><strong>Analyse de terrain :</strong>
-Une épaisseur d&rsquo;isolant biosourcé (fibre de bois, ouate) procure un déphasage de plus de 10 heures. Le pic de chaleur de 14h00 n&rsquo;atteint l&rsquo;intérieur des pièces que vers minuit, lorsque la température extérieure a chuté, permettant une ventilation nocturne efficace.</p><p>Avec une laine minérale standard, le déphasage de 4,5 heures signifie que le pic de chaleur traverse l&rsquo;isolant en fin d&rsquo;après-midi, aggravant la surchauffe intérieure au moment le plus critique de la journée.</p><p>Le coût d&rsquo;une isolation de rampants pour un R=7, incluant la pose d&rsquo;un pare-vapeur hygrovariable et des finitions en plaques de plâtre, varie de 50 à 250 €/m² (Synthèse Effy/QuelleEnergie, 2026) selon la configuration et le prestataire. Le risque de Point de rosée : Le danger des ponts thermiques en isolation intérieure. impose une mise en œuvre sans défaut.</p><h2 id=cas-n3--sarking--un-investissement-élevé-pour-la-suppression-des-ponts-thermiques>Cas N°3 : Sarking — Un investissement élevé pour la suppression des ponts thermiques<a class=anchor href=#cas-n3--sarking--un-investissement-%c3%a9lev%c3%a9-pour-la-suppression-des-ponts-thermiques>#</a></h2><p>Le Sarking est une technique d&rsquo;isolation de la toiture par l&rsquo;extérieur. Elle consiste à poser des panneaux isolants rigides directement sur la charpente, sous la couverture.</p><p><strong>Avantages techniques :</strong></p><ol><li><strong>Suppression des ponts thermiques :</strong> L&rsquo;isolant forme une enveloppe continue au-dessus des chevrons.</li><li><strong>Aucune perte de volume habitable :</strong> L&rsquo;intervention se fait par l&rsquo;extérieur.</li><li><strong>Charpente apparente valorisée :</strong> Possibilité de laisser les poutres et chevrons visibles à l&rsquo;intérieur.</li></ol><p>Cette méthode est la plus exigeante techniquement et financièrement. Elle impose une dépose complète de la couverture (tuiles, ardoises), la pose de l&rsquo;isolant (polyuréthane, fibre de bois haute densité), d&rsquo;un écran de sous-toiture, puis d&rsquo;un double liteaunage avant la repose de la couverture.</p><p>Pour un R=7, le budget s&rsquo;échelonne de 250 à 500 €/m² (DSD Rénov, 2026) selon le matériau de couverture, incluant la dépose et repose de cette dernière. Cette solution est principalement envisagée lors d&rsquo;une réfection complète de la toiture.</p><h2 id=bilan-technique-et-financier--le-synoptique-des-3-configurations>Bilan technique et financier : Le synoptique des 3 configurations<a class=anchor href=#bilan-technique-et-financier--le-synoptique-des-3-configurations>#</a></h2><table><thead><tr><th>Critère</th><th>Combles Perdus</th><th>Rampants (Intérieur)</th><th>Sarking (Extérieur)</th></tr></thead><tbody><tr><td><strong>Coût / m² (R=7)</strong></td><td>15 € (matière ouate, Synthèse marché) + 5 à 55 €/m² (Synthèse HelloWatt/Travaux.com, 2026)</td><td>50 à 250 €/m² (Synthèse Effy/QuelleEnergie, 2026)</td><td>250 à 500 €/m² (DSD Rénov, 2026)</td></tr><tr><td><strong>Performance Hiver</strong></td><td>Très élevée</td><td>Très élevée</td><td>Optimale</td></tr><tr><td><strong>Performance Été</strong></td><td>Dépend de l&rsquo;isolant</td><td>Dépend de l&rsquo;isolant</td><td>Très élevée</td></tr><tr><td><strong>Ponts Thermiques</strong></td><td>Traités au plancher</td><td>Réduits (bi-couche)</td><td>Supprimés</td></tr><tr><td><strong>Complexité Chantier</strong></td><td>Faible (1 jour)</td><td>Moyenne (3-5 jours)</td><td>Élevée (1-2 semaines)</td></tr></tbody></table><p>Le choix de l&rsquo;architecture dépend de l&rsquo;usage des combles. Pour un espace non chauffé, le soufflage en combles perdus offre le retour sur investissement le plus rapide. Pour des combles aménagés, l&rsquo;arbitrage se fait entre l&rsquo;isolation par l&rsquo;intérieur avec un isolant biosourcé pour le déphasage, et le Sarking si une réfection de toiture est déjà programmée.</p><hr><blockquote class=book-hint><p><strong>Les données présentées résultent d&rsquo;une analyse de sources officielles, de normes techniques et d&rsquo;études indépendantes à la date indiquée. Elles peuvent évoluer.</strong></p></blockquote><hr><h3 id=expertises-croisées>Expertises Croisées<a class=anchor href=#expertises-crois%c3%a9es>#</a></h3><ul><li><strong>Hydraulique & Eau :</strong> <a href=https://autonomia-lab.fr/lab_silo2_calcul-hmt-pompe-50m/>Pompe immergée à 50m : Calculer la HMT sans griller le moteur.</a></li><li><strong>Thermique & Habitat :</strong> <a href=https://autonomia-lab.fr/lab_silo3_pac-releve-fioul-schema/>PAC Air-Eau en relève de fioul : Le schéma (Bouteille de mélange).</a></li><li><strong>Infrastructure :</strong> <a href=https://autonomia-lab.fr/lab_silo4_regime-neutre-tt-tn/>Régime de neutre (TT vs TN) : L&rsquo;impact sur votre onduleur hybride.</a></li></ul><hr><h3 id=faq--isolation-toiture-r7>FAQ : Isolation toiture R=7<a class=anchor href=#faq--isolation-toiture-r7>#</a></h3><p><strong>Quel est le meilleur isolant pour le confort d&rsquo;été en toiture ?</strong>
-Pour le confort d&rsquo;été, les isolants à forte densité et chaleur massique élevée sont prioritaires. La fibre de bois et la ouate de cellulose offrent un déphasage thermique supérieur à 10 heures, contre 4 à 5 heures pour les laines minérales standards, ce qui retarde l&rsquo;entrée de la chaleur.</p><p><strong>Le Sarking est-il toujours la meilleure solution d&rsquo;isolation de toiture ?</strong>
-Techniquement, le Sarking offre la meilleure performance en supprimant les ponts thermiques. Financièrement, son coût très élevé, de 250 à 500 €/m² (DSD Rénov, 2026), le réserve aux projets de rénovation lourde où la toiture doit être entièrement refaite. Son surcoût n&rsquo;est pas toujours justifiable par rapport à une isolation intérieure bien conçue.</p><p><strong>Est-il obligatoire d&rsquo;atteindre un R=7 en rénovation ?</strong>
-Non, aucune loi n&rsquo;impose un R=7 en rénovation pour une maison individuelle. Cependant, c&rsquo;est le seuil technique qui permet de respecter les exigences de confort d&rsquo;été de la RE2020 et d&rsquo;accéder aux aides financières les plus importantes. En pratique, c&rsquo;est devenu le standard de fait pour une rénovation performante.</p><p><em>Frank Vasseur — Expert Systèmes Énergétiques & Thermiques, Autonomia Lab</em></p></article><footer class=book-footer><div class="flex flex-wrap justify-between"><div></div><div></div></div><div class="flex flex-wrap justify-between"><span><a href=/lab_silo3_dimensionnement-pac-air-air/ class="flex align-center"><img src=/icons/backward.svg class=book-icon alt=Backward>
-<span>Dimensionnement PAC air-air</span>
-</a></span><span><a href=/lab_silo3_rendement-pac-grand-froid/ class="flex align-center"><span>PAC grand froid COP</span>
-<img src=/icons/forward.svg class=book-icon alt=Forward></a></span></div><script>(function(){document.querySelectorAll("pre:has(code)").forEach(e=>{e.addEventListener("click",e.focus),e.addEventListener("copy",function(t){if(t.preventDefault(),navigator.clipboard){const t=window.getSelection().toString()||e.textContent;navigator.clipboard.writeText(t)}})})})()</script></footer><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents><ul><li><a href=#objectif-r7-mkw--la-nouvelle-norme-de-fait-re2020>Objectif R=7 m².K/W : La nouvelle norme de fait (RE2020)</a></li><li><a href=#cas-n1--combles-perdus--15-à-30-m-pour-une-efficacité-immédiate>Cas N°1 : Combles perdus — 15 à 30 €/m² pour une efficacité immédiate</a></li><li><a href=#cas-n2--rampants-aménagés--le-déphasage-de-11h-comme-critère-décisif>Cas N°2 : Rampants aménagés — Le déphasage de 11h comme critère décisif</a></li><li><a href=#cas-n3--sarking--un-investissement-élevé-pour-la-suppression-des-ponts-thermiques>Cas N°3 : Sarking — Un investissement élevé pour la suppression des ponts thermiques</a></li><li><a href=#bilan-technique-et-financier--le-synoptique-des-3-configurations>Bilan technique et financier : Le synoptique des 3 configurations</a><ul><li><a href=#expertises-croisées>Expertises Croisées</a></li><li><a href=#faq--isolation-toiture-r7>FAQ : Isolation toiture R=7</a></li></ul></li></ul></nav></div></aside></main></body></html>
+">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#2e3440">
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="http://localhost:1316/lab_silo3_isolation-toiture-r7/">
+  <meta property="og:site_name" content="Autonomia Lab">
+  <meta property="og:title" content="R=7 en toiture : Le coût du Sarking vs Rampants vs Combles perdus.">
+  <meta property="og:description" content="Sécurité — Cet article est un support de compréhension technique à titre éducatif uniquement. Les valeurs, calculs et schémas présentés ne remplacent pas l’expertise d’un installateur certifié. Toute installation doit être réalisée et validée par un professionnel qualifié RGE. Autonomia Lab décline toute responsabilité en cas d’application directe de ces informations.
+Atteindre un R=7 en isolation de toiture pour des rampants coûte sensiblement plus cher qu’en combles perdus. L’arbitrage ne se fait pas sur le coût seul mais sur la capacité de l’isolant à déphaser l’onde de chaleur estivale, un critère clé de la RE2020 pour éviter la surchauffe. Cet arbitrage définit le confort d’été et la valeur du bien.">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="lab">
+    <meta property="article:published_time" content="2026-05-01T00:00:00+00:00">
+    <meta property="article:modified_time" content="2026-05-01T00:00:00+00:00">
+
+
+  <meta itemprop="name" content="R=7 en toiture : Le coût du Sarking vs Rampants vs Combles perdus.">
+  <meta itemprop="description" content="Sécurité — Cet article est un support de compréhension technique à titre éducatif uniquement. Les valeurs, calculs et schémas présentés ne remplacent pas l’expertise d’un installateur certifié. Toute installation doit être réalisée et validée par un professionnel qualifié RGE. Autonomia Lab décline toute responsabilité en cas d’application directe de ces informations.
+Atteindre un R=7 en isolation de toiture pour des rampants coûte sensiblement plus cher qu’en combles perdus. L’arbitrage ne se fait pas sur le coût seul mais sur la capacité de l’isolant à déphaser l’onde de chaleur estivale, un critère clé de la RE2020 pour éviter la surchauffe. Cet arbitrage définit le confort d’été et la valeur du bien.">
+  <meta itemprop="datePublished" content="2026-05-01T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2026-05-01T00:00:00+00:00">
+  <meta itemprop="wordCount" content="1286">
+
+<title>Isolation toiture R=7 | Autonomia Lab</title>
+<link rel="icon" href="/favicon.png" >
+<link rel="manifest" href="/manifest.json">
+<link rel="canonical" href="http://localhost:1316/lab_silo3_isolation-toiture-r7/">
+<link rel="stylesheet" href="/book.min.453fb55be7ab107bba557e0692b7eaa0ede3596828379ae8d7662b3ba23a3000.css" integrity="sha256-RT&#43;1W&#43;erEHu6VX4GkrfqoO3jWWgoN5ro12YrO6I6MAA=" crossorigin="anonymous">
+
+
+  <script defer src="/fuse.min.js"></script>
+  <script defer src="/en.search.min.9bf59abd320875686ebf669f40cdfe011bb03a54c05cf8728e888a6eabd9cd63.js" integrity="sha256-m/WavTIIdWhuv2afQM3&#43;ARuwOlTAXPhyjoiKbqvZzWM=" crossorigin="anonymous"></script>
+
+
+
+  
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#ffffff">
+<style>
+  :root { color-scheme: light !important; }
+  html, body { color-scheme: light !important; }
+</style>
+
+</head>
+<body dir="ltr" class="book-kind-page book-type-lab">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    
+<aside class="book-menu">
+  <div class="book-menu-content">
+    
+  <nav>
+<h2 class="book-brand">
+  <span class="flex align-center"><span>Autonomia Lab</span>
+  </span>
+</h2>
+
+
+<div class="book-search hidden">
+  <input id="book-search-input" type="text" 
+    placeholder="Search"
+    aria-label="Search"
+    maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+<script>document.querySelector(".book-search").classList.remove("hidden")</script>
+
+
+
+
+
+
+<ul><li><a href="/">Accueil</a></li></ul>
+
+
+
+
+
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <input type="checkbox" id="section-80a6eccb491e65aad6dae5f33ec481c5" class="toggle"  />
+    <label for="section-80a6eccb491e65aad6dae5f33ec481c5" class="flex">
+      <a role="button"
+         class="" data-silo="1">
+        Solaire &amp; Stockage</a>
+      <img src="/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo1_cerbo-gx-pylontech-cablage/" class="" data-silo="1">
+      Cerbo GX &amp; Pylontech</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo1_erreur-11-victron-multiplus-ii/" class="" data-silo="1">
+      Erreur 11 Victron</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo1_fusibles-dc-ou-disjoncteurs/" class="" data-silo="1">
+      Fusibles DC vs Disjoncteurs</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo1_mppt-victron-100-20-100-30/" class="" data-silo="1">
+      MPPT 100/20 vs 100/30</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo1_pvgis-off-grid-autonomie/" class="" data-silo="1">
+      PVGIS Off-Grid</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo1_ratio-dc-ac-onduleur/" class="" data-silo="1">
+      Ratio DC/AC onduleur</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo1_section-cable-batterie-48v/" class="" data-silo="1">
+      Section câble 48V</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <input type="checkbox" id="section-ff2b4a7940fbd23fb7c151ce892a38d0" class="toggle"  />
+    <label for="section-ff2b4a7940fbd23fb7c151ce892a38d0" class="flex">
+      <a role="button"
+         class="" data-silo="2">
+        Hydraulique</a>
+      <img src="/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo2_calcul-hmt-pompe-50m/" class="" data-silo="2">
+      Calcul HMT pompe 50m</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo2_calcul-traitement-uvc/" class="" data-silo="2">
+      Calcul UV-C 40 mJ/cm²</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo2_filtration-fer-manganese/" class="" data-silo="2">
+      Filtration fer/manganèse</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo2_potabilisation-forage/" class="" data-silo="2">
+      Potabilisation forage</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo2_rejet-osmose-inverse/" class="" data-silo="2">
+      Rejet osmose inverse</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <input type="checkbox" id="section-2ff767a3ea21b6cc828c74332a27d864" class="toggle" checked />
+    <label for="section-2ff767a3ea21b6cc828c74332a27d864" class="flex">
+      <a role="button"
+         class="" data-silo="3">
+        Thermique</a>
+      <img src="/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo3_chauffe-eau-thermo-cop/" class="" data-silo="3">
+      Chauffe-eau thermodynamique</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo3_dimensionnement-pac-air-air/" class="" data-silo="3">
+      Dimensionnement PAC air-air</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo3_isolation-toiture-r7/" class="active" data-silo="3">
+      Isolation toiture R=7</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo3_rendement-pac-grand-froid/" class="" data-silo="3">
+      PAC grand froid COP</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo3_pac-releve-fioul-schema/" class="" data-silo="3">
+      PAC relève fioul schéma</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <input type="checkbox" id="section-d3532d0f76fc0e770fa43359b2f066c6" class="toggle"  />
+    <label for="section-d3532d0f76fc0e770fa43359b2f066c6" class="flex">
+      <a role="button"
+         class="" data-silo="4">
+        Infrastructure</a>
+      <img src="/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo4_differentiel-type-b/" class="" data-silo="4">
+      Différentiel Type B</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo4_disjoncteur-courbe-d-vs-c/" class="" data-silo="4">
+      Disjoncteur D vs C</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo4_puissance-reactive-linky/" class="" data-silo="4">
+      Puissance réactive Linky</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo4_regime-neutre-tt-tn/" class="" data-silo="4">
+      Régime neutre TT/TN</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+<ul><li><a href="/outils/">Outils du Lab</a></li><li><a href="/a-propos/">À propos</a></li></ul>
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+
+  </div>
+</aside>
+ 
+
+    <div class="book-page">
+      <header class="book-header hidden">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/icons/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <h3>Isolation toiture R=7</h3>
+
+  <label for="toc-control">
+    
+    <img src="/icons/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#objectif-r7-mkw--la-nouvelle-norme-de-fait-re2020">Objectif R=7 m².K/W : La nouvelle norme de fait (RE2020)</a></li>
+    <li><a href="#cas-n1--combles-perdus--15-à-30-m-pour-une-efficacité-immédiate">Cas N°1 : Combles perdus — 15 à 30 €/m² pour une efficacité immédiate</a></li>
+    <li><a href="#cas-n2--rampants-aménagés--le-déphasage-de-11h-comme-critère-décisif">Cas N°2 : Rampants aménagés — Le déphasage de 11h comme critère décisif</a></li>
+    <li><a href="#cas-n3--sarking--un-investissement-élevé-pour-la-suppression-des-ponts-thermiques">Cas N°3 : Sarking — Un investissement élevé pour la suppression des ponts thermiques</a></li>
+    <li><a href="#bilan-technique-et-financier--le-synoptique-des-3-configurations">Bilan technique et financier : Le synoptique des 3 configurations</a>
+      <ul>
+        <li><a href="#expertises-croisées">Expertises Croisées</a></li>
+        <li><a href="#faq--isolation-toiture-r7">FAQ : Isolation toiture R=7</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+<article class="markdown book-article"><h1>R=7 en toiture : Le coût du Sarking vs Rampants vs Combles perdus.</h1><p class="article-date">Publié le 1 mai 2026</p><blockquote class='book-hint '>
+<p><strong>Sécurité</strong> — Cet article est un support de compréhension technique à titre éducatif uniquement. Les valeurs, calculs et schémas présentés ne remplacent pas l&rsquo;expertise d&rsquo;un installateur certifié. Toute installation doit être réalisée et validée par un professionnel qualifié RGE. Autonomia Lab décline toute responsabilité en cas d&rsquo;application directe de ces informations.</p>
+</blockquote><p>Atteindre un R=7 en isolation de toiture pour des rampants coûte sensiblement plus cher qu&rsquo;en combles perdus. L&rsquo;arbitrage ne se fait pas sur le coût seul mais sur la capacité de l&rsquo;isolant à déphaser l&rsquo;onde de chaleur estivale, un critère clé de la RE2020 pour éviter la surchauffe. Cet arbitrage définit le confort d&rsquo;été et la valeur du bien.</p>
+<h2 id="objectif-r7-mkw--la-nouvelle-norme-de-fait-re2020">Objectif R=7 m².K/W : La nouvelle norme de fait (RE2020)<a class="anchor" href="#objectif-r7-mkw--la-nouvelle-norme-de-fait-re2020">#</a></h2><p>La Réglementation Environnementale 2020 n&rsquo;impose pas un coefficient de résistance thermique R de 7 m².K/W de manière frontale. Elle impose un résultat, notamment sur le confort d&rsquo;été, via l&rsquo;indicateur Degrés-Heures (DH). Un bâtiment dépassant le seuil de 1250 DH est jugé non conforme (RE 2020 / ADEME, 2026). En pratique, pour une toiture, seul un R supérieur ou égal à 7 permet de contenir cet indicateur sans recourir à une climatisation active.</p>
+<p>Le dimensionnement de l&rsquo;isolation de toiture est donc un arbitrage direct entre le coût d&rsquo;investissement et le risque de non-conformité réglementaire ou de surcoût énergétique futur. Trois architectures techniques se distinguent sur le terrain.</p>
+<h2 id="cas-n1--combles-perdus--15-à-30-m-pour-une-efficacité-immédiate">Cas N°1 : Combles perdus — 15 à 30 €/m² pour une efficacité immédiate<a class="anchor" href="#cas-n1--combles-perdus--15-%c3%a0-30-m-pour-une-efficacit%c3%a9-imm%c3%a9diate">#</a></h2><p>La configuration en combles perdus est la plus directe et la moins coûteuse. La mise en œuvre consiste en un soufflage mécanique d&rsquo;isolant en vrac sur le plancher des combles, jusqu&rsquo;à atteindre l&rsquo;épaisseur requise.</p>
+<p>Pour un R de 7 m².K/W, l&rsquo;épaisseur varie selon la conductivité thermique (lambda, λ) de l&rsquo;isolant :</p>
+<ul>
+<li><strong>Ouate de cellulose (λ=0.039) :</strong> Épaisseur requise de 27,3 cm.</li>
+<li><strong>Laine de roche en vrac (λ=0.044) :</strong> Épaisseur requise de 30,8 cm.</li>
+</ul>
+<p>Le coût matière de la ouate de cellulose, matériau biosourcé à fort déphasage, s&rsquo;aligne sur les solutions minérales, avec un prix d&rsquo;achat autour de 15,00 €/m² pour un R=7 (RE 2020 / ADEME, 2026). Le coût final, pose incluse par une entreprise certifiée, se situe dans une fourchette de 20 à 70 €/m² (Synthèse HelloWatt/Travaux.com, 2026) selon les régions et les prestataires.</p>
+<p>L&rsquo;intervention ne nécessite aucune modification de la structure existante et se réalise en une demi-journée pour un pavillon standard. Le principal point de vigilance est le traitement de la trappe d&rsquo;accès et le contour des spots encastrés pour garantir la continuité de l&rsquo;isolation et l&rsquo;étanchéité à l&rsquo;air.</p>
+<h2 id="cas-n2--rampants-aménagés--le-déphasage-de-11h-comme-critère-décisif">Cas N°2 : Rampants aménagés — Le déphasage de 11h comme critère décisif<a class="anchor" href="#cas-n2--rampants-am%c3%a9nag%c3%a9s--le-d%c3%a9phasage-de-11h-comme-crit%c3%a8re-d%c3%a9cisif">#</a></h2><p>L&rsquo;isolation des rampants de toiture concerne les combles habitables. La complexité et le coût augmentent significativement. L&rsquo;objectif R=7 est atteint par une pose bi-couche : une première couche entre chevrons, complétée par une seconde couche croisée sous chevrons. Cette architecture limite les ponts thermiques.</p>
+<p>Le choix de l&rsquo;isolant est ici critique, non pas pour l&rsquo;hiver, mais pour le confort d&rsquo;été. Le déphasage thermique, c&rsquo;est-à-dire le temps que met l&rsquo;onde de chaleur à traverser l&rsquo;isolant, devient le paramètre dimensionnant.</p>
+<table>
+  <thead>
+      <tr>
+          <th>Paramètre Technique</th>
+          <th>Fibre de Bois (Panneau)</th>
+          <th>Ouate de Cellulose (Insufflé)</th>
+          <th>Laine de Verre (Panneau)</th>
+          <th>Source &amp; Date</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Conductivité (λ)</td>
+          <td>0.036 W/(m.K)</td>
+          <td>0.041 W/(m.K)</td>
+          <td>0.032 W/(m.K)</td>
+          <td>ACERMI / fiches constructeurs, 2026</td>
+      </tr>
+      <tr>
+          <td>Masse Volumique (ρ)</td>
+          <td>55 kg/m³</td>
+          <td>55 kg/m³</td>
+          <td>30 kg/m³</td>
+          <td>ACERMI / fiches constructeurs, 2026</td>
+      </tr>
+      <tr>
+          <td>Chaleur Massique (Cp)</td>
+          <td>2100 J/(kg.K)</td>
+          <td>2100 J/(kg.K)</td>
+          <td>840 J/(kg.K)</td>
+          <td>ACERMI / fiches constructeurs, 2026</td>
+      </tr>
+      <tr>
+          <td><strong>Déphasage (R=7)</strong></td>
+          <td><strong>11,0 heures</strong></td>
+          <td><strong>~11,0 heures</strong></td>
+          <td><strong>4,5 heures</strong></td>
+          <td><strong>ACERMI / fiches constructeurs, 2026</strong></td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>Analyse de terrain :</strong>
+Une épaisseur d&rsquo;isolant biosourcé (fibre de bois, ouate) procure un déphasage de plus de 10 heures. Le pic de chaleur de 14h00 n&rsquo;atteint l&rsquo;intérieur des pièces que vers minuit, lorsque la température extérieure a chuté, permettant une ventilation nocturne efficace.</p>
+<p>Avec une laine minérale standard, le déphasage de 4,5 heures signifie que le pic de chaleur traverse l&rsquo;isolant en fin d&rsquo;après-midi, aggravant la surchauffe intérieure au moment le plus critique de la journée.</p>
+<p>Le coût d&rsquo;une isolation de rampants pour un R=7, incluant la pose d&rsquo;un pare-vapeur hygrovariable et des finitions en plaques de plâtre, varie de 50 à 250 €/m² (Synthèse Effy/QuelleEnergie, 2026) selon la configuration et le prestataire. Le risque de Point de rosée : Le danger des ponts thermiques en isolation intérieure. impose une mise en œuvre sans défaut.</p>
+<h2 id="cas-n3--sarking--un-investissement-élevé-pour-la-suppression-des-ponts-thermiques">Cas N°3 : Sarking — Un investissement élevé pour la suppression des ponts thermiques<a class="anchor" href="#cas-n3--sarking--un-investissement-%c3%a9lev%c3%a9-pour-la-suppression-des-ponts-thermiques">#</a></h2><p>Le Sarking est une technique d&rsquo;isolation de la toiture par l&rsquo;extérieur. Elle consiste à poser des panneaux isolants rigides directement sur la charpente, sous la couverture.</p>
+<p><strong>Avantages techniques :</strong></p>
+<ol>
+<li><strong>Suppression des ponts thermiques :</strong> L&rsquo;isolant forme une enveloppe continue au-dessus des chevrons.</li>
+<li><strong>Aucune perte de volume habitable :</strong> L&rsquo;intervention se fait par l&rsquo;extérieur.</li>
+<li><strong>Charpente apparente valorisée :</strong> Possibilité de laisser les poutres et chevrons visibles à l&rsquo;intérieur.</li>
+</ol>
+<p>Cette méthode est la plus exigeante techniquement et financièrement. Elle impose une dépose complète de la couverture (tuiles, ardoises), la pose de l&rsquo;isolant (polyuréthane, fibre de bois haute densité), d&rsquo;un écran de sous-toiture, puis d&rsquo;un double liteaunage avant la repose de la couverture.</p>
+<p>Pour un R=7, le budget s&rsquo;échelonne de 250 à 500 €/m² (DSD Rénov, 2026) selon le matériau de couverture, incluant la dépose et repose de cette dernière. Cette solution est principalement envisagée lors d&rsquo;une réfection complète de la toiture.</p>
+<h2 id="bilan-technique-et-financier--le-synoptique-des-3-configurations">Bilan technique et financier : Le synoptique des 3 configurations<a class="anchor" href="#bilan-technique-et-financier--le-synoptique-des-3-configurations">#</a></h2><table>
+  <thead>
+      <tr>
+          <th>Critère</th>
+          <th>Combles Perdus</th>
+          <th>Rampants (Intérieur)</th>
+          <th>Sarking (Extérieur)</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>Coût / m² (R=7)</strong></td>
+          <td>15 € (matière ouate, Synthèse marché) + 5 à 55 €/m² (Synthèse HelloWatt/Travaux.com, 2026)</td>
+          <td>50 à 250 €/m² (Synthèse Effy/QuelleEnergie, 2026)</td>
+          <td>250 à 500 €/m² (DSD Rénov, 2026)</td>
+      </tr>
+      <tr>
+          <td><strong>Performance Hiver</strong></td>
+          <td>Très élevée</td>
+          <td>Très élevée</td>
+          <td>Optimale</td>
+      </tr>
+      <tr>
+          <td><strong>Performance Été</strong></td>
+          <td>Dépend de l&rsquo;isolant</td>
+          <td>Dépend de l&rsquo;isolant</td>
+          <td>Très élevée</td>
+      </tr>
+      <tr>
+          <td><strong>Ponts Thermiques</strong></td>
+          <td>Traités au plancher</td>
+          <td>Réduits (bi-couche)</td>
+          <td>Supprimés</td>
+      </tr>
+      <tr>
+          <td><strong>Complexité Chantier</strong></td>
+          <td>Faible (1 jour)</td>
+          <td>Moyenne (3-5 jours)</td>
+          <td>Élevée (1-2 semaines)</td>
+      </tr>
+  </tbody>
+</table>
+<p>Le choix de l&rsquo;architecture dépend de l&rsquo;usage des combles. Pour un espace non chauffé, le soufflage en combles perdus offre le retour sur investissement le plus rapide. Pour des combles aménagés, l&rsquo;arbitrage se fait entre l&rsquo;isolation par l&rsquo;intérieur avec un isolant biosourcé pour le déphasage, et le Sarking si une réfection de toiture est déjà programmée.</p>
+<hr>
+<blockquote class='book-hint '>
+<p><strong>Les données présentées résultent d&rsquo;une analyse de sources officielles, de normes techniques et d&rsquo;études indépendantes à la date indiquée. Elles peuvent évoluer.</strong></p>
+</blockquote><hr>
+<h3 id="expertises-croisées">Expertises Croisées<a class="anchor" href="#expertises-crois%c3%a9es">#</a></h3><ul>
+<li><strong>Hydraulique &amp; Eau :</strong> <a href="http://localhost:1316/lab_silo2_calcul-hmt-pompe-50m/">Pompe immergée à 50m : Calculer la HMT sans griller le moteur.</a></li>
+<li><strong>Thermique &amp; Habitat :</strong> <a href="http://localhost:1316/lab_silo3_pac-releve-fioul-schema/">PAC Air-Eau en relève de fioul : Le schéma (Bouteille de mélange).</a></li>
+<li><strong>Infrastructure :</strong> <a href="http://localhost:1316/lab_silo4_regime-neutre-tt-tn/">Régime de neutre (TT vs TN) : L&rsquo;impact sur votre onduleur hybride.</a></li>
+</ul>
+<hr>
+<h3 id="faq--isolation-toiture-r7">FAQ : Isolation toiture R=7<a class="anchor" href="#faq--isolation-toiture-r7">#</a></h3><p><strong>Quel est le meilleur isolant pour le confort d&rsquo;été en toiture ?</strong>
+Pour le confort d&rsquo;été, les isolants à forte densité et chaleur massique élevée sont prioritaires. La fibre de bois et la ouate de cellulose offrent un déphasage thermique supérieur à 10 heures, contre 4 à 5 heures pour les laines minérales standards, ce qui retarde l&rsquo;entrée de la chaleur.</p>
+<p><strong>Le Sarking est-il toujours la meilleure solution d&rsquo;isolation de toiture ?</strong>
+Techniquement, le Sarking offre la meilleure performance en supprimant les ponts thermiques. Financièrement, son coût très élevé, de 250 à 500 €/m² (DSD Rénov, 2026), le réserve aux projets de rénovation lourde où la toiture doit être entièrement refaite. Son surcoût n&rsquo;est pas toujours justifiable par rapport à une isolation intérieure bien conçue.</p>
+<p><strong>Est-il obligatoire d&rsquo;atteindre un R=7 en rénovation ?</strong>
+Non, aucune loi n&rsquo;impose un R=7 en rénovation pour une maison individuelle. Cependant, c&rsquo;est le seuil technique qui permet de respecter les exigences de confort d&rsquo;été de la RE2020 et d&rsquo;accéder aux aides financières les plus importantes. En pratique, c&rsquo;est devenu le standard de fait pour une rénovation performante.</p>
+<p><em>Frank Vasseur — Expert Systèmes Énergétiques &amp; Thermiques, Autonomia Lab</em></p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+<div>
+
+</div>
+
+<div>
+
+</div>
+
+</div>
+
+
+
+
+
+  
+  
+  
+  <div class="flex flex-wrap justify-between">
+    <span>
+    
+      <a href="/lab_silo3_dimensionnement-pac-air-air/" class="flex align-center">
+        <img src="/icons/backward.svg" class="book-icon" alt="Backward" />
+        <span>Dimensionnement PAC air-air</span>
+      </a>
+    
+    </span>
+    <span>
+    
+      <a href="/lab_silo3_rendement-pac-grand-froid/" class="flex align-center">
+        <span>PAC grand froid COP</span>
+        <img src="/icons/forward.svg" class="book-icon" alt="Forward" />
+      </a>
+    
+    </span>
+  </div>
+  
+
+
+ 
+        
+  
+ 
+        
+        
+  
+ 
+        
+  
+  
+    <script>(function(){document.querySelectorAll("pre:has(code)").forEach(e=>{e.addEventListener("click",e.focus),e.addEventListener("copy",function(t){if(t.preventDefault(),navigator.clipboard){const t=window.getSelection().toString()||e.textContent;navigator.clipboard.writeText(t)}})})})()</script>
+  
+
+      </footer>
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+  
+  <aside class="book-toc">
+    <div class="book-toc-content">
+      
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#objectif-r7-mkw--la-nouvelle-norme-de-fait-re2020">Objectif R=7 m².K/W : La nouvelle norme de fait (RE2020)</a></li>
+    <li><a href="#cas-n1--combles-perdus--15-à-30-m-pour-une-efficacité-immédiate">Cas N°1 : Combles perdus — 15 à 30 €/m² pour une efficacité immédiate</a></li>
+    <li><a href="#cas-n2--rampants-aménagés--le-déphasage-de-11h-comme-critère-décisif">Cas N°2 : Rampants aménagés — Le déphasage de 11h comme critère décisif</a></li>
+    <li><a href="#cas-n3--sarking--un-investissement-élevé-pour-la-suppression-des-ponts-thermiques">Cas N°3 : Sarking — Un investissement élevé pour la suppression des ponts thermiques</a></li>
+    <li><a href="#bilan-technique-et-financier--le-synoptique-des-3-configurations">Bilan technique et financier : Le synoptique des 3 configurations</a>
+      <ul>
+        <li><a href="#expertises-croisées">Expertises Croisées</a></li>
+        <li><a href="#faq--isolation-toiture-r7">FAQ : Isolation toiture R=7</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+    </div>
+  </aside>
+  
+ 
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,25 +1,784 @@
-<!doctype html><html lang=fr-FR dir=ltr><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Sécurité — Cet article est un support de compréhension technique à titre éducatif uniquement. Les valeurs, calculs et schémas présentés ne remplacent pas l’expertise d’un installateur certifié. Toute installation doit être réalisée et validée par un professionnel qualifié RGE. Autonomia Lab décline toute responsabilité en cas d’application directe de ces informations.
+<!DOCTYPE html>
+<html lang="fr-FR" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1316&amp;path=livereload" data-no-instant defer></script>
+  <!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Sécurité — Cet article est un support de compréhension technique à titre éducatif uniquement. Les valeurs, calculs et schémas présentés ne remplacent pas l’expertise d’un installateur certifié. Toute installation doit être réalisée et validée par un professionnel qualifié RGE. Autonomia Lab décline toute responsabilité en cas d’application directe de ces informations.
 Une erreur de 15% sur un calcul PVGIS off-grid en hiver provient d’une sous-estimation des pertes système. Pour une simulation exacte, l’application d’un coefficient de perte de 25% minimum est requise, en utilisant la base de données SARAH2 pour la France. Ignorer ces paramètres conduit à un défaut d’approvisionnement en janvier.
-"><meta name=theme-color media="(prefers-color-scheme: light)" content="#ffffff"><meta name=theme-color media="(prefers-color-scheme: dark)" content="#2e3440"><meta name=color-scheme content="light dark"><meta property="og:url" content="https://autonomia-lab.fr/lab_silo1_pvgis-off-grid-autonomie/"><meta property="og:site_name" content="Autonomia Lab"><meta property="og:title" content="PVGIS Off-Grid : Comment simuler votre autonomie hivernale exacte."><meta property="og:description" content="Sécurité — Cet article est un support de compréhension technique à titre éducatif uniquement. Les valeurs, calculs et schémas présentés ne remplacent pas l’expertise d’un installateur certifié. Toute installation doit être réalisée et validée par un professionnel qualifié RGE. Autonomia Lab décline toute responsabilité en cas d’application directe de ces informations.
-Une erreur de 15% sur un calcul PVGIS off-grid en hiver provient d’une sous-estimation des pertes système. Pour une simulation exacte, l’application d’un coefficient de perte de 25% minimum est requise, en utilisant la base de données SARAH2 pour la France. Ignorer ces paramètres conduit à un défaut d’approvisionnement en janvier."><meta property="og:locale" content="fr_FR"><meta property="og:type" content="article"><meta property="article:section" content="lab"><meta property="article:published_time" content="2026-05-01T00:00:00+00:00"><meta property="article:modified_time" content="2026-05-01T00:00:00+00:00"><meta itemprop=name content="PVGIS Off-Grid : Comment simuler votre autonomie hivernale exacte."><meta itemprop=description content="Sécurité — Cet article est un support de compréhension technique à titre éducatif uniquement. Les valeurs, calculs et schémas présentés ne remplacent pas l’expertise d’un installateur certifié. Toute installation doit être réalisée et validée par un professionnel qualifié RGE. Autonomia Lab décline toute responsabilité en cas d’application directe de ces informations.
-Une erreur de 15% sur un calcul PVGIS off-grid en hiver provient d’une sous-estimation des pertes système. Pour une simulation exacte, l’application d’un coefficient de perte de 25% minimum est requise, en utilisant la base de données SARAH2 pour la France. Ignorer ces paramètres conduit à un défaut d’approvisionnement en janvier."><meta itemprop=datePublished content="2026-05-01T00:00:00+00:00"><meta itemprop=dateModified content="2026-05-01T00:00:00+00:00"><meta itemprop=wordCount content="1180"><title>PVGIS Off-Grid | Autonomia Lab</title><link rel=icon href=/favicon.png><link rel=manifest href=/manifest.json><link rel=canonical href=https://autonomia-lab.fr/lab_silo1_pvgis-off-grid-autonomie/><link rel=stylesheet href=/book.min.92048bb3b20c265865fffa98ece7bfa06950ab86ca25d6108e24b45f8c754881.css integrity="sha256-kgSLs7IMJlhl//qY7Oe/oGlQq4bKJdYQjiS0X4x1SIE=" crossorigin=anonymous><script defer src=/fuse.min.js></script><script defer src=/en.search.min.542d6aa38af851634a052bfa0b90ba22992cdb0cf8ee957d31673092f8073ea3.js integrity="sha256-VC1qo4r4UWNKBSv6C5C6Ipks2wz47pV9MWcwkvgHPqM=" crossorigin=anonymous></script><meta name=color-scheme content="light"><meta name=theme-color content="#ffffff"><style>:root{color-scheme:light!important}html,body{color-scheme:light!important}</style></head><body dir=ltr class="book-kind-page book-type-lab"><input type=checkbox class="hidden toggle" id=menu-control>
-<input type=checkbox class="hidden toggle" id=toc-control><main class="container flex"><aside class=book-menu><div class=book-menu-content><nav><h2 class=book-brand><span class="flex align-center"><span>Autonomia Lab</span></span></h2><div class="book-search hidden"><input id=book-search-input type=text placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/><div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><script>document.querySelector(".book-search").classList.remove("hidden")</script><ul><li><a href=/>Accueil</a></li></ul><ul><li><input type=checkbox id=section-80a6eccb491e65aad6dae5f33ec481c5 class=toggle checked>
-<label for=section-80a6eccb491e65aad6dae5f33ec481c5 class=flex><a role=button data-silo=1>Solaire & Stockage</a>
-<img src=/icons/chevron-right.svg class=book-icon alt=Expand></label><ul><li><a href=/lab_silo1_cerbo-gx-pylontech-cablage/ data-silo=1>Cerbo GX & Pylontech</a></li><li><a href=/lab_silo1_erreur-11-victron-multiplus-ii/ data-silo=1>Erreur 11 Victron</a></li><li><a href=/lab_silo1_fusibles-dc-ou-disjoncteurs/ data-silo=1>Fusibles DC vs Disjoncteurs</a></li><li><a href=/lab_silo1_mppt-victron-100-20-100-30/ data-silo=1>MPPT 100/20 vs 100/30</a></li><li><a href=/lab_silo1_pvgis-off-grid-autonomie/ class=active data-silo=1>PVGIS Off-Grid</a></li><li><a href=/lab_silo1_ratio-dc-ac-onduleur/ data-silo=1>Ratio DC/AC onduleur</a></li><li><a href=/lab_silo1_section-cable-batterie-48v/ data-silo=1>Section câble 48V</a></li></ul></li><li><input type=checkbox id=section-ff2b4a7940fbd23fb7c151ce892a38d0 class=toggle>
-<label for=section-ff2b4a7940fbd23fb7c151ce892a38d0 class=flex><a role=button data-silo=2>Hydraulique</a>
-<img src=/icons/chevron-right.svg class=book-icon alt=Expand></label><ul><li><a href=/lab_silo2_calcul-hmt-pompe-50m/ data-silo=2>Calcul HMT pompe 50m</a></li><li><a href=/lab_silo2_calcul-traitement-uvc/ data-silo=2>Calcul UV-C 40 mJ/cm²</a></li><li><a href=/lab_silo2_filtration-fer-manganese/ data-silo=2>Filtration fer/manganèse</a></li><li><a href=/lab_silo2_potabilisation-forage/ data-silo=2>Potabilisation forage</a></li><li><a href=/lab_silo2_rejet-osmose-inverse/ data-silo=2>Rejet osmose inverse</a></li></ul></li><li><input type=checkbox id=section-2ff767a3ea21b6cc828c74332a27d864 class=toggle>
-<label for=section-2ff767a3ea21b6cc828c74332a27d864 class=flex><a role=button data-silo=3>Thermique</a>
-<img src=/icons/chevron-right.svg class=book-icon alt=Expand></label><ul><li><a href=/lab_silo3_chauffe-eau-thermo-cop/ data-silo=3>Chauffe-eau thermodynamique</a></li><li><a href=/lab_silo3_dimensionnement-pac-air-air/ data-silo=3>Dimensionnement PAC air-air</a></li><li><a href=/lab_silo3_isolation-toiture-r7/ data-silo=3>Isolation toiture R=7</a></li><li><a href=/lab_silo3_rendement-pac-grand-froid/ data-silo=3>PAC grand froid COP</a></li><li><a href=/lab_silo3_pac-releve-fioul-schema/ data-silo=3>PAC relève fioul schéma</a></li></ul></li><li><input type=checkbox id=section-d3532d0f76fc0e770fa43359b2f066c6 class=toggle>
-<label for=section-d3532d0f76fc0e770fa43359b2f066c6 class=flex><a role=button data-silo=4>Infrastructure</a>
-<img src=/icons/chevron-right.svg class=book-icon alt=Expand></label><ul><li><a href=/lab_silo4_differentiel-type-b/ data-silo=4>Différentiel Type B</a></li><li><a href=/lab_silo4_disjoncteur-courbe-d-vs-c/ data-silo=4>Disjoncteur D vs C</a></li><li><a href=/lab_silo4_puissance-reactive-linky/ data-silo=4>Puissance réactive Linky</a></li><li><a href=/lab_silo4_regime-neutre-tt-tn/ data-silo=4>Régime neutre TT/TN</a></li></ul></li></ul><ul><li><a href=/a-propos/>À propos</a></li></ul></nav><script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script></div></aside><div class=book-page><header class="book-header hidden"><div class="flex align-center justify-between"><label for=menu-control><img src=/icons/menu.svg class=book-icon alt=Menu></label><h3>PVGIS Off-Grid</h3><label for=toc-control><img src=/icons/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class=hidden><nav id=TableOfContents><ul><li><a href=#le-paramètre-critique--14-de-pertes-système-par-défaut-est-irréaliste>Le paramètre critique : 14% de pertes système par défaut est irréaliste</a></li><li><a href=#calculer-la-perte-thermique-pmax-avec-les-données-de-2026>Calculer la perte thermique (Pmax) avec les données de 2026</a></li><li><a href=#configurer-pvgis-off-grid-en-5-étapes-techniques>Configurer PVGIS Off-Grid en 5 étapes techniques</a></li><li><a href=#limpact-de-lalbédo--21-de-production-hivernale-sur-neige>L&rsquo;impact de l&rsquo;albédo : +21% de production hivernale sur neige</a></li><li><a href=#analyse-du-rapport-final--lindicateur-batterie-vide>Analyse du rapport final : L&rsquo;indicateur &ldquo;Batterie vide&rdquo;</a><ul><li><a href=#expertises-croisées>Expertises Croisées</a></li><li><a href=#faq--simulation-pvgis-off-grid>FAQ : Simulation PVGIS Off-Grid</a></li></ul></li></ul></nav></aside></header><article class="markdown book-article"><h1>PVGIS Off-Grid : Comment simuler votre autonomie hivernale exacte.</h1><p class=article-date>Publié le 1 mai 2026</p><blockquote class=book-hint><p><strong>Sécurité</strong> — Cet article est un support de compréhension technique à titre éducatif uniquement. Les valeurs, calculs et schémas présentés ne remplacent pas l&rsquo;expertise d&rsquo;un installateur certifié. Toute installation doit être réalisée et validée par un professionnel qualifié RGE. Autonomia Lab décline toute responsabilité en cas d&rsquo;application directe de ces informations.</p></blockquote><p>Une erreur de 15% sur un calcul PVGIS off-grid en hiver provient d&rsquo;une sous-estimation des pertes système. Pour une simulation exacte, l&rsquo;application d&rsquo;un coefficient de perte de 25% minimum est requise, en utilisant la base de données SARAH2 pour la France. Ignorer ces paramètres conduit à un défaut d&rsquo;approvisionnement en janvier.</p><h2 id=le-paramètre-critique--14-de-pertes-système-par-défaut-est-irréaliste>Le paramètre critique : 14% de pertes système par défaut est irréaliste<a class=anchor href=#le-param%c3%a8tre-critique--14-de-pertes-syst%c3%a8me-par-d%c3%a9faut-est-irr%c3%a9aliste>#</a></h2><p>L&rsquo;outil PVGIS utilise par défaut une valeur de pertes système de 14%. Ce chiffre, acceptable pour une première approche en revente totale, est inadapté pour un dimensionnement en autonomie. Il ne prend pas en compte la totalité des contraintes d&rsquo;un site isolé.</p><p>Le bilan des pertes réelles inclut des facteurs cumulatifs. La chute de tension en ligne, les rendements de conversion de l&rsquo;onduleur et du régulateur MPPT, l&rsquo;état de santé de la batterie et les salissures du champ solaire constituent le premier niveau de dégradation.</p><p>Ce paramètre seul peut représenter une perte de -12% de la puissance nominale sur une cellule TOPCon portée à 65°C (MSSolar/NREL, 2026), même avec une température ambiante basse.</p><p>En configuration off-grid, un coefficient de pertes système de 25% à 30% est une base de travail factuelle (JRC/SMA, 2022-2023). En dessous de ce seuil, la simulation produit des résultats surévalués qui mènent à un sous-dimensionnement du stockage ou du champ photovoltaïque.</p><h2 id=calculer-la-perte-thermique-pmax-avec-les-données-de-2026>Calculer la perte thermique (Pmax) avec les données de 2026<a class=anchor href=#calculer-la-perte-thermique-pmax-avec-les-donn%c3%a9es-de-2026>#</a></h2><p>La puissance d&rsquo;un panneau photovoltaïque est certifiée en conditions STC (Standard Test Conditions), soit à 25°C de température de cellule. Sur le terrain, cette température est systématiquement dépassée. Le coefficient de température (Pmax) quantifie cette perte de puissance par degré Celsius au-dessus de 25°C.</p><p>Les architectures de cellules N-Type (TOPCon, HJT) présentent une meilleure tenue en température que l&rsquo;ancienne génération P-Type (PERC). La physique des matériaux justifie ces écarts, qui ont un impact direct sur le productible annuel.</p><table><thead><tr><th>Architecture Cellule</th><th>Coefficient Pmax</th><th>Perte de puissance à 65°C de cellule</th><th>Source</th></tr></thead><tbody><tr><td>P-Type (PERC)</td><td>-0.35 %/°C</td><td>-14.0 %</td><td>(MSSolar/NREL, 2026)</td></tr><tr><td>N-Type (TOPCon)</td><td>-0.30 %/°C</td><td>-12.0 %</td><td>(MSSolar/NREL, 2026)</td></tr><tr><td>N-Type (HJT)</td><td>-0.24 %/°C</td><td>-9.6 %</td><td>(MSSolar/NREL, 2026)</td></tr></tbody></table><p>Une température de cellule de 65°C est une mesure courante sur une toiture en été. La perte de 12% sur un panneau TOPCon est donc un chiffre à intégrer dans le calcul global des pertes système pour toute simulation annuelle.</p><h2 id=configurer-pvgis-off-grid-en-5-étapes-techniques>Configurer PVGIS Off-Grid en 5 étapes techniques<a class=anchor href=#configurer-pvgis-off-grid-en-5-%c3%a9tapes-techniques>#</a></h2><p>La précision d&rsquo;une simulation PVGIS repose sur la rigueur des données d&rsquo;entrée. L&rsquo;interface &ldquo;Site isolé&rdquo; demande des informations précises qui conditionnent la validité du résultat.</p><p><strong>1. Localisation et base de données :</strong>
-Saisir les coordonnées GPS du site. Pour l&rsquo;Europe, sélectionner la base de données météo &ldquo;SARAH2&rdquo;. Elle offre une résolution temporelle et géographique supérieure aux bases plus anciennes pour la période 2005-2020 (JRC PVGIS, 2022).</p><p><strong>2. Technologie PV :</strong>
-Choisir &ldquo;Silicium cristallin&rdquo;. Cette option correspond aux technologies de masse actuelles (TOPCon, HJT) dont les performances sont documentées dans le rapport (MSSolar/NREL, 2026).</p><p><strong>3. Puissance-crête PV et Consommation :</strong>
-Indiquer la puissance totale du champ solaire en kWc. Renseigner la consommation journalière moyenne en Wh/jour. Pour l&rsquo;hiver, utiliser la consommation réelle de la période, non une moyenne annuelle.</p><p><strong>4. Batterie et seuil de coupure :</strong>
-Renseigner la capacité nominale du parc batterie en Wh. Le paramètre &ldquo;Seuil de coupure&rdquo; correspond à la profondeur de décharge (DoD) maximale autorisée. Pour une batterie LFP, un seuil de 20% (soit 80% de DoD) est une valeur cohérente. Un DoD LFP vs Plomb Gel : Le vrai calcul de rentabilité sur 10 ans. est nécessaire pour évaluer ce paramètre.</p><p><strong>5. Pertes système :</strong>
-C&rsquo;est le paramètre d&rsquo;ajustement principal. Entrer une valeur de 25%. Ce chiffre agrège les pertes thermiques (-12%), les pertes de conversion de l&rsquo;électronique de puissance (~5% (SMA, 2023)), la <a href=https://autonomia-lab.fr/lab_silo1_section-cable-batterie-48v/>Section de câble batterie 48V : Ne jouez pas avec l&rsquo;incendie (Abaques).</a> (~2%) et les autres facteurs (salissure, mismatch).</p><h2 id=limpact-de-lalbédo--21-de-production-hivernale-sur-neige>L&rsquo;impact de l&rsquo;albédo : +21% de production hivernale sur neige<a class=anchor href=#limpact-de-lalb%c3%a9do--21-de-production-hivernale-sur-neige>#</a></h2><p>L&rsquo;albédo est le pouvoir réfléchissant d&rsquo;une surface. En hiver, la neige modifie radicalement ce paramètre et augmente la production par la captation du rayonnement réfléchi, en particulier sur les systèmes bifaciaux. PVGIS intègre ce facteur via l&rsquo;option &ldquo;Utiliser les données d&rsquo;horizon&rdquo;.</p><p>Les valeurs d&rsquo;albédo sont standardisées. Un couvert végétal présente un albédo de 0.15 à 0.25. La neige fraîche atteint 0.70 à 0.90 (MSSolar/NREL, 2026).</p><p>Une simulation pour un même site à Lyon (45.76 N, 4.83 E) en janvier avec 3 kWc de panneaux orientés sud à 45° illustre cet écart :</p><ul><li><strong>Sans neige (albédo 0.20) :</strong> 155 kWh produits (PVGIS-SARAH3, 2023).</li><li><strong>Avec neige (albédo 0.70) :</strong> 188 kWh estimés (base PVGIS + ~15 % albédo neige, JRC, 2024).</li></ul><p>Le gain de production est de 33 kWh, soit +21.3% sur le mois le plus critique. Ignorer ce paramètre pour un site de montagne est une erreur de dimensionnement majeure.</p><h2 id=analyse-du-rapport-final--lindicateur-batterie-vide>Analyse du rapport final : L&rsquo;indicateur &ldquo;Batterie vide&rdquo;<a class=anchor href=#analyse-du-rapport-final--lindicateur-batterie-vide>#</a></h2><p>Le rapport généré par PVGIS fournit deux indicateurs décisifs pour valider l&rsquo;autonomie d&rsquo;un site.</p><p>Le premier est le &ldquo;Pourcentage de jours avec la batterie vide&rdquo;. Cet indicateur doit être de 0% pour les mois d&rsquo;hiver. Toute valeur supérieure signale un sous-dimensionnement. Le système ne passera pas la saison froide sans groupe électrogène.</p><p>Le second est &ldquo;l&rsquo;Énergie moyenne non captée&rdquo;. Ce chiffre représente l&rsquo;écrêtage, c&rsquo;est-à-dire l&rsquo;énergie que le champ solaire aurait pu produire mais qui a été rejetée car les batteries étaient pleines. Une valeur élevée en été est normale. Une valeur non nulle en hiver indique un déséquilibre entre la puissance du champ solaire et la capacité de stockage.</p><hr><blockquote class=book-hint><p><strong>Les données présentées résultent d&rsquo;une analyse de sources officielles, de normes techniques et d&rsquo;études indépendantes à la date indiquée. Elles peuvent évoluer.</strong></p></blockquote><hr><h3 id=expertises-croisées>Expertises Croisées<a class=anchor href=#expertises-crois%c3%a9es>#</a></h3><ul><li><strong>Hydraulique & Eau :</strong> <a href=https://autonomia-lab.fr/lab_silo2_calcul-hmt-pompe-50m/>Pompe immergée à 50m : Calculer la HMT sans griller le moteur.</a></li><li><strong>Thermique & Habitat :</strong> <a href=https://autonomia-lab.fr/lab_silo3_pac-releve-fioul-schema/>PAC Air-Eau en relève de fioul : Le schéma (Bouteille de mélange).</a></li><li><strong>Infrastructure :</strong> <a href=https://autonomia-lab.fr/lab_silo4_regime-neutre-tt-tn/>Régime de neutre (TT vs TN) : L&rsquo;impact sur votre onduleur hybride.</a></li></ul><hr><h3 id=faq--simulation-pvgis-off-grid>FAQ : Simulation PVGIS Off-Grid<a class=anchor href=#faq--simulation-pvgis-off-grid>#</a></h3><p><strong>Quelle base de données choisir dans PVGIS pour la France ?</strong>
-La base de données &ldquo;SARAH2&rdquo; est la plus précise pour le territoire français. Elle couvre la période 2005-2020 avec une granularité supérieure aux options plus anciennes comme &ldquo;PVGIS-CMSAF&rdquo;.</p><p><strong>Pourquoi ma production réelle est plus faible que la simulation PVGIS ?</strong>
-L&rsquo;écart provient souvent d&rsquo;une valeur de &ldquo;pertes système&rdquo; trop optimiste (14% par défaut). Une valeur de 25% est plus proche des conditions réelles d&rsquo;un site isolé, incluant les pertes thermiques, les rendements de l&rsquo;onduleur et la chute de tension.</p><p><strong>Quel pourcentage de pertes système pour un site isolé ?</strong>
-Un minimum de 25% à 30% est une fourchette de travail réaliste. Ce chiffre doit être ajusté en fonction de la longueur des câbles DC, de la technologie de l&rsquo;onduleur et des conditions de ventilation des panneaux solaires.</p><p><em>Frank Vasseur — Expert Systèmes Énergétiques & Thermiques, Autonomia Lab</em></p></article><footer class=book-footer><div class="flex flex-wrap justify-between"><div></div><div></div></div><div class="flex flex-wrap justify-between"><span><a href=/lab_silo1_mppt-victron-100-20-100-30/ class="flex align-center"><img src=/icons/backward.svg class=book-icon alt=Backward>
-<span>MPPT 100/20 vs 100/30</span>
-</a></span><span><a href=/lab_silo1_ratio-dc-ac-onduleur/ class="flex align-center"><span>Ratio DC/AC onduleur</span>
-<img src=/icons/forward.svg class=book-icon alt=Forward></a></span></div><script>(function(){document.querySelectorAll("pre:has(code)").forEach(e=>{e.addEventListener("click",e.focus),e.addEventListener("copy",function(t){if(t.preventDefault(),navigator.clipboard){const t=window.getSelection().toString()||e.textContent;navigator.clipboard.writeText(t)}})})})()</script></footer><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents><ul><li><a href=#le-paramètre-critique--14-de-pertes-système-par-défaut-est-irréaliste>Le paramètre critique : 14% de pertes système par défaut est irréaliste</a></li><li><a href=#calculer-la-perte-thermique-pmax-avec-les-données-de-2026>Calculer la perte thermique (Pmax) avec les données de 2026</a></li><li><a href=#configurer-pvgis-off-grid-en-5-étapes-techniques>Configurer PVGIS Off-Grid en 5 étapes techniques</a></li><li><a href=#limpact-de-lalbédo--21-de-production-hivernale-sur-neige>L&rsquo;impact de l&rsquo;albédo : +21% de production hivernale sur neige</a></li><li><a href=#analyse-du-rapport-final--lindicateur-batterie-vide>Analyse du rapport final : L&rsquo;indicateur &ldquo;Batterie vide&rdquo;</a><ul><li><a href=#expertises-croisées>Expertises Croisées</a></li><li><a href=#faq--simulation-pvgis-off-grid>FAQ : Simulation PVGIS Off-Grid</a></li></ul></li></ul></nav></div></aside></main></body></html>
+">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#2e3440">
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="http://localhost:1316/lab_silo1_pvgis-off-grid-autonomie/">
+  <meta property="og:site_name" content="Autonomia Lab">
+  <meta property="og:title" content="PVGIS Off-Grid : Comment simuler votre autonomie hivernale exacte.">
+  <meta property="og:description" content="Sécurité — Cet article est un support de compréhension technique à titre éducatif uniquement. Les valeurs, calculs et schémas présentés ne remplacent pas l’expertise d’un installateur certifié. Toute installation doit être réalisée et validée par un professionnel qualifié RGE. Autonomia Lab décline toute responsabilité en cas d’application directe de ces informations.
+Une erreur de 15% sur un calcul PVGIS off-grid en hiver provient d’une sous-estimation des pertes système. Pour une simulation exacte, l’application d’un coefficient de perte de 25% minimum est requise, en utilisant la base de données SARAH2 pour la France. Ignorer ces paramètres conduit à un défaut d’approvisionnement en janvier.">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="lab">
+    <meta property="article:published_time" content="2026-05-01T00:00:00+00:00">
+    <meta property="article:modified_time" content="2026-05-01T00:00:00+00:00">
+
+
+  <meta itemprop="name" content="PVGIS Off-Grid : Comment simuler votre autonomie hivernale exacte.">
+  <meta itemprop="description" content="Sécurité — Cet article est un support de compréhension technique à titre éducatif uniquement. Les valeurs, calculs et schémas présentés ne remplacent pas l’expertise d’un installateur certifié. Toute installation doit être réalisée et validée par un professionnel qualifié RGE. Autonomia Lab décline toute responsabilité en cas d’application directe de ces informations.
+Une erreur de 15% sur un calcul PVGIS off-grid en hiver provient d’une sous-estimation des pertes système. Pour une simulation exacte, l’application d’un coefficient de perte de 25% minimum est requise, en utilisant la base de données SARAH2 pour la France. Ignorer ces paramètres conduit à un défaut d’approvisionnement en janvier.">
+  <meta itemprop="datePublished" content="2026-05-01T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2026-05-01T00:00:00+00:00">
+  <meta itemprop="wordCount" content="1180">
+
+<title>PVGIS Off-Grid | Autonomia Lab</title>
+<link rel="icon" href="/favicon.png" >
+<link rel="manifest" href="/manifest.json">
+<link rel="canonical" href="http://localhost:1316/lab_silo1_pvgis-off-grid-autonomie/">
+<link rel="stylesheet" href="/book.min.453fb55be7ab107bba557e0692b7eaa0ede3596828379ae8d7662b3ba23a3000.css" integrity="sha256-RT&#43;1W&#43;erEHu6VX4GkrfqoO3jWWgoN5ro12YrO6I6MAA=" crossorigin="anonymous">
+
+
+  <script defer src="/fuse.min.js"></script>
+  <script defer src="/en.search.min.9bf59abd320875686ebf669f40cdfe011bb03a54c05cf8728e888a6eabd9cd63.js" integrity="sha256-m/WavTIIdWhuv2afQM3&#43;ARuwOlTAXPhyjoiKbqvZzWM=" crossorigin="anonymous"></script>
+
+
+
+  
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#ffffff">
+<style>
+  :root { color-scheme: light !important; }
+  html, body { color-scheme: light !important; }
+</style>
+
+</head>
+<body dir="ltr" class="book-kind-page book-type-lab">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    
+<aside class="book-menu">
+  <div class="book-menu-content">
+    
+  <nav>
+<h2 class="book-brand">
+  <span class="flex align-center"><span>Autonomia Lab</span>
+  </span>
+</h2>
+
+
+<div class="book-search hidden">
+  <input id="book-search-input" type="text" 
+    placeholder="Search"
+    aria-label="Search"
+    maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+<script>document.querySelector(".book-search").classList.remove("hidden")</script>
+
+
+
+
+
+
+<ul><li><a href="/">Accueil</a></li></ul>
+
+
+
+
+
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <input type="checkbox" id="section-80a6eccb491e65aad6dae5f33ec481c5" class="toggle" checked />
+    <label for="section-80a6eccb491e65aad6dae5f33ec481c5" class="flex">
+      <a role="button"
+         class="" data-silo="1">
+        Solaire &amp; Stockage</a>
+      <img src="/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo1_cerbo-gx-pylontech-cablage/" class="" data-silo="1">
+      Cerbo GX &amp; Pylontech</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo1_erreur-11-victron-multiplus-ii/" class="" data-silo="1">
+      Erreur 11 Victron</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo1_fusibles-dc-ou-disjoncteurs/" class="" data-silo="1">
+      Fusibles DC vs Disjoncteurs</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo1_mppt-victron-100-20-100-30/" class="" data-silo="1">
+      MPPT 100/20 vs 100/30</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo1_pvgis-off-grid-autonomie/" class="active" data-silo="1">
+      PVGIS Off-Grid</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo1_ratio-dc-ac-onduleur/" class="" data-silo="1">
+      Ratio DC/AC onduleur</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo1_section-cable-batterie-48v/" class="" data-silo="1">
+      Section câble 48V</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <input type="checkbox" id="section-ff2b4a7940fbd23fb7c151ce892a38d0" class="toggle"  />
+    <label for="section-ff2b4a7940fbd23fb7c151ce892a38d0" class="flex">
+      <a role="button"
+         class="" data-silo="2">
+        Hydraulique</a>
+      <img src="/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo2_calcul-hmt-pompe-50m/" class="" data-silo="2">
+      Calcul HMT pompe 50m</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo2_calcul-traitement-uvc/" class="" data-silo="2">
+      Calcul UV-C 40 mJ/cm²</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo2_filtration-fer-manganese/" class="" data-silo="2">
+      Filtration fer/manganèse</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo2_potabilisation-forage/" class="" data-silo="2">
+      Potabilisation forage</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo2_rejet-osmose-inverse/" class="" data-silo="2">
+      Rejet osmose inverse</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <input type="checkbox" id="section-2ff767a3ea21b6cc828c74332a27d864" class="toggle"  />
+    <label for="section-2ff767a3ea21b6cc828c74332a27d864" class="flex">
+      <a role="button"
+         class="" data-silo="3">
+        Thermique</a>
+      <img src="/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo3_chauffe-eau-thermo-cop/" class="" data-silo="3">
+      Chauffe-eau thermodynamique</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo3_dimensionnement-pac-air-air/" class="" data-silo="3">
+      Dimensionnement PAC air-air</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo3_isolation-toiture-r7/" class="" data-silo="3">
+      Isolation toiture R=7</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo3_rendement-pac-grand-froid/" class="" data-silo="3">
+      PAC grand froid COP</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo3_pac-releve-fioul-schema/" class="" data-silo="3">
+      PAC relève fioul schéma</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <input type="checkbox" id="section-d3532d0f76fc0e770fa43359b2f066c6" class="toggle"  />
+    <label for="section-d3532d0f76fc0e770fa43359b2f066c6" class="flex">
+      <a role="button"
+         class="" data-silo="4">
+        Infrastructure</a>
+      <img src="/icons/chevron-right.svg" class="book-icon" alt="Expand" />
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo4_differentiel-type-b/" class="" data-silo="4">
+      Différentiel Type B</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo4_disjoncteur-courbe-d-vs-c/" class="" data-silo="4">
+      Disjoncteur D vs C</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo4_puissance-reactive-linky/" class="" data-silo="4">
+      Puissance réactive Linky</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+  
+
+  
+    <a href="/lab_silo4_regime-neutre-tt-tn/" class="" data-silo="4">
+      Régime neutre TT/TN</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+<ul><li><a href="/outils/">Outils du Lab</a></li><li><a href="/a-propos/">À propos</a></li></ul>
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+
+  </div>
+</aside>
+ 
+
+    <div class="book-page">
+      <header class="book-header hidden">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/icons/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <h3>PVGIS Off-Grid</h3>
+
+  <label for="toc-control">
+    
+    <img src="/icons/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#le-paramètre-critique--14-de-pertes-système-par-défaut-est-irréaliste">Le paramètre critique : 14% de pertes système par défaut est irréaliste</a></li>
+    <li><a href="#calculer-la-perte-thermique-pmax-avec-les-données-de-2026">Calculer la perte thermique (Pmax) avec les données de 2026</a></li>
+    <li><a href="#configurer-pvgis-off-grid-en-5-étapes-techniques">Configurer PVGIS Off-Grid en 5 étapes techniques</a></li>
+    <li><a href="#limpact-de-lalbédo--21-de-production-hivernale-sur-neige">L&rsquo;impact de l&rsquo;albédo : +21% de production hivernale sur neige</a></li>
+    <li><a href="#analyse-du-rapport-final--lindicateur-batterie-vide">Analyse du rapport final : L&rsquo;indicateur &ldquo;Batterie vide&rdquo;</a>
+      <ul>
+        <li><a href="#expertises-croisées">Expertises Croisées</a></li>
+        <li><a href="#faq--simulation-pvgis-off-grid">FAQ : Simulation PVGIS Off-Grid</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+<article class="markdown book-article"><h1>PVGIS Off-Grid : Comment simuler votre autonomie hivernale exacte.</h1><p class="article-date">Publié le 1 mai 2026</p><blockquote class='book-hint '>
+<p><strong>Sécurité</strong> — Cet article est un support de compréhension technique à titre éducatif uniquement. Les valeurs, calculs et schémas présentés ne remplacent pas l&rsquo;expertise d&rsquo;un installateur certifié. Toute installation doit être réalisée et validée par un professionnel qualifié RGE. Autonomia Lab décline toute responsabilité en cas d&rsquo;application directe de ces informations.</p>
+</blockquote><p>Une erreur de 15% sur un calcul PVGIS off-grid en hiver provient d&rsquo;une sous-estimation des pertes système. Pour une simulation exacte, l&rsquo;application d&rsquo;un coefficient de perte de 25% minimum est requise, en utilisant la base de données SARAH2 pour la France. Ignorer ces paramètres conduit à un défaut d&rsquo;approvisionnement en janvier.</p>
+<h2 id="le-paramètre-critique--14-de-pertes-système-par-défaut-est-irréaliste">Le paramètre critique : 14% de pertes système par défaut est irréaliste<a class="anchor" href="#le-param%c3%a8tre-critique--14-de-pertes-syst%c3%a8me-par-d%c3%a9faut-est-irr%c3%a9aliste">#</a></h2><p>L&rsquo;outil PVGIS utilise par défaut une valeur de pertes système de 14%. Ce chiffre, acceptable pour une première approche en revente totale, est inadapté pour un dimensionnement en autonomie. Il ne prend pas en compte la totalité des contraintes d&rsquo;un site isolé.</p>
+<p>Le bilan des pertes réelles inclut des facteurs cumulatifs. La chute de tension en ligne, les rendements de conversion de l&rsquo;onduleur et du régulateur MPPT, l&rsquo;état de santé de la batterie et les salissures du champ solaire constituent le premier niveau de dégradation.</p>
+<p>Ce paramètre seul peut représenter une perte de -12% de la puissance nominale sur une cellule TOPCon portée à 65°C (MSSolar/NREL, 2026), même avec une température ambiante basse.</p>
+<p>En configuration off-grid, un coefficient de pertes système de 25% à 30% est une base de travail factuelle (JRC/SMA, 2022-2023). En dessous de ce seuil, la simulation produit des résultats surévalués qui mènent à un sous-dimensionnement du stockage ou du champ photovoltaïque.</p>
+<h2 id="calculer-la-perte-thermique-pmax-avec-les-données-de-2026">Calculer la perte thermique (Pmax) avec les données de 2026<a class="anchor" href="#calculer-la-perte-thermique-pmax-avec-les-donn%c3%a9es-de-2026">#</a></h2><p>La puissance d&rsquo;un panneau photovoltaïque est certifiée en conditions STC (Standard Test Conditions), soit à 25°C de température de cellule. Sur le terrain, cette température est systématiquement dépassée. Le coefficient de température (Pmax) quantifie cette perte de puissance par degré Celsius au-dessus de 25°C.</p>
+<p>Les architectures de cellules N-Type (TOPCon, HJT) présentent une meilleure tenue en température que l&rsquo;ancienne génération P-Type (PERC). La physique des matériaux justifie ces écarts, qui ont un impact direct sur le productible annuel.</p>
+<table>
+  <thead>
+      <tr>
+          <th>Architecture Cellule</th>
+          <th>Coefficient Pmax</th>
+          <th>Perte de puissance à 65°C de cellule</th>
+          <th>Source</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>P-Type (PERC)</td>
+          <td>-0.35 %/°C</td>
+          <td>-14.0 %</td>
+          <td>(MSSolar/NREL, 2026)</td>
+      </tr>
+      <tr>
+          <td>N-Type (TOPCon)</td>
+          <td>-0.30 %/°C</td>
+          <td>-12.0 %</td>
+          <td>(MSSolar/NREL, 2026)</td>
+      </tr>
+      <tr>
+          <td>N-Type (HJT)</td>
+          <td>-0.24 %/°C</td>
+          <td>-9.6 %</td>
+          <td>(MSSolar/NREL, 2026)</td>
+      </tr>
+  </tbody>
+</table>
+<p>Une température de cellule de 65°C est une mesure courante sur une toiture en été. La perte de 12% sur un panneau TOPCon est donc un chiffre à intégrer dans le calcul global des pertes système pour toute simulation annuelle.</p>
+<h2 id="configurer-pvgis-off-grid-en-5-étapes-techniques">Configurer PVGIS Off-Grid en 5 étapes techniques<a class="anchor" href="#configurer-pvgis-off-grid-en-5-%c3%a9tapes-techniques">#</a></h2><p>La précision d&rsquo;une simulation PVGIS repose sur la rigueur des données d&rsquo;entrée. L&rsquo;interface &ldquo;Site isolé&rdquo; demande des informations précises qui conditionnent la validité du résultat.</p>
+<p><strong>1. Localisation et base de données :</strong>
+Saisir les coordonnées GPS du site. Pour l&rsquo;Europe, sélectionner la base de données météo &ldquo;SARAH2&rdquo;. Elle offre une résolution temporelle et géographique supérieure aux bases plus anciennes pour la période 2005-2020 (JRC PVGIS, 2022).</p>
+<p><strong>2. Technologie PV :</strong>
+Choisir &ldquo;Silicium cristallin&rdquo;. Cette option correspond aux technologies de masse actuelles (TOPCon, HJT) dont les performances sont documentées dans le rapport (MSSolar/NREL, 2026).</p>
+<p><strong>3. Puissance-crête PV et Consommation :</strong>
+Indiquer la puissance totale du champ solaire en kWc. Renseigner la consommation journalière moyenne en Wh/jour. Pour l&rsquo;hiver, utiliser la consommation réelle de la période, non une moyenne annuelle.</p>
+<p><strong>4. Batterie et seuil de coupure :</strong>
+Renseigner la capacité nominale du parc batterie en Wh. Le paramètre &ldquo;Seuil de coupure&rdquo; correspond à la profondeur de décharge (DoD) maximale autorisée. Pour une batterie LFP, un seuil de 20% (soit 80% de DoD) est une valeur cohérente. Un DoD LFP vs Plomb Gel : Le vrai calcul de rentabilité sur 10 ans. est nécessaire pour évaluer ce paramètre.</p>
+<p><strong>5. Pertes système :</strong>
+C&rsquo;est le paramètre d&rsquo;ajustement principal. Entrer une valeur de 25%. Ce chiffre agrège les pertes thermiques (-12%), les pertes de conversion de l&rsquo;électronique de puissance (~5% (SMA, 2023)), la <a href="http://localhost:1316/lab_silo1_section-cable-batterie-48v/">Section de câble batterie 48V : Ne jouez pas avec l&rsquo;incendie (Abaques).</a> (~2%) et les autres facteurs (salissure, mismatch).</p>
+<h2 id="limpact-de-lalbédo--21-de-production-hivernale-sur-neige">L&rsquo;impact de l&rsquo;albédo : +21% de production hivernale sur neige<a class="anchor" href="#limpact-de-lalb%c3%a9do--21-de-production-hivernale-sur-neige">#</a></h2><p>L&rsquo;albédo est le pouvoir réfléchissant d&rsquo;une surface. En hiver, la neige modifie radicalement ce paramètre et augmente la production par la captation du rayonnement réfléchi, en particulier sur les systèmes bifaciaux. PVGIS intègre ce facteur via l&rsquo;option &ldquo;Utiliser les données d&rsquo;horizon&rdquo;.</p>
+<p>Les valeurs d&rsquo;albédo sont standardisées. Un couvert végétal présente un albédo de 0.15 à 0.25. La neige fraîche atteint 0.70 à 0.90 (MSSolar/NREL, 2026).</p>
+<p>Une simulation pour un même site à Lyon (45.76 N, 4.83 E) en janvier avec 3 kWc de panneaux orientés sud à 45° illustre cet écart :</p>
+<ul>
+<li><strong>Sans neige (albédo 0.20) :</strong> 155 kWh produits (PVGIS-SARAH3, 2023).</li>
+<li><strong>Avec neige (albédo 0.70) :</strong> 188 kWh estimés (base PVGIS + ~15 % albédo neige, JRC, 2024).</li>
+</ul>
+<p>Le gain de production est de 33 kWh, soit +21.3% sur le mois le plus critique. Ignorer ce paramètre pour un site de montagne est une erreur de dimensionnement majeure.</p>
+<h2 id="analyse-du-rapport-final--lindicateur-batterie-vide">Analyse du rapport final : L&rsquo;indicateur &ldquo;Batterie vide&rdquo;<a class="anchor" href="#analyse-du-rapport-final--lindicateur-batterie-vide">#</a></h2><p>Le rapport généré par PVGIS fournit deux indicateurs décisifs pour valider l&rsquo;autonomie d&rsquo;un site.</p>
+<p>Le premier est le &ldquo;Pourcentage de jours avec la batterie vide&rdquo;. Cet indicateur doit être de 0% pour les mois d&rsquo;hiver. Toute valeur supérieure signale un sous-dimensionnement. Le système ne passera pas la saison froide sans groupe électrogène.</p>
+<p>Le second est &ldquo;l&rsquo;Énergie moyenne non captée&rdquo;. Ce chiffre représente l&rsquo;écrêtage, c&rsquo;est-à-dire l&rsquo;énergie que le champ solaire aurait pu produire mais qui a été rejetée car les batteries étaient pleines. Une valeur élevée en été est normale. Une valeur non nulle en hiver indique un déséquilibre entre la puissance du champ solaire et la capacité de stockage.</p>
+<hr>
+<blockquote class='book-hint '>
+<p><strong>Les données présentées résultent d&rsquo;une analyse de sources officielles, de normes techniques et d&rsquo;études indépendantes à la date indiquée. Elles peuvent évoluer.</strong></p>
+</blockquote><hr>
+<h3 id="expertises-croisées">Expertises Croisées<a class="anchor" href="#expertises-crois%c3%a9es">#</a></h3><ul>
+<li><strong>Hydraulique &amp; Eau :</strong> <a href="http://localhost:1316/lab_silo2_calcul-hmt-pompe-50m/">Pompe immergée à 50m : Calculer la HMT sans griller le moteur.</a></li>
+<li><strong>Thermique &amp; Habitat :</strong> <a href="http://localhost:1316/lab_silo3_pac-releve-fioul-schema/">PAC Air-Eau en relève de fioul : Le schéma (Bouteille de mélange).</a></li>
+<li><strong>Infrastructure :</strong> <a href="http://localhost:1316/lab_silo4_regime-neutre-tt-tn/">Régime de neutre (TT vs TN) : L&rsquo;impact sur votre onduleur hybride.</a></li>
+</ul>
+<hr>
+<h3 id="faq--simulation-pvgis-off-grid">FAQ : Simulation PVGIS Off-Grid<a class="anchor" href="#faq--simulation-pvgis-off-grid">#</a></h3><p><strong>Quelle base de données choisir dans PVGIS pour la France ?</strong>
+La base de données &ldquo;SARAH2&rdquo; est la plus précise pour le territoire français. Elle couvre la période 2005-2020 avec une granularité supérieure aux options plus anciennes comme &ldquo;PVGIS-CMSAF&rdquo;.</p>
+<p><strong>Pourquoi ma production réelle est plus faible que la simulation PVGIS ?</strong>
+L&rsquo;écart provient souvent d&rsquo;une valeur de &ldquo;pertes système&rdquo; trop optimiste (14% par défaut). Une valeur de 25% est plus proche des conditions réelles d&rsquo;un site isolé, incluant les pertes thermiques, les rendements de l&rsquo;onduleur et la chute de tension.</p>
+<p><strong>Quel pourcentage de pertes système pour un site isolé ?</strong>
+Un minimum de 25% à 30% est une fourchette de travail réaliste. Ce chiffre doit être ajusté en fonction de la longueur des câbles DC, de la technologie de l&rsquo;onduleur et des conditions de ventilation des panneaux solaires.</p>
+<p><em>Frank Vasseur — Expert Systèmes Énergétiques &amp; Thermiques, Autonomia Lab</em></p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+<div>
+
+</div>
+
+<div>
+
+</div>
+
+</div>
+
+
+
+
+
+  
+  
+  
+  <div class="flex flex-wrap justify-between">
+    <span>
+    
+      <a href="/lab_silo1_mppt-victron-100-20-100-30/" class="flex align-center">
+        <img src="/icons/backward.svg" class="book-icon" alt="Backward" />
+        <span>MPPT 100/20 vs 100/30</span>
+      </a>
+    
+    </span>
+    <span>
+    
+      <a href="/lab_silo1_ratio-dc-ac-onduleur/" class="flex align-center">
+        <span>Ratio DC/AC onduleur</span>
+        <img src="/icons/forward.svg" class="book-icon" alt="Forward" />
+      </a>
+    
+    </span>
+  </div>
+  
+
+
+ 
+        
+  
+ 
+        
+        
+  
+ 
+        
+  
+  
+    <script>(function(){document.querySelectorAll("pre:has(code)").forEach(e=>{e.addEventListener("click",e.focus),e.addEventListener("copy",function(t){if(t.preventDefault(),navigator.clipboard){const t=window.getSelection().toString()||e.textContent;navigator.clipboard.writeText(t)}})})})()</script>
+  
+
+      </footer>
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+  
+  <aside class="book-toc">
+    <div class="book-toc-content">
+      
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#le-paramètre-critique--14-de-pertes-système-par-défaut-est-irréaliste">Le paramètre critique : 14% de pertes système par défaut est irréaliste</a></li>
+    <li><a href="#calculer-la-perte-thermique-pmax-avec-les-données-de-2026">Calculer la perte thermique (Pmax) avec les données de 2026</a></li>
+    <li><a href="#configurer-pvgis-off-grid-en-5-étapes-techniques">Configurer PVGIS Off-Grid en 5 étapes techniques</a></li>
+    <li><a href="#limpact-de-lalbédo--21-de-production-hivernale-sur-neige">L&rsquo;impact de l&rsquo;albédo : +21% de production hivernale sur neige</a></li>
+    <li><a href="#analyse-du-rapport-final--lindicateur-batterie-vide">Analyse du rapport final : L&rsquo;indicateur &ldquo;Batterie vide&rdquo;</a>
+      <ul>
+        <li><a href="#expertises-croisées">Expertises Croisées</a></li>
+        <li><a href="#faq--simulation-pvgis-off-grid">FAQ : Simulation PVGIS Off-Grid</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+    </div>
+  </aside>
+  
+ 
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
