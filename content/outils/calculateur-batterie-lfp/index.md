@@ -4,6 +4,7 @@ description: "Combien d'années va vraiment durer votre batterie LiFePO4 ? Calcu
 date: 2026-05-03
 draft: false
 keywords: ["batterie LFP", "LiFePO4", "durée de vie", "cycles", "DoD", "calculateur"]
+icon: "battery"
 ---
 
 ← [Tous les outils](/outils/)

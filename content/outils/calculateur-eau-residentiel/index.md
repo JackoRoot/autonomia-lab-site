@@ -4,6 +4,7 @@ description: "Quelle taille de cuve pour être autonome en eau ? Calcul précis 
 date: 2026-05-03
 draft: false
 keywords: ["autonomie eau", "cuve", "récupération eau", "calculateur", "consommation eau"]
+icon: "droplet"
 ---
 
 ← [Tous les outils](/outils/)

@@ -4,6 +4,7 @@ description: "En combien d'années votre installation solaire est-elle rentabili
 date: 2026-05-03
 draft: false
 keywords: ["ROI solaire", "rentabilité panneaux solaires", "calculateur photovoltaïque", "prime CRE", "retour investissement"]
+icon: "trending-up"
 ---
 
 ← [Tous les outils](/outils/)

@@ -4,6 +4,7 @@ description: "Combien de kWc installer pour couvrir votre consommation ? Calcul 
 date: 2026-05-03
 draft: false
 keywords: ["dimensionnement panneaux solaires", "calculateur photovoltaïque", "kWc", "nombre de panneaux", "toiture solaire"]
+icon: "sun"
 ---
 
 ← [Tous les outils](/outils/)

@@ -1,0 +1,44 @@
+{{/* Grille cards calculateurs — page /outils/ */}}
+{{ $section := .Page.Site.GetPage "section" "outils" }}
+<div class="lab-silos lab-outils-grid">
+  {{ range $section.RegularPages }}
+  <a class="lab-card lab-card-outil" href="{{ .RelPermalink }}">
+    {{ with .Params.icon }}
+    <span class="lab-card-icon" aria-hidden="true">
+      {{ if eq . "sun" }}
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="4"/>
+        <line x1="12" y1="2" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22"/>
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+        <line x1="2" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="22" y2="12"/>
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+      </svg>
+      {{ else if eq . "battery" }}
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="2" y="7" width="16" height="10" rx="2"/>
+        <line x1="22" y1="11" x2="22" y2="13"/>
+        <line x1="6" y1="12" x2="10" y2="12"/>
+        <line x1="8" y1="10" x2="8" y2="14"/>
+      </svg>
+      {{ else if eq . "trending-up" }}
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/>
+        <polyline points="17 6 23 6 23 12"/>
+      </svg>
+      {{ else if eq . "droplet" }}
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M7 16.3c2.2 0 4-1.83 4-4.05 0-1.16-.57-2.26-1.71-3.19S7.29 6.75 7 5.3c-.29 1.45-1.14 2.84-2.29 3.76S3 13.09 3 14.25c0 2.22 1.8 4.05 4 4.05z"/>
+        <path d="M12.56 6.6A10.97 10.97 0 0 0 14 3.02c.5 2.5 2 4.9 4 6.5s3 3.5 3 5.5a6.98 6.98 0 0 1-11.91 4.97"/>
+      </svg>
+      {{ else if eq . "zap" }}
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+      </svg>
+      {{ end }}
+    </span>
+    {{ end }}
+    <h3>{{ .Title }}</h3>
+    <p>{{ .Description }}</p>
+  </a>
+  {{ end }}
+</div>

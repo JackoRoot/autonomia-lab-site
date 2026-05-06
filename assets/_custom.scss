@@ -428,6 +428,41 @@ blockquote {
 .lab-card[href*="silo2"] { background: #EFF6FF !important; }  // Hydraulique — bleu eau doux
 .lab-card[href*="silo3"] { background: #FFF7ED !important; }  // Thermique — orange feu doux
 .lab-card[href*="silo4"] { background: #F0FDF4 !important; }  // Infrastructure — vert électrique doux
+// Outils cards — couleur par catégorie (même palette que les silos)
+.lab-card-outil[href*="batterie"],
+.lab-card-outil[href*="roi-solaire"],
+.lab-card-outil[href*="dimensionnement"] {
+  background: #FEF3C7 !important;
+  .lab-card-icon svg { color: #F59E0B; }
+  &:hover {
+    background: #FDE68A !important;
+    border-color: #F59E0B !important;
+    border-left-color: #F59E0B !important;
+    box-shadow: 0 6px 20px rgba(245,158,11,0.2) !important;
+  }
+}
+
+.lab-card-outil[href*="eau"] {
+  background: #EFF6FF !important;
+  .lab-card-icon svg { color: #3B82F6; }
+  &:hover {
+    background: #DBEAFE !important;
+    border-color: #3B82F6 !important;
+    border-left-color: #3B82F6 !important;
+    box-shadow: 0 6px 20px rgba(59,130,246,0.2) !important;
+  }
+}
+
+.lab-card-outil[href*="blackout"] {
+  background: #F0FDF4 !important;
+  .lab-card-icon svg { color: #10B981; }
+  &:hover {
+    background: #D1FAE5 !important;
+    border-color: #10B981 !important;
+    border-left-color: #10B981 !important;
+    box-shadow: 0 6px 20px rgba(16,185,129,0.2) !important;
+  }
+}
 
 // ── SIDEBAR — séparateur avant menu.after (À propos) ─────────────────────────
 .book-menu nav > ul:last-child {

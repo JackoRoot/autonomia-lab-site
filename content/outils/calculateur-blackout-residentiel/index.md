@@ -4,6 +4,7 @@ description: "Combien d'heures votre installation batterie + solaire tient-elle 
 date: 2026-05-03
 draft: false
 keywords: ["blackout", "coupure réseau", "autonomie", "batterie", "solaire", "îlotage", "calculateur"]
+icon: "zap"
 ---
 
 ← [Tous les outils](/outils/)
