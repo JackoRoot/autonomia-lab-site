@@ -4,7 +4,7 @@ linkTitle: "BMS Seplos LFP 48V"
 slug: "lab_silo1_batterie-diy-48v-bms-seplos"
 title_tag: "BMS Seplos LiFePO4 48V : Analyse technique batterie DIY"
 meta_description: "Analyse technique du BMS Seplos pour batterie LiFePO4 DIY 48V. Sécurité fonctionnelle et conformité onduleur."
-date: "2026-06-22"
+date: "2026-08-10"
 signataire: "Frank Vasseur"
 silo: 1
 mot_cle: "batterie lifepo4 diy bms seplos"
